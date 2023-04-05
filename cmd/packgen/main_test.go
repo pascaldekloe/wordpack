@@ -2,6 +2,7 @@ package main_test
 
 import (
 	"fmt"
+	"math/bits"
 	"math/rand"
 	"reflect"
 	"testing"
@@ -105,6 +106,8 @@ func benchmarkDeltaBitPack[T uint64 | int64 | uint32 | int32](b *testing.B, bitN
 	}
 
 	b.Run("Pack", func(b *testing.B) {
+		b.SetBytes(int64(bits.OnesCount64(uint64(^T(0))) / 8))
+
 		var dst []uint64 // bufer reused
 		for i := 0; i < b.N; i += len(data) {
 			dst = appendDeltaPackNBit(dst[:0], &data, bitN, data[0])
@@ -112,6 +115,8 @@ func benchmarkDeltaBitPack[T uint64 | int64 | uint32 | int32](b *testing.B, bitN
 	})
 
 	b.Run("Unpack", func(b *testing.B) {
+		b.SetBytes(int64(bits.OnesCount64(uint64(^T(0))) / 8))
+
 		src := appendDeltaPackNBit(nil, &data, bitN, data[0])
 
 		var dst []T // buffer reused
