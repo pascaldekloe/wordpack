@@ -6,7 +6,7 @@ import "io"
 
 {{- $word := printf "uint%d" .WordWidth }}
 
-func appendDeltaPackNBit[T uint32 | int32 | uint64 | int64](dst []{{ $word }}, src *[{{ .WordWidth }}]T, bitN int, offset T) []{{ $word }} {
+func appendDeltaPackNBit[T ~int | ~int32 | ~int64 | ~uint64](dst []{{ $word }}, src *[{{ .WordWidth }}]T, bitN int, offset T) []{{ $word }} {
 	switch bitN {
 	case 0:
 		return dst // nop
@@ -17,7 +17,7 @@ func appendDeltaPackNBit[T uint32 | int32 | uint64 | int64](dst []{{ $word }}, s
 	}
 }
 
-func appendDeltaUnpackNBit[T uint32 | int32 | uint64 | int64](dst []T, src []{{ $word }}, bitN int, offset T) ([]T, error) {
+func appendDeltaUnpackNBit[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src []{{ $word }}, bitN int, offset T) ([]T, error) {
 	switch bitN {
 	case 0:
 		return append(dst{{ range iterate .WordWidth }}, offset{{ end }}), nil
@@ -31,17 +31,17 @@ func appendDeltaUnpackNBit[T uint32 | int32 | uint64 | int64](dst []T, src []{{ 
 	}
 }
 {{ range .BitPacks }}
-func appendDeltaPack{{ .BitN }}Bit[T uint32 | int32 | uint64 | int64](dst []{{ $word }}, src *[{{ .WordWidth }}]T, offset T) []{{ $word }} {
+func appendDeltaPack{{ .BitN }}Bit[T ~int | ~int32 | ~int64 | ~uint64](dst []{{ $word }}, src *[{{ .WordWidth }}]T, offset T) []{{ $word }} {
 	return append(dst,
-{{ range .DeltaPackExpressions }}		{{ . }},
+{{ range .BitPackExpressions .DeltaEncodeExpressions }}		{{ . }},
 {{ end }}	)
 }
 {{ end }}
 {{- range .BitPacks }}
-func appendDeltaUnpack{{ .BitN }}Bit[T uint32 | int32 | uint64 | int64](dst []T, src *[{{ .BitN }}]{{ $word }}, offset T) []T {
-{{ range $index, $expr := .UnpackExpressions }}	offset += T({{ $expr }})
+func appendDeltaUnpack{{ .BitN }}Bit[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[{{ .BitN }}]{{ $word }}, offset T) []T {
+{{ range $index, $expr := .BitUnpackExpressions }}	offset -= T((int64({{ $expr }}) >> 1) ^ (-(int64({{ $expr }}) & 1)))
 	out{{ $index }} := offset
 {{ end}}
-	return append(dst{{ range $index, $expr := .UnpackExpressions }}, out{{ $index }}{{ end }})
+	return append(dst{{ range $index, $expr := .BitUnpackExpressions }}, out{{ $index }}{{ end }})
 }
 {{- end }}

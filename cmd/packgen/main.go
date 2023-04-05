@@ -1,3 +1,4 @@
+// Package main provides a code generator for bit-pack functions.
 package main
 
 import (
@@ -105,49 +106,59 @@ type BitPack struct {
 	WordWidth int
 }
 
-// DeltaPackExpressions returns the expressions for each output word.
-func (p BitPack) DeltaPackExpressions() []string {
-	// input index
-	var i int
+// BitPackExpressions returns Go code for each output word.
+func (p BitPack) BitPackExpressions(inputExpressions []string) []string {
 	// number of input bits remaining from last word
 	var passBitN int
 
-	words := make([]string, 0, p.BitN)
-	for range words[:p.BitN] {
+	words := make([]string, p.BitN)
+	for i := range words {
 		// expression text
 		var buf bytes.Buffer
 
 		// number of bits free in output word
 		space := p.WordWidth
 
-		if len(words) == 0 {
-			fmt.Fprintf(&buf, "|uint%d(src[%d]-offset)<<%d", p.WordWidth, i, space-p.BitN)
-			space -= p.BitN
-			i++
-		}
 		if passBitN > 0 {
-			fmt.Fprintf(&buf, "|uint%d(src[%d]-src[%d])<<%d", p.WordWidth, i, i-1, space-passBitN)
+			fmt.Fprintf(&buf, "|(uint%d(%s)<<%d)", p.WordWidth, inputExpressions[0], space-passBitN)
 			space -= passBitN
-			i++
+			inputExpressions = inputExpressions[1:]
 			passBitN = 0
 		}
 		for ; space >= p.BitN; space -= p.BitN {
-			fmt.Fprintf(&buf, "|uint%d(src[%d]-src[%d])<<%d", p.WordWidth, i, i-1, space-p.BitN)
-			i++
+			fmt.Fprintf(&buf, "|(uint%d(%s)<<%d)", p.WordWidth, inputExpressions[0], space-p.BitN)
+			inputExpressions = inputExpressions[1:]
 		}
 		if space > 0 {
 			passBitN = p.BitN - space
-			fmt.Fprintf(&buf, "|uint%d(src[%d]-src[%d])>>%d", p.WordWidth, i, i-1, passBitN)
+			fmt.Fprintf(&buf, "|(uint%d(%s)>>%d)", p.WordWidth, inputExpressions[0], passBitN)
 		}
 
-		words = append(words, strings.TrimPrefix(buf.String(), "|"))
+		words[i] = strings.TrimPrefix(buf.String(), "|")
 	}
 
 	return words
 }
 
-// UnpackExpressions returns the expressions for each output word.
-func (p BitPack) UnpackExpressions() []string {
+// DeltaEncodeExpressions returns Go code for each input word, which calculates
+// the zig-zag encoding of the differenences between each input word, and with
+// "offset" for the input before src[0].
+func (p BitPack) DeltaEncodeExpressions() []string {
+	words := make([]string, p.WordWidth)
+	for i := range words {
+		var delta string
+		if i == 0 {
+			delta = fmt.Sprintf("int%d(offset-src[0])", p.WordWidth)
+		} else {
+			delta = fmt.Sprintf("int%d(src[%d]-src[%d])", p.WordWidth, i-1, i)
+		}
+		words[i] = fmt.Sprintf("(%s>>%d)^(%s<<1)", delta, p.WordWidth-1, delta)
+	}
+	return words
+}
+
+// BitUnpackExpressions returns the Go code for each encoded value.
+func (p BitPack) BitUnpackExpressions() []string {
 	words := make([]string, p.WordWidth)
 	for i := range words {
 		// calculate location in word input
@@ -160,11 +171,11 @@ func (p BitPack) UnpackExpressions() []string {
 
 		mask := 1<<p.BitN - 1
 		if bitTailN >= 0 {
-			words[i] = fmt.Sprintf("src[%d] >> %d & %#x", wordOffset, bitTailN, mask)
+			words[i] = fmt.Sprintf("(src[%d]>>%d)&%#x", wordOffset, bitTailN, mask)
 		} else {
 			mask &^= 1<<(-bitTailN) - 1
-			words[i] = fmt.Sprintf("(src[%d] << %d & %#x)", wordOffset, -bitTailN, mask)
-			words[i] += fmt.Sprintf(" | (src[%d] >> %d)", wordOffset+1, p.WordWidth+bitTailN)
+			words[i] = fmt.Sprintf("((src[%d]<<%d)&%#x)", wordOffset, -bitTailN, mask)
+			words[i] += fmt.Sprintf("|(src[%d]>>%d)", wordOffset+1, p.WordWidth+bitTailN)
 		}
 	}
 	return words
