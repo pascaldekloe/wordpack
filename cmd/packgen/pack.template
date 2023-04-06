@@ -2,9 +2,25 @@
 
 package {{ .PackageName }}
 
-import "io"
+import (
+	"io"
+	"math/bits"
+)
 
 {{- $word := printf "uint%d" .WordWidth }}
+
+// AppendDeltaPack encodes the difference of each consecutive value in src. The
+// first value in src is compared against offset. Use src[0] as offset when
+// first in line.
+func AppendDeltaPack[T ~int | ~int32 | ~int64 | ~uint64](dst []{{ $word }}, src *[{{ .WordWidth }}]T, offset T) []{{ $word }} {
+	// collect bits in use by all deltas (zig-zag encoded) combined
+	d0 := int64(offset - src[0])
+	mask := (d0 << 1) ^ (d0 >> 63)
+{{ range $index, $value := iterate 63}}	d{{ $value }} := int64(src[{{ $index }}] - src[{{ $value }}])
+	mask |= (d{{ $value }} << 1) ^ (d{{ $value }} >> 63)
+{{ end }}
+	return appendDeltaPackNBit(dst, src, bits.Len64(uint64(mask)), offset)
+}
 
 func appendDeltaPackNBit[T ~int | ~int32 | ~int64 | ~uint64](dst []{{ $word }}, src *[{{ .WordWidth }}]T, bitN int, offset T) []{{ $word }} {
 	switch bitN {
@@ -17,7 +33,9 @@ func appendDeltaPackNBit[T ~int | ~int32 | ~int64 | ~uint64](dst []{{ $word }}, 
 	}
 }
 
-func appendDeltaUnpackNBit[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src []{{ $word }}, bitN int, offset T) ([]T, error) {
+// AppendDeltaUnpackNBit decodes the output from an appendDeltaPack as src. The
+// offset must match. BitN must match the number of words encoded.
+func AppendDeltaUnpackNBit[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src []{{ $word }}, bitN int, offset T) ([]T, error) {
 	switch bitN {
 	case 0:
 		return append(dst{{ range iterate .WordWidth }}, offset{{ end }}), nil

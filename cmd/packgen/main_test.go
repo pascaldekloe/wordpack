@@ -79,9 +79,17 @@ func testDeltaPack[T int | int32 | int64 | uint64](t *testing.T, bitN int) {
 	data, offset := randomNBitDeltas[T](t, bitN)
 
 	in := data // copy just in case pack mutates input
-	pack := appendDeltaPackNBit(nil, &in, bitN, offset)
+	pack := AppendDeltaPack(nil, &in, offset)
 
-	got, err := appendDeltaUnpackNBit(nil, pack, bitN, offset)
+	expectN := bitN
+	if expectN > 42 {
+		expectN = 64
+	}
+	if len(pack) != expectN {
+		t.Errorf("packed %d-bit random data in %d words, want %d", bitN, len(pack), expectN)
+	}
+
+	got, err := AppendDeltaUnpackNBit(nil, pack, len(pack), offset)
 	if err != nil {
 		t.Logf("packed as: %#x", pack)
 		t.Fatal("unpack error:", err)
@@ -131,7 +139,7 @@ func benchmarkDeltaBitPack[T int | int32 | int64 | uint64](b *testing.B, bitN in
 		var dst []T // buffer reused
 		for i := 0; i < b.N; i += len(data) {
 			var err error
-			dst, err = appendDeltaUnpackNBit(dst[:0], src, bitN, offset)
+			dst, err = AppendDeltaUnpackNBit(dst[:0], src, bitN, offset)
 			if err != nil {
 				b.Fatal("unpack error:", err)
 			}
