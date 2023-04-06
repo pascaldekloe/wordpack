@@ -17,6 +17,7 @@ import (
 var (
 	packageNameFlag = flag.String("package", "", "Overrides the detected package-`name`.")
 	wordWidthFlag   = flag.Int("width", 64, "Sets the word size in `bits`.")
+	packLimitFlag   = flag.Int("limit", 42, "Sets the upper boundary for bit packing in `bits`.")
 )
 
 func main() {
@@ -53,7 +54,11 @@ func main() {
 	defer f.Close()
 
 	// execute configuration
-	c := Config{PackageName: *packageNameFlag, WordWidth: *wordWidthFlag}
+	c := Config{
+		PackageName: *packageNameFlag,
+		WordWidth:   *wordWidthFlag,
+		PackLimit:   *packLimitFlag,
+	}
 	if c.PackageName == "" {
 		c.PackageName = filepath.Base(dir)
 	}
@@ -88,12 +93,17 @@ func generatePack(w io.Writer, c Config) error {
 type Config struct {
 	PackageName string
 	WordWidth   int
+	PackLimit   int
 }
 
 // BitPacks returns each supported pack size in ascending order.
 // Zero bits are not packed and neither is the word width itself.
 func (c Config) BitPacks() []BitPack {
-	packs := make([]BitPack, c.WordWidth-1)
+	packN := c.WordWidth - 1
+	if c.PackLimit >= 0 && packN > c.PackLimit {
+		packN = c.PackLimit
+	}
+	packs := make([]BitPack, packN)
 	for i := range packs {
 		packs[i].BitN = i + 1
 		packs[i].WordWidth = c.WordWidth
