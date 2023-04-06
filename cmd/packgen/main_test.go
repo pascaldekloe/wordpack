@@ -127,7 +127,7 @@ func benchmarkDeltaBitPack[T int | int32 | int64 | uint64](b *testing.B, bitN in
 
 		var dst []uint64 // bufer reused
 		for i := 0; i < b.N; i += len(data) {
-			dst = appendDeltaPackNBit(dst[:0], &data, bitN, offset)
+			dst = AppendDeltaPack(dst[:0], &data, offset)
 		}
 	})
 
@@ -139,7 +139,7 @@ func benchmarkDeltaBitPack[T int | int32 | int64 | uint64](b *testing.B, bitN in
 		var dst []T // buffer reused
 		for i := 0; i < b.N; i += len(data) {
 			var err error
-			dst, err = AppendDeltaUnpackNBit(dst[:0], src, bitN, offset)
+			dst, err = AppendDeltaUnpackNBit(dst[:0], src, len(src), offset)
 			if err != nil {
 				b.Fatal("unpack error:", err)
 			}
