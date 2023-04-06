@@ -33,10 +33,10 @@ func appendDeltaPackNBit[T ~int | ~int32 | ~int64 | ~uint64](dst []{{ $word }}, 
 	}
 }
 
-// AppendDeltaUnpackNBit decodes the output from an appendDeltaPack as src. The
-// offset must match. BitN must match the number of words encoded.
-func AppendDeltaUnpackNBit[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src []{{ $word }}, bitN int, offset T) ([]T, error) {
-	switch bitN {
+// AppendDeltaUnpackNBit decodes an output from an appendDeltaPack as src. The
+// offsets must match.
+func AppendDeltaUnpack[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src []{{ $word }}, offset T) ([]T, error) {
+	switch len(src) {
 	case 0:
 		return append(dst{{ range iterate .WordWidth }}, offset{{ end }}), nil
 {{ range .BitPacks }}	case {{ .BitN }}:
