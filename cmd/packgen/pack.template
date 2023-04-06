@@ -2,10 +2,7 @@
 
 package {{ .PackageName }}
 
-import (
-	"io"
-	"math/bits"
-)
+import "math/bits"
 
 {{- $word := printf "uint%d" .WordWidth }}
 
@@ -19,11 +16,7 @@ func AppendDeltaPack[T ~int | ~int32 | ~int64 | ~uint64](dst []{{ $word }}, src 
 {{ range $index, $value := iterate 63}}	d{{ $value }} := int64(src[{{ $index }}] - src[{{ $value }}])
 	mask |= (d{{ $value }} << 1) ^ (d{{ $value }} >> 63)
 {{ end }}
-	return appendDeltaPackNBit(dst, src, bits.Len64(uint64(mask)), offset)
-}
-
-func appendDeltaPackNBit[T ~int | ~int32 | ~int64 | ~uint64](dst []{{ $word }}, src *[{{ .WordWidth }}]T, bitN int, offset T) []{{ $word }} {
-	switch bitN {
+	switch bits.Len64(uint64(mask)) {
 	case 0:
 		return dst // nop
 {{ range .BitPacks }}	case {{ .BitN }}:
@@ -33,19 +26,16 @@ func appendDeltaPackNBit[T ~int | ~int32 | ~int64 | ~uint64](dst []{{ $word }}, 
 	}
 }
 
-// AppendDeltaUnpackNBit decodes an output from an appendDeltaPack as src. The
+// AppendDeltaUnpackNBit decodes an output from an AppendDeltaPack as src. The
 // offsets must match.
-func AppendDeltaUnpack[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src []{{ $word }}, offset T) ([]T, error) {
+func AppendDeltaUnpack[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src []{{ $word }}, offset T) []T {
 	switch len(src) {
 	case 0:
-		return append(dst{{ range iterate .WordWidth }}, offset{{ end }}), nil
+		return append(dst{{ range iterate .WordWidth }}, offset{{ end }})
 {{ range .BitPacks }}	case {{ .BitN }}:
-		if len(src) < {{ .BitN }} {
-			return nil, io.ErrUnexpectedEOF
-		}
-		return appendDeltaUnpack{{ .BitN }}Bit(dst, (*[{{ .BitN }}]{{ $word }})(src), offset), nil
+		return appendDeltaUnpack{{ .BitN }}Bit(dst, (*[{{ .BitN }}]{{ $word }})(src), offset)
 {{ end }}	default:
-		return append(dst{{ range $index, $number := iterate .WordWidth }}, T(src[{{ $index }}]){{ end }}), nil
+		return append(dst{{ range $index, $number := iterate .WordWidth }}, T(src[{{ $index }}]){{ end }})
 	}
 }
 {{ range .BitPacks }}
