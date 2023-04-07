@@ -20,15 +20,15 @@ func TestIncrementDelta(t *testing.T) {
 		input[i] = offset + int32(i+1)
 	}
 
-	pack := appendDeltaPack1Bit(nil, &input, offset)
+	pack := append1BitDeltaEncode(nil, &input, offset)
 	if len(pack) != 1 || pack[0] != 0xffff_ffff_ffff_ffff {
 		t.Errorf("packed as %#x, want [0xffffffffffffffff]", pack)
 	}
 
-	got := appendDeltaUnpack1Bit(nil, (*[1]uint64)(pack), offset)
+	got := append1BitDeltaDecode(nil, (*[1]uint64)(pack), offset)
 	for i := range got {
 		if got[i] != input[i] {
-			t.Errorf("pack + unpack changed input word[%d]: got %#x, want %#x", i, got[i], input[i])
+			t.Errorf("encode + decode changed input word[%d]: got %#x, want %#x", i, got[i], input[i])
 		}
 	}
 }
@@ -43,43 +43,43 @@ func TestDecrementDelta(t *testing.T) {
 		input[i] = offset - int64(i+1)
 	}
 
-	pack := appendDeltaPack2Bit(nil, &input, offset)
+	pack := append2BitDeltaEncode(nil, &input, offset)
 	if len(pack) != 2 || pack[0] != 0xaaaa_aaaa_aaaa_aaaa || pack[1] != 0xaaaa_aaaa_aaaa_aaaa {
 		t.Errorf("packed as %#x, want [0xaaaaaaaaaaaaaaaa 0xaaaaaaaaaaaaaaaa]", pack)
 	}
 
-	got := appendDeltaUnpack2Bit(nil, (*[2]uint64)(pack), offset)
+	got := append2BitDeltaDecode(nil, (*[2]uint64)(pack), offset)
 	for i := range got {
 		if got[i] != input[i] {
-			t.Errorf("pack + unpack changed input word[%d]: got %#x, want %#x", i, got[i], input[i])
+			t.Errorf("encode + decode changed input word[%d]: got %#x, want %#x", i, got[i], input[i])
 		}
 	}
 }
 
-// TestDeltaPacks tests pack & unpack for each supported bit-size.
-func TestDeltaPacks(t *testing.T) {
+// TestDeltaEncoding tests encode & decode for each supported bit-size.
+func TestDeltaEncoding(t *testing.T) {
 	for bitN := 0; bitN <= 64; bitN++ {
 		t.Run(fmt.Sprintf("%dBitDelta", bitN), func(t *testing.T) {
 			if bitN <= 32 {
 				t.Run("int32", func(t *testing.T) {
-					testDeltaPack[int32](t, bitN)
+					testDeltaEncoding[int32](t, bitN)
 				})
 			}
 			t.Run("int64", func(t *testing.T) {
-				testDeltaPack[int64](t, bitN)
+				testDeltaEncoding[int64](t, bitN)
 			})
 			t.Run("uint64", func(t *testing.T) {
-				testDeltaPack[uint64](t, bitN)
+				testDeltaEncoding[uint64](t, bitN)
 			})
 		})
 	}
 }
 
-func testDeltaPack[T int | int32 | int64 | uint64](t *testing.T, bitN int) {
+func testDeltaEncoding[T int | int32 | int64 | uint64](t *testing.T, bitN int) {
 	data, offset := randomNBitDeltas[T](t, bitN)
 
-	in := data // copy just in case pack mutates input
-	pack := AppendDeltaPack(nil, &in, offset)
+	in := data // copy just in case encode mutates input
+	pack := AppendDeltaEncode(nil, &in, offset)
 
 	expectN := bitN
 	if expectN > 42 {
@@ -89,52 +89,52 @@ func testDeltaPack[T int | int32 | int64 | uint64](t *testing.T, bitN int) {
 		t.Errorf("packed %d-bit random data in %d words, want %d", bitN, len(pack), expectN)
 	}
 
-	got := AppendDeltaUnpack(nil, pack, offset)
+	got := AppendDeltaDecode(nil, pack, offset)
 	want := data[:]
 	if !reflect.DeepEqual(got, want) {
 		t.Logf("packed as: %#x", pack)
-		t.Errorf("pack + unpack changed input\ngot:  %#x\nwant: %#x", got, want)
+		t.Errorf("encode + decode changed input\ngot:  %#x\nwant: %#x", got, want)
 	}
 }
 
-func BenchmarkDeltaBitPacks(b *testing.B) {
+func BenchmarkDeltaBitEncoding(b *testing.B) {
 	for _, bitN := range []int{1, 7, 32, 63} {
 		b.Run(fmt.Sprintf("%dBitDelta", bitN), func(b *testing.B) {
 			if bitN <= 32 {
 				b.Run("int32", func(b *testing.B) {
-					benchmarkDeltaBitPack[int32](b, bitN)
+					benchmarkDeltaBitEncoding[int32](b, bitN)
 				})
 			}
 			b.Run("int64", func(b *testing.B) {
-				benchmarkDeltaBitPack[int64](b, bitN)
+				benchmarkDeltaBitEncoding[int64](b, bitN)
 			})
 			b.Run("uint64", func(b *testing.B) {
-				benchmarkDeltaBitPack[uint64](b, bitN)
+				benchmarkDeltaBitEncoding[uint64](b, bitN)
 			})
 		})
 	}
 }
 
-func benchmarkDeltaBitPack[T int | int32 | int64 | uint64](b *testing.B, bitN int) {
+func benchmarkDeltaBitEncoding[T int | int32 | int64 | uint64](b *testing.B, bitN int) {
 	data, offset := randomNBitDeltas[T](b, bitN)
 
-	b.Run("Pack", func(b *testing.B) {
+	b.Run("Encode", func(b *testing.B) {
 		b.SetBytes(int64(bits.OnesCount64(uint64(^T(0))) / 8))
 
 		var dst []uint64 // bufer reused
 		for i := 0; i < b.N; i += len(data) {
-			dst = AppendDeltaPack(dst[:0], &data, offset)
+			dst = AppendDeltaEncode(dst[:0], &data, offset)
 		}
 	})
 
-	b.Run("Unpack", func(b *testing.B) {
+	b.Run("Decode", func(b *testing.B) {
 		b.SetBytes(int64(bits.OnesCount64(uint64(^T(0))) / 8))
 
-		src := AppendDeltaPack(nil, &data, offset)
+		src := AppendDeltaEncode(nil, &data, offset)
 
 		var dst []T // buffer reused
 		for i := 0; i < b.N; i += len(data) {
-			dst = AppendDeltaUnpack(dst[:0], src, offset)
+			dst = AppendDeltaDecode(dst[:0], src, offset)
 		}
 	})
 }
