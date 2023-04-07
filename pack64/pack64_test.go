@@ -1,4 +1,4 @@
-package main_test
+package pack64
 
 import (
 	"fmt"
@@ -7,8 +7,6 @@ import (
 	"reflect"
 	"testing"
 )
-
-//go:generate go run . -package main_test gen_test.go
 
 // TestIncrementDelta verifies that an incrementing counter fits the single-bit
 // pack.
