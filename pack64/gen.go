@@ -4,13 +4,18 @@ package pack64
 
 import "math/bits"
 
-// Word is the processing size for bit-packing calculations.
+// Integer defines the supported data types.
+type Integer interface {
+	~int | ~int32 | ~int64 | ~uint64
+}
+
+// Word is the processing size for bit-packing.
 type Word uint64
 
 // AppendDeltaEncode adds the difference of each consecutive value in src to
 // dst. The first value in src is compared against offset. Use src[0] as offset
 // when first in line.
-func AppendDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func AppendDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	// collect bits in use by all deltas (zig-zag encoded) combined
 	d0 := int64(offset - src[0])
 	mask := (d0 << 1) ^ (d0 >> 63)
@@ -235,7 +240,7 @@ func AppendDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]
 
 // AppendDeltaDecode restores the input from an AppendDeltaEncode. The offsets
 // must match.
-func AppendDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src []Word, offset T) []T {
+func AppendDeltaDecode[T Integer](dst []T, src []Word, offset T) []T {
 	switch len(src) {
 	case 0:
 		return append(dst, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset, offset)
@@ -328,20 +333,20 @@ func AppendDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src []Word, 
 	}
 }
 
-func append1BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append1BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<63)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<62)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<61)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<60)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))<<59)|(Word((int64(src[4]-src[5])>>63)^(int64(src[4]-src[5])<<1))<<58)|(Word((int64(src[5]-src[6])>>63)^(int64(src[5]-src[6])<<1))<<57)|(Word((int64(src[6]-src[7])>>63)^(int64(src[6]-src[7])<<1))<<56)|(Word((int64(src[7]-src[8])>>63)^(int64(src[7]-src[8])<<1))<<55)|(Word((int64(src[8]-src[9])>>63)^(int64(src[8]-src[9])<<1))<<54)|(Word((int64(src[9]-src[10])>>63)^(int64(src[9]-src[10])<<1))<<53)|(Word((int64(src[10]-src[11])>>63)^(int64(src[10]-src[11])<<1))<<52)|(Word((int64(src[11]-src[12])>>63)^(int64(src[11]-src[12])<<1))<<51)|(Word((int64(src[12]-src[13])>>63)^(int64(src[12]-src[13])<<1))<<50)|(Word((int64(src[13]-src[14])>>63)^(int64(src[13]-src[14])<<1))<<49)|(Word((int64(src[14]-src[15])>>63)^(int64(src[14]-src[15])<<1))<<48)|(Word((int64(src[15]-src[16])>>63)^(int64(src[15]-src[16])<<1))<<47)|(Word((int64(src[16]-src[17])>>63)^(int64(src[16]-src[17])<<1))<<46)|(Word((int64(src[17]-src[18])>>63)^(int64(src[17]-src[18])<<1))<<45)|(Word((int64(src[18]-src[19])>>63)^(int64(src[18]-src[19])<<1))<<44)|(Word((int64(src[19]-src[20])>>63)^(int64(src[19]-src[20])<<1))<<43)|(Word((int64(src[20]-src[21])>>63)^(int64(src[20]-src[21])<<1))<<42)|(Word((int64(src[21]-src[22])>>63)^(int64(src[21]-src[22])<<1))<<41)|(Word((int64(src[22]-src[23])>>63)^(int64(src[22]-src[23])<<1))<<40)|(Word((int64(src[23]-src[24])>>63)^(int64(src[23]-src[24])<<1))<<39)|(Word((int64(src[24]-src[25])>>63)^(int64(src[24]-src[25])<<1))<<38)|(Word((int64(src[25]-src[26])>>63)^(int64(src[25]-src[26])<<1))<<37)|(Word((int64(src[26]-src[27])>>63)^(int64(src[26]-src[27])<<1))<<36)|(Word((int64(src[27]-src[28])>>63)^(int64(src[27]-src[28])<<1))<<35)|(Word((int64(src[28]-src[29])>>63)^(int64(src[28]-src[29])<<1))<<34)|(Word((int64(src[29]-src[30])>>63)^(int64(src[29]-src[30])<<1))<<33)|(Word((int64(src[30]-src[31])>>63)^(int64(src[30]-src[31])<<1))<<32)|(Word((int64(src[31]-src[32])>>63)^(int64(src[31]-src[32])<<1))<<31)|(Word((int64(src[32]-src[33])>>63)^(int64(src[32]-src[33])<<1))<<30)|(Word((int64(src[33]-src[34])>>63)^(int64(src[33]-src[34])<<1))<<29)|(Word((int64(src[34]-src[35])>>63)^(int64(src[34]-src[35])<<1))<<28)|(Word((int64(src[35]-src[36])>>63)^(int64(src[35]-src[36])<<1))<<27)|(Word((int64(src[36]-src[37])>>63)^(int64(src[36]-src[37])<<1))<<26)|(Word((int64(src[37]-src[38])>>63)^(int64(src[37]-src[38])<<1))<<25)|(Word((int64(src[38]-src[39])>>63)^(int64(src[38]-src[39])<<1))<<24)|(Word((int64(src[39]-src[40])>>63)^(int64(src[39]-src[40])<<1))<<23)|(Word((int64(src[40]-src[41])>>63)^(int64(src[40]-src[41])<<1))<<22)|(Word((int64(src[41]-src[42])>>63)^(int64(src[41]-src[42])<<1))<<21)|(Word((int64(src[42]-src[43])>>63)^(int64(src[42]-src[43])<<1))<<20)|(Word((int64(src[43]-src[44])>>63)^(int64(src[43]-src[44])<<1))<<19)|(Word((int64(src[44]-src[45])>>63)^(int64(src[44]-src[45])<<1))<<18)|(Word((int64(src[45]-src[46])>>63)^(int64(src[45]-src[46])<<1))<<17)|(Word((int64(src[46]-src[47])>>63)^(int64(src[46]-src[47])<<1))<<16)|(Word((int64(src[47]-src[48])>>63)^(int64(src[47]-src[48])<<1))<<15)|(Word((int64(src[48]-src[49])>>63)^(int64(src[48]-src[49])<<1))<<14)|(Word((int64(src[49]-src[50])>>63)^(int64(src[49]-src[50])<<1))<<13)|(Word((int64(src[50]-src[51])>>63)^(int64(src[50]-src[51])<<1))<<12)|(Word((int64(src[51]-src[52])>>63)^(int64(src[51]-src[52])<<1))<<11)|(Word((int64(src[52]-src[53])>>63)^(int64(src[52]-src[53])<<1))<<10)|(Word((int64(src[53]-src[54])>>63)^(int64(src[53]-src[54])<<1))<<9)|(Word((int64(src[54]-src[55])>>63)^(int64(src[54]-src[55])<<1))<<8)|(Word((int64(src[55]-src[56])>>63)^(int64(src[55]-src[56])<<1))<<7)|(Word((int64(src[56]-src[57])>>63)^(int64(src[56]-src[57])<<1))<<6)|(Word((int64(src[57]-src[58])>>63)^(int64(src[57]-src[58])<<1))<<5)|(Word((int64(src[58]-src[59])>>63)^(int64(src[58]-src[59])<<1))<<4)|(Word((int64(src[59]-src[60])>>63)^(int64(src[59]-src[60])<<1))<<3)|(Word((int64(src[60]-src[61])>>63)^(int64(src[60]-src[61])<<1))<<2)|(Word((int64(src[61]-src[62])>>63)^(int64(src[61]-src[62])<<1))<<1)|(Word((int64(src[62]-src[63])>>63)^(int64(src[62]-src[63])<<1))<<0),
 	)
 }
 
-func append2BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append2BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<62)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<60)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<58)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<56)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))<<54)|(Word((int64(src[4]-src[5])>>63)^(int64(src[4]-src[5])<<1))<<52)|(Word((int64(src[5]-src[6])>>63)^(int64(src[5]-src[6])<<1))<<50)|(Word((int64(src[6]-src[7])>>63)^(int64(src[6]-src[7])<<1))<<48)|(Word((int64(src[7]-src[8])>>63)^(int64(src[7]-src[8])<<1))<<46)|(Word((int64(src[8]-src[9])>>63)^(int64(src[8]-src[9])<<1))<<44)|(Word((int64(src[9]-src[10])>>63)^(int64(src[9]-src[10])<<1))<<42)|(Word((int64(src[10]-src[11])>>63)^(int64(src[10]-src[11])<<1))<<40)|(Word((int64(src[11]-src[12])>>63)^(int64(src[11]-src[12])<<1))<<38)|(Word((int64(src[12]-src[13])>>63)^(int64(src[12]-src[13])<<1))<<36)|(Word((int64(src[13]-src[14])>>63)^(int64(src[13]-src[14])<<1))<<34)|(Word((int64(src[14]-src[15])>>63)^(int64(src[14]-src[15])<<1))<<32)|(Word((int64(src[15]-src[16])>>63)^(int64(src[15]-src[16])<<1))<<30)|(Word((int64(src[16]-src[17])>>63)^(int64(src[16]-src[17])<<1))<<28)|(Word((int64(src[17]-src[18])>>63)^(int64(src[17]-src[18])<<1))<<26)|(Word((int64(src[18]-src[19])>>63)^(int64(src[18]-src[19])<<1))<<24)|(Word((int64(src[19]-src[20])>>63)^(int64(src[19]-src[20])<<1))<<22)|(Word((int64(src[20]-src[21])>>63)^(int64(src[20]-src[21])<<1))<<20)|(Word((int64(src[21]-src[22])>>63)^(int64(src[21]-src[22])<<1))<<18)|(Word((int64(src[22]-src[23])>>63)^(int64(src[22]-src[23])<<1))<<16)|(Word((int64(src[23]-src[24])>>63)^(int64(src[23]-src[24])<<1))<<14)|(Word((int64(src[24]-src[25])>>63)^(int64(src[24]-src[25])<<1))<<12)|(Word((int64(src[25]-src[26])>>63)^(int64(src[25]-src[26])<<1))<<10)|(Word((int64(src[26]-src[27])>>63)^(int64(src[26]-src[27])<<1))<<8)|(Word((int64(src[27]-src[28])>>63)^(int64(src[27]-src[28])<<1))<<6)|(Word((int64(src[28]-src[29])>>63)^(int64(src[28]-src[29])<<1))<<4)|(Word((int64(src[29]-src[30])>>63)^(int64(src[29]-src[30])<<1))<<2)|(Word((int64(src[30]-src[31])>>63)^(int64(src[30]-src[31])<<1))<<0),
 		(Word((int64(src[31]-src[32])>>63)^(int64(src[31]-src[32])<<1))<<62)|(Word((int64(src[32]-src[33])>>63)^(int64(src[32]-src[33])<<1))<<60)|(Word((int64(src[33]-src[34])>>63)^(int64(src[33]-src[34])<<1))<<58)|(Word((int64(src[34]-src[35])>>63)^(int64(src[34]-src[35])<<1))<<56)|(Word((int64(src[35]-src[36])>>63)^(int64(src[35]-src[36])<<1))<<54)|(Word((int64(src[36]-src[37])>>63)^(int64(src[36]-src[37])<<1))<<52)|(Word((int64(src[37]-src[38])>>63)^(int64(src[37]-src[38])<<1))<<50)|(Word((int64(src[38]-src[39])>>63)^(int64(src[38]-src[39])<<1))<<48)|(Word((int64(src[39]-src[40])>>63)^(int64(src[39]-src[40])<<1))<<46)|(Word((int64(src[40]-src[41])>>63)^(int64(src[40]-src[41])<<1))<<44)|(Word((int64(src[41]-src[42])>>63)^(int64(src[41]-src[42])<<1))<<42)|(Word((int64(src[42]-src[43])>>63)^(int64(src[42]-src[43])<<1))<<40)|(Word((int64(src[43]-src[44])>>63)^(int64(src[43]-src[44])<<1))<<38)|(Word((int64(src[44]-src[45])>>63)^(int64(src[44]-src[45])<<1))<<36)|(Word((int64(src[45]-src[46])>>63)^(int64(src[45]-src[46])<<1))<<34)|(Word((int64(src[46]-src[47])>>63)^(int64(src[46]-src[47])<<1))<<32)|(Word((int64(src[47]-src[48])>>63)^(int64(src[47]-src[48])<<1))<<30)|(Word((int64(src[48]-src[49])>>63)^(int64(src[48]-src[49])<<1))<<28)|(Word((int64(src[49]-src[50])>>63)^(int64(src[49]-src[50])<<1))<<26)|(Word((int64(src[50]-src[51])>>63)^(int64(src[50]-src[51])<<1))<<24)|(Word((int64(src[51]-src[52])>>63)^(int64(src[51]-src[52])<<1))<<22)|(Word((int64(src[52]-src[53])>>63)^(int64(src[52]-src[53])<<1))<<20)|(Word((int64(src[53]-src[54])>>63)^(int64(src[53]-src[54])<<1))<<18)|(Word((int64(src[54]-src[55])>>63)^(int64(src[54]-src[55])<<1))<<16)|(Word((int64(src[55]-src[56])>>63)^(int64(src[55]-src[56])<<1))<<14)|(Word((int64(src[56]-src[57])>>63)^(int64(src[56]-src[57])<<1))<<12)|(Word((int64(src[57]-src[58])>>63)^(int64(src[57]-src[58])<<1))<<10)|(Word((int64(src[58]-src[59])>>63)^(int64(src[58]-src[59])<<1))<<8)|(Word((int64(src[59]-src[60])>>63)^(int64(src[59]-src[60])<<1))<<6)|(Word((int64(src[60]-src[61])>>63)^(int64(src[60]-src[61])<<1))<<4)|(Word((int64(src[61]-src[62])>>63)^(int64(src[61]-src[62])<<1))<<2)|(Word((int64(src[62]-src[63])>>63)^(int64(src[62]-src[63])<<1))<<0),
 	)
 }
 
-func append3BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append3BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<61)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<58)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<55)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<52)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))<<49)|(Word((int64(src[4]-src[5])>>63)^(int64(src[4]-src[5])<<1))<<46)|(Word((int64(src[5]-src[6])>>63)^(int64(src[5]-src[6])<<1))<<43)|(Word((int64(src[6]-src[7])>>63)^(int64(src[6]-src[7])<<1))<<40)|(Word((int64(src[7]-src[8])>>63)^(int64(src[7]-src[8])<<1))<<37)|(Word((int64(src[8]-src[9])>>63)^(int64(src[8]-src[9])<<1))<<34)|(Word((int64(src[9]-src[10])>>63)^(int64(src[9]-src[10])<<1))<<31)|(Word((int64(src[10]-src[11])>>63)^(int64(src[10]-src[11])<<1))<<28)|(Word((int64(src[11]-src[12])>>63)^(int64(src[11]-src[12])<<1))<<25)|(Word((int64(src[12]-src[13])>>63)^(int64(src[12]-src[13])<<1))<<22)|(Word((int64(src[13]-src[14])>>63)^(int64(src[13]-src[14])<<1))<<19)|(Word((int64(src[14]-src[15])>>63)^(int64(src[14]-src[15])<<1))<<16)|(Word((int64(src[15]-src[16])>>63)^(int64(src[15]-src[16])<<1))<<13)|(Word((int64(src[16]-src[17])>>63)^(int64(src[16]-src[17])<<1))<<10)|(Word((int64(src[17]-src[18])>>63)^(int64(src[17]-src[18])<<1))<<7)|(Word((int64(src[18]-src[19])>>63)^(int64(src[18]-src[19])<<1))<<4)|(Word((int64(src[19]-src[20])>>63)^(int64(src[19]-src[20])<<1))<<1)|(Word((int64(src[20]-src[21])>>63)^(int64(src[20]-src[21])<<1))>>2),
 		(Word((int64(src[20]-src[21])>>63)^(int64(src[20]-src[21])<<1))<<62)|(Word((int64(src[21]-src[22])>>63)^(int64(src[21]-src[22])<<1))<<59)|(Word((int64(src[22]-src[23])>>63)^(int64(src[22]-src[23])<<1))<<56)|(Word((int64(src[23]-src[24])>>63)^(int64(src[23]-src[24])<<1))<<53)|(Word((int64(src[24]-src[25])>>63)^(int64(src[24]-src[25])<<1))<<50)|(Word((int64(src[25]-src[26])>>63)^(int64(src[25]-src[26])<<1))<<47)|(Word((int64(src[26]-src[27])>>63)^(int64(src[26]-src[27])<<1))<<44)|(Word((int64(src[27]-src[28])>>63)^(int64(src[27]-src[28])<<1))<<41)|(Word((int64(src[28]-src[29])>>63)^(int64(src[28]-src[29])<<1))<<38)|(Word((int64(src[29]-src[30])>>63)^(int64(src[29]-src[30])<<1))<<35)|(Word((int64(src[30]-src[31])>>63)^(int64(src[30]-src[31])<<1))<<32)|(Word((int64(src[31]-src[32])>>63)^(int64(src[31]-src[32])<<1))<<29)|(Word((int64(src[32]-src[33])>>63)^(int64(src[32]-src[33])<<1))<<26)|(Word((int64(src[33]-src[34])>>63)^(int64(src[33]-src[34])<<1))<<23)|(Word((int64(src[34]-src[35])>>63)^(int64(src[34]-src[35])<<1))<<20)|(Word((int64(src[35]-src[36])>>63)^(int64(src[35]-src[36])<<1))<<17)|(Word((int64(src[36]-src[37])>>63)^(int64(src[36]-src[37])<<1))<<14)|(Word((int64(src[37]-src[38])>>63)^(int64(src[37]-src[38])<<1))<<11)|(Word((int64(src[38]-src[39])>>63)^(int64(src[38]-src[39])<<1))<<8)|(Word((int64(src[39]-src[40])>>63)^(int64(src[39]-src[40])<<1))<<5)|(Word((int64(src[40]-src[41])>>63)^(int64(src[40]-src[41])<<1))<<2)|(Word((int64(src[41]-src[42])>>63)^(int64(src[41]-src[42])<<1))>>1),
@@ -349,7 +354,7 @@ func append3BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *
 	)
 }
 
-func append4BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append4BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<60)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<56)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<52)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<48)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))<<44)|(Word((int64(src[4]-src[5])>>63)^(int64(src[4]-src[5])<<1))<<40)|(Word((int64(src[5]-src[6])>>63)^(int64(src[5]-src[6])<<1))<<36)|(Word((int64(src[6]-src[7])>>63)^(int64(src[6]-src[7])<<1))<<32)|(Word((int64(src[7]-src[8])>>63)^(int64(src[7]-src[8])<<1))<<28)|(Word((int64(src[8]-src[9])>>63)^(int64(src[8]-src[9])<<1))<<24)|(Word((int64(src[9]-src[10])>>63)^(int64(src[9]-src[10])<<1))<<20)|(Word((int64(src[10]-src[11])>>63)^(int64(src[10]-src[11])<<1))<<16)|(Word((int64(src[11]-src[12])>>63)^(int64(src[11]-src[12])<<1))<<12)|(Word((int64(src[12]-src[13])>>63)^(int64(src[12]-src[13])<<1))<<8)|(Word((int64(src[13]-src[14])>>63)^(int64(src[13]-src[14])<<1))<<4)|(Word((int64(src[14]-src[15])>>63)^(int64(src[14]-src[15])<<1))<<0),
 		(Word((int64(src[15]-src[16])>>63)^(int64(src[15]-src[16])<<1))<<60)|(Word((int64(src[16]-src[17])>>63)^(int64(src[16]-src[17])<<1))<<56)|(Word((int64(src[17]-src[18])>>63)^(int64(src[17]-src[18])<<1))<<52)|(Word((int64(src[18]-src[19])>>63)^(int64(src[18]-src[19])<<1))<<48)|(Word((int64(src[19]-src[20])>>63)^(int64(src[19]-src[20])<<1))<<44)|(Word((int64(src[20]-src[21])>>63)^(int64(src[20]-src[21])<<1))<<40)|(Word((int64(src[21]-src[22])>>63)^(int64(src[21]-src[22])<<1))<<36)|(Word((int64(src[22]-src[23])>>63)^(int64(src[22]-src[23])<<1))<<32)|(Word((int64(src[23]-src[24])>>63)^(int64(src[23]-src[24])<<1))<<28)|(Word((int64(src[24]-src[25])>>63)^(int64(src[24]-src[25])<<1))<<24)|(Word((int64(src[25]-src[26])>>63)^(int64(src[25]-src[26])<<1))<<20)|(Word((int64(src[26]-src[27])>>63)^(int64(src[26]-src[27])<<1))<<16)|(Word((int64(src[27]-src[28])>>63)^(int64(src[27]-src[28])<<1))<<12)|(Word((int64(src[28]-src[29])>>63)^(int64(src[28]-src[29])<<1))<<8)|(Word((int64(src[29]-src[30])>>63)^(int64(src[29]-src[30])<<1))<<4)|(Word((int64(src[30]-src[31])>>63)^(int64(src[30]-src[31])<<1))<<0),
@@ -358,7 +363,7 @@ func append4BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *
 	)
 }
 
-func append5BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append5BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<59)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<54)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<49)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<44)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))<<39)|(Word((int64(src[4]-src[5])>>63)^(int64(src[4]-src[5])<<1))<<34)|(Word((int64(src[5]-src[6])>>63)^(int64(src[5]-src[6])<<1))<<29)|(Word((int64(src[6]-src[7])>>63)^(int64(src[6]-src[7])<<1))<<24)|(Word((int64(src[7]-src[8])>>63)^(int64(src[7]-src[8])<<1))<<19)|(Word((int64(src[8]-src[9])>>63)^(int64(src[8]-src[9])<<1))<<14)|(Word((int64(src[9]-src[10])>>63)^(int64(src[9]-src[10])<<1))<<9)|(Word((int64(src[10]-src[11])>>63)^(int64(src[10]-src[11])<<1))<<4)|(Word((int64(src[11]-src[12])>>63)^(int64(src[11]-src[12])<<1))>>1),
 		(Word((int64(src[11]-src[12])>>63)^(int64(src[11]-src[12])<<1))<<63)|(Word((int64(src[12]-src[13])>>63)^(int64(src[12]-src[13])<<1))<<58)|(Word((int64(src[13]-src[14])>>63)^(int64(src[13]-src[14])<<1))<<53)|(Word((int64(src[14]-src[15])>>63)^(int64(src[14]-src[15])<<1))<<48)|(Word((int64(src[15]-src[16])>>63)^(int64(src[15]-src[16])<<1))<<43)|(Word((int64(src[16]-src[17])>>63)^(int64(src[16]-src[17])<<1))<<38)|(Word((int64(src[17]-src[18])>>63)^(int64(src[17]-src[18])<<1))<<33)|(Word((int64(src[18]-src[19])>>63)^(int64(src[18]-src[19])<<1))<<28)|(Word((int64(src[19]-src[20])>>63)^(int64(src[19]-src[20])<<1))<<23)|(Word((int64(src[20]-src[21])>>63)^(int64(src[20]-src[21])<<1))<<18)|(Word((int64(src[21]-src[22])>>63)^(int64(src[21]-src[22])<<1))<<13)|(Word((int64(src[22]-src[23])>>63)^(int64(src[22]-src[23])<<1))<<8)|(Word((int64(src[23]-src[24])>>63)^(int64(src[23]-src[24])<<1))<<3)|(Word((int64(src[24]-src[25])>>63)^(int64(src[24]-src[25])<<1))>>2),
@@ -368,7 +373,7 @@ func append5BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *
 	)
 }
 
-func append6BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append6BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<58)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<52)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<46)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<40)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))<<34)|(Word((int64(src[4]-src[5])>>63)^(int64(src[4]-src[5])<<1))<<28)|(Word((int64(src[5]-src[6])>>63)^(int64(src[5]-src[6])<<1))<<22)|(Word((int64(src[6]-src[7])>>63)^(int64(src[6]-src[7])<<1))<<16)|(Word((int64(src[7]-src[8])>>63)^(int64(src[7]-src[8])<<1))<<10)|(Word((int64(src[8]-src[9])>>63)^(int64(src[8]-src[9])<<1))<<4)|(Word((int64(src[9]-src[10])>>63)^(int64(src[9]-src[10])<<1))>>2),
 		(Word((int64(src[9]-src[10])>>63)^(int64(src[9]-src[10])<<1))<<62)|(Word((int64(src[10]-src[11])>>63)^(int64(src[10]-src[11])<<1))<<56)|(Word((int64(src[11]-src[12])>>63)^(int64(src[11]-src[12])<<1))<<50)|(Word((int64(src[12]-src[13])>>63)^(int64(src[12]-src[13])<<1))<<44)|(Word((int64(src[13]-src[14])>>63)^(int64(src[13]-src[14])<<1))<<38)|(Word((int64(src[14]-src[15])>>63)^(int64(src[14]-src[15])<<1))<<32)|(Word((int64(src[15]-src[16])>>63)^(int64(src[15]-src[16])<<1))<<26)|(Word((int64(src[16]-src[17])>>63)^(int64(src[16]-src[17])<<1))<<20)|(Word((int64(src[17]-src[18])>>63)^(int64(src[17]-src[18])<<1))<<14)|(Word((int64(src[18]-src[19])>>63)^(int64(src[18]-src[19])<<1))<<8)|(Word((int64(src[19]-src[20])>>63)^(int64(src[19]-src[20])<<1))<<2)|(Word((int64(src[20]-src[21])>>63)^(int64(src[20]-src[21])<<1))>>4),
@@ -379,7 +384,7 @@ func append6BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *
 	)
 }
 
-func append7BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append7BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<57)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<50)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<43)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<36)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))<<29)|(Word((int64(src[4]-src[5])>>63)^(int64(src[4]-src[5])<<1))<<22)|(Word((int64(src[5]-src[6])>>63)^(int64(src[5]-src[6])<<1))<<15)|(Word((int64(src[6]-src[7])>>63)^(int64(src[6]-src[7])<<1))<<8)|(Word((int64(src[7]-src[8])>>63)^(int64(src[7]-src[8])<<1))<<1)|(Word((int64(src[8]-src[9])>>63)^(int64(src[8]-src[9])<<1))>>6),
 		(Word((int64(src[8]-src[9])>>63)^(int64(src[8]-src[9])<<1))<<58)|(Word((int64(src[9]-src[10])>>63)^(int64(src[9]-src[10])<<1))<<51)|(Word((int64(src[10]-src[11])>>63)^(int64(src[10]-src[11])<<1))<<44)|(Word((int64(src[11]-src[12])>>63)^(int64(src[11]-src[12])<<1))<<37)|(Word((int64(src[12]-src[13])>>63)^(int64(src[12]-src[13])<<1))<<30)|(Word((int64(src[13]-src[14])>>63)^(int64(src[13]-src[14])<<1))<<23)|(Word((int64(src[14]-src[15])>>63)^(int64(src[14]-src[15])<<1))<<16)|(Word((int64(src[15]-src[16])>>63)^(int64(src[15]-src[16])<<1))<<9)|(Word((int64(src[16]-src[17])>>63)^(int64(src[16]-src[17])<<1))<<2)|(Word((int64(src[17]-src[18])>>63)^(int64(src[17]-src[18])<<1))>>5),
@@ -391,7 +396,7 @@ func append7BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *
 	)
 }
 
-func append8BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append8BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<56)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<48)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<40)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<32)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))<<24)|(Word((int64(src[4]-src[5])>>63)^(int64(src[4]-src[5])<<1))<<16)|(Word((int64(src[5]-src[6])>>63)^(int64(src[5]-src[6])<<1))<<8)|(Word((int64(src[6]-src[7])>>63)^(int64(src[6]-src[7])<<1))<<0),
 		(Word((int64(src[7]-src[8])>>63)^(int64(src[7]-src[8])<<1))<<56)|(Word((int64(src[8]-src[9])>>63)^(int64(src[8]-src[9])<<1))<<48)|(Word((int64(src[9]-src[10])>>63)^(int64(src[9]-src[10])<<1))<<40)|(Word((int64(src[10]-src[11])>>63)^(int64(src[10]-src[11])<<1))<<32)|(Word((int64(src[11]-src[12])>>63)^(int64(src[11]-src[12])<<1))<<24)|(Word((int64(src[12]-src[13])>>63)^(int64(src[12]-src[13])<<1))<<16)|(Word((int64(src[13]-src[14])>>63)^(int64(src[13]-src[14])<<1))<<8)|(Word((int64(src[14]-src[15])>>63)^(int64(src[14]-src[15])<<1))<<0),
@@ -404,7 +409,7 @@ func append8BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *
 	)
 }
 
-func append9BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append9BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<55)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<46)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<37)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<28)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))<<19)|(Word((int64(src[4]-src[5])>>63)^(int64(src[4]-src[5])<<1))<<10)|(Word((int64(src[5]-src[6])>>63)^(int64(src[5]-src[6])<<1))<<1)|(Word((int64(src[6]-src[7])>>63)^(int64(src[6]-src[7])<<1))>>8),
 		(Word((int64(src[6]-src[7])>>63)^(int64(src[6]-src[7])<<1))<<56)|(Word((int64(src[7]-src[8])>>63)^(int64(src[7]-src[8])<<1))<<47)|(Word((int64(src[8]-src[9])>>63)^(int64(src[8]-src[9])<<1))<<38)|(Word((int64(src[9]-src[10])>>63)^(int64(src[9]-src[10])<<1))<<29)|(Word((int64(src[10]-src[11])>>63)^(int64(src[10]-src[11])<<1))<<20)|(Word((int64(src[11]-src[12])>>63)^(int64(src[11]-src[12])<<1))<<11)|(Word((int64(src[12]-src[13])>>63)^(int64(src[12]-src[13])<<1))<<2)|(Word((int64(src[13]-src[14])>>63)^(int64(src[13]-src[14])<<1))>>7),
@@ -418,7 +423,7 @@ func append9BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *
 	)
 }
 
-func append10BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append10BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<54)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<44)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<34)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<24)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))<<14)|(Word((int64(src[4]-src[5])>>63)^(int64(src[4]-src[5])<<1))<<4)|(Word((int64(src[5]-src[6])>>63)^(int64(src[5]-src[6])<<1))>>6),
 		(Word((int64(src[5]-src[6])>>63)^(int64(src[5]-src[6])<<1))<<58)|(Word((int64(src[6]-src[7])>>63)^(int64(src[6]-src[7])<<1))<<48)|(Word((int64(src[7]-src[8])>>63)^(int64(src[7]-src[8])<<1))<<38)|(Word((int64(src[8]-src[9])>>63)^(int64(src[8]-src[9])<<1))<<28)|(Word((int64(src[9]-src[10])>>63)^(int64(src[9]-src[10])<<1))<<18)|(Word((int64(src[10]-src[11])>>63)^(int64(src[10]-src[11])<<1))<<8)|(Word((int64(src[11]-src[12])>>63)^(int64(src[11]-src[12])<<1))>>2),
@@ -433,7 +438,7 @@ func append10BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append11BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append11BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<53)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<42)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<31)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<20)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))<<9)|(Word((int64(src[4]-src[5])>>63)^(int64(src[4]-src[5])<<1))>>2),
 		(Word((int64(src[4]-src[5])>>63)^(int64(src[4]-src[5])<<1))<<62)|(Word((int64(src[5]-src[6])>>63)^(int64(src[5]-src[6])<<1))<<51)|(Word((int64(src[6]-src[7])>>63)^(int64(src[6]-src[7])<<1))<<40)|(Word((int64(src[7]-src[8])>>63)^(int64(src[7]-src[8])<<1))<<29)|(Word((int64(src[8]-src[9])>>63)^(int64(src[8]-src[9])<<1))<<18)|(Word((int64(src[9]-src[10])>>63)^(int64(src[9]-src[10])<<1))<<7)|(Word((int64(src[10]-src[11])>>63)^(int64(src[10]-src[11])<<1))>>4),
@@ -449,7 +454,7 @@ func append11BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append12BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append12BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<52)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<40)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<28)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<16)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))<<4)|(Word((int64(src[4]-src[5])>>63)^(int64(src[4]-src[5])<<1))>>8),
 		(Word((int64(src[4]-src[5])>>63)^(int64(src[4]-src[5])<<1))<<56)|(Word((int64(src[5]-src[6])>>63)^(int64(src[5]-src[6])<<1))<<44)|(Word((int64(src[6]-src[7])>>63)^(int64(src[6]-src[7])<<1))<<32)|(Word((int64(src[7]-src[8])>>63)^(int64(src[7]-src[8])<<1))<<20)|(Word((int64(src[8]-src[9])>>63)^(int64(src[8]-src[9])<<1))<<8)|(Word((int64(src[9]-src[10])>>63)^(int64(src[9]-src[10])<<1))>>4),
@@ -466,7 +471,7 @@ func append12BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append13BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append13BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<51)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<38)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<25)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<12)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))>>1),
 		(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))<<63)|(Word((int64(src[4]-src[5])>>63)^(int64(src[4]-src[5])<<1))<<50)|(Word((int64(src[5]-src[6])>>63)^(int64(src[5]-src[6])<<1))<<37)|(Word((int64(src[6]-src[7])>>63)^(int64(src[6]-src[7])<<1))<<24)|(Word((int64(src[7]-src[8])>>63)^(int64(src[7]-src[8])<<1))<<11)|(Word((int64(src[8]-src[9])>>63)^(int64(src[8]-src[9])<<1))>>2),
@@ -484,7 +489,7 @@ func append13BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append14BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append14BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<50)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<36)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<22)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<8)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))>>6),
 		(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))<<58)|(Word((int64(src[4]-src[5])>>63)^(int64(src[4]-src[5])<<1))<<44)|(Word((int64(src[5]-src[6])>>63)^(int64(src[5]-src[6])<<1))<<30)|(Word((int64(src[6]-src[7])>>63)^(int64(src[6]-src[7])<<1))<<16)|(Word((int64(src[7]-src[8])>>63)^(int64(src[7]-src[8])<<1))<<2)|(Word((int64(src[8]-src[9])>>63)^(int64(src[8]-src[9])<<1))>>12),
@@ -503,7 +508,7 @@ func append14BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append15BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append15BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<49)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<34)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<19)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<4)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))>>11),
 		(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))<<53)|(Word((int64(src[4]-src[5])>>63)^(int64(src[4]-src[5])<<1))<<38)|(Word((int64(src[5]-src[6])>>63)^(int64(src[5]-src[6])<<1))<<23)|(Word((int64(src[6]-src[7])>>63)^(int64(src[6]-src[7])<<1))<<8)|(Word((int64(src[7]-src[8])>>63)^(int64(src[7]-src[8])<<1))>>7),
@@ -523,7 +528,7 @@ func append15BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append16BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append16BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<48)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<32)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<16)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<0),
 		(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))<<48)|(Word((int64(src[4]-src[5])>>63)^(int64(src[4]-src[5])<<1))<<32)|(Word((int64(src[5]-src[6])>>63)^(int64(src[5]-src[6])<<1))<<16)|(Word((int64(src[6]-src[7])>>63)^(int64(src[6]-src[7])<<1))<<0),
@@ -544,7 +549,7 @@ func append16BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append17BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append17BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<47)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<30)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<13)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))>>4),
 		(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<60)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))<<43)|(Word((int64(src[4]-src[5])>>63)^(int64(src[4]-src[5])<<1))<<26)|(Word((int64(src[5]-src[6])>>63)^(int64(src[5]-src[6])<<1))<<9)|(Word((int64(src[6]-src[7])>>63)^(int64(src[6]-src[7])<<1))>>8),
@@ -566,7 +571,7 @@ func append17BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append18BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append18BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<46)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<28)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<10)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))>>8),
 		(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<56)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))<<38)|(Word((int64(src[4]-src[5])>>63)^(int64(src[4]-src[5])<<1))<<20)|(Word((int64(src[5]-src[6])>>63)^(int64(src[5]-src[6])<<1))<<2)|(Word((int64(src[6]-src[7])>>63)^(int64(src[6]-src[7])<<1))>>16),
@@ -589,7 +594,7 @@ func append18BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append19BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append19BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<45)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<26)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<7)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))>>12),
 		(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<52)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))<<33)|(Word((int64(src[4]-src[5])>>63)^(int64(src[4]-src[5])<<1))<<14)|(Word((int64(src[5]-src[6])>>63)^(int64(src[5]-src[6])<<1))>>5),
@@ -613,7 +618,7 @@ func append19BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append20BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append20BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<44)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<24)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<4)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))>>16),
 		(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<48)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))<<28)|(Word((int64(src[4]-src[5])>>63)^(int64(src[4]-src[5])<<1))<<8)|(Word((int64(src[5]-src[6])>>63)^(int64(src[5]-src[6])<<1))>>12),
@@ -638,7 +643,7 @@ func append20BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append21BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append21BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<43)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<22)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<1)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))>>20),
 		(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<44)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))<<23)|(Word((int64(src[4]-src[5])>>63)^(int64(src[4]-src[5])<<1))<<2)|(Word((int64(src[5]-src[6])>>63)^(int64(src[5]-src[6])<<1))>>19),
@@ -664,7 +669,7 @@ func append21BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append22BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append22BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<42)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<20)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))>>2),
 		(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<62)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<40)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))<<18)|(Word((int64(src[4]-src[5])>>63)^(int64(src[4]-src[5])<<1))>>4),
@@ -691,7 +696,7 @@ func append22BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append23BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append23BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<41)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<18)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))>>5),
 		(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<59)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<36)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))<<13)|(Word((int64(src[4]-src[5])>>63)^(int64(src[4]-src[5])<<1))>>10),
@@ -719,7 +724,7 @@ func append23BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append24BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append24BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<40)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<16)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))>>8),
 		(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<56)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<32)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))<<8)|(Word((int64(src[4]-src[5])>>63)^(int64(src[4]-src[5])<<1))>>16),
@@ -748,7 +753,7 @@ func append24BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append25BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append25BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<39)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<14)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))>>11),
 		(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<53)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<28)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))<<3)|(Word((int64(src[4]-src[5])>>63)^(int64(src[4]-src[5])<<1))>>22),
@@ -778,7 +783,7 @@ func append25BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append26BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append26BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<38)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<12)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))>>14),
 		(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<50)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<24)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))>>2),
@@ -809,7 +814,7 @@ func append26BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append27BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append27BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<37)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<10)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))>>17),
 		(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<47)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<20)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))>>7),
@@ -841,7 +846,7 @@ func append27BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append28BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append28BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<36)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<8)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))>>20),
 		(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<44)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<16)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))>>12),
@@ -874,7 +879,7 @@ func append28BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append29BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append29BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<35)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<6)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))>>23),
 		(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<41)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<12)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))>>17),
@@ -908,7 +913,7 @@ func append29BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append30BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append30BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<34)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<4)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))>>26),
 		(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<38)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<8)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))>>22),
@@ -943,7 +948,7 @@ func append30BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append31BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append31BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<33)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<2)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))>>29),
 		(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<35)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<4)|(Word((int64(src[3]-src[4])>>63)^(int64(src[3]-src[4])<<1))>>27),
@@ -979,7 +984,7 @@ func append31BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append32BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append32BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<32)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<0),
 		(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<32)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))<<0),
@@ -1016,7 +1021,7 @@ func append32BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append33BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append33BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<31)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))>>2),
 		(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<62)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<29)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))>>4),
@@ -1054,7 +1059,7 @@ func append33BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append34BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append34BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<30)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))>>4),
 		(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<60)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<26)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))>>8),
@@ -1093,7 +1098,7 @@ func append34BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append35BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append35BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<29)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))>>6),
 		(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<58)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<23)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))>>12),
@@ -1133,7 +1138,7 @@ func append35BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append36BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append36BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<28)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))>>8),
 		(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<56)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<20)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))>>16),
@@ -1174,7 +1179,7 @@ func append36BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append37BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append37BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<27)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))>>10),
 		(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<54)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<17)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))>>20),
@@ -1216,7 +1221,7 @@ func append37BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append38BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append38BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<26)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))>>12),
 		(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<52)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<14)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))>>24),
@@ -1259,7 +1264,7 @@ func append38BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append39BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append39BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<25)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))>>14),
 		(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<50)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<11)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))>>28),
@@ -1303,7 +1308,7 @@ func append39BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append40BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append40BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<24)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))>>16),
 		(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<48)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<8)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))>>32),
@@ -1348,7 +1353,7 @@ func append40BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append41BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append41BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<23)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))>>18),
 		(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<46)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<5)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))>>36),
@@ -1394,7 +1399,7 @@ func append41BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append42BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[64]T, offset T) []Word {
+func append42BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	return append(dst,
 		(Word((int64(offset-src[0])>>63)^(int64(offset-src[0])<<1))<<22)|(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))>>20),
 		(Word((int64(src[0]-src[1])>>63)^(int64(src[0]-src[1])<<1))<<44)|(Word((int64(src[1]-src[2])>>63)^(int64(src[1]-src[2])<<1))<<2)|(Word((int64(src[2]-src[3])>>63)^(int64(src[2]-src[3])<<1))>>40),
@@ -1441,7 +1446,7 @@ func append42BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src 
 	)
 }
 
-func append1BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[1]Word, offset T) []T {
+func append1BitDeltaDecode[T Integer](dst []T, src *[1]Word, offset T) []T {
 	offset -= T((int64((src[0]>>63)&0x1) >> 1) ^ (-(int64((src[0]>>63)&0x1) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>62)&0x1) >> 1) ^ (-(int64((src[0]>>62)&0x1) & 1)))
@@ -1574,7 +1579,7 @@ func append1BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[1]
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append2BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[2]Word, offset T) []T {
+func append2BitDeltaDecode[T Integer](dst []T, src *[2]Word, offset T) []T {
 	offset -= T((int64((src[0]>>62)&0x3) >> 1) ^ (-(int64((src[0]>>62)&0x3) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>60)&0x3) >> 1) ^ (-(int64((src[0]>>60)&0x3) & 1)))
@@ -1707,7 +1712,7 @@ func append2BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[2]
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append3BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[3]Word, offset T) []T {
+func append3BitDeltaDecode[T Integer](dst []T, src *[3]Word, offset T) []T {
 	offset -= T((int64((src[0]>>61)&0x7) >> 1) ^ (-(int64((src[0]>>61)&0x7) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>58)&0x7) >> 1) ^ (-(int64((src[0]>>58)&0x7) & 1)))
@@ -1840,7 +1845,7 @@ func append3BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[3]
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append4BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[4]Word, offset T) []T {
+func append4BitDeltaDecode[T Integer](dst []T, src *[4]Word, offset T) []T {
 	offset -= T((int64((src[0]>>60)&0xf) >> 1) ^ (-(int64((src[0]>>60)&0xf) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>56)&0xf) >> 1) ^ (-(int64((src[0]>>56)&0xf) & 1)))
@@ -1973,7 +1978,7 @@ func append4BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[4]
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append5BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[5]Word, offset T) []T {
+func append5BitDeltaDecode[T Integer](dst []T, src *[5]Word, offset T) []T {
 	offset -= T((int64((src[0]>>59)&0x1f) >> 1) ^ (-(int64((src[0]>>59)&0x1f) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>54)&0x1f) >> 1) ^ (-(int64((src[0]>>54)&0x1f) & 1)))
@@ -2106,7 +2111,7 @@ func append5BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[5]
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append6BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[6]Word, offset T) []T {
+func append6BitDeltaDecode[T Integer](dst []T, src *[6]Word, offset T) []T {
 	offset -= T((int64((src[0]>>58)&0x3f) >> 1) ^ (-(int64((src[0]>>58)&0x3f) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>52)&0x3f) >> 1) ^ (-(int64((src[0]>>52)&0x3f) & 1)))
@@ -2239,7 +2244,7 @@ func append6BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[6]
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append7BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[7]Word, offset T) []T {
+func append7BitDeltaDecode[T Integer](dst []T, src *[7]Word, offset T) []T {
 	offset -= T((int64((src[0]>>57)&0x7f) >> 1) ^ (-(int64((src[0]>>57)&0x7f) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>50)&0x7f) >> 1) ^ (-(int64((src[0]>>50)&0x7f) & 1)))
@@ -2372,7 +2377,7 @@ func append7BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[7]
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append8BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[8]Word, offset T) []T {
+func append8BitDeltaDecode[T Integer](dst []T, src *[8]Word, offset T) []T {
 	offset -= T((int64((src[0]>>56)&0xff) >> 1) ^ (-(int64((src[0]>>56)&0xff) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>48)&0xff) >> 1) ^ (-(int64((src[0]>>48)&0xff) & 1)))
@@ -2505,7 +2510,7 @@ func append8BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[8]
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append9BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[9]Word, offset T) []T {
+func append9BitDeltaDecode[T Integer](dst []T, src *[9]Word, offset T) []T {
 	offset -= T((int64((src[0]>>55)&0x1ff) >> 1) ^ (-(int64((src[0]>>55)&0x1ff) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>46)&0x1ff) >> 1) ^ (-(int64((src[0]>>46)&0x1ff) & 1)))
@@ -2638,7 +2643,7 @@ func append9BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[9]
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append10BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[10]Word, offset T) []T {
+func append10BitDeltaDecode[T Integer](dst []T, src *[10]Word, offset T) []T {
 	offset -= T((int64((src[0]>>54)&0x3ff) >> 1) ^ (-(int64((src[0]>>54)&0x3ff) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>44)&0x3ff) >> 1) ^ (-(int64((src[0]>>44)&0x3ff) & 1)))
@@ -2771,7 +2776,7 @@ func append10BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[1
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append11BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[11]Word, offset T) []T {
+func append11BitDeltaDecode[T Integer](dst []T, src *[11]Word, offset T) []T {
 	offset -= T((int64((src[0]>>53)&0x7ff) >> 1) ^ (-(int64((src[0]>>53)&0x7ff) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>42)&0x7ff) >> 1) ^ (-(int64((src[0]>>42)&0x7ff) & 1)))
@@ -2904,7 +2909,7 @@ func append11BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[1
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append12BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[12]Word, offset T) []T {
+func append12BitDeltaDecode[T Integer](dst []T, src *[12]Word, offset T) []T {
 	offset -= T((int64((src[0]>>52)&0xfff) >> 1) ^ (-(int64((src[0]>>52)&0xfff) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>40)&0xfff) >> 1) ^ (-(int64((src[0]>>40)&0xfff) & 1)))
@@ -3037,7 +3042,7 @@ func append12BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[1
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append13BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[13]Word, offset T) []T {
+func append13BitDeltaDecode[T Integer](dst []T, src *[13]Word, offset T) []T {
 	offset -= T((int64((src[0]>>51)&0x1fff) >> 1) ^ (-(int64((src[0]>>51)&0x1fff) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>38)&0x1fff) >> 1) ^ (-(int64((src[0]>>38)&0x1fff) & 1)))
@@ -3170,7 +3175,7 @@ func append13BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[1
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append14BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[14]Word, offset T) []T {
+func append14BitDeltaDecode[T Integer](dst []T, src *[14]Word, offset T) []T {
 	offset -= T((int64((src[0]>>50)&0x3fff) >> 1) ^ (-(int64((src[0]>>50)&0x3fff) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>36)&0x3fff) >> 1) ^ (-(int64((src[0]>>36)&0x3fff) & 1)))
@@ -3303,7 +3308,7 @@ func append14BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[1
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append15BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[15]Word, offset T) []T {
+func append15BitDeltaDecode[T Integer](dst []T, src *[15]Word, offset T) []T {
 	offset -= T((int64((src[0]>>49)&0x7fff) >> 1) ^ (-(int64((src[0]>>49)&0x7fff) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>34)&0x7fff) >> 1) ^ (-(int64((src[0]>>34)&0x7fff) & 1)))
@@ -3436,7 +3441,7 @@ func append15BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[1
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append16BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[16]Word, offset T) []T {
+func append16BitDeltaDecode[T Integer](dst []T, src *[16]Word, offset T) []T {
 	offset -= T((int64((src[0]>>48)&0xffff) >> 1) ^ (-(int64((src[0]>>48)&0xffff) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>32)&0xffff) >> 1) ^ (-(int64((src[0]>>32)&0xffff) & 1)))
@@ -3569,7 +3574,7 @@ func append16BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[1
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append17BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[17]Word, offset T) []T {
+func append17BitDeltaDecode[T Integer](dst []T, src *[17]Word, offset T) []T {
 	offset -= T((int64((src[0]>>47)&0x1ffff) >> 1) ^ (-(int64((src[0]>>47)&0x1ffff) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>30)&0x1ffff) >> 1) ^ (-(int64((src[0]>>30)&0x1ffff) & 1)))
@@ -3702,7 +3707,7 @@ func append17BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[1
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append18BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[18]Word, offset T) []T {
+func append18BitDeltaDecode[T Integer](dst []T, src *[18]Word, offset T) []T {
 	offset -= T((int64((src[0]>>46)&0x3ffff) >> 1) ^ (-(int64((src[0]>>46)&0x3ffff) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>28)&0x3ffff) >> 1) ^ (-(int64((src[0]>>28)&0x3ffff) & 1)))
@@ -3835,7 +3840,7 @@ func append18BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[1
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append19BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[19]Word, offset T) []T {
+func append19BitDeltaDecode[T Integer](dst []T, src *[19]Word, offset T) []T {
 	offset -= T((int64((src[0]>>45)&0x7ffff) >> 1) ^ (-(int64((src[0]>>45)&0x7ffff) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>26)&0x7ffff) >> 1) ^ (-(int64((src[0]>>26)&0x7ffff) & 1)))
@@ -3968,7 +3973,7 @@ func append19BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[1
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append20BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[20]Word, offset T) []T {
+func append20BitDeltaDecode[T Integer](dst []T, src *[20]Word, offset T) []T {
 	offset -= T((int64((src[0]>>44)&0xfffff) >> 1) ^ (-(int64((src[0]>>44)&0xfffff) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>24)&0xfffff) >> 1) ^ (-(int64((src[0]>>24)&0xfffff) & 1)))
@@ -4101,7 +4106,7 @@ func append20BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[2
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append21BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[21]Word, offset T) []T {
+func append21BitDeltaDecode[T Integer](dst []T, src *[21]Word, offset T) []T {
 	offset -= T((int64((src[0]>>43)&0x1fffff) >> 1) ^ (-(int64((src[0]>>43)&0x1fffff) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>22)&0x1fffff) >> 1) ^ (-(int64((src[0]>>22)&0x1fffff) & 1)))
@@ -4234,7 +4239,7 @@ func append21BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[2
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append22BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[22]Word, offset T) []T {
+func append22BitDeltaDecode[T Integer](dst []T, src *[22]Word, offset T) []T {
 	offset -= T((int64((src[0]>>42)&0x3fffff) >> 1) ^ (-(int64((src[0]>>42)&0x3fffff) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>20)&0x3fffff) >> 1) ^ (-(int64((src[0]>>20)&0x3fffff) & 1)))
@@ -4367,7 +4372,7 @@ func append22BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[2
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append23BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[23]Word, offset T) []T {
+func append23BitDeltaDecode[T Integer](dst []T, src *[23]Word, offset T) []T {
 	offset -= T((int64((src[0]>>41)&0x7fffff) >> 1) ^ (-(int64((src[0]>>41)&0x7fffff) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>18)&0x7fffff) >> 1) ^ (-(int64((src[0]>>18)&0x7fffff) & 1)))
@@ -4500,7 +4505,7 @@ func append23BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[2
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append24BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[24]Word, offset T) []T {
+func append24BitDeltaDecode[T Integer](dst []T, src *[24]Word, offset T) []T {
 	offset -= T((int64((src[0]>>40)&0xffffff) >> 1) ^ (-(int64((src[0]>>40)&0xffffff) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>16)&0xffffff) >> 1) ^ (-(int64((src[0]>>16)&0xffffff) & 1)))
@@ -4633,7 +4638,7 @@ func append24BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[2
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append25BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[25]Word, offset T) []T {
+func append25BitDeltaDecode[T Integer](dst []T, src *[25]Word, offset T) []T {
 	offset -= T((int64((src[0]>>39)&0x1ffffff) >> 1) ^ (-(int64((src[0]>>39)&0x1ffffff) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>14)&0x1ffffff) >> 1) ^ (-(int64((src[0]>>14)&0x1ffffff) & 1)))
@@ -4766,7 +4771,7 @@ func append25BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[2
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append26BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[26]Word, offset T) []T {
+func append26BitDeltaDecode[T Integer](dst []T, src *[26]Word, offset T) []T {
 	offset -= T((int64((src[0]>>38)&0x3ffffff) >> 1) ^ (-(int64((src[0]>>38)&0x3ffffff) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>12)&0x3ffffff) >> 1) ^ (-(int64((src[0]>>12)&0x3ffffff) & 1)))
@@ -4899,7 +4904,7 @@ func append26BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[2
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append27BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[27]Word, offset T) []T {
+func append27BitDeltaDecode[T Integer](dst []T, src *[27]Word, offset T) []T {
 	offset -= T((int64((src[0]>>37)&0x7ffffff) >> 1) ^ (-(int64((src[0]>>37)&0x7ffffff) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>10)&0x7ffffff) >> 1) ^ (-(int64((src[0]>>10)&0x7ffffff) & 1)))
@@ -5032,7 +5037,7 @@ func append27BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[2
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append28BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[28]Word, offset T) []T {
+func append28BitDeltaDecode[T Integer](dst []T, src *[28]Word, offset T) []T {
 	offset -= T((int64((src[0]>>36)&0xfffffff) >> 1) ^ (-(int64((src[0]>>36)&0xfffffff) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>8)&0xfffffff) >> 1) ^ (-(int64((src[0]>>8)&0xfffffff) & 1)))
@@ -5165,7 +5170,7 @@ func append28BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[2
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append29BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[29]Word, offset T) []T {
+func append29BitDeltaDecode[T Integer](dst []T, src *[29]Word, offset T) []T {
 	offset -= T((int64((src[0]>>35)&0x1fffffff) >> 1) ^ (-(int64((src[0]>>35)&0x1fffffff) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>6)&0x1fffffff) >> 1) ^ (-(int64((src[0]>>6)&0x1fffffff) & 1)))
@@ -5298,7 +5303,7 @@ func append29BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[2
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append30BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[30]Word, offset T) []T {
+func append30BitDeltaDecode[T Integer](dst []T, src *[30]Word, offset T) []T {
 	offset -= T((int64((src[0]>>34)&0x3fffffff) >> 1) ^ (-(int64((src[0]>>34)&0x3fffffff) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>4)&0x3fffffff) >> 1) ^ (-(int64((src[0]>>4)&0x3fffffff) & 1)))
@@ -5431,7 +5436,7 @@ func append30BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[3
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append31BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[31]Word, offset T) []T {
+func append31BitDeltaDecode[T Integer](dst []T, src *[31]Word, offset T) []T {
 	offset -= T((int64((src[0]>>33)&0x7fffffff) >> 1) ^ (-(int64((src[0]>>33)&0x7fffffff) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>2)&0x7fffffff) >> 1) ^ (-(int64((src[0]>>2)&0x7fffffff) & 1)))
@@ -5564,7 +5569,7 @@ func append31BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[3
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append32BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[32]Word, offset T) []T {
+func append32BitDeltaDecode[T Integer](dst []T, src *[32]Word, offset T) []T {
 	offset -= T((int64((src[0]>>32)&0xffffffff) >> 1) ^ (-(int64((src[0]>>32)&0xffffffff) & 1)))
 	out0 := offset
 	offset -= T((int64((src[0]>>0)&0xffffffff) >> 1) ^ (-(int64((src[0]>>0)&0xffffffff) & 1)))
@@ -5697,7 +5702,7 @@ func append32BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[3
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append33BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[33]Word, offset T) []T {
+func append33BitDeltaDecode[T Integer](dst []T, src *[33]Word, offset T) []T {
 	offset -= T((int64((src[0]>>31)&0x1ffffffff) >> 1) ^ (-(int64((src[0]>>31)&0x1ffffffff) & 1)))
 	out0 := offset
 	offset -= T((int64(((src[0]<<2)&0x1fffffffc)|(src[1]>>62)) >> 1) ^ (-(int64(((src[0]<<2)&0x1fffffffc)|(src[1]>>62)) & 1)))
@@ -5830,7 +5835,7 @@ func append33BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[3
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append34BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[34]Word, offset T) []T {
+func append34BitDeltaDecode[T Integer](dst []T, src *[34]Word, offset T) []T {
 	offset -= T((int64((src[0]>>30)&0x3ffffffff) >> 1) ^ (-(int64((src[0]>>30)&0x3ffffffff) & 1)))
 	out0 := offset
 	offset -= T((int64(((src[0]<<4)&0x3fffffff0)|(src[1]>>60)) >> 1) ^ (-(int64(((src[0]<<4)&0x3fffffff0)|(src[1]>>60)) & 1)))
@@ -5963,7 +5968,7 @@ func append34BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[3
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append35BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[35]Word, offset T) []T {
+func append35BitDeltaDecode[T Integer](dst []T, src *[35]Word, offset T) []T {
 	offset -= T((int64((src[0]>>29)&0x7ffffffff) >> 1) ^ (-(int64((src[0]>>29)&0x7ffffffff) & 1)))
 	out0 := offset
 	offset -= T((int64(((src[0]<<6)&0x7ffffffc0)|(src[1]>>58)) >> 1) ^ (-(int64(((src[0]<<6)&0x7ffffffc0)|(src[1]>>58)) & 1)))
@@ -6096,7 +6101,7 @@ func append35BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[3
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append36BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[36]Word, offset T) []T {
+func append36BitDeltaDecode[T Integer](dst []T, src *[36]Word, offset T) []T {
 	offset -= T((int64((src[0]>>28)&0xfffffffff) >> 1) ^ (-(int64((src[0]>>28)&0xfffffffff) & 1)))
 	out0 := offset
 	offset -= T((int64(((src[0]<<8)&0xfffffff00)|(src[1]>>56)) >> 1) ^ (-(int64(((src[0]<<8)&0xfffffff00)|(src[1]>>56)) & 1)))
@@ -6229,7 +6234,7 @@ func append36BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[3
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append37BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[37]Word, offset T) []T {
+func append37BitDeltaDecode[T Integer](dst []T, src *[37]Word, offset T) []T {
 	offset -= T((int64((src[0]>>27)&0x1fffffffff) >> 1) ^ (-(int64((src[0]>>27)&0x1fffffffff) & 1)))
 	out0 := offset
 	offset -= T((int64(((src[0]<<10)&0x1ffffffc00)|(src[1]>>54)) >> 1) ^ (-(int64(((src[0]<<10)&0x1ffffffc00)|(src[1]>>54)) & 1)))
@@ -6362,7 +6367,7 @@ func append37BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[3
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append38BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[38]Word, offset T) []T {
+func append38BitDeltaDecode[T Integer](dst []T, src *[38]Word, offset T) []T {
 	offset -= T((int64((src[0]>>26)&0x3fffffffff) >> 1) ^ (-(int64((src[0]>>26)&0x3fffffffff) & 1)))
 	out0 := offset
 	offset -= T((int64(((src[0]<<12)&0x3ffffff000)|(src[1]>>52)) >> 1) ^ (-(int64(((src[0]<<12)&0x3ffffff000)|(src[1]>>52)) & 1)))
@@ -6495,7 +6500,7 @@ func append38BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[3
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append39BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[39]Word, offset T) []T {
+func append39BitDeltaDecode[T Integer](dst []T, src *[39]Word, offset T) []T {
 	offset -= T((int64((src[0]>>25)&0x7fffffffff) >> 1) ^ (-(int64((src[0]>>25)&0x7fffffffff) & 1)))
 	out0 := offset
 	offset -= T((int64(((src[0]<<14)&0x7fffffc000)|(src[1]>>50)) >> 1) ^ (-(int64(((src[0]<<14)&0x7fffffc000)|(src[1]>>50)) & 1)))
@@ -6628,7 +6633,7 @@ func append39BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[3
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append40BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[40]Word, offset T) []T {
+func append40BitDeltaDecode[T Integer](dst []T, src *[40]Word, offset T) []T {
 	offset -= T((int64((src[0]>>24)&0xffffffffff) >> 1) ^ (-(int64((src[0]>>24)&0xffffffffff) & 1)))
 	out0 := offset
 	offset -= T((int64(((src[0]<<16)&0xffffff0000)|(src[1]>>48)) >> 1) ^ (-(int64(((src[0]<<16)&0xffffff0000)|(src[1]>>48)) & 1)))
@@ -6761,7 +6766,7 @@ func append40BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[4
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append41BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[41]Word, offset T) []T {
+func append41BitDeltaDecode[T Integer](dst []T, src *[41]Word, offset T) []T {
 	offset -= T((int64((src[0]>>23)&0x1ffffffffff) >> 1) ^ (-(int64((src[0]>>23)&0x1ffffffffff) & 1)))
 	out0 := offset
 	offset -= T((int64(((src[0]<<18)&0x1fffffc0000)|(src[1]>>46)) >> 1) ^ (-(int64(((src[0]<<18)&0x1fffffc0000)|(src[1]>>46)) & 1)))
@@ -6894,7 +6899,7 @@ func append41BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[4
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
 }
 
-func append42BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[42]Word, offset T) []T {
+func append42BitDeltaDecode[T Integer](dst []T, src *[42]Word, offset T) []T {
 	offset -= T((int64((src[0]>>22)&0x3ffffffffff) >> 1) ^ (-(int64((src[0]>>22)&0x3ffffffffff) & 1)))
 	out0 := offset
 	offset -= T((int64(((src[0]<<20)&0x3fffff00000)|(src[1]>>44)) >> 1) ^ (-(int64(((src[0]<<20)&0x3fffff00000)|(src[1]>>44)) & 1)))
