@@ -12,9 +12,10 @@ type Integer interface {
 // Word is the processing size for bit-packing.
 type Word uint64
 
-// AppendDeltaEncode adds the difference of each consecutive value in src to
-// dst. The first value in src is compared against offset. Use src[0] as offset
-// when first in line.
+// AppendDeltaEncode adds the difference of each consecutive value in src,
+// encoded to dst, and it returns the extended buffer. The first value in src
+// gets compared against offset. Src[0] makes a good offset when first in line.
+// The number of Words added to dst ranges from 0 to 64.
 func AppendDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	// collect bits in use by all deltas (zig-zag encoded) combined
 	d0 := int64(offset - src[0])
@@ -238,8 +239,9 @@ func AppendDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 	}
 }
 
-// AppendDeltaDecode restores the input from an AppendDeltaEncode. The offsets
-// must match.
+// AppendDeltaEncode adds 64 Integers to dst and it returns the extended buffer.
+// The appended Integers are equal to an AppendDeltaEncode's input if src equals
+// the appended Words from the encode, and if both offset values are equal too.
 func AppendDeltaDecode[T Integer](dst []T, src []Word, offset T) []T {
 	switch len(src) {
 	case 0:
