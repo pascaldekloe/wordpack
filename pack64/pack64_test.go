@@ -1,12 +1,46 @@
 package pack64
 
 import (
+	"bytes"
 	"fmt"
 	"math/bits"
 	"math/rand"
 	"reflect"
 	"testing"
 )
+
+// TestWordIO verifies a Write + ReadFull cycle.
+func TestWordIO(t *testing.T) {
+	// test data
+	const (
+		word0 = Word(0xaaaa_1111_2222_5555)
+		word1 = Word(0x8866_4422_7755_3311)
+	)
+
+	// marshal to buffer
+	var buf bytes.Buffer
+	n, err := Write(&buf, []Word{word0, word1})
+	if err != nil {
+		t.Fatal("write error:", err)
+	}
+	if n != 16 {
+		t.Errorf("wrote 2 words in %d bytes, want 16", n)
+	}
+
+	// unmarhal buffer
+	got := make([]Word, 2)
+	n, err = ReadFull(&buf, got)
+	if err != nil {
+		t.Error("read error:", err)
+	}
+	if n != 16 {
+		t.Errorf("read %d bytes for 2 words, want 16", n)
+	}
+
+	if got[0] != word0 || got[1] != word1 {
+		t.Errorf("read %#x, want [%#x, %#x]", got, word0, word1)
+	}
+}
 
 // TestIncrementDelta verifies that an incrementing counter fits the single-bit
 // pack.
@@ -23,7 +57,7 @@ func TestIncrementDelta(t *testing.T) {
 		t.Errorf("packed as %#x, want [0xffffffffffffffff]", pack)
 	}
 
-	got := append1BitDeltaDecode(nil, (*[1]uint64)(pack), offset)
+	got := append1BitDeltaDecode(nil, (*[1]Word)(pack), offset)
 	for i := range got {
 		if got[i] != input[i] {
 			t.Errorf("encode + decode changed input word[%d]: got %#x, want %#x", i, got[i], input[i])
@@ -46,7 +80,7 @@ func TestDecrementDelta(t *testing.T) {
 		t.Errorf("packed as %#x, want [0xaaaaaaaaaaaaaaaa 0xaaaaaaaaaaaaaaaa]", pack)
 	}
 
-	got := append2BitDeltaDecode(nil, (*[2]uint64)(pack), offset)
+	got := append2BitDeltaDecode(nil, (*[2]Word)(pack), offset)
 	for i := range got {
 		if got[i] != input[i] {
 			t.Errorf("encode + decode changed input word[%d]: got %#x, want %#x", i, got[i], input[i])
@@ -119,7 +153,7 @@ func benchmarkDeltaBitEncoding[T int | int32 | int64 | uint64](b *testing.B, bit
 	b.Run("Encode", func(b *testing.B) {
 		b.SetBytes(int64(bits.OnesCount64(uint64(^T(0))) / 8))
 
-		var dst []uint64 // bufer reused
+		var dst []Word // buffer reused
 		for i := 0; i < b.N; i += len(data) {
 			dst = AppendDeltaEncode(dst[:0], &data, offset)
 		}

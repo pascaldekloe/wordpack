@@ -4,12 +4,13 @@ package {{ .PackageName }}
 
 import "math/bits"
 
-{{- $word := printf "uint%d" .WordWidth }}
+// Word is the processing size for bit-packing calculations.
+type Word uint{{ .WordWidth }}
 
 // AppendDeltaEncode adds the difference of each consecutive value in src to
 // dst. The first value in src is compared against offset. Use src[0] as offset
 // when first in line.
-func AppendDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []{{ $word }}, src *[{{ .WordWidth }}]T, offset T) []{{ $word }} {
+func AppendDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[{{ .WordWidth }}]T, offset T) []Word {
 	// collect bits in use by all deltas (zig-zag encoded) combined
 	d0 := int64(offset - src[0])
 	mask := (d0 << 1) ^ (d0 >> 63)
@@ -22,34 +23,32 @@ func AppendDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []{{ $word }}, sr
 {{ range .BitPacks }}	case {{ .BitN }}:
 		return append{{ .BitN }}BitDeltaEncode(dst, src, offset)
 {{ end }}	default:
-		return append(dst{{ range $index, $number := iterate .WordWidth }}, {{ $word }}(src[{{ $index }}]){{ end }})
+		return append(dst{{ range $index, $number := iterate .WordWidth }}, Word(src[{{ $index }}]){{ end }})
 	}
 }
 
 // AppendDeltaDecode restores the input from an AppendDeltaEncode. The offsets
 // must match.
-func AppendDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src []{{ $word }}, offset T) []T {
+func AppendDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src []Word, offset T) []T {
 	switch len(src) {
 	case 0:
 		return append(dst{{ range iterate .WordWidth }}, offset{{ end }})
 {{ range .BitPacks }}	case {{ .BitN }}:
-		return append{{ .BitN }}BitDeltaDecode(dst, (*[{{ .BitN }}]{{ $word }})(src), offset)
+		return append{{ .BitN }}BitDeltaDecode(dst, (*[{{ .BitN }}]Word)(src), offset)
 {{ end }}	default:
 		return append(dst{{ range $index, $number := iterate .WordWidth }}, T(src[{{ $index }}]){{ end }})
 	}
-}
-{{ range .BitPacks }}
-func append{{ .BitN }}BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []{{ $word }}, src *[{{ .WordWidth }}]T, offset T) []{{ $word }} {
+}{{ range .BitPacks }}
+
+func append{{ .BitN }}BitDeltaEncode[T ~int | ~int32 | ~int64 | ~uint64](dst []Word, src *[{{ .WordWidth }}]T, offset T) []Word {
 	return append(dst,
 {{ range .BitPackExpressions .DeltaEncodeExpressions }}		{{ . }},
 {{ end }}	)
-}
-{{ end }}
-{{- range .BitPacks }}
-func append{{ .BitN }}BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[{{ .BitN }}]{{ $word }}, offset T) []T {
+}{{ end }}{{ range .BitPacks }}
+
+func append{{ .BitN }}BitDeltaDecode[T ~int | ~int32 | ~int64 | ~uint64](dst []T, src *[{{ .BitN }}]Word, offset T) []T {
 {{ range $index, $expr := .BitUnpackExpressions }}	offset -= T((int64({{ $expr }}) >> 1) ^ (-(int64({{ $expr }}) & 1)))
 	out{{ $index }} := offset
 {{ end}}
 	return append(dst{{ range $index, $expr := .BitUnpackExpressions }}, out{{ $index }}{{ end }})
-}
-{{- end }}
+}{{ end }}

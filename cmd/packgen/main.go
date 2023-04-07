@@ -130,18 +130,18 @@ func (p BitPack) BitPackExpressions(inputExpressions []string) []string {
 		space := p.WordWidth
 
 		if passBitN > 0 {
-			fmt.Fprintf(&buf, "|(uint%d(%s)<<%d)", p.WordWidth, inputExpressions[0], space-passBitN)
+			fmt.Fprintf(&buf, "|(Word(%s)<<%d)", inputExpressions[0], space-passBitN)
 			space -= passBitN
 			inputExpressions = inputExpressions[1:]
 			passBitN = 0
 		}
 		for ; space >= p.BitN; space -= p.BitN {
-			fmt.Fprintf(&buf, "|(uint%d(%s)<<%d)", p.WordWidth, inputExpressions[0], space-p.BitN)
+			fmt.Fprintf(&buf, "|(Word(%s)<<%d)", inputExpressions[0], space-p.BitN)
 			inputExpressions = inputExpressions[1:]
 		}
 		if space > 0 {
 			passBitN = p.BitN - space
-			fmt.Fprintf(&buf, "|(uint%d(%s)>>%d)", p.WordWidth, inputExpressions[0], passBitN)
+			fmt.Fprintf(&buf, "|(Word(%s)>>%d)", inputExpressions[0], passBitN)
 		}
 
 		words[i] = strings.TrimPrefix(buf.String(), "|")
