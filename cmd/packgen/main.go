@@ -144,18 +144,18 @@ func (p BitPack) BitPackExpressions(inputExpressions []string) []string {
 		space := p.WordWidth
 
 		if passBitN > 0 {
-			fmt.Fprintf(&buf, "|(Word(%s)<<%d)", inputExpressions[0], space-passBitN)
+			fmt.Fprintf(&buf, "|Word(%s)<<%d", inputExpressions[0], space-passBitN)
 			space -= passBitN
 			inputExpressions = inputExpressions[1:]
 			passBitN = 0
 		}
 		for ; space >= p.BitN; space -= p.BitN {
-			fmt.Fprintf(&buf, "|(Word(%s)<<%d)", inputExpressions[0], space-p.BitN)
+			fmt.Fprintf(&buf, "|Word(%s)<<%d", inputExpressions[0], space-p.BitN)
 			inputExpressions = inputExpressions[1:]
 		}
 		if space > 0 {
 			passBitN = p.BitN - space
-			fmt.Fprintf(&buf, "|(Word(%s)>>%d)", inputExpressions[0], passBitN)
+			fmt.Fprintf(&buf, "|Word(%s)>>%d", inputExpressions[0], passBitN)
 		}
 
 		words[i] = strings.TrimPrefix(buf.String(), "|")
@@ -176,7 +176,7 @@ func (p BitPack) DeltaEncodeExpressions() []string {
 		} else {
 			delta = fmt.Sprintf("int%d(src[%d]-src[%d])", p.WordWidth, i-1, i)
 		}
-		words[i] = fmt.Sprintf("(%s>>%d)^(%s<<1)", delta, p.WordWidth-1, delta)
+		words[i] = fmt.Sprintf("%s>>%d^%s<<1", delta, p.WordWidth-1, delta)
 	}
 	return words
 }
@@ -195,11 +195,11 @@ func (p BitPack) BitUnpackExpressions() []string {
 
 		mask := 1<<p.BitN - 1
 		if bitTailN >= 0 {
-			words[i] = fmt.Sprintf("(src[%d]>>%d)&%#x", wordOffset, bitTailN, mask)
+			words[i] = fmt.Sprintf("src[%d]>>%d&%#x", wordOffset, bitTailN, mask)
 		} else {
 			mask &^= 1<<(-bitTailN) - 1
-			words[i] = fmt.Sprintf("((src[%d]<<%d)&%#x)", wordOffset, -bitTailN, mask)
-			words[i] += fmt.Sprintf("|(src[%d]>>%d)", wordOffset+1, p.WordWidth+bitTailN)
+			words[i] = fmt.Sprintf("(src[%d]<<%d&%#x)", wordOffset, -bitTailN, mask)
+			words[i] += fmt.Sprintf("|src[%d]>>%d", wordOffset+1, p.WordWidth+bitTailN)
 		}
 	}
 	return words
