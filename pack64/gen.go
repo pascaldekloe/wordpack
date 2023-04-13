@@ -6,7 +6,7 @@ import "math/bits"
 
 // Integer defines the supported data types.
 type Integer interface {
-	~int | ~int32 | ~int64 | ~uint64
+	~int | ~int16 | ~int32 | ~int64 | ~uint64
 }
 
 // Word is the processing size for bit-packing.

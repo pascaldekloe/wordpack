@@ -92,6 +92,11 @@ func TestDecrementDelta(t *testing.T) {
 func TestDeltaEncoding(t *testing.T) {
 	for bitN := 0; bitN <= 64; bitN++ {
 		t.Run(fmt.Sprintf("%dBitDelta", bitN), func(t *testing.T) {
+			if bitN <= 16 {
+				t.Run("int16", func(t *testing.T) {
+					testDeltaEncoding[int16](t, bitN)
+				})
+			}
 			if bitN <= 32 {
 				t.Run("int32", func(t *testing.T) {
 					testDeltaEncoding[int32](t, bitN)
@@ -107,7 +112,7 @@ func TestDeltaEncoding(t *testing.T) {
 	}
 }
 
-func testDeltaEncoding[T int | int32 | int64 | uint64](t *testing.T, bitN int) {
+func testDeltaEncoding[T Integer](t *testing.T, bitN int) {
 	data, offset := randomNBitDeltas[T](t, bitN)
 
 	in := data // copy just in case encode mutates input
@@ -132,6 +137,11 @@ func testDeltaEncoding[T int | int32 | int64 | uint64](t *testing.T, bitN int) {
 func BenchmarkDeltaBitEncoding(b *testing.B) {
 	for _, bitN := range []int{1, 7, 32, 63} {
 		b.Run(fmt.Sprintf("%dBitDelta", bitN), func(b *testing.B) {
+			if bitN <= 16 {
+				b.Run("int16", func(b *testing.B) {
+					benchmarkDeltaBitEncoding[int16](b, bitN)
+				})
+			}
 			if bitN <= 32 {
 				b.Run("int32", func(b *testing.B) {
 					benchmarkDeltaBitEncoding[int32](b, bitN)
@@ -147,7 +157,7 @@ func BenchmarkDeltaBitEncoding(b *testing.B) {
 	}
 }
 
-func benchmarkDeltaBitEncoding[T int | int32 | int64 | uint64](b *testing.B, bitN int) {
+func benchmarkDeltaBitEncoding[T Integer](b *testing.B, bitN int) {
 	data, offset := randomNBitDeltas[T](b, bitN)
 
 	b.Run("Encode", func(b *testing.B) {
@@ -173,7 +183,7 @@ func benchmarkDeltaBitEncoding[T int | int32 | int64 | uint64](b *testing.B, bit
 
 // RandomNBitDelta generates a pseudo random data set with it's deltas zig-zag
 // encoded less than or equal to bitN in size.
-func randomNBitDeltas[T int | int32 | int64 | uint64](t testing.TB, bitN int) (data [64]T, offset T) {
+func randomNBitDeltas[T Integer](t testing.TB, bitN int) (data [64]T, offset T) {
 	randomYetConsistent := rand.New(rand.NewSource(42))
 
 	offset = T(randomYetConsistent.Uint64())
