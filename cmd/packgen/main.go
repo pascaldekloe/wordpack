@@ -108,6 +108,8 @@ type Config struct {
 	PackLimit   int
 }
 
+func (c Config) WordWidthMinusOne() int { return c.WordWidth - 1 }
+
 // BitPacks returns each supported pack size in ascending order.
 // Zero bits are not packed and neither is the word width itself.
 func (c Config) BitPacks() []BitPack {

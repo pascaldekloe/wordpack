@@ -11,6 +11,7 @@ type Integer interface {
 
 // Word is the processing size for bit-packing.
 type Word uint{{ .WordWidth }}
+{{- $signedWord := print "int" .WordWidth }}
 
 // AppendDeltaEncode adds the difference of each consecutive value in src,
 // encoded to dst, and it returns the extended buffer. The first value in src
@@ -18,10 +19,11 @@ type Word uint{{ .WordWidth }}
 // The number of Words added to dst ranges from 0 to {{ .WordWidth }}.
 func AppendDeltaEncode[T Integer](dst []Word, src *[{{ .WordWidth }}]T, offset T) []Word {
 	// collect bits in use by all deltas (zig-zag encoded) combined
-	d0 := int64(offset - src[0])
-	mask := (d0 << 1) ^ (d0 >> 63)
-{{ range $index, $value := iterate 63}}	d{{ $value }} := int64(src[{{ $index }}] - src[{{ $value }}])
-	mask |= (d{{ $value }} << 1) ^ (d{{ $value }} >> 63)
+	d0 := int{{ .WordWidth }}(offset - src[0])
+{{- $signShift := .WordWidthMinusOne }}
+	mask := (d0 << 1) ^ (d0 >> {{ $signShift }})
+{{ range $index, $value := iterate .WordWidthMinusOne }}	d{{ $value }} := {{ $signedWord }}(src[{{ $index }}] - src[{{ $value }}])
+	mask |= (d{{ $value }} << 1) ^ (d{{ $value }} >> {{ $signShift }})
 {{ end }}
 	switch bits.Len64(uint64(mask)) {
 	case 0:
@@ -33,7 +35,7 @@ func AppendDeltaEncode[T Integer](dst []Word, src *[{{ .WordWidth }}]T, offset T
 	}
 }
 
-// AppendDeltaEncode adds 64 Integers to dst and it returns the extended buffer.
+// AppendDeltaEncode adds {{ .WordWidth }} Integers to dst and it returns the extended buffer.
 // The appended Integers are equal to an AppendDeltaEncode's input if src equals
 // the appended Words from the encode, and if both offset values are equal too.
 func AppendDeltaDecode[T Integer](dst []T, src []Word, offset T) []T {
@@ -54,7 +56,7 @@ func append{{ .BitN }}BitDeltaEncode[T Integer](dst []Word, src *[{{ .WordWidth 
 }{{ end }}{{ range .BitPacks }}
 
 func append{{ .BitN }}BitDeltaDecode[T Integer](dst []T, src *[{{ .BitN }}]Word, offset T) []T {
-{{ range $index, $expr := .BitUnpackExpressions }}	offset -= T((int64({{ $expr }}) >> 1) ^ (-(int64({{ $expr }}) & 1)))
+{{ range $index, $expr := .BitUnpackExpressions }}	offset -= T(({{ $signedWord }}({{ $expr }}) >> 1) ^ (-({{ $signedWord }}({{ $expr }}) & 1)))
 	out{{ $index }} := offset
 {{ end}}
 	return append(dst{{ range $index, $expr := .BitUnpackExpressions }}, out{{ $index }}{{ end }})
