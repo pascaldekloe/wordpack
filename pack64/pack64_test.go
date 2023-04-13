@@ -118,12 +118,8 @@ func testDeltaEncoding[T Integer](t *testing.T, bitN int) {
 	in := data // copy just in case encode mutates input
 	pack := AppendDeltaEncode(nil, &in, offset)
 
-	expectN := bitN
-	if expectN > 42 {
-		expectN = 64
-	}
-	if len(pack) != expectN {
-		t.Errorf("packed %d-bit random data in %d words, want %d", bitN, len(pack), expectN)
+	if len(pack) != bitN {
+		t.Errorf("packed %d-bit random data in %d words, want %d", bitN, len(pack), bitN)
 	}
 
 	got := AppendDeltaDecode(nil, pack, offset)

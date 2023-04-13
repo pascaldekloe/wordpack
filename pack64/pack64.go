@@ -7,7 +7,7 @@ import (
 	"unsafe"
 )
 
-//go:generate go run ../cmd/packgen gen.go
+//go:generate go run ../cmd/packgen -limit 63 gen.go
 
 // Write writes each Word marshalled in native endianness.
 // The n return has the amount of bytes written—not words!

@@ -234,6 +234,48 @@ func AppendDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
 		return append41BitDeltaEncode(dst, src, offset)
 	case 42:
 		return append42BitDeltaEncode(dst, src, offset)
+	case 43:
+		return append43BitDeltaEncode(dst, src, offset)
+	case 44:
+		return append44BitDeltaEncode(dst, src, offset)
+	case 45:
+		return append45BitDeltaEncode(dst, src, offset)
+	case 46:
+		return append46BitDeltaEncode(dst, src, offset)
+	case 47:
+		return append47BitDeltaEncode(dst, src, offset)
+	case 48:
+		return append48BitDeltaEncode(dst, src, offset)
+	case 49:
+		return append49BitDeltaEncode(dst, src, offset)
+	case 50:
+		return append50BitDeltaEncode(dst, src, offset)
+	case 51:
+		return append51BitDeltaEncode(dst, src, offset)
+	case 52:
+		return append52BitDeltaEncode(dst, src, offset)
+	case 53:
+		return append53BitDeltaEncode(dst, src, offset)
+	case 54:
+		return append54BitDeltaEncode(dst, src, offset)
+	case 55:
+		return append55BitDeltaEncode(dst, src, offset)
+	case 56:
+		return append56BitDeltaEncode(dst, src, offset)
+	case 57:
+		return append57BitDeltaEncode(dst, src, offset)
+	case 58:
+		return append58BitDeltaEncode(dst, src, offset)
+	case 59:
+		return append59BitDeltaEncode(dst, src, offset)
+	case 60:
+		return append60BitDeltaEncode(dst, src, offset)
+	case 61:
+		return append61BitDeltaEncode(dst, src, offset)
+	case 62:
+		return append62BitDeltaEncode(dst, src, offset)
+	case 63:
+		return append63BitDeltaEncode(dst, src, offset)
 	default:
 		return append(dst, Word(src[0]), Word(src[1]), Word(src[2]), Word(src[3]), Word(src[4]), Word(src[5]), Word(src[6]), Word(src[7]), Word(src[8]), Word(src[9]), Word(src[10]), Word(src[11]), Word(src[12]), Word(src[13]), Word(src[14]), Word(src[15]), Word(src[16]), Word(src[17]), Word(src[18]), Word(src[19]), Word(src[20]), Word(src[21]), Word(src[22]), Word(src[23]), Word(src[24]), Word(src[25]), Word(src[26]), Word(src[27]), Word(src[28]), Word(src[29]), Word(src[30]), Word(src[31]), Word(src[32]), Word(src[33]), Word(src[34]), Word(src[35]), Word(src[36]), Word(src[37]), Word(src[38]), Word(src[39]), Word(src[40]), Word(src[41]), Word(src[42]), Word(src[43]), Word(src[44]), Word(src[45]), Word(src[46]), Word(src[47]), Word(src[48]), Word(src[49]), Word(src[50]), Word(src[51]), Word(src[52]), Word(src[53]), Word(src[54]), Word(src[55]), Word(src[56]), Word(src[57]), Word(src[58]), Word(src[59]), Word(src[60]), Word(src[61]), Word(src[62]), Word(src[63]))
 	}
@@ -330,6 +372,48 @@ func AppendDeltaDecode[T Integer](dst []T, src []Word, offset T) []T {
 		return append41BitDeltaDecode(dst, (*[41]Word)(src), offset)
 	case 42:
 		return append42BitDeltaDecode(dst, (*[42]Word)(src), offset)
+	case 43:
+		return append43BitDeltaDecode(dst, (*[43]Word)(src), offset)
+	case 44:
+		return append44BitDeltaDecode(dst, (*[44]Word)(src), offset)
+	case 45:
+		return append45BitDeltaDecode(dst, (*[45]Word)(src), offset)
+	case 46:
+		return append46BitDeltaDecode(dst, (*[46]Word)(src), offset)
+	case 47:
+		return append47BitDeltaDecode(dst, (*[47]Word)(src), offset)
+	case 48:
+		return append48BitDeltaDecode(dst, (*[48]Word)(src), offset)
+	case 49:
+		return append49BitDeltaDecode(dst, (*[49]Word)(src), offset)
+	case 50:
+		return append50BitDeltaDecode(dst, (*[50]Word)(src), offset)
+	case 51:
+		return append51BitDeltaDecode(dst, (*[51]Word)(src), offset)
+	case 52:
+		return append52BitDeltaDecode(dst, (*[52]Word)(src), offset)
+	case 53:
+		return append53BitDeltaDecode(dst, (*[53]Word)(src), offset)
+	case 54:
+		return append54BitDeltaDecode(dst, (*[54]Word)(src), offset)
+	case 55:
+		return append55BitDeltaDecode(dst, (*[55]Word)(src), offset)
+	case 56:
+		return append56BitDeltaDecode(dst, (*[56]Word)(src), offset)
+	case 57:
+		return append57BitDeltaDecode(dst, (*[57]Word)(src), offset)
+	case 58:
+		return append58BitDeltaDecode(dst, (*[58]Word)(src), offset)
+	case 59:
+		return append59BitDeltaDecode(dst, (*[59]Word)(src), offset)
+	case 60:
+		return append60BitDeltaDecode(dst, (*[60]Word)(src), offset)
+	case 61:
+		return append61BitDeltaDecode(dst, (*[61]Word)(src), offset)
+	case 62:
+		return append62BitDeltaDecode(dst, (*[62]Word)(src), offset)
+	case 63:
+		return append63BitDeltaDecode(dst, (*[63]Word)(src), offset)
 	default:
 		return append(dst, T(src[0]), T(src[1]), T(src[2]), T(src[3]), T(src[4]), T(src[5]), T(src[6]), T(src[7]), T(src[8]), T(src[9]), T(src[10]), T(src[11]), T(src[12]), T(src[13]), T(src[14]), T(src[15]), T(src[16]), T(src[17]), T(src[18]), T(src[19]), T(src[20]), T(src[21]), T(src[22]), T(src[23]), T(src[24]), T(src[25]), T(src[26]), T(src[27]), T(src[28]), T(src[29]), T(src[30]), T(src[31]), T(src[32]), T(src[33]), T(src[34]), T(src[35]), T(src[36]), T(src[37]), T(src[38]), T(src[39]), T(src[40]), T(src[41]), T(src[42]), T(src[43]), T(src[44]), T(src[45]), T(src[46]), T(src[47]), T(src[48]), T(src[49]), T(src[50]), T(src[51]), T(src[52]), T(src[53]), T(src[54]), T(src[55]), T(src[56]), T(src[57]), T(src[58]), T(src[59]), T(src[60]), T(src[61]), T(src[62]), T(src[63]))
 	}
@@ -1445,6 +1529,1224 @@ func append42BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word 
 		Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)<<40|Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)>>2,
 		Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)<<62|Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)<<20|Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)>>22,
 		Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)<<42|Word(int64(src[62]-src[63])>>63^int64(src[62]-src[63])<<1)<<0,
+	)
+}
+
+func append43BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
+	return append(dst,
+		Word(int64(offset-src[0])>>63^int64(offset-src[0])<<1)<<21|Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)>>22,
+		Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)<<42|Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)>>1,
+		Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)<<63|Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)<<20|Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)>>23,
+		Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)<<41|Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)>>2,
+		Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)<<62|Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)<<19|Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)>>24,
+		Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)<<40|Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)>>3,
+		Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)<<61|Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)<<18|Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)>>25,
+		Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)<<39|Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)>>4,
+		Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)<<60|Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)<<17|Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)>>26,
+		Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)<<38|Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)>>5,
+		Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)<<59|Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)<<16|Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)>>27,
+		Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)<<37|Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)>>6,
+		Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)<<58|Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)<<15|Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)>>28,
+		Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)<<36|Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)>>7,
+		Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)<<57|Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)<<14|Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)>>29,
+		Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)<<35|Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)>>8,
+		Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)<<56|Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)<<13|Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)>>30,
+		Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)<<34|Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)>>9,
+		Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)<<55|Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)<<12|Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)>>31,
+		Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)<<33|Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)>>10,
+		Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)<<54|Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)<<11|Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)>>32,
+		Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)<<32|Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)>>11,
+		Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)<<53|Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)<<10|Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)>>33,
+		Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)<<31|Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)>>12,
+		Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)<<52|Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)<<9|Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)>>34,
+		Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)<<30|Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)>>13,
+		Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)<<51|Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)<<8|Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)>>35,
+		Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)<<29|Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)>>14,
+		Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)<<50|Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)<<7|Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)>>36,
+		Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)<<28|Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)>>15,
+		Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)<<49|Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)<<6|Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)>>37,
+		Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)<<27|Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)>>16,
+		Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)<<48|Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)<<5|Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)>>38,
+		Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)<<26|Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)>>17,
+		Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)<<47|Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)<<4|Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)>>39,
+		Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)<<25|Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)>>18,
+		Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)<<46|Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)<<3|Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)>>40,
+		Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)<<24|Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)>>19,
+		Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)<<45|Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)<<2|Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)>>41,
+		Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)<<23|Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)>>20,
+		Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)<<44|Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)<<1|Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)>>42,
+		Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)<<22|Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)>>21,
+		Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)<<43|Word(int64(src[62]-src[63])>>63^int64(src[62]-src[63])<<1)<<0,
+	)
+}
+
+func append44BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
+	return append(dst,
+		Word(int64(offset-src[0])>>63^int64(offset-src[0])<<1)<<20|Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)>>24,
+		Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)<<40|Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)>>4,
+		Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)<<60|Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)<<16|Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)>>28,
+		Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)<<36|Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)>>8,
+		Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)<<56|Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)<<12|Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)>>32,
+		Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)<<32|Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)>>12,
+		Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)<<52|Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)<<8|Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)>>36,
+		Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)<<28|Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)>>16,
+		Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)<<48|Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)<<4|Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)>>40,
+		Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)<<24|Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)>>20,
+		Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)<<44|Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)<<0,
+		Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)<<20|Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)>>24,
+		Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)<<40|Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)>>4,
+		Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)<<60|Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)<<16|Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)>>28,
+		Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)<<36|Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)>>8,
+		Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)<<56|Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)<<12|Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)>>32,
+		Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)<<32|Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)>>12,
+		Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)<<52|Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)<<8|Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)>>36,
+		Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)<<28|Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)>>16,
+		Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)<<48|Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)<<4|Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)>>40,
+		Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)<<24|Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)>>20,
+		Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)<<44|Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)<<0,
+		Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)<<20|Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)>>24,
+		Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)<<40|Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)>>4,
+		Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)<<60|Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)<<16|Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)>>28,
+		Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)<<36|Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)>>8,
+		Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)<<56|Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)<<12|Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)>>32,
+		Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)<<32|Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)>>12,
+		Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)<<52|Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)<<8|Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)>>36,
+		Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)<<28|Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)>>16,
+		Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)<<48|Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)<<4|Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)>>40,
+		Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)<<24|Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)>>20,
+		Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)<<44|Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)<<0,
+		Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)<<20|Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)>>24,
+		Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)<<40|Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)>>4,
+		Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)<<60|Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)<<16|Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)>>28,
+		Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)<<36|Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)>>8,
+		Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)<<56|Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)<<12|Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)>>32,
+		Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)<<32|Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)>>12,
+		Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)<<52|Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)<<8|Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)>>36,
+		Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)<<28|Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)>>16,
+		Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)<<48|Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)<<4|Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)>>40,
+		Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)<<24|Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)>>20,
+		Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)<<44|Word(int64(src[62]-src[63])>>63^int64(src[62]-src[63])<<1)<<0,
+	)
+}
+
+func append45BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
+	return append(dst,
+		Word(int64(offset-src[0])>>63^int64(offset-src[0])<<1)<<19|Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)>>26,
+		Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)<<38|Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)>>7,
+		Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)<<57|Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)<<12|Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)>>33,
+		Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)<<31|Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)>>14,
+		Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)<<50|Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)<<5|Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)>>40,
+		Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)<<24|Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)>>21,
+		Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)<<43|Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)>>2,
+		Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)<<62|Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)<<17|Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)>>28,
+		Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)<<36|Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)>>9,
+		Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)<<55|Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)<<10|Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)>>35,
+		Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)<<29|Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)>>16,
+		Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)<<48|Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)<<3|Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)>>42,
+		Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)<<22|Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)>>23,
+		Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)<<41|Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)>>4,
+		Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)<<60|Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)<<15|Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)>>30,
+		Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)<<34|Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)>>11,
+		Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)<<53|Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)<<8|Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)>>37,
+		Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)<<27|Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)>>18,
+		Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)<<46|Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)<<1|Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)>>44,
+		Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)<<20|Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)>>25,
+		Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)<<39|Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)>>6,
+		Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)<<58|Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)<<13|Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)>>32,
+		Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)<<32|Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)>>13,
+		Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)<<51|Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)<<6|Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)>>39,
+		Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)<<25|Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)>>20,
+		Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)<<44|Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)>>1,
+		Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)<<63|Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)<<18|Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)>>27,
+		Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)<<37|Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)>>8,
+		Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)<<56|Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)<<11|Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)>>34,
+		Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)<<30|Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)>>15,
+		Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)<<49|Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)<<4|Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)>>41,
+		Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)<<23|Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)>>22,
+		Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)<<42|Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)>>3,
+		Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)<<61|Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)<<16|Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)>>29,
+		Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)<<35|Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)>>10,
+		Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)<<54|Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)<<9|Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)>>36,
+		Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)<<28|Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)>>17,
+		Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)<<47|Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)<<2|Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)>>43,
+		Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)<<21|Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)>>24,
+		Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)<<40|Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)>>5,
+		Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)<<59|Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)<<14|Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)>>31,
+		Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)<<33|Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)>>12,
+		Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)<<52|Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)<<7|Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)>>38,
+		Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)<<26|Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)>>19,
+		Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)<<45|Word(int64(src[62]-src[63])>>63^int64(src[62]-src[63])<<1)<<0,
+	)
+}
+
+func append46BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
+	return append(dst,
+		Word(int64(offset-src[0])>>63^int64(offset-src[0])<<1)<<18|Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)>>28,
+		Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)<<36|Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)>>10,
+		Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)<<54|Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)<<8|Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)>>38,
+		Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)<<26|Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)>>20,
+		Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)<<44|Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)>>2,
+		Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)<<62|Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)<<16|Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)>>30,
+		Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)<<34|Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)>>12,
+		Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)<<52|Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)<<6|Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)>>40,
+		Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)<<24|Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)>>22,
+		Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)<<42|Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)>>4,
+		Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)<<60|Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)<<14|Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)>>32,
+		Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)<<32|Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)>>14,
+		Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)<<50|Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)<<4|Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)>>42,
+		Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)<<22|Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)>>24,
+		Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)<<40|Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)>>6,
+		Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)<<58|Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)<<12|Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)>>34,
+		Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)<<30|Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)>>16,
+		Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)<<48|Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)<<2|Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)>>44,
+		Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)<<20|Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)>>26,
+		Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)<<38|Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)>>8,
+		Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)<<56|Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)<<10|Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)>>36,
+		Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)<<28|Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)>>18,
+		Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)<<46|Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)<<0,
+		Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)<<18|Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)>>28,
+		Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)<<36|Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)>>10,
+		Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)<<54|Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)<<8|Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)>>38,
+		Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)<<26|Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)>>20,
+		Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)<<44|Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)>>2,
+		Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)<<62|Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)<<16|Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)>>30,
+		Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)<<34|Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)>>12,
+		Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)<<52|Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)<<6|Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)>>40,
+		Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)<<24|Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)>>22,
+		Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)<<42|Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)>>4,
+		Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)<<60|Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)<<14|Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)>>32,
+		Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)<<32|Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)>>14,
+		Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)<<50|Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)<<4|Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)>>42,
+		Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)<<22|Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)>>24,
+		Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)<<40|Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)>>6,
+		Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)<<58|Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)<<12|Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)>>34,
+		Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)<<30|Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)>>16,
+		Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)<<48|Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)<<2|Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)>>44,
+		Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)<<20|Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)>>26,
+		Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)<<38|Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)>>8,
+		Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)<<56|Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)<<10|Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)>>36,
+		Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)<<28|Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)>>18,
+		Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)<<46|Word(int64(src[62]-src[63])>>63^int64(src[62]-src[63])<<1)<<0,
+	)
+}
+
+func append47BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
+	return append(dst,
+		Word(int64(offset-src[0])>>63^int64(offset-src[0])<<1)<<17|Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)>>30,
+		Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)<<34|Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)>>13,
+		Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)<<51|Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)<<4|Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)>>43,
+		Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)<<21|Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)>>26,
+		Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)<<38|Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)>>9,
+		Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)<<55|Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)<<8|Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)>>39,
+		Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)<<25|Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)>>22,
+		Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)<<42|Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)>>5,
+		Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)<<59|Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)<<12|Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)>>35,
+		Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)<<29|Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)>>18,
+		Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)<<46|Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)>>1,
+		Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)<<63|Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)<<16|Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)>>31,
+		Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)<<33|Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)>>14,
+		Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)<<50|Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)<<3|Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)>>44,
+		Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)<<20|Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)>>27,
+		Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)<<37|Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)>>10,
+		Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)<<54|Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)<<7|Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)>>40,
+		Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)<<24|Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)>>23,
+		Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)<<41|Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)>>6,
+		Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)<<58|Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)<<11|Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)>>36,
+		Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)<<28|Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)>>19,
+		Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)<<45|Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)>>2,
+		Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)<<62|Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)<<15|Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)>>32,
+		Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)<<32|Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)>>15,
+		Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)<<49|Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)<<2|Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)>>45,
+		Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)<<19|Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)>>28,
+		Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)<<36|Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)>>11,
+		Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)<<53|Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)<<6|Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)>>41,
+		Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)<<23|Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)>>24,
+		Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)<<40|Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)>>7,
+		Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)<<57|Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)<<10|Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)>>37,
+		Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)<<27|Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)>>20,
+		Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)<<44|Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)>>3,
+		Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)<<61|Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)<<14|Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)>>33,
+		Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)<<31|Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)>>16,
+		Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)<<48|Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)<<1|Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)>>46,
+		Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)<<18|Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)>>29,
+		Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)<<35|Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)>>12,
+		Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)<<52|Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)<<5|Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)>>42,
+		Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)<<22|Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)>>25,
+		Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)<<39|Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)>>8,
+		Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)<<56|Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)<<9|Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)>>38,
+		Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)<<26|Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)>>21,
+		Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)<<43|Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)>>4,
+		Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)<<60|Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)<<13|Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)>>34,
+		Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)<<30|Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)>>17,
+		Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)<<47|Word(int64(src[62]-src[63])>>63^int64(src[62]-src[63])<<1)<<0,
+	)
+}
+
+func append48BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
+	return append(dst,
+		Word(int64(offset-src[0])>>63^int64(offset-src[0])<<1)<<16|Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)>>32,
+		Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)<<32|Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)>>16,
+		Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)<<48|Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)<<0,
+		Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)<<16|Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)>>32,
+		Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)<<32|Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)>>16,
+		Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)<<48|Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)<<0,
+		Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)<<16|Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)>>32,
+		Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)<<32|Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)>>16,
+		Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)<<48|Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)<<0,
+		Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)<<16|Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)>>32,
+		Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)<<32|Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)>>16,
+		Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)<<48|Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)<<0,
+		Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)<<16|Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)>>32,
+		Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)<<32|Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)>>16,
+		Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)<<48|Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)<<0,
+		Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)<<16|Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)>>32,
+		Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)<<32|Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)>>16,
+		Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)<<48|Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)<<0,
+		Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)<<16|Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)>>32,
+		Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)<<32|Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)>>16,
+		Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)<<48|Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)<<0,
+		Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)<<16|Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)>>32,
+		Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)<<32|Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)>>16,
+		Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)<<48|Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)<<0,
+		Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)<<16|Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)>>32,
+		Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)<<32|Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)>>16,
+		Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)<<48|Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)<<0,
+		Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)<<16|Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)>>32,
+		Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)<<32|Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)>>16,
+		Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)<<48|Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)<<0,
+		Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)<<16|Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)>>32,
+		Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)<<32|Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)>>16,
+		Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)<<48|Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)<<0,
+		Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)<<16|Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)>>32,
+		Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)<<32|Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)>>16,
+		Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)<<48|Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)<<0,
+		Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)<<16|Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)>>32,
+		Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)<<32|Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)>>16,
+		Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)<<48|Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)<<0,
+		Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)<<16|Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)>>32,
+		Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)<<32|Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)>>16,
+		Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)<<48|Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)<<0,
+		Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)<<16|Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)>>32,
+		Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)<<32|Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)>>16,
+		Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)<<48|Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)<<0,
+		Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)<<16|Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)>>32,
+		Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)<<32|Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)>>16,
+		Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)<<48|Word(int64(src[62]-src[63])>>63^int64(src[62]-src[63])<<1)<<0,
+	)
+}
+
+func append49BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
+	return append(dst,
+		Word(int64(offset-src[0])>>63^int64(offset-src[0])<<1)<<15|Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)>>34,
+		Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)<<30|Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)>>19,
+		Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)<<45|Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)>>4,
+		Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)<<60|Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)<<11|Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)>>38,
+		Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)<<26|Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)>>23,
+		Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)<<41|Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)>>8,
+		Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)<<56|Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)<<7|Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)>>42,
+		Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)<<22|Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)>>27,
+		Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)<<37|Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)>>12,
+		Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)<<52|Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)<<3|Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)>>46,
+		Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)<<18|Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)>>31,
+		Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)<<33|Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)>>16,
+		Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)<<48|Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)>>1,
+		Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)<<63|Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)<<14|Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)>>35,
+		Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)<<29|Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)>>20,
+		Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)<<44|Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)>>5,
+		Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)<<59|Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)<<10|Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)>>39,
+		Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)<<25|Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)>>24,
+		Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)<<40|Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)>>9,
+		Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)<<55|Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)<<6|Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)>>43,
+		Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)<<21|Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)>>28,
+		Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)<<36|Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)>>13,
+		Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)<<51|Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)<<2|Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)>>47,
+		Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)<<17|Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)>>32,
+		Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)<<32|Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)>>17,
+		Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)<<47|Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)>>2,
+		Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)<<62|Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)<<13|Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)>>36,
+		Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)<<28|Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)>>21,
+		Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)<<43|Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)>>6,
+		Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)<<58|Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)<<9|Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)>>40,
+		Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)<<24|Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)>>25,
+		Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)<<39|Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)>>10,
+		Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)<<54|Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)<<5|Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)>>44,
+		Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)<<20|Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)>>29,
+		Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)<<35|Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)>>14,
+		Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)<<50|Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)<<1|Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)>>48,
+		Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)<<16|Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)>>33,
+		Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)<<31|Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)>>18,
+		Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)<<46|Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)>>3,
+		Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)<<61|Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)<<12|Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)>>37,
+		Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)<<27|Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)>>22,
+		Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)<<42|Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)>>7,
+		Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)<<57|Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)<<8|Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)>>41,
+		Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)<<23|Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)>>26,
+		Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)<<38|Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)>>11,
+		Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)<<53|Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)<<4|Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)>>45,
+		Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)<<19|Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)>>30,
+		Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)<<34|Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)>>15,
+		Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)<<49|Word(int64(src[62]-src[63])>>63^int64(src[62]-src[63])<<1)<<0,
+	)
+}
+
+func append50BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
+	return append(dst,
+		Word(int64(offset-src[0])>>63^int64(offset-src[0])<<1)<<14|Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)>>36,
+		Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)<<28|Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)>>22,
+		Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)<<42|Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)>>8,
+		Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)<<56|Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)<<6|Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)>>44,
+		Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)<<20|Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)>>30,
+		Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)<<34|Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)>>16,
+		Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)<<48|Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)>>2,
+		Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)<<62|Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)<<12|Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)>>38,
+		Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)<<26|Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)>>24,
+		Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)<<40|Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)>>10,
+		Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)<<54|Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)<<4|Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)>>46,
+		Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)<<18|Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)>>32,
+		Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)<<32|Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)>>18,
+		Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)<<46|Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)>>4,
+		Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)<<60|Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)<<10|Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)>>40,
+		Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)<<24|Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)>>26,
+		Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)<<38|Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)>>12,
+		Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)<<52|Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)<<2|Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)>>48,
+		Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)<<16|Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)>>34,
+		Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)<<30|Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)>>20,
+		Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)<<44|Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)>>6,
+		Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)<<58|Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)<<8|Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)>>42,
+		Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)<<22|Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)>>28,
+		Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)<<36|Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)>>14,
+		Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)<<50|Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)<<0,
+		Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)<<14|Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)>>36,
+		Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)<<28|Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)>>22,
+		Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)<<42|Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)>>8,
+		Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)<<56|Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)<<6|Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)>>44,
+		Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)<<20|Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)>>30,
+		Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)<<34|Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)>>16,
+		Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)<<48|Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)>>2,
+		Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)<<62|Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)<<12|Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)>>38,
+		Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)<<26|Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)>>24,
+		Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)<<40|Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)>>10,
+		Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)<<54|Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)<<4|Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)>>46,
+		Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)<<18|Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)>>32,
+		Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)<<32|Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)>>18,
+		Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)<<46|Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)>>4,
+		Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)<<60|Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)<<10|Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)>>40,
+		Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)<<24|Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)>>26,
+		Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)<<38|Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)>>12,
+		Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)<<52|Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)<<2|Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)>>48,
+		Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)<<16|Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)>>34,
+		Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)<<30|Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)>>20,
+		Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)<<44|Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)>>6,
+		Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)<<58|Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)<<8|Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)>>42,
+		Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)<<22|Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)>>28,
+		Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)<<36|Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)>>14,
+		Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)<<50|Word(int64(src[62]-src[63])>>63^int64(src[62]-src[63])<<1)<<0,
+	)
+}
+
+func append51BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
+	return append(dst,
+		Word(int64(offset-src[0])>>63^int64(offset-src[0])<<1)<<13|Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)>>38,
+		Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)<<26|Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)>>25,
+		Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)<<39|Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)>>12,
+		Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)<<52|Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)<<1|Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)>>50,
+		Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)<<14|Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)>>37,
+		Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)<<27|Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)>>24,
+		Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)<<40|Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)>>11,
+		Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)<<53|Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)<<2|Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)>>49,
+		Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)<<15|Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)>>36,
+		Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)<<28|Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)>>23,
+		Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)<<41|Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)>>10,
+		Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)<<54|Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)<<3|Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)>>48,
+		Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)<<16|Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)>>35,
+		Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)<<29|Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)>>22,
+		Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)<<42|Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)>>9,
+		Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)<<55|Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)<<4|Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)>>47,
+		Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)<<17|Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)>>34,
+		Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)<<30|Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)>>21,
+		Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)<<43|Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)>>8,
+		Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)<<56|Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)<<5|Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)>>46,
+		Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)<<18|Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)>>33,
+		Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)<<31|Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)>>20,
+		Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)<<44|Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)>>7,
+		Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)<<57|Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)<<6|Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)>>45,
+		Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)<<19|Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)>>32,
+		Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)<<32|Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)>>19,
+		Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)<<45|Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)>>6,
+		Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)<<58|Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)<<7|Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)>>44,
+		Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)<<20|Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)>>31,
+		Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)<<33|Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)>>18,
+		Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)<<46|Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)>>5,
+		Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)<<59|Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)<<8|Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)>>43,
+		Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)<<21|Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)>>30,
+		Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)<<34|Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)>>17,
+		Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)<<47|Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)>>4,
+		Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)<<60|Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)<<9|Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)>>42,
+		Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)<<22|Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)>>29,
+		Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)<<35|Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)>>16,
+		Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)<<48|Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)>>3,
+		Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)<<61|Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)<<10|Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)>>41,
+		Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)<<23|Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)>>28,
+		Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)<<36|Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)>>15,
+		Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)<<49|Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)>>2,
+		Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)<<62|Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)<<11|Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)>>40,
+		Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)<<24|Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)>>27,
+		Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)<<37|Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)>>14,
+		Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)<<50|Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)>>1,
+		Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)<<63|Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)<<12|Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)>>39,
+		Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)<<25|Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)>>26,
+		Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)<<38|Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)>>13,
+		Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)<<51|Word(int64(src[62]-src[63])>>63^int64(src[62]-src[63])<<1)<<0,
+	)
+}
+
+func append52BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
+	return append(dst,
+		Word(int64(offset-src[0])>>63^int64(offset-src[0])<<1)<<12|Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)>>40,
+		Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)<<24|Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)>>28,
+		Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)<<36|Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)>>16,
+		Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)<<48|Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)>>4,
+		Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)<<60|Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)<<8|Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)>>44,
+		Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)<<20|Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)>>32,
+		Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)<<32|Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)>>20,
+		Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)<<44|Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)>>8,
+		Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)<<56|Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)<<4|Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)>>48,
+		Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)<<16|Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)>>36,
+		Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)<<28|Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)>>24,
+		Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)<<40|Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)>>12,
+		Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)<<52|Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)<<0,
+		Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)<<12|Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)>>40,
+		Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)<<24|Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)>>28,
+		Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)<<36|Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)>>16,
+		Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)<<48|Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)>>4,
+		Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)<<60|Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)<<8|Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)>>44,
+		Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)<<20|Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)>>32,
+		Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)<<32|Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)>>20,
+		Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)<<44|Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)>>8,
+		Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)<<56|Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)<<4|Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)>>48,
+		Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)<<16|Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)>>36,
+		Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)<<28|Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)>>24,
+		Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)<<40|Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)>>12,
+		Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)<<52|Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)<<0,
+		Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)<<12|Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)>>40,
+		Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)<<24|Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)>>28,
+		Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)<<36|Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)>>16,
+		Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)<<48|Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)>>4,
+		Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)<<60|Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)<<8|Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)>>44,
+		Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)<<20|Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)>>32,
+		Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)<<32|Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)>>20,
+		Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)<<44|Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)>>8,
+		Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)<<56|Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)<<4|Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)>>48,
+		Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)<<16|Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)>>36,
+		Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)<<28|Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)>>24,
+		Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)<<40|Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)>>12,
+		Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)<<52|Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)<<0,
+		Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)<<12|Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)>>40,
+		Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)<<24|Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)>>28,
+		Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)<<36|Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)>>16,
+		Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)<<48|Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)>>4,
+		Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)<<60|Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)<<8|Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)>>44,
+		Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)<<20|Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)>>32,
+		Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)<<32|Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)>>20,
+		Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)<<44|Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)>>8,
+		Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)<<56|Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)<<4|Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)>>48,
+		Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)<<16|Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)>>36,
+		Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)<<28|Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)>>24,
+		Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)<<40|Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)>>12,
+		Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)<<52|Word(int64(src[62]-src[63])>>63^int64(src[62]-src[63])<<1)<<0,
+	)
+}
+
+func append53BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
+	return append(dst,
+		Word(int64(offset-src[0])>>63^int64(offset-src[0])<<1)<<11|Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)>>42,
+		Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)<<22|Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)>>31,
+		Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)<<33|Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)>>20,
+		Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)<<44|Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)>>9,
+		Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)<<55|Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)<<2|Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)>>51,
+		Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)<<13|Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)>>40,
+		Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)<<24|Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)>>29,
+		Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)<<35|Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)>>18,
+		Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)<<46|Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)>>7,
+		Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)<<57|Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)<<4|Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)>>49,
+		Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)<<15|Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)>>38,
+		Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)<<26|Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)>>27,
+		Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)<<37|Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)>>16,
+		Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)<<48|Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)>>5,
+		Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)<<59|Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)<<6|Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)>>47,
+		Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)<<17|Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)>>36,
+		Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)<<28|Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)>>25,
+		Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)<<39|Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)>>14,
+		Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)<<50|Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)>>3,
+		Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)<<61|Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)<<8|Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)>>45,
+		Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)<<19|Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)>>34,
+		Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)<<30|Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)>>23,
+		Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)<<41|Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)>>12,
+		Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)<<52|Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)>>1,
+		Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)<<63|Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)<<10|Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)>>43,
+		Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)<<21|Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)>>32,
+		Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)<<32|Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)>>21,
+		Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)<<43|Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)>>10,
+		Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)<<54|Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)<<1|Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)>>52,
+		Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)<<12|Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)>>41,
+		Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)<<23|Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)>>30,
+		Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)<<34|Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)>>19,
+		Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)<<45|Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)>>8,
+		Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)<<56|Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)<<3|Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)>>50,
+		Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)<<14|Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)>>39,
+		Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)<<25|Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)>>28,
+		Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)<<36|Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)>>17,
+		Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)<<47|Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)>>6,
+		Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)<<58|Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)<<5|Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)>>48,
+		Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)<<16|Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)>>37,
+		Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)<<27|Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)>>26,
+		Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)<<38|Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)>>15,
+		Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)<<49|Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)>>4,
+		Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)<<60|Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)<<7|Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)>>46,
+		Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)<<18|Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)>>35,
+		Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)<<29|Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)>>24,
+		Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)<<40|Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)>>13,
+		Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)<<51|Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)>>2,
+		Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)<<62|Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)<<9|Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)>>44,
+		Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)<<20|Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)>>33,
+		Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)<<31|Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)>>22,
+		Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)<<42|Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)>>11,
+		Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)<<53|Word(int64(src[62]-src[63])>>63^int64(src[62]-src[63])<<1)<<0,
+	)
+}
+
+func append54BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
+	return append(dst,
+		Word(int64(offset-src[0])>>63^int64(offset-src[0])<<1)<<10|Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)>>44,
+		Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)<<20|Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)>>34,
+		Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)<<30|Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)>>24,
+		Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)<<40|Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)>>14,
+		Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)<<50|Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)>>4,
+		Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)<<60|Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)<<6|Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)>>48,
+		Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)<<16|Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)>>38,
+		Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)<<26|Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)>>28,
+		Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)<<36|Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)>>18,
+		Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)<<46|Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)>>8,
+		Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)<<56|Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)<<2|Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)>>52,
+		Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)<<12|Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)>>42,
+		Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)<<22|Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)>>32,
+		Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)<<32|Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)>>22,
+		Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)<<42|Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)>>12,
+		Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)<<52|Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)>>2,
+		Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)<<62|Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)<<8|Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)>>46,
+		Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)<<18|Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)>>36,
+		Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)<<28|Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)>>26,
+		Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)<<38|Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)>>16,
+		Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)<<48|Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)>>6,
+		Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)<<58|Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)<<4|Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)>>50,
+		Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)<<14|Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)>>40,
+		Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)<<24|Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)>>30,
+		Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)<<34|Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)>>20,
+		Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)<<44|Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)>>10,
+		Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)<<54|Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)<<0,
+		Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)<<10|Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)>>44,
+		Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)<<20|Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)>>34,
+		Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)<<30|Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)>>24,
+		Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)<<40|Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)>>14,
+		Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)<<50|Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)>>4,
+		Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)<<60|Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)<<6|Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)>>48,
+		Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)<<16|Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)>>38,
+		Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)<<26|Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)>>28,
+		Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)<<36|Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)>>18,
+		Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)<<46|Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)>>8,
+		Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)<<56|Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)<<2|Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)>>52,
+		Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)<<12|Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)>>42,
+		Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)<<22|Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)>>32,
+		Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)<<32|Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)>>22,
+		Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)<<42|Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)>>12,
+		Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)<<52|Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)>>2,
+		Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)<<62|Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)<<8|Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)>>46,
+		Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)<<18|Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)>>36,
+		Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)<<28|Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)>>26,
+		Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)<<38|Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)>>16,
+		Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)<<48|Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)>>6,
+		Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)<<58|Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)<<4|Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)>>50,
+		Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)<<14|Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)>>40,
+		Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)<<24|Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)>>30,
+		Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)<<34|Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)>>20,
+		Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)<<44|Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)>>10,
+		Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)<<54|Word(int64(src[62]-src[63])>>63^int64(src[62]-src[63])<<1)<<0,
+	)
+}
+
+func append55BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
+	return append(dst,
+		Word(int64(offset-src[0])>>63^int64(offset-src[0])<<1)<<9|Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)>>46,
+		Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)<<18|Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)>>37,
+		Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)<<27|Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)>>28,
+		Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)<<36|Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)>>19,
+		Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)<<45|Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)>>10,
+		Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)<<54|Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)>>1,
+		Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)<<63|Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)<<8|Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)>>47,
+		Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)<<17|Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)>>38,
+		Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)<<26|Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)>>29,
+		Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)<<35|Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)>>20,
+		Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)<<44|Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)>>11,
+		Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)<<53|Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)>>2,
+		Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)<<62|Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)<<7|Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)>>48,
+		Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)<<16|Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)>>39,
+		Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)<<25|Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)>>30,
+		Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)<<34|Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)>>21,
+		Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)<<43|Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)>>12,
+		Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)<<52|Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)>>3,
+		Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)<<61|Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)<<6|Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)>>49,
+		Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)<<15|Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)>>40,
+		Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)<<24|Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)>>31,
+		Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)<<33|Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)>>22,
+		Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)<<42|Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)>>13,
+		Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)<<51|Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)>>4,
+		Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)<<60|Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)<<5|Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)>>50,
+		Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)<<14|Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)>>41,
+		Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)<<23|Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)>>32,
+		Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)<<32|Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)>>23,
+		Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)<<41|Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)>>14,
+		Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)<<50|Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)>>5,
+		Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)<<59|Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)<<4|Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)>>51,
+		Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)<<13|Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)>>42,
+		Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)<<22|Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)>>33,
+		Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)<<31|Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)>>24,
+		Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)<<40|Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)>>15,
+		Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)<<49|Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)>>6,
+		Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)<<58|Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)<<3|Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)>>52,
+		Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)<<12|Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)>>43,
+		Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)<<21|Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)>>34,
+		Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)<<30|Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)>>25,
+		Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)<<39|Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)>>16,
+		Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)<<48|Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)>>7,
+		Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)<<57|Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)<<2|Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)>>53,
+		Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)<<11|Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)>>44,
+		Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)<<20|Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)>>35,
+		Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)<<29|Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)>>26,
+		Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)<<38|Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)>>17,
+		Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)<<47|Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)>>8,
+		Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)<<56|Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)<<1|Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)>>54,
+		Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)<<10|Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)>>45,
+		Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)<<19|Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)>>36,
+		Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)<<28|Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)>>27,
+		Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)<<37|Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)>>18,
+		Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)<<46|Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)>>9,
+		Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)<<55|Word(int64(src[62]-src[63])>>63^int64(src[62]-src[63])<<1)<<0,
+	)
+}
+
+func append56BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
+	return append(dst,
+		Word(int64(offset-src[0])>>63^int64(offset-src[0])<<1)<<8|Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)>>48,
+		Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)<<16|Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)>>40,
+		Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)<<24|Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)>>32,
+		Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)<<32|Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)>>24,
+		Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)<<40|Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)>>16,
+		Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)<<48|Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)>>8,
+		Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)<<56|Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)<<0,
+		Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)<<8|Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)>>48,
+		Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)<<16|Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)>>40,
+		Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)<<24|Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)>>32,
+		Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)<<32|Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)>>24,
+		Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)<<40|Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)>>16,
+		Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)<<48|Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)>>8,
+		Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)<<56|Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)<<0,
+		Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)<<8|Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)>>48,
+		Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)<<16|Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)>>40,
+		Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)<<24|Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)>>32,
+		Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)<<32|Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)>>24,
+		Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)<<40|Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)>>16,
+		Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)<<48|Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)>>8,
+		Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)<<56|Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)<<0,
+		Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)<<8|Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)>>48,
+		Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)<<16|Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)>>40,
+		Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)<<24|Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)>>32,
+		Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)<<32|Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)>>24,
+		Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)<<40|Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)>>16,
+		Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)<<48|Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)>>8,
+		Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)<<56|Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)<<0,
+		Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)<<8|Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)>>48,
+		Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)<<16|Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)>>40,
+		Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)<<24|Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)>>32,
+		Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)<<32|Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)>>24,
+		Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)<<40|Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)>>16,
+		Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)<<48|Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)>>8,
+		Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)<<56|Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)<<0,
+		Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)<<8|Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)>>48,
+		Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)<<16|Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)>>40,
+		Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)<<24|Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)>>32,
+		Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)<<32|Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)>>24,
+		Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)<<40|Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)>>16,
+		Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)<<48|Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)>>8,
+		Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)<<56|Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)<<0,
+		Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)<<8|Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)>>48,
+		Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)<<16|Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)>>40,
+		Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)<<24|Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)>>32,
+		Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)<<32|Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)>>24,
+		Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)<<40|Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)>>16,
+		Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)<<48|Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)>>8,
+		Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)<<56|Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)<<0,
+		Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)<<8|Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)>>48,
+		Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)<<16|Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)>>40,
+		Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)<<24|Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)>>32,
+		Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)<<32|Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)>>24,
+		Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)<<40|Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)>>16,
+		Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)<<48|Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)>>8,
+		Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)<<56|Word(int64(src[62]-src[63])>>63^int64(src[62]-src[63])<<1)<<0,
+	)
+}
+
+func append57BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
+	return append(dst,
+		Word(int64(offset-src[0])>>63^int64(offset-src[0])<<1)<<7|Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)>>50,
+		Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)<<14|Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)>>43,
+		Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)<<21|Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)>>36,
+		Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)<<28|Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)>>29,
+		Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)<<35|Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)>>22,
+		Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)<<42|Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)>>15,
+		Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)<<49|Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)>>8,
+		Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)<<56|Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)>>1,
+		Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)<<63|Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)<<6|Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)>>51,
+		Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)<<13|Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)>>44,
+		Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)<<20|Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)>>37,
+		Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)<<27|Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)>>30,
+		Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)<<34|Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)>>23,
+		Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)<<41|Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)>>16,
+		Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)<<48|Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)>>9,
+		Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)<<55|Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)>>2,
+		Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)<<62|Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)<<5|Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)>>52,
+		Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)<<12|Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)>>45,
+		Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)<<19|Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)>>38,
+		Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)<<26|Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)>>31,
+		Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)<<33|Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)>>24,
+		Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)<<40|Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)>>17,
+		Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)<<47|Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)>>10,
+		Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)<<54|Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)>>3,
+		Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)<<61|Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)<<4|Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)>>53,
+		Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)<<11|Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)>>46,
+		Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)<<18|Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)>>39,
+		Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)<<25|Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)>>32,
+		Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)<<32|Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)>>25,
+		Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)<<39|Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)>>18,
+		Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)<<46|Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)>>11,
+		Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)<<53|Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)>>4,
+		Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)<<60|Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)<<3|Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)>>54,
+		Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)<<10|Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)>>47,
+		Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)<<17|Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)>>40,
+		Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)<<24|Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)>>33,
+		Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)<<31|Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)>>26,
+		Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)<<38|Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)>>19,
+		Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)<<45|Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)>>12,
+		Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)<<52|Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)>>5,
+		Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)<<59|Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)<<2|Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)>>55,
+		Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)<<9|Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)>>48,
+		Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)<<16|Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)>>41,
+		Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)<<23|Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)>>34,
+		Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)<<30|Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)>>27,
+		Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)<<37|Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)>>20,
+		Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)<<44|Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)>>13,
+		Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)<<51|Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)>>6,
+		Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)<<58|Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)<<1|Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)>>56,
+		Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)<<8|Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)>>49,
+		Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)<<15|Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)>>42,
+		Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)<<22|Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)>>35,
+		Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)<<29|Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)>>28,
+		Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)<<36|Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)>>21,
+		Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)<<43|Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)>>14,
+		Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)<<50|Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)>>7,
+		Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)<<57|Word(int64(src[62]-src[63])>>63^int64(src[62]-src[63])<<1)<<0,
+	)
+}
+
+func append58BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
+	return append(dst,
+		Word(int64(offset-src[0])>>63^int64(offset-src[0])<<1)<<6|Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)>>52,
+		Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)<<12|Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)>>46,
+		Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)<<18|Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)>>40,
+		Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)<<24|Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)>>34,
+		Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)<<30|Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)>>28,
+		Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)<<36|Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)>>22,
+		Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)<<42|Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)>>16,
+		Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)<<48|Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)>>10,
+		Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)<<54|Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)>>4,
+		Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)<<60|Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)<<2|Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)>>56,
+		Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)<<8|Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)>>50,
+		Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)<<14|Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)>>44,
+		Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)<<20|Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)>>38,
+		Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)<<26|Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)>>32,
+		Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)<<32|Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)>>26,
+		Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)<<38|Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)>>20,
+		Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)<<44|Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)>>14,
+		Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)<<50|Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)>>8,
+		Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)<<56|Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)>>2,
+		Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)<<62|Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)<<4|Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)>>54,
+		Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)<<10|Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)>>48,
+		Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)<<16|Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)>>42,
+		Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)<<22|Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)>>36,
+		Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)<<28|Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)>>30,
+		Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)<<34|Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)>>24,
+		Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)<<40|Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)>>18,
+		Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)<<46|Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)>>12,
+		Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)<<52|Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)>>6,
+		Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)<<58|Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)<<0,
+		Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)<<6|Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)>>52,
+		Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)<<12|Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)>>46,
+		Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)<<18|Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)>>40,
+		Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)<<24|Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)>>34,
+		Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)<<30|Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)>>28,
+		Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)<<36|Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)>>22,
+		Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)<<42|Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)>>16,
+		Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)<<48|Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)>>10,
+		Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)<<54|Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)>>4,
+		Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)<<60|Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)<<2|Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)>>56,
+		Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)<<8|Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)>>50,
+		Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)<<14|Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)>>44,
+		Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)<<20|Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)>>38,
+		Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)<<26|Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)>>32,
+		Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)<<32|Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)>>26,
+		Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)<<38|Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)>>20,
+		Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)<<44|Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)>>14,
+		Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)<<50|Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)>>8,
+		Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)<<56|Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)>>2,
+		Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)<<62|Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)<<4|Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)>>54,
+		Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)<<10|Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)>>48,
+		Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)<<16|Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)>>42,
+		Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)<<22|Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)>>36,
+		Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)<<28|Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)>>30,
+		Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)<<34|Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)>>24,
+		Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)<<40|Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)>>18,
+		Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)<<46|Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)>>12,
+		Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)<<52|Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)>>6,
+		Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)<<58|Word(int64(src[62]-src[63])>>63^int64(src[62]-src[63])<<1)<<0,
+	)
+}
+
+func append59BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
+	return append(dst,
+		Word(int64(offset-src[0])>>63^int64(offset-src[0])<<1)<<5|Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)>>54,
+		Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)<<10|Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)>>49,
+		Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)<<15|Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)>>44,
+		Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)<<20|Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)>>39,
+		Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)<<25|Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)>>34,
+		Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)<<30|Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)>>29,
+		Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)<<35|Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)>>24,
+		Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)<<40|Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)>>19,
+		Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)<<45|Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)>>14,
+		Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)<<50|Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)>>9,
+		Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)<<55|Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)>>4,
+		Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)<<60|Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)<<1|Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)>>58,
+		Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)<<6|Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)>>53,
+		Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)<<11|Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)>>48,
+		Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)<<16|Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)>>43,
+		Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)<<21|Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)>>38,
+		Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)<<26|Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)>>33,
+		Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)<<31|Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)>>28,
+		Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)<<36|Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)>>23,
+		Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)<<41|Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)>>18,
+		Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)<<46|Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)>>13,
+		Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)<<51|Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)>>8,
+		Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)<<56|Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)>>3,
+		Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)<<61|Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)<<2|Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)>>57,
+		Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)<<7|Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)>>52,
+		Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)<<12|Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)>>47,
+		Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)<<17|Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)>>42,
+		Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)<<22|Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)>>37,
+		Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)<<27|Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)>>32,
+		Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)<<32|Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)>>27,
+		Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)<<37|Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)>>22,
+		Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)<<42|Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)>>17,
+		Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)<<47|Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)>>12,
+		Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)<<52|Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)>>7,
+		Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)<<57|Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)>>2,
+		Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)<<62|Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)<<3|Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)>>56,
+		Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)<<8|Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)>>51,
+		Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)<<13|Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)>>46,
+		Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)<<18|Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)>>41,
+		Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)<<23|Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)>>36,
+		Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)<<28|Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)>>31,
+		Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)<<33|Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)>>26,
+		Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)<<38|Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)>>21,
+		Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)<<43|Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)>>16,
+		Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)<<48|Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)>>11,
+		Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)<<53|Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)>>6,
+		Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)<<58|Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)>>1,
+		Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)<<63|Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)<<4|Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)>>55,
+		Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)<<9|Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)>>50,
+		Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)<<14|Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)>>45,
+		Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)<<19|Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)>>40,
+		Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)<<24|Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)>>35,
+		Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)<<29|Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)>>30,
+		Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)<<34|Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)>>25,
+		Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)<<39|Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)>>20,
+		Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)<<44|Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)>>15,
+		Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)<<49|Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)>>10,
+		Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)<<54|Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)>>5,
+		Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)<<59|Word(int64(src[62]-src[63])>>63^int64(src[62]-src[63])<<1)<<0,
+	)
+}
+
+func append60BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
+	return append(dst,
+		Word(int64(offset-src[0])>>63^int64(offset-src[0])<<1)<<4|Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)>>56,
+		Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)<<8|Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)>>52,
+		Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)<<12|Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)>>48,
+		Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)<<16|Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)>>44,
+		Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)<<20|Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)>>40,
+		Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)<<24|Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)>>36,
+		Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)<<28|Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)>>32,
+		Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)<<32|Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)>>28,
+		Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)<<36|Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)>>24,
+		Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)<<40|Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)>>20,
+		Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)<<44|Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)>>16,
+		Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)<<48|Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)>>12,
+		Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)<<52|Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)>>8,
+		Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)<<56|Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)>>4,
+		Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)<<60|Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)<<0,
+		Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)<<4|Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)>>56,
+		Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)<<8|Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)>>52,
+		Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)<<12|Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)>>48,
+		Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)<<16|Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)>>44,
+		Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)<<20|Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)>>40,
+		Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)<<24|Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)>>36,
+		Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)<<28|Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)>>32,
+		Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)<<32|Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)>>28,
+		Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)<<36|Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)>>24,
+		Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)<<40|Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)>>20,
+		Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)<<44|Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)>>16,
+		Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)<<48|Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)>>12,
+		Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)<<52|Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)>>8,
+		Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)<<56|Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)>>4,
+		Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)<<60|Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)<<0,
+		Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)<<4|Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)>>56,
+		Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)<<8|Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)>>52,
+		Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)<<12|Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)>>48,
+		Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)<<16|Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)>>44,
+		Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)<<20|Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)>>40,
+		Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)<<24|Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)>>36,
+		Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)<<28|Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)>>32,
+		Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)<<32|Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)>>28,
+		Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)<<36|Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)>>24,
+		Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)<<40|Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)>>20,
+		Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)<<44|Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)>>16,
+		Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)<<48|Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)>>12,
+		Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)<<52|Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)>>8,
+		Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)<<56|Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)>>4,
+		Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)<<60|Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)<<0,
+		Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)<<4|Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)>>56,
+		Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)<<8|Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)>>52,
+		Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)<<12|Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)>>48,
+		Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)<<16|Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)>>44,
+		Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)<<20|Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)>>40,
+		Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)<<24|Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)>>36,
+		Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)<<28|Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)>>32,
+		Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)<<32|Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)>>28,
+		Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)<<36|Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)>>24,
+		Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)<<40|Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)>>20,
+		Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)<<44|Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)>>16,
+		Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)<<48|Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)>>12,
+		Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)<<52|Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)>>8,
+		Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)<<56|Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)>>4,
+		Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)<<60|Word(int64(src[62]-src[63])>>63^int64(src[62]-src[63])<<1)<<0,
+	)
+}
+
+func append61BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
+	return append(dst,
+		Word(int64(offset-src[0])>>63^int64(offset-src[0])<<1)<<3|Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)>>58,
+		Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)<<6|Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)>>55,
+		Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)<<9|Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)>>52,
+		Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)<<12|Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)>>49,
+		Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)<<15|Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)>>46,
+		Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)<<18|Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)>>43,
+		Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)<<21|Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)>>40,
+		Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)<<24|Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)>>37,
+		Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)<<27|Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)>>34,
+		Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)<<30|Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)>>31,
+		Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)<<33|Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)>>28,
+		Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)<<36|Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)>>25,
+		Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)<<39|Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)>>22,
+		Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)<<42|Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)>>19,
+		Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)<<45|Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)>>16,
+		Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)<<48|Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)>>13,
+		Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)<<51|Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)>>10,
+		Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)<<54|Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)>>7,
+		Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)<<57|Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)>>4,
+		Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)<<60|Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)>>1,
+		Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)<<63|Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)<<2|Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)>>59,
+		Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)<<5|Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)>>56,
+		Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)<<8|Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)>>53,
+		Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)<<11|Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)>>50,
+		Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)<<14|Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)>>47,
+		Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)<<17|Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)>>44,
+		Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)<<20|Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)>>41,
+		Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)<<23|Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)>>38,
+		Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)<<26|Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)>>35,
+		Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)<<29|Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)>>32,
+		Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)<<32|Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)>>29,
+		Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)<<35|Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)>>26,
+		Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)<<38|Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)>>23,
+		Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)<<41|Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)>>20,
+		Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)<<44|Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)>>17,
+		Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)<<47|Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)>>14,
+		Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)<<50|Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)>>11,
+		Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)<<53|Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)>>8,
+		Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)<<56|Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)>>5,
+		Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)<<59|Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)>>2,
+		Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)<<62|Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)<<1|Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)>>60,
+		Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)<<4|Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)>>57,
+		Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)<<7|Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)>>54,
+		Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)<<10|Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)>>51,
+		Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)<<13|Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)>>48,
+		Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)<<16|Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)>>45,
+		Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)<<19|Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)>>42,
+		Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)<<22|Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)>>39,
+		Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)<<25|Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)>>36,
+		Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)<<28|Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)>>33,
+		Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)<<31|Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)>>30,
+		Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)<<34|Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)>>27,
+		Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)<<37|Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)>>24,
+		Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)<<40|Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)>>21,
+		Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)<<43|Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)>>18,
+		Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)<<46|Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)>>15,
+		Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)<<49|Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)>>12,
+		Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)<<52|Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)>>9,
+		Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)<<55|Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)>>6,
+		Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)<<58|Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)>>3,
+		Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)<<61|Word(int64(src[62]-src[63])>>63^int64(src[62]-src[63])<<1)<<0,
+	)
+}
+
+func append62BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
+	return append(dst,
+		Word(int64(offset-src[0])>>63^int64(offset-src[0])<<1)<<2|Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)>>60,
+		Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)<<4|Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)>>58,
+		Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)<<6|Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)>>56,
+		Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)<<8|Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)>>54,
+		Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)<<10|Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)>>52,
+		Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)<<12|Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)>>50,
+		Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)<<14|Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)>>48,
+		Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)<<16|Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)>>46,
+		Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)<<18|Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)>>44,
+		Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)<<20|Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)>>42,
+		Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)<<22|Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)>>40,
+		Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)<<24|Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)>>38,
+		Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)<<26|Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)>>36,
+		Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)<<28|Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)>>34,
+		Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)<<30|Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)>>32,
+		Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)<<32|Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)>>30,
+		Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)<<34|Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)>>28,
+		Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)<<36|Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)>>26,
+		Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)<<38|Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)>>24,
+		Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)<<40|Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)>>22,
+		Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)<<42|Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)>>20,
+		Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)<<44|Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)>>18,
+		Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)<<46|Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)>>16,
+		Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)<<48|Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)>>14,
+		Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)<<50|Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)>>12,
+		Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)<<52|Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)>>10,
+		Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)<<54|Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)>>8,
+		Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)<<56|Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)>>6,
+		Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)<<58|Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)>>4,
+		Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)<<60|Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)>>2,
+		Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)<<62|Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)<<0,
+		Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)<<2|Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)>>60,
+		Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)<<4|Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)>>58,
+		Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)<<6|Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)>>56,
+		Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)<<8|Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)>>54,
+		Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)<<10|Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)>>52,
+		Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)<<12|Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)>>50,
+		Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)<<14|Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)>>48,
+		Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)<<16|Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)>>46,
+		Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)<<18|Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)>>44,
+		Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)<<20|Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)>>42,
+		Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)<<22|Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)>>40,
+		Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)<<24|Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)>>38,
+		Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)<<26|Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)>>36,
+		Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)<<28|Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)>>34,
+		Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)<<30|Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)>>32,
+		Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)<<32|Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)>>30,
+		Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)<<34|Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)>>28,
+		Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)<<36|Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)>>26,
+		Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)<<38|Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)>>24,
+		Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)<<40|Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)>>22,
+		Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)<<42|Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)>>20,
+		Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)<<44|Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)>>18,
+		Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)<<46|Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)>>16,
+		Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)<<48|Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)>>14,
+		Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)<<50|Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)>>12,
+		Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)<<52|Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)>>10,
+		Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)<<54|Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)>>8,
+		Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)<<56|Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)>>6,
+		Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)<<58|Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)>>4,
+		Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)<<60|Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)>>2,
+		Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)<<62|Word(int64(src[62]-src[63])>>63^int64(src[62]-src[63])<<1)<<0,
+	)
+}
+
+func append63BitDeltaEncode[T Integer](dst []Word, src *[64]T, offset T) []Word {
+	return append(dst,
+		Word(int64(offset-src[0])>>63^int64(offset-src[0])<<1)<<1|Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)>>62,
+		Word(int64(src[0]-src[1])>>63^int64(src[0]-src[1])<<1)<<2|Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)>>61,
+		Word(int64(src[1]-src[2])>>63^int64(src[1]-src[2])<<1)<<3|Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)>>60,
+		Word(int64(src[2]-src[3])>>63^int64(src[2]-src[3])<<1)<<4|Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)>>59,
+		Word(int64(src[3]-src[4])>>63^int64(src[3]-src[4])<<1)<<5|Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)>>58,
+		Word(int64(src[4]-src[5])>>63^int64(src[4]-src[5])<<1)<<6|Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)>>57,
+		Word(int64(src[5]-src[6])>>63^int64(src[5]-src[6])<<1)<<7|Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)>>56,
+		Word(int64(src[6]-src[7])>>63^int64(src[6]-src[7])<<1)<<8|Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)>>55,
+		Word(int64(src[7]-src[8])>>63^int64(src[7]-src[8])<<1)<<9|Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)>>54,
+		Word(int64(src[8]-src[9])>>63^int64(src[8]-src[9])<<1)<<10|Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)>>53,
+		Word(int64(src[9]-src[10])>>63^int64(src[9]-src[10])<<1)<<11|Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)>>52,
+		Word(int64(src[10]-src[11])>>63^int64(src[10]-src[11])<<1)<<12|Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)>>51,
+		Word(int64(src[11]-src[12])>>63^int64(src[11]-src[12])<<1)<<13|Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)>>50,
+		Word(int64(src[12]-src[13])>>63^int64(src[12]-src[13])<<1)<<14|Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)>>49,
+		Word(int64(src[13]-src[14])>>63^int64(src[13]-src[14])<<1)<<15|Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)>>48,
+		Word(int64(src[14]-src[15])>>63^int64(src[14]-src[15])<<1)<<16|Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)>>47,
+		Word(int64(src[15]-src[16])>>63^int64(src[15]-src[16])<<1)<<17|Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)>>46,
+		Word(int64(src[16]-src[17])>>63^int64(src[16]-src[17])<<1)<<18|Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)>>45,
+		Word(int64(src[17]-src[18])>>63^int64(src[17]-src[18])<<1)<<19|Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)>>44,
+		Word(int64(src[18]-src[19])>>63^int64(src[18]-src[19])<<1)<<20|Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)>>43,
+		Word(int64(src[19]-src[20])>>63^int64(src[19]-src[20])<<1)<<21|Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)>>42,
+		Word(int64(src[20]-src[21])>>63^int64(src[20]-src[21])<<1)<<22|Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)>>41,
+		Word(int64(src[21]-src[22])>>63^int64(src[21]-src[22])<<1)<<23|Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)>>40,
+		Word(int64(src[22]-src[23])>>63^int64(src[22]-src[23])<<1)<<24|Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)>>39,
+		Word(int64(src[23]-src[24])>>63^int64(src[23]-src[24])<<1)<<25|Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)>>38,
+		Word(int64(src[24]-src[25])>>63^int64(src[24]-src[25])<<1)<<26|Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)>>37,
+		Word(int64(src[25]-src[26])>>63^int64(src[25]-src[26])<<1)<<27|Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)>>36,
+		Word(int64(src[26]-src[27])>>63^int64(src[26]-src[27])<<1)<<28|Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)>>35,
+		Word(int64(src[27]-src[28])>>63^int64(src[27]-src[28])<<1)<<29|Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)>>34,
+		Word(int64(src[28]-src[29])>>63^int64(src[28]-src[29])<<1)<<30|Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)>>33,
+		Word(int64(src[29]-src[30])>>63^int64(src[29]-src[30])<<1)<<31|Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)>>32,
+		Word(int64(src[30]-src[31])>>63^int64(src[30]-src[31])<<1)<<32|Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)>>31,
+		Word(int64(src[31]-src[32])>>63^int64(src[31]-src[32])<<1)<<33|Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)>>30,
+		Word(int64(src[32]-src[33])>>63^int64(src[32]-src[33])<<1)<<34|Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)>>29,
+		Word(int64(src[33]-src[34])>>63^int64(src[33]-src[34])<<1)<<35|Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)>>28,
+		Word(int64(src[34]-src[35])>>63^int64(src[34]-src[35])<<1)<<36|Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)>>27,
+		Word(int64(src[35]-src[36])>>63^int64(src[35]-src[36])<<1)<<37|Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)>>26,
+		Word(int64(src[36]-src[37])>>63^int64(src[36]-src[37])<<1)<<38|Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)>>25,
+		Word(int64(src[37]-src[38])>>63^int64(src[37]-src[38])<<1)<<39|Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)>>24,
+		Word(int64(src[38]-src[39])>>63^int64(src[38]-src[39])<<1)<<40|Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)>>23,
+		Word(int64(src[39]-src[40])>>63^int64(src[39]-src[40])<<1)<<41|Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)>>22,
+		Word(int64(src[40]-src[41])>>63^int64(src[40]-src[41])<<1)<<42|Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)>>21,
+		Word(int64(src[41]-src[42])>>63^int64(src[41]-src[42])<<1)<<43|Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)>>20,
+		Word(int64(src[42]-src[43])>>63^int64(src[42]-src[43])<<1)<<44|Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)>>19,
+		Word(int64(src[43]-src[44])>>63^int64(src[43]-src[44])<<1)<<45|Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)>>18,
+		Word(int64(src[44]-src[45])>>63^int64(src[44]-src[45])<<1)<<46|Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)>>17,
+		Word(int64(src[45]-src[46])>>63^int64(src[45]-src[46])<<1)<<47|Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)>>16,
+		Word(int64(src[46]-src[47])>>63^int64(src[46]-src[47])<<1)<<48|Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)>>15,
+		Word(int64(src[47]-src[48])>>63^int64(src[47]-src[48])<<1)<<49|Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)>>14,
+		Word(int64(src[48]-src[49])>>63^int64(src[48]-src[49])<<1)<<50|Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)>>13,
+		Word(int64(src[49]-src[50])>>63^int64(src[49]-src[50])<<1)<<51|Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)>>12,
+		Word(int64(src[50]-src[51])>>63^int64(src[50]-src[51])<<1)<<52|Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)>>11,
+		Word(int64(src[51]-src[52])>>63^int64(src[51]-src[52])<<1)<<53|Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)>>10,
+		Word(int64(src[52]-src[53])>>63^int64(src[52]-src[53])<<1)<<54|Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)>>9,
+		Word(int64(src[53]-src[54])>>63^int64(src[53]-src[54])<<1)<<55|Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)>>8,
+		Word(int64(src[54]-src[55])>>63^int64(src[54]-src[55])<<1)<<56|Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)>>7,
+		Word(int64(src[55]-src[56])>>63^int64(src[55]-src[56])<<1)<<57|Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)>>6,
+		Word(int64(src[56]-src[57])>>63^int64(src[56]-src[57])<<1)<<58|Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)>>5,
+		Word(int64(src[57]-src[58])>>63^int64(src[57]-src[58])<<1)<<59|Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)>>4,
+		Word(int64(src[58]-src[59])>>63^int64(src[58]-src[59])<<1)<<60|Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)>>3,
+		Word(int64(src[59]-src[60])>>63^int64(src[59]-src[60])<<1)<<61|Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)>>2,
+		Word(int64(src[60]-src[61])>>63^int64(src[60]-src[61])<<1)<<62|Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)>>1,
+		Word(int64(src[61]-src[62])>>63^int64(src[61]-src[62])<<1)<<63|Word(int64(src[62]-src[63])>>63^int64(src[62]-src[63])<<1)<<0,
 	)
 }
 
@@ -7029,6 +8331,2799 @@ func append42BitDeltaDecode[T Integer](dst []T, src *[42]Word, offset T) []T {
 	offset -= T(int64((src[40]<<22&0x3ffffc00000)|src[41]>>42)>>1 ^ -(int64((src[40]<<22&0x3ffffc00000)|src[41]>>42) & 1))
 	out62 := offset
 	offset -= T(int64(src[41]>>0&0x3ffffffffff)>>1 ^ -(int64(src[41]>>0&0x3ffffffffff) & 1))
+	out63 := offset
+
+	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
+}
+
+func append43BitDeltaDecode[T Integer](dst []T, src *[43]Word, offset T) []T {
+	offset -= T(int64(src[0]>>21&0x7ffffffffff)>>1 ^ -(int64(src[0]>>21&0x7ffffffffff) & 1))
+	out0 := offset
+	offset -= T(int64((src[0]<<22&0x7ffffc00000)|src[1]>>42)>>1 ^ -(int64((src[0]<<22&0x7ffffc00000)|src[1]>>42) & 1))
+	out1 := offset
+	offset -= T(int64((src[1]<<1&0x7fffffffffe)|src[2]>>63)>>1 ^ -(int64((src[1]<<1&0x7fffffffffe)|src[2]>>63) & 1))
+	out2 := offset
+	offset -= T(int64(src[2]>>20&0x7ffffffffff)>>1 ^ -(int64(src[2]>>20&0x7ffffffffff) & 1))
+	out3 := offset
+	offset -= T(int64((src[2]<<23&0x7ffff800000)|src[3]>>41)>>1 ^ -(int64((src[2]<<23&0x7ffff800000)|src[3]>>41) & 1))
+	out4 := offset
+	offset -= T(int64((src[3]<<2&0x7fffffffffc)|src[4]>>62)>>1 ^ -(int64((src[3]<<2&0x7fffffffffc)|src[4]>>62) & 1))
+	out5 := offset
+	offset -= T(int64(src[4]>>19&0x7ffffffffff)>>1 ^ -(int64(src[4]>>19&0x7ffffffffff) & 1))
+	out6 := offset
+	offset -= T(int64((src[4]<<24&0x7ffff000000)|src[5]>>40)>>1 ^ -(int64((src[4]<<24&0x7ffff000000)|src[5]>>40) & 1))
+	out7 := offset
+	offset -= T(int64((src[5]<<3&0x7fffffffff8)|src[6]>>61)>>1 ^ -(int64((src[5]<<3&0x7fffffffff8)|src[6]>>61) & 1))
+	out8 := offset
+	offset -= T(int64(src[6]>>18&0x7ffffffffff)>>1 ^ -(int64(src[6]>>18&0x7ffffffffff) & 1))
+	out9 := offset
+	offset -= T(int64((src[6]<<25&0x7fffe000000)|src[7]>>39)>>1 ^ -(int64((src[6]<<25&0x7fffe000000)|src[7]>>39) & 1))
+	out10 := offset
+	offset -= T(int64((src[7]<<4&0x7fffffffff0)|src[8]>>60)>>1 ^ -(int64((src[7]<<4&0x7fffffffff0)|src[8]>>60) & 1))
+	out11 := offset
+	offset -= T(int64(src[8]>>17&0x7ffffffffff)>>1 ^ -(int64(src[8]>>17&0x7ffffffffff) & 1))
+	out12 := offset
+	offset -= T(int64((src[8]<<26&0x7fffc000000)|src[9]>>38)>>1 ^ -(int64((src[8]<<26&0x7fffc000000)|src[9]>>38) & 1))
+	out13 := offset
+	offset -= T(int64((src[9]<<5&0x7ffffffffe0)|src[10]>>59)>>1 ^ -(int64((src[9]<<5&0x7ffffffffe0)|src[10]>>59) & 1))
+	out14 := offset
+	offset -= T(int64(src[10]>>16&0x7ffffffffff)>>1 ^ -(int64(src[10]>>16&0x7ffffffffff) & 1))
+	out15 := offset
+	offset -= T(int64((src[10]<<27&0x7fff8000000)|src[11]>>37)>>1 ^ -(int64((src[10]<<27&0x7fff8000000)|src[11]>>37) & 1))
+	out16 := offset
+	offset -= T(int64((src[11]<<6&0x7ffffffffc0)|src[12]>>58)>>1 ^ -(int64((src[11]<<6&0x7ffffffffc0)|src[12]>>58) & 1))
+	out17 := offset
+	offset -= T(int64(src[12]>>15&0x7ffffffffff)>>1 ^ -(int64(src[12]>>15&0x7ffffffffff) & 1))
+	out18 := offset
+	offset -= T(int64((src[12]<<28&0x7fff0000000)|src[13]>>36)>>1 ^ -(int64((src[12]<<28&0x7fff0000000)|src[13]>>36) & 1))
+	out19 := offset
+	offset -= T(int64((src[13]<<7&0x7ffffffff80)|src[14]>>57)>>1 ^ -(int64((src[13]<<7&0x7ffffffff80)|src[14]>>57) & 1))
+	out20 := offset
+	offset -= T(int64(src[14]>>14&0x7ffffffffff)>>1 ^ -(int64(src[14]>>14&0x7ffffffffff) & 1))
+	out21 := offset
+	offset -= T(int64((src[14]<<29&0x7ffe0000000)|src[15]>>35)>>1 ^ -(int64((src[14]<<29&0x7ffe0000000)|src[15]>>35) & 1))
+	out22 := offset
+	offset -= T(int64((src[15]<<8&0x7ffffffff00)|src[16]>>56)>>1 ^ -(int64((src[15]<<8&0x7ffffffff00)|src[16]>>56) & 1))
+	out23 := offset
+	offset -= T(int64(src[16]>>13&0x7ffffffffff)>>1 ^ -(int64(src[16]>>13&0x7ffffffffff) & 1))
+	out24 := offset
+	offset -= T(int64((src[16]<<30&0x7ffc0000000)|src[17]>>34)>>1 ^ -(int64((src[16]<<30&0x7ffc0000000)|src[17]>>34) & 1))
+	out25 := offset
+	offset -= T(int64((src[17]<<9&0x7fffffffe00)|src[18]>>55)>>1 ^ -(int64((src[17]<<9&0x7fffffffe00)|src[18]>>55) & 1))
+	out26 := offset
+	offset -= T(int64(src[18]>>12&0x7ffffffffff)>>1 ^ -(int64(src[18]>>12&0x7ffffffffff) & 1))
+	out27 := offset
+	offset -= T(int64((src[18]<<31&0x7ff80000000)|src[19]>>33)>>1 ^ -(int64((src[18]<<31&0x7ff80000000)|src[19]>>33) & 1))
+	out28 := offset
+	offset -= T(int64((src[19]<<10&0x7fffffffc00)|src[20]>>54)>>1 ^ -(int64((src[19]<<10&0x7fffffffc00)|src[20]>>54) & 1))
+	out29 := offset
+	offset -= T(int64(src[20]>>11&0x7ffffffffff)>>1 ^ -(int64(src[20]>>11&0x7ffffffffff) & 1))
+	out30 := offset
+	offset -= T(int64((src[20]<<32&0x7ff00000000)|src[21]>>32)>>1 ^ -(int64((src[20]<<32&0x7ff00000000)|src[21]>>32) & 1))
+	out31 := offset
+	offset -= T(int64((src[21]<<11&0x7fffffff800)|src[22]>>53)>>1 ^ -(int64((src[21]<<11&0x7fffffff800)|src[22]>>53) & 1))
+	out32 := offset
+	offset -= T(int64(src[22]>>10&0x7ffffffffff)>>1 ^ -(int64(src[22]>>10&0x7ffffffffff) & 1))
+	out33 := offset
+	offset -= T(int64((src[22]<<33&0x7fe00000000)|src[23]>>31)>>1 ^ -(int64((src[22]<<33&0x7fe00000000)|src[23]>>31) & 1))
+	out34 := offset
+	offset -= T(int64((src[23]<<12&0x7fffffff000)|src[24]>>52)>>1 ^ -(int64((src[23]<<12&0x7fffffff000)|src[24]>>52) & 1))
+	out35 := offset
+	offset -= T(int64(src[24]>>9&0x7ffffffffff)>>1 ^ -(int64(src[24]>>9&0x7ffffffffff) & 1))
+	out36 := offset
+	offset -= T(int64((src[24]<<34&0x7fc00000000)|src[25]>>30)>>1 ^ -(int64((src[24]<<34&0x7fc00000000)|src[25]>>30) & 1))
+	out37 := offset
+	offset -= T(int64((src[25]<<13&0x7ffffffe000)|src[26]>>51)>>1 ^ -(int64((src[25]<<13&0x7ffffffe000)|src[26]>>51) & 1))
+	out38 := offset
+	offset -= T(int64(src[26]>>8&0x7ffffffffff)>>1 ^ -(int64(src[26]>>8&0x7ffffffffff) & 1))
+	out39 := offset
+	offset -= T(int64((src[26]<<35&0x7f800000000)|src[27]>>29)>>1 ^ -(int64((src[26]<<35&0x7f800000000)|src[27]>>29) & 1))
+	out40 := offset
+	offset -= T(int64((src[27]<<14&0x7ffffffc000)|src[28]>>50)>>1 ^ -(int64((src[27]<<14&0x7ffffffc000)|src[28]>>50) & 1))
+	out41 := offset
+	offset -= T(int64(src[28]>>7&0x7ffffffffff)>>1 ^ -(int64(src[28]>>7&0x7ffffffffff) & 1))
+	out42 := offset
+	offset -= T(int64((src[28]<<36&0x7f000000000)|src[29]>>28)>>1 ^ -(int64((src[28]<<36&0x7f000000000)|src[29]>>28) & 1))
+	out43 := offset
+	offset -= T(int64((src[29]<<15&0x7ffffff8000)|src[30]>>49)>>1 ^ -(int64((src[29]<<15&0x7ffffff8000)|src[30]>>49) & 1))
+	out44 := offset
+	offset -= T(int64(src[30]>>6&0x7ffffffffff)>>1 ^ -(int64(src[30]>>6&0x7ffffffffff) & 1))
+	out45 := offset
+	offset -= T(int64((src[30]<<37&0x7e000000000)|src[31]>>27)>>1 ^ -(int64((src[30]<<37&0x7e000000000)|src[31]>>27) & 1))
+	out46 := offset
+	offset -= T(int64((src[31]<<16&0x7ffffff0000)|src[32]>>48)>>1 ^ -(int64((src[31]<<16&0x7ffffff0000)|src[32]>>48) & 1))
+	out47 := offset
+	offset -= T(int64(src[32]>>5&0x7ffffffffff)>>1 ^ -(int64(src[32]>>5&0x7ffffffffff) & 1))
+	out48 := offset
+	offset -= T(int64((src[32]<<38&0x7c000000000)|src[33]>>26)>>1 ^ -(int64((src[32]<<38&0x7c000000000)|src[33]>>26) & 1))
+	out49 := offset
+	offset -= T(int64((src[33]<<17&0x7fffffe0000)|src[34]>>47)>>1 ^ -(int64((src[33]<<17&0x7fffffe0000)|src[34]>>47) & 1))
+	out50 := offset
+	offset -= T(int64(src[34]>>4&0x7ffffffffff)>>1 ^ -(int64(src[34]>>4&0x7ffffffffff) & 1))
+	out51 := offset
+	offset -= T(int64((src[34]<<39&0x78000000000)|src[35]>>25)>>1 ^ -(int64((src[34]<<39&0x78000000000)|src[35]>>25) & 1))
+	out52 := offset
+	offset -= T(int64((src[35]<<18&0x7fffffc0000)|src[36]>>46)>>1 ^ -(int64((src[35]<<18&0x7fffffc0000)|src[36]>>46) & 1))
+	out53 := offset
+	offset -= T(int64(src[36]>>3&0x7ffffffffff)>>1 ^ -(int64(src[36]>>3&0x7ffffffffff) & 1))
+	out54 := offset
+	offset -= T(int64((src[36]<<40&0x70000000000)|src[37]>>24)>>1 ^ -(int64((src[36]<<40&0x70000000000)|src[37]>>24) & 1))
+	out55 := offset
+	offset -= T(int64((src[37]<<19&0x7fffff80000)|src[38]>>45)>>1 ^ -(int64((src[37]<<19&0x7fffff80000)|src[38]>>45) & 1))
+	out56 := offset
+	offset -= T(int64(src[38]>>2&0x7ffffffffff)>>1 ^ -(int64(src[38]>>2&0x7ffffffffff) & 1))
+	out57 := offset
+	offset -= T(int64((src[38]<<41&0x60000000000)|src[39]>>23)>>1 ^ -(int64((src[38]<<41&0x60000000000)|src[39]>>23) & 1))
+	out58 := offset
+	offset -= T(int64((src[39]<<20&0x7fffff00000)|src[40]>>44)>>1 ^ -(int64((src[39]<<20&0x7fffff00000)|src[40]>>44) & 1))
+	out59 := offset
+	offset -= T(int64(src[40]>>1&0x7ffffffffff)>>1 ^ -(int64(src[40]>>1&0x7ffffffffff) & 1))
+	out60 := offset
+	offset -= T(int64((src[40]<<42&0x40000000000)|src[41]>>22)>>1 ^ -(int64((src[40]<<42&0x40000000000)|src[41]>>22) & 1))
+	out61 := offset
+	offset -= T(int64((src[41]<<21&0x7ffffe00000)|src[42]>>43)>>1 ^ -(int64((src[41]<<21&0x7ffffe00000)|src[42]>>43) & 1))
+	out62 := offset
+	offset -= T(int64(src[42]>>0&0x7ffffffffff)>>1 ^ -(int64(src[42]>>0&0x7ffffffffff) & 1))
+	out63 := offset
+
+	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
+}
+
+func append44BitDeltaDecode[T Integer](dst []T, src *[44]Word, offset T) []T {
+	offset -= T(int64(src[0]>>20&0xfffffffffff)>>1 ^ -(int64(src[0]>>20&0xfffffffffff) & 1))
+	out0 := offset
+	offset -= T(int64((src[0]<<24&0xfffff000000)|src[1]>>40)>>1 ^ -(int64((src[0]<<24&0xfffff000000)|src[1]>>40) & 1))
+	out1 := offset
+	offset -= T(int64((src[1]<<4&0xffffffffff0)|src[2]>>60)>>1 ^ -(int64((src[1]<<4&0xffffffffff0)|src[2]>>60) & 1))
+	out2 := offset
+	offset -= T(int64(src[2]>>16&0xfffffffffff)>>1 ^ -(int64(src[2]>>16&0xfffffffffff) & 1))
+	out3 := offset
+	offset -= T(int64((src[2]<<28&0xffff0000000)|src[3]>>36)>>1 ^ -(int64((src[2]<<28&0xffff0000000)|src[3]>>36) & 1))
+	out4 := offset
+	offset -= T(int64((src[3]<<8&0xfffffffff00)|src[4]>>56)>>1 ^ -(int64((src[3]<<8&0xfffffffff00)|src[4]>>56) & 1))
+	out5 := offset
+	offset -= T(int64(src[4]>>12&0xfffffffffff)>>1 ^ -(int64(src[4]>>12&0xfffffffffff) & 1))
+	out6 := offset
+	offset -= T(int64((src[4]<<32&0xfff00000000)|src[5]>>32)>>1 ^ -(int64((src[4]<<32&0xfff00000000)|src[5]>>32) & 1))
+	out7 := offset
+	offset -= T(int64((src[5]<<12&0xffffffff000)|src[6]>>52)>>1 ^ -(int64((src[5]<<12&0xffffffff000)|src[6]>>52) & 1))
+	out8 := offset
+	offset -= T(int64(src[6]>>8&0xfffffffffff)>>1 ^ -(int64(src[6]>>8&0xfffffffffff) & 1))
+	out9 := offset
+	offset -= T(int64((src[6]<<36&0xff000000000)|src[7]>>28)>>1 ^ -(int64((src[6]<<36&0xff000000000)|src[7]>>28) & 1))
+	out10 := offset
+	offset -= T(int64((src[7]<<16&0xfffffff0000)|src[8]>>48)>>1 ^ -(int64((src[7]<<16&0xfffffff0000)|src[8]>>48) & 1))
+	out11 := offset
+	offset -= T(int64(src[8]>>4&0xfffffffffff)>>1 ^ -(int64(src[8]>>4&0xfffffffffff) & 1))
+	out12 := offset
+	offset -= T(int64((src[8]<<40&0xf0000000000)|src[9]>>24)>>1 ^ -(int64((src[8]<<40&0xf0000000000)|src[9]>>24) & 1))
+	out13 := offset
+	offset -= T(int64((src[9]<<20&0xffffff00000)|src[10]>>44)>>1 ^ -(int64((src[9]<<20&0xffffff00000)|src[10]>>44) & 1))
+	out14 := offset
+	offset -= T(int64(src[10]>>0&0xfffffffffff)>>1 ^ -(int64(src[10]>>0&0xfffffffffff) & 1))
+	out15 := offset
+	offset -= T(int64(src[11]>>20&0xfffffffffff)>>1 ^ -(int64(src[11]>>20&0xfffffffffff) & 1))
+	out16 := offset
+	offset -= T(int64((src[11]<<24&0xfffff000000)|src[12]>>40)>>1 ^ -(int64((src[11]<<24&0xfffff000000)|src[12]>>40) & 1))
+	out17 := offset
+	offset -= T(int64((src[12]<<4&0xffffffffff0)|src[13]>>60)>>1 ^ -(int64((src[12]<<4&0xffffffffff0)|src[13]>>60) & 1))
+	out18 := offset
+	offset -= T(int64(src[13]>>16&0xfffffffffff)>>1 ^ -(int64(src[13]>>16&0xfffffffffff) & 1))
+	out19 := offset
+	offset -= T(int64((src[13]<<28&0xffff0000000)|src[14]>>36)>>1 ^ -(int64((src[13]<<28&0xffff0000000)|src[14]>>36) & 1))
+	out20 := offset
+	offset -= T(int64((src[14]<<8&0xfffffffff00)|src[15]>>56)>>1 ^ -(int64((src[14]<<8&0xfffffffff00)|src[15]>>56) & 1))
+	out21 := offset
+	offset -= T(int64(src[15]>>12&0xfffffffffff)>>1 ^ -(int64(src[15]>>12&0xfffffffffff) & 1))
+	out22 := offset
+	offset -= T(int64((src[15]<<32&0xfff00000000)|src[16]>>32)>>1 ^ -(int64((src[15]<<32&0xfff00000000)|src[16]>>32) & 1))
+	out23 := offset
+	offset -= T(int64((src[16]<<12&0xffffffff000)|src[17]>>52)>>1 ^ -(int64((src[16]<<12&0xffffffff000)|src[17]>>52) & 1))
+	out24 := offset
+	offset -= T(int64(src[17]>>8&0xfffffffffff)>>1 ^ -(int64(src[17]>>8&0xfffffffffff) & 1))
+	out25 := offset
+	offset -= T(int64((src[17]<<36&0xff000000000)|src[18]>>28)>>1 ^ -(int64((src[17]<<36&0xff000000000)|src[18]>>28) & 1))
+	out26 := offset
+	offset -= T(int64((src[18]<<16&0xfffffff0000)|src[19]>>48)>>1 ^ -(int64((src[18]<<16&0xfffffff0000)|src[19]>>48) & 1))
+	out27 := offset
+	offset -= T(int64(src[19]>>4&0xfffffffffff)>>1 ^ -(int64(src[19]>>4&0xfffffffffff) & 1))
+	out28 := offset
+	offset -= T(int64((src[19]<<40&0xf0000000000)|src[20]>>24)>>1 ^ -(int64((src[19]<<40&0xf0000000000)|src[20]>>24) & 1))
+	out29 := offset
+	offset -= T(int64((src[20]<<20&0xffffff00000)|src[21]>>44)>>1 ^ -(int64((src[20]<<20&0xffffff00000)|src[21]>>44) & 1))
+	out30 := offset
+	offset -= T(int64(src[21]>>0&0xfffffffffff)>>1 ^ -(int64(src[21]>>0&0xfffffffffff) & 1))
+	out31 := offset
+	offset -= T(int64(src[22]>>20&0xfffffffffff)>>1 ^ -(int64(src[22]>>20&0xfffffffffff) & 1))
+	out32 := offset
+	offset -= T(int64((src[22]<<24&0xfffff000000)|src[23]>>40)>>1 ^ -(int64((src[22]<<24&0xfffff000000)|src[23]>>40) & 1))
+	out33 := offset
+	offset -= T(int64((src[23]<<4&0xffffffffff0)|src[24]>>60)>>1 ^ -(int64((src[23]<<4&0xffffffffff0)|src[24]>>60) & 1))
+	out34 := offset
+	offset -= T(int64(src[24]>>16&0xfffffffffff)>>1 ^ -(int64(src[24]>>16&0xfffffffffff) & 1))
+	out35 := offset
+	offset -= T(int64((src[24]<<28&0xffff0000000)|src[25]>>36)>>1 ^ -(int64((src[24]<<28&0xffff0000000)|src[25]>>36) & 1))
+	out36 := offset
+	offset -= T(int64((src[25]<<8&0xfffffffff00)|src[26]>>56)>>1 ^ -(int64((src[25]<<8&0xfffffffff00)|src[26]>>56) & 1))
+	out37 := offset
+	offset -= T(int64(src[26]>>12&0xfffffffffff)>>1 ^ -(int64(src[26]>>12&0xfffffffffff) & 1))
+	out38 := offset
+	offset -= T(int64((src[26]<<32&0xfff00000000)|src[27]>>32)>>1 ^ -(int64((src[26]<<32&0xfff00000000)|src[27]>>32) & 1))
+	out39 := offset
+	offset -= T(int64((src[27]<<12&0xffffffff000)|src[28]>>52)>>1 ^ -(int64((src[27]<<12&0xffffffff000)|src[28]>>52) & 1))
+	out40 := offset
+	offset -= T(int64(src[28]>>8&0xfffffffffff)>>1 ^ -(int64(src[28]>>8&0xfffffffffff) & 1))
+	out41 := offset
+	offset -= T(int64((src[28]<<36&0xff000000000)|src[29]>>28)>>1 ^ -(int64((src[28]<<36&0xff000000000)|src[29]>>28) & 1))
+	out42 := offset
+	offset -= T(int64((src[29]<<16&0xfffffff0000)|src[30]>>48)>>1 ^ -(int64((src[29]<<16&0xfffffff0000)|src[30]>>48) & 1))
+	out43 := offset
+	offset -= T(int64(src[30]>>4&0xfffffffffff)>>1 ^ -(int64(src[30]>>4&0xfffffffffff) & 1))
+	out44 := offset
+	offset -= T(int64((src[30]<<40&0xf0000000000)|src[31]>>24)>>1 ^ -(int64((src[30]<<40&0xf0000000000)|src[31]>>24) & 1))
+	out45 := offset
+	offset -= T(int64((src[31]<<20&0xffffff00000)|src[32]>>44)>>1 ^ -(int64((src[31]<<20&0xffffff00000)|src[32]>>44) & 1))
+	out46 := offset
+	offset -= T(int64(src[32]>>0&0xfffffffffff)>>1 ^ -(int64(src[32]>>0&0xfffffffffff) & 1))
+	out47 := offset
+	offset -= T(int64(src[33]>>20&0xfffffffffff)>>1 ^ -(int64(src[33]>>20&0xfffffffffff) & 1))
+	out48 := offset
+	offset -= T(int64((src[33]<<24&0xfffff000000)|src[34]>>40)>>1 ^ -(int64((src[33]<<24&0xfffff000000)|src[34]>>40) & 1))
+	out49 := offset
+	offset -= T(int64((src[34]<<4&0xffffffffff0)|src[35]>>60)>>1 ^ -(int64((src[34]<<4&0xffffffffff0)|src[35]>>60) & 1))
+	out50 := offset
+	offset -= T(int64(src[35]>>16&0xfffffffffff)>>1 ^ -(int64(src[35]>>16&0xfffffffffff) & 1))
+	out51 := offset
+	offset -= T(int64((src[35]<<28&0xffff0000000)|src[36]>>36)>>1 ^ -(int64((src[35]<<28&0xffff0000000)|src[36]>>36) & 1))
+	out52 := offset
+	offset -= T(int64((src[36]<<8&0xfffffffff00)|src[37]>>56)>>1 ^ -(int64((src[36]<<8&0xfffffffff00)|src[37]>>56) & 1))
+	out53 := offset
+	offset -= T(int64(src[37]>>12&0xfffffffffff)>>1 ^ -(int64(src[37]>>12&0xfffffffffff) & 1))
+	out54 := offset
+	offset -= T(int64((src[37]<<32&0xfff00000000)|src[38]>>32)>>1 ^ -(int64((src[37]<<32&0xfff00000000)|src[38]>>32) & 1))
+	out55 := offset
+	offset -= T(int64((src[38]<<12&0xffffffff000)|src[39]>>52)>>1 ^ -(int64((src[38]<<12&0xffffffff000)|src[39]>>52) & 1))
+	out56 := offset
+	offset -= T(int64(src[39]>>8&0xfffffffffff)>>1 ^ -(int64(src[39]>>8&0xfffffffffff) & 1))
+	out57 := offset
+	offset -= T(int64((src[39]<<36&0xff000000000)|src[40]>>28)>>1 ^ -(int64((src[39]<<36&0xff000000000)|src[40]>>28) & 1))
+	out58 := offset
+	offset -= T(int64((src[40]<<16&0xfffffff0000)|src[41]>>48)>>1 ^ -(int64((src[40]<<16&0xfffffff0000)|src[41]>>48) & 1))
+	out59 := offset
+	offset -= T(int64(src[41]>>4&0xfffffffffff)>>1 ^ -(int64(src[41]>>4&0xfffffffffff) & 1))
+	out60 := offset
+	offset -= T(int64((src[41]<<40&0xf0000000000)|src[42]>>24)>>1 ^ -(int64((src[41]<<40&0xf0000000000)|src[42]>>24) & 1))
+	out61 := offset
+	offset -= T(int64((src[42]<<20&0xffffff00000)|src[43]>>44)>>1 ^ -(int64((src[42]<<20&0xffffff00000)|src[43]>>44) & 1))
+	out62 := offset
+	offset -= T(int64(src[43]>>0&0xfffffffffff)>>1 ^ -(int64(src[43]>>0&0xfffffffffff) & 1))
+	out63 := offset
+
+	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
+}
+
+func append45BitDeltaDecode[T Integer](dst []T, src *[45]Word, offset T) []T {
+	offset -= T(int64(src[0]>>19&0x1fffffffffff)>>1 ^ -(int64(src[0]>>19&0x1fffffffffff) & 1))
+	out0 := offset
+	offset -= T(int64((src[0]<<26&0x1ffffc000000)|src[1]>>38)>>1 ^ -(int64((src[0]<<26&0x1ffffc000000)|src[1]>>38) & 1))
+	out1 := offset
+	offset -= T(int64((src[1]<<7&0x1fffffffff80)|src[2]>>57)>>1 ^ -(int64((src[1]<<7&0x1fffffffff80)|src[2]>>57) & 1))
+	out2 := offset
+	offset -= T(int64(src[2]>>12&0x1fffffffffff)>>1 ^ -(int64(src[2]>>12&0x1fffffffffff) & 1))
+	out3 := offset
+	offset -= T(int64((src[2]<<33&0x1ffe00000000)|src[3]>>31)>>1 ^ -(int64((src[2]<<33&0x1ffe00000000)|src[3]>>31) & 1))
+	out4 := offset
+	offset -= T(int64((src[3]<<14&0x1fffffffc000)|src[4]>>50)>>1 ^ -(int64((src[3]<<14&0x1fffffffc000)|src[4]>>50) & 1))
+	out5 := offset
+	offset -= T(int64(src[4]>>5&0x1fffffffffff)>>1 ^ -(int64(src[4]>>5&0x1fffffffffff) & 1))
+	out6 := offset
+	offset -= T(int64((src[4]<<40&0x1f0000000000)|src[5]>>24)>>1 ^ -(int64((src[4]<<40&0x1f0000000000)|src[5]>>24) & 1))
+	out7 := offset
+	offset -= T(int64((src[5]<<21&0x1fffffe00000)|src[6]>>43)>>1 ^ -(int64((src[5]<<21&0x1fffffe00000)|src[6]>>43) & 1))
+	out8 := offset
+	offset -= T(int64((src[6]<<2&0x1ffffffffffc)|src[7]>>62)>>1 ^ -(int64((src[6]<<2&0x1ffffffffffc)|src[7]>>62) & 1))
+	out9 := offset
+	offset -= T(int64(src[7]>>17&0x1fffffffffff)>>1 ^ -(int64(src[7]>>17&0x1fffffffffff) & 1))
+	out10 := offset
+	offset -= T(int64((src[7]<<28&0x1ffff0000000)|src[8]>>36)>>1 ^ -(int64((src[7]<<28&0x1ffff0000000)|src[8]>>36) & 1))
+	out11 := offset
+	offset -= T(int64((src[8]<<9&0x1ffffffffe00)|src[9]>>55)>>1 ^ -(int64((src[8]<<9&0x1ffffffffe00)|src[9]>>55) & 1))
+	out12 := offset
+	offset -= T(int64(src[9]>>10&0x1fffffffffff)>>1 ^ -(int64(src[9]>>10&0x1fffffffffff) & 1))
+	out13 := offset
+	offset -= T(int64((src[9]<<35&0x1ff800000000)|src[10]>>29)>>1 ^ -(int64((src[9]<<35&0x1ff800000000)|src[10]>>29) & 1))
+	out14 := offset
+	offset -= T(int64((src[10]<<16&0x1fffffff0000)|src[11]>>48)>>1 ^ -(int64((src[10]<<16&0x1fffffff0000)|src[11]>>48) & 1))
+	out15 := offset
+	offset -= T(int64(src[11]>>3&0x1fffffffffff)>>1 ^ -(int64(src[11]>>3&0x1fffffffffff) & 1))
+	out16 := offset
+	offset -= T(int64((src[11]<<42&0x1c0000000000)|src[12]>>22)>>1 ^ -(int64((src[11]<<42&0x1c0000000000)|src[12]>>22) & 1))
+	out17 := offset
+	offset -= T(int64((src[12]<<23&0x1fffff800000)|src[13]>>41)>>1 ^ -(int64((src[12]<<23&0x1fffff800000)|src[13]>>41) & 1))
+	out18 := offset
+	offset -= T(int64((src[13]<<4&0x1ffffffffff0)|src[14]>>60)>>1 ^ -(int64((src[13]<<4&0x1ffffffffff0)|src[14]>>60) & 1))
+	out19 := offset
+	offset -= T(int64(src[14]>>15&0x1fffffffffff)>>1 ^ -(int64(src[14]>>15&0x1fffffffffff) & 1))
+	out20 := offset
+	offset -= T(int64((src[14]<<30&0x1fffc0000000)|src[15]>>34)>>1 ^ -(int64((src[14]<<30&0x1fffc0000000)|src[15]>>34) & 1))
+	out21 := offset
+	offset -= T(int64((src[15]<<11&0x1ffffffff800)|src[16]>>53)>>1 ^ -(int64((src[15]<<11&0x1ffffffff800)|src[16]>>53) & 1))
+	out22 := offset
+	offset -= T(int64(src[16]>>8&0x1fffffffffff)>>1 ^ -(int64(src[16]>>8&0x1fffffffffff) & 1))
+	out23 := offset
+	offset -= T(int64((src[16]<<37&0x1fe000000000)|src[17]>>27)>>1 ^ -(int64((src[16]<<37&0x1fe000000000)|src[17]>>27) & 1))
+	out24 := offset
+	offset -= T(int64((src[17]<<18&0x1ffffffc0000)|src[18]>>46)>>1 ^ -(int64((src[17]<<18&0x1ffffffc0000)|src[18]>>46) & 1))
+	out25 := offset
+	offset -= T(int64(src[18]>>1&0x1fffffffffff)>>1 ^ -(int64(src[18]>>1&0x1fffffffffff) & 1))
+	out26 := offset
+	offset -= T(int64((src[18]<<44&0x100000000000)|src[19]>>20)>>1 ^ -(int64((src[18]<<44&0x100000000000)|src[19]>>20) & 1))
+	out27 := offset
+	offset -= T(int64((src[19]<<25&0x1ffffe000000)|src[20]>>39)>>1 ^ -(int64((src[19]<<25&0x1ffffe000000)|src[20]>>39) & 1))
+	out28 := offset
+	offset -= T(int64((src[20]<<6&0x1fffffffffc0)|src[21]>>58)>>1 ^ -(int64((src[20]<<6&0x1fffffffffc0)|src[21]>>58) & 1))
+	out29 := offset
+	offset -= T(int64(src[21]>>13&0x1fffffffffff)>>1 ^ -(int64(src[21]>>13&0x1fffffffffff) & 1))
+	out30 := offset
+	offset -= T(int64((src[21]<<32&0x1fff00000000)|src[22]>>32)>>1 ^ -(int64((src[21]<<32&0x1fff00000000)|src[22]>>32) & 1))
+	out31 := offset
+	offset -= T(int64((src[22]<<13&0x1fffffffe000)|src[23]>>51)>>1 ^ -(int64((src[22]<<13&0x1fffffffe000)|src[23]>>51) & 1))
+	out32 := offset
+	offset -= T(int64(src[23]>>6&0x1fffffffffff)>>1 ^ -(int64(src[23]>>6&0x1fffffffffff) & 1))
+	out33 := offset
+	offset -= T(int64((src[23]<<39&0x1f8000000000)|src[24]>>25)>>1 ^ -(int64((src[23]<<39&0x1f8000000000)|src[24]>>25) & 1))
+	out34 := offset
+	offset -= T(int64((src[24]<<20&0x1ffffff00000)|src[25]>>44)>>1 ^ -(int64((src[24]<<20&0x1ffffff00000)|src[25]>>44) & 1))
+	out35 := offset
+	offset -= T(int64((src[25]<<1&0x1ffffffffffe)|src[26]>>63)>>1 ^ -(int64((src[25]<<1&0x1ffffffffffe)|src[26]>>63) & 1))
+	out36 := offset
+	offset -= T(int64(src[26]>>18&0x1fffffffffff)>>1 ^ -(int64(src[26]>>18&0x1fffffffffff) & 1))
+	out37 := offset
+	offset -= T(int64((src[26]<<27&0x1ffff8000000)|src[27]>>37)>>1 ^ -(int64((src[26]<<27&0x1ffff8000000)|src[27]>>37) & 1))
+	out38 := offset
+	offset -= T(int64((src[27]<<8&0x1fffffffff00)|src[28]>>56)>>1 ^ -(int64((src[27]<<8&0x1fffffffff00)|src[28]>>56) & 1))
+	out39 := offset
+	offset -= T(int64(src[28]>>11&0x1fffffffffff)>>1 ^ -(int64(src[28]>>11&0x1fffffffffff) & 1))
+	out40 := offset
+	offset -= T(int64((src[28]<<34&0x1ffc00000000)|src[29]>>30)>>1 ^ -(int64((src[28]<<34&0x1ffc00000000)|src[29]>>30) & 1))
+	out41 := offset
+	offset -= T(int64((src[29]<<15&0x1fffffff8000)|src[30]>>49)>>1 ^ -(int64((src[29]<<15&0x1fffffff8000)|src[30]>>49) & 1))
+	out42 := offset
+	offset -= T(int64(src[30]>>4&0x1fffffffffff)>>1 ^ -(int64(src[30]>>4&0x1fffffffffff) & 1))
+	out43 := offset
+	offset -= T(int64((src[30]<<41&0x1e0000000000)|src[31]>>23)>>1 ^ -(int64((src[30]<<41&0x1e0000000000)|src[31]>>23) & 1))
+	out44 := offset
+	offset -= T(int64((src[31]<<22&0x1fffffc00000)|src[32]>>42)>>1 ^ -(int64((src[31]<<22&0x1fffffc00000)|src[32]>>42) & 1))
+	out45 := offset
+	offset -= T(int64((src[32]<<3&0x1ffffffffff8)|src[33]>>61)>>1 ^ -(int64((src[32]<<3&0x1ffffffffff8)|src[33]>>61) & 1))
+	out46 := offset
+	offset -= T(int64(src[33]>>16&0x1fffffffffff)>>1 ^ -(int64(src[33]>>16&0x1fffffffffff) & 1))
+	out47 := offset
+	offset -= T(int64((src[33]<<29&0x1fffe0000000)|src[34]>>35)>>1 ^ -(int64((src[33]<<29&0x1fffe0000000)|src[34]>>35) & 1))
+	out48 := offset
+	offset -= T(int64((src[34]<<10&0x1ffffffffc00)|src[35]>>54)>>1 ^ -(int64((src[34]<<10&0x1ffffffffc00)|src[35]>>54) & 1))
+	out49 := offset
+	offset -= T(int64(src[35]>>9&0x1fffffffffff)>>1 ^ -(int64(src[35]>>9&0x1fffffffffff) & 1))
+	out50 := offset
+	offset -= T(int64((src[35]<<36&0x1ff000000000)|src[36]>>28)>>1 ^ -(int64((src[35]<<36&0x1ff000000000)|src[36]>>28) & 1))
+	out51 := offset
+	offset -= T(int64((src[36]<<17&0x1ffffffe0000)|src[37]>>47)>>1 ^ -(int64((src[36]<<17&0x1ffffffe0000)|src[37]>>47) & 1))
+	out52 := offset
+	offset -= T(int64(src[37]>>2&0x1fffffffffff)>>1 ^ -(int64(src[37]>>2&0x1fffffffffff) & 1))
+	out53 := offset
+	offset -= T(int64((src[37]<<43&0x180000000000)|src[38]>>21)>>1 ^ -(int64((src[37]<<43&0x180000000000)|src[38]>>21) & 1))
+	out54 := offset
+	offset -= T(int64((src[38]<<24&0x1fffff000000)|src[39]>>40)>>1 ^ -(int64((src[38]<<24&0x1fffff000000)|src[39]>>40) & 1))
+	out55 := offset
+	offset -= T(int64((src[39]<<5&0x1fffffffffe0)|src[40]>>59)>>1 ^ -(int64((src[39]<<5&0x1fffffffffe0)|src[40]>>59) & 1))
+	out56 := offset
+	offset -= T(int64(src[40]>>14&0x1fffffffffff)>>1 ^ -(int64(src[40]>>14&0x1fffffffffff) & 1))
+	out57 := offset
+	offset -= T(int64((src[40]<<31&0x1fff80000000)|src[41]>>33)>>1 ^ -(int64((src[40]<<31&0x1fff80000000)|src[41]>>33) & 1))
+	out58 := offset
+	offset -= T(int64((src[41]<<12&0x1ffffffff000)|src[42]>>52)>>1 ^ -(int64((src[41]<<12&0x1ffffffff000)|src[42]>>52) & 1))
+	out59 := offset
+	offset -= T(int64(src[42]>>7&0x1fffffffffff)>>1 ^ -(int64(src[42]>>7&0x1fffffffffff) & 1))
+	out60 := offset
+	offset -= T(int64((src[42]<<38&0x1fc000000000)|src[43]>>26)>>1 ^ -(int64((src[42]<<38&0x1fc000000000)|src[43]>>26) & 1))
+	out61 := offset
+	offset -= T(int64((src[43]<<19&0x1ffffff80000)|src[44]>>45)>>1 ^ -(int64((src[43]<<19&0x1ffffff80000)|src[44]>>45) & 1))
+	out62 := offset
+	offset -= T(int64(src[44]>>0&0x1fffffffffff)>>1 ^ -(int64(src[44]>>0&0x1fffffffffff) & 1))
+	out63 := offset
+
+	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
+}
+
+func append46BitDeltaDecode[T Integer](dst []T, src *[46]Word, offset T) []T {
+	offset -= T(int64(src[0]>>18&0x3fffffffffff)>>1 ^ -(int64(src[0]>>18&0x3fffffffffff) & 1))
+	out0 := offset
+	offset -= T(int64((src[0]<<28&0x3ffff0000000)|src[1]>>36)>>1 ^ -(int64((src[0]<<28&0x3ffff0000000)|src[1]>>36) & 1))
+	out1 := offset
+	offset -= T(int64((src[1]<<10&0x3ffffffffc00)|src[2]>>54)>>1 ^ -(int64((src[1]<<10&0x3ffffffffc00)|src[2]>>54) & 1))
+	out2 := offset
+	offset -= T(int64(src[2]>>8&0x3fffffffffff)>>1 ^ -(int64(src[2]>>8&0x3fffffffffff) & 1))
+	out3 := offset
+	offset -= T(int64((src[2]<<38&0x3fc000000000)|src[3]>>26)>>1 ^ -(int64((src[2]<<38&0x3fc000000000)|src[3]>>26) & 1))
+	out4 := offset
+	offset -= T(int64((src[3]<<20&0x3ffffff00000)|src[4]>>44)>>1 ^ -(int64((src[3]<<20&0x3ffffff00000)|src[4]>>44) & 1))
+	out5 := offset
+	offset -= T(int64((src[4]<<2&0x3ffffffffffc)|src[5]>>62)>>1 ^ -(int64((src[4]<<2&0x3ffffffffffc)|src[5]>>62) & 1))
+	out6 := offset
+	offset -= T(int64(src[5]>>16&0x3fffffffffff)>>1 ^ -(int64(src[5]>>16&0x3fffffffffff) & 1))
+	out7 := offset
+	offset -= T(int64((src[5]<<30&0x3fffc0000000)|src[6]>>34)>>1 ^ -(int64((src[5]<<30&0x3fffc0000000)|src[6]>>34) & 1))
+	out8 := offset
+	offset -= T(int64((src[6]<<12&0x3ffffffff000)|src[7]>>52)>>1 ^ -(int64((src[6]<<12&0x3ffffffff000)|src[7]>>52) & 1))
+	out9 := offset
+	offset -= T(int64(src[7]>>6&0x3fffffffffff)>>1 ^ -(int64(src[7]>>6&0x3fffffffffff) & 1))
+	out10 := offset
+	offset -= T(int64((src[7]<<40&0x3f0000000000)|src[8]>>24)>>1 ^ -(int64((src[7]<<40&0x3f0000000000)|src[8]>>24) & 1))
+	out11 := offset
+	offset -= T(int64((src[8]<<22&0x3fffffc00000)|src[9]>>42)>>1 ^ -(int64((src[8]<<22&0x3fffffc00000)|src[9]>>42) & 1))
+	out12 := offset
+	offset -= T(int64((src[9]<<4&0x3ffffffffff0)|src[10]>>60)>>1 ^ -(int64((src[9]<<4&0x3ffffffffff0)|src[10]>>60) & 1))
+	out13 := offset
+	offset -= T(int64(src[10]>>14&0x3fffffffffff)>>1 ^ -(int64(src[10]>>14&0x3fffffffffff) & 1))
+	out14 := offset
+	offset -= T(int64((src[10]<<32&0x3fff00000000)|src[11]>>32)>>1 ^ -(int64((src[10]<<32&0x3fff00000000)|src[11]>>32) & 1))
+	out15 := offset
+	offset -= T(int64((src[11]<<14&0x3fffffffc000)|src[12]>>50)>>1 ^ -(int64((src[11]<<14&0x3fffffffc000)|src[12]>>50) & 1))
+	out16 := offset
+	offset -= T(int64(src[12]>>4&0x3fffffffffff)>>1 ^ -(int64(src[12]>>4&0x3fffffffffff) & 1))
+	out17 := offset
+	offset -= T(int64((src[12]<<42&0x3c0000000000)|src[13]>>22)>>1 ^ -(int64((src[12]<<42&0x3c0000000000)|src[13]>>22) & 1))
+	out18 := offset
+	offset -= T(int64((src[13]<<24&0x3fffff000000)|src[14]>>40)>>1 ^ -(int64((src[13]<<24&0x3fffff000000)|src[14]>>40) & 1))
+	out19 := offset
+	offset -= T(int64((src[14]<<6&0x3fffffffffc0)|src[15]>>58)>>1 ^ -(int64((src[14]<<6&0x3fffffffffc0)|src[15]>>58) & 1))
+	out20 := offset
+	offset -= T(int64(src[15]>>12&0x3fffffffffff)>>1 ^ -(int64(src[15]>>12&0x3fffffffffff) & 1))
+	out21 := offset
+	offset -= T(int64((src[15]<<34&0x3ffc00000000)|src[16]>>30)>>1 ^ -(int64((src[15]<<34&0x3ffc00000000)|src[16]>>30) & 1))
+	out22 := offset
+	offset -= T(int64((src[16]<<16&0x3fffffff0000)|src[17]>>48)>>1 ^ -(int64((src[16]<<16&0x3fffffff0000)|src[17]>>48) & 1))
+	out23 := offset
+	offset -= T(int64(src[17]>>2&0x3fffffffffff)>>1 ^ -(int64(src[17]>>2&0x3fffffffffff) & 1))
+	out24 := offset
+	offset -= T(int64((src[17]<<44&0x300000000000)|src[18]>>20)>>1 ^ -(int64((src[17]<<44&0x300000000000)|src[18]>>20) & 1))
+	out25 := offset
+	offset -= T(int64((src[18]<<26&0x3ffffc000000)|src[19]>>38)>>1 ^ -(int64((src[18]<<26&0x3ffffc000000)|src[19]>>38) & 1))
+	out26 := offset
+	offset -= T(int64((src[19]<<8&0x3fffffffff00)|src[20]>>56)>>1 ^ -(int64((src[19]<<8&0x3fffffffff00)|src[20]>>56) & 1))
+	out27 := offset
+	offset -= T(int64(src[20]>>10&0x3fffffffffff)>>1 ^ -(int64(src[20]>>10&0x3fffffffffff) & 1))
+	out28 := offset
+	offset -= T(int64((src[20]<<36&0x3ff000000000)|src[21]>>28)>>1 ^ -(int64((src[20]<<36&0x3ff000000000)|src[21]>>28) & 1))
+	out29 := offset
+	offset -= T(int64((src[21]<<18&0x3ffffffc0000)|src[22]>>46)>>1 ^ -(int64((src[21]<<18&0x3ffffffc0000)|src[22]>>46) & 1))
+	out30 := offset
+	offset -= T(int64(src[22]>>0&0x3fffffffffff)>>1 ^ -(int64(src[22]>>0&0x3fffffffffff) & 1))
+	out31 := offset
+	offset -= T(int64(src[23]>>18&0x3fffffffffff)>>1 ^ -(int64(src[23]>>18&0x3fffffffffff) & 1))
+	out32 := offset
+	offset -= T(int64((src[23]<<28&0x3ffff0000000)|src[24]>>36)>>1 ^ -(int64((src[23]<<28&0x3ffff0000000)|src[24]>>36) & 1))
+	out33 := offset
+	offset -= T(int64((src[24]<<10&0x3ffffffffc00)|src[25]>>54)>>1 ^ -(int64((src[24]<<10&0x3ffffffffc00)|src[25]>>54) & 1))
+	out34 := offset
+	offset -= T(int64(src[25]>>8&0x3fffffffffff)>>1 ^ -(int64(src[25]>>8&0x3fffffffffff) & 1))
+	out35 := offset
+	offset -= T(int64((src[25]<<38&0x3fc000000000)|src[26]>>26)>>1 ^ -(int64((src[25]<<38&0x3fc000000000)|src[26]>>26) & 1))
+	out36 := offset
+	offset -= T(int64((src[26]<<20&0x3ffffff00000)|src[27]>>44)>>1 ^ -(int64((src[26]<<20&0x3ffffff00000)|src[27]>>44) & 1))
+	out37 := offset
+	offset -= T(int64((src[27]<<2&0x3ffffffffffc)|src[28]>>62)>>1 ^ -(int64((src[27]<<2&0x3ffffffffffc)|src[28]>>62) & 1))
+	out38 := offset
+	offset -= T(int64(src[28]>>16&0x3fffffffffff)>>1 ^ -(int64(src[28]>>16&0x3fffffffffff) & 1))
+	out39 := offset
+	offset -= T(int64((src[28]<<30&0x3fffc0000000)|src[29]>>34)>>1 ^ -(int64((src[28]<<30&0x3fffc0000000)|src[29]>>34) & 1))
+	out40 := offset
+	offset -= T(int64((src[29]<<12&0x3ffffffff000)|src[30]>>52)>>1 ^ -(int64((src[29]<<12&0x3ffffffff000)|src[30]>>52) & 1))
+	out41 := offset
+	offset -= T(int64(src[30]>>6&0x3fffffffffff)>>1 ^ -(int64(src[30]>>6&0x3fffffffffff) & 1))
+	out42 := offset
+	offset -= T(int64((src[30]<<40&0x3f0000000000)|src[31]>>24)>>1 ^ -(int64((src[30]<<40&0x3f0000000000)|src[31]>>24) & 1))
+	out43 := offset
+	offset -= T(int64((src[31]<<22&0x3fffffc00000)|src[32]>>42)>>1 ^ -(int64((src[31]<<22&0x3fffffc00000)|src[32]>>42) & 1))
+	out44 := offset
+	offset -= T(int64((src[32]<<4&0x3ffffffffff0)|src[33]>>60)>>1 ^ -(int64((src[32]<<4&0x3ffffffffff0)|src[33]>>60) & 1))
+	out45 := offset
+	offset -= T(int64(src[33]>>14&0x3fffffffffff)>>1 ^ -(int64(src[33]>>14&0x3fffffffffff) & 1))
+	out46 := offset
+	offset -= T(int64((src[33]<<32&0x3fff00000000)|src[34]>>32)>>1 ^ -(int64((src[33]<<32&0x3fff00000000)|src[34]>>32) & 1))
+	out47 := offset
+	offset -= T(int64((src[34]<<14&0x3fffffffc000)|src[35]>>50)>>1 ^ -(int64((src[34]<<14&0x3fffffffc000)|src[35]>>50) & 1))
+	out48 := offset
+	offset -= T(int64(src[35]>>4&0x3fffffffffff)>>1 ^ -(int64(src[35]>>4&0x3fffffffffff) & 1))
+	out49 := offset
+	offset -= T(int64((src[35]<<42&0x3c0000000000)|src[36]>>22)>>1 ^ -(int64((src[35]<<42&0x3c0000000000)|src[36]>>22) & 1))
+	out50 := offset
+	offset -= T(int64((src[36]<<24&0x3fffff000000)|src[37]>>40)>>1 ^ -(int64((src[36]<<24&0x3fffff000000)|src[37]>>40) & 1))
+	out51 := offset
+	offset -= T(int64((src[37]<<6&0x3fffffffffc0)|src[38]>>58)>>1 ^ -(int64((src[37]<<6&0x3fffffffffc0)|src[38]>>58) & 1))
+	out52 := offset
+	offset -= T(int64(src[38]>>12&0x3fffffffffff)>>1 ^ -(int64(src[38]>>12&0x3fffffffffff) & 1))
+	out53 := offset
+	offset -= T(int64((src[38]<<34&0x3ffc00000000)|src[39]>>30)>>1 ^ -(int64((src[38]<<34&0x3ffc00000000)|src[39]>>30) & 1))
+	out54 := offset
+	offset -= T(int64((src[39]<<16&0x3fffffff0000)|src[40]>>48)>>1 ^ -(int64((src[39]<<16&0x3fffffff0000)|src[40]>>48) & 1))
+	out55 := offset
+	offset -= T(int64(src[40]>>2&0x3fffffffffff)>>1 ^ -(int64(src[40]>>2&0x3fffffffffff) & 1))
+	out56 := offset
+	offset -= T(int64((src[40]<<44&0x300000000000)|src[41]>>20)>>1 ^ -(int64((src[40]<<44&0x300000000000)|src[41]>>20) & 1))
+	out57 := offset
+	offset -= T(int64((src[41]<<26&0x3ffffc000000)|src[42]>>38)>>1 ^ -(int64((src[41]<<26&0x3ffffc000000)|src[42]>>38) & 1))
+	out58 := offset
+	offset -= T(int64((src[42]<<8&0x3fffffffff00)|src[43]>>56)>>1 ^ -(int64((src[42]<<8&0x3fffffffff00)|src[43]>>56) & 1))
+	out59 := offset
+	offset -= T(int64(src[43]>>10&0x3fffffffffff)>>1 ^ -(int64(src[43]>>10&0x3fffffffffff) & 1))
+	out60 := offset
+	offset -= T(int64((src[43]<<36&0x3ff000000000)|src[44]>>28)>>1 ^ -(int64((src[43]<<36&0x3ff000000000)|src[44]>>28) & 1))
+	out61 := offset
+	offset -= T(int64((src[44]<<18&0x3ffffffc0000)|src[45]>>46)>>1 ^ -(int64((src[44]<<18&0x3ffffffc0000)|src[45]>>46) & 1))
+	out62 := offset
+	offset -= T(int64(src[45]>>0&0x3fffffffffff)>>1 ^ -(int64(src[45]>>0&0x3fffffffffff) & 1))
+	out63 := offset
+
+	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
+}
+
+func append47BitDeltaDecode[T Integer](dst []T, src *[47]Word, offset T) []T {
+	offset -= T(int64(src[0]>>17&0x7fffffffffff)>>1 ^ -(int64(src[0]>>17&0x7fffffffffff) & 1))
+	out0 := offset
+	offset -= T(int64((src[0]<<30&0x7fffc0000000)|src[1]>>34)>>1 ^ -(int64((src[0]<<30&0x7fffc0000000)|src[1]>>34) & 1))
+	out1 := offset
+	offset -= T(int64((src[1]<<13&0x7fffffffe000)|src[2]>>51)>>1 ^ -(int64((src[1]<<13&0x7fffffffe000)|src[2]>>51) & 1))
+	out2 := offset
+	offset -= T(int64(src[2]>>4&0x7fffffffffff)>>1 ^ -(int64(src[2]>>4&0x7fffffffffff) & 1))
+	out3 := offset
+	offset -= T(int64((src[2]<<43&0x780000000000)|src[3]>>21)>>1 ^ -(int64((src[2]<<43&0x780000000000)|src[3]>>21) & 1))
+	out4 := offset
+	offset -= T(int64((src[3]<<26&0x7ffffc000000)|src[4]>>38)>>1 ^ -(int64((src[3]<<26&0x7ffffc000000)|src[4]>>38) & 1))
+	out5 := offset
+	offset -= T(int64((src[4]<<9&0x7ffffffffe00)|src[5]>>55)>>1 ^ -(int64((src[4]<<9&0x7ffffffffe00)|src[5]>>55) & 1))
+	out6 := offset
+	offset -= T(int64(src[5]>>8&0x7fffffffffff)>>1 ^ -(int64(src[5]>>8&0x7fffffffffff) & 1))
+	out7 := offset
+	offset -= T(int64((src[5]<<39&0x7f8000000000)|src[6]>>25)>>1 ^ -(int64((src[5]<<39&0x7f8000000000)|src[6]>>25) & 1))
+	out8 := offset
+	offset -= T(int64((src[6]<<22&0x7fffffc00000)|src[7]>>42)>>1 ^ -(int64((src[6]<<22&0x7fffffc00000)|src[7]>>42) & 1))
+	out9 := offset
+	offset -= T(int64((src[7]<<5&0x7fffffffffe0)|src[8]>>59)>>1 ^ -(int64((src[7]<<5&0x7fffffffffe0)|src[8]>>59) & 1))
+	out10 := offset
+	offset -= T(int64(src[8]>>12&0x7fffffffffff)>>1 ^ -(int64(src[8]>>12&0x7fffffffffff) & 1))
+	out11 := offset
+	offset -= T(int64((src[8]<<35&0x7ff800000000)|src[9]>>29)>>1 ^ -(int64((src[8]<<35&0x7ff800000000)|src[9]>>29) & 1))
+	out12 := offset
+	offset -= T(int64((src[9]<<18&0x7ffffffc0000)|src[10]>>46)>>1 ^ -(int64((src[9]<<18&0x7ffffffc0000)|src[10]>>46) & 1))
+	out13 := offset
+	offset -= T(int64((src[10]<<1&0x7ffffffffffe)|src[11]>>63)>>1 ^ -(int64((src[10]<<1&0x7ffffffffffe)|src[11]>>63) & 1))
+	out14 := offset
+	offset -= T(int64(src[11]>>16&0x7fffffffffff)>>1 ^ -(int64(src[11]>>16&0x7fffffffffff) & 1))
+	out15 := offset
+	offset -= T(int64((src[11]<<31&0x7fff80000000)|src[12]>>33)>>1 ^ -(int64((src[11]<<31&0x7fff80000000)|src[12]>>33) & 1))
+	out16 := offset
+	offset -= T(int64((src[12]<<14&0x7fffffffc000)|src[13]>>50)>>1 ^ -(int64((src[12]<<14&0x7fffffffc000)|src[13]>>50) & 1))
+	out17 := offset
+	offset -= T(int64(src[13]>>3&0x7fffffffffff)>>1 ^ -(int64(src[13]>>3&0x7fffffffffff) & 1))
+	out18 := offset
+	offset -= T(int64((src[13]<<44&0x700000000000)|src[14]>>20)>>1 ^ -(int64((src[13]<<44&0x700000000000)|src[14]>>20) & 1))
+	out19 := offset
+	offset -= T(int64((src[14]<<27&0x7ffff8000000)|src[15]>>37)>>1 ^ -(int64((src[14]<<27&0x7ffff8000000)|src[15]>>37) & 1))
+	out20 := offset
+	offset -= T(int64((src[15]<<10&0x7ffffffffc00)|src[16]>>54)>>1 ^ -(int64((src[15]<<10&0x7ffffffffc00)|src[16]>>54) & 1))
+	out21 := offset
+	offset -= T(int64(src[16]>>7&0x7fffffffffff)>>1 ^ -(int64(src[16]>>7&0x7fffffffffff) & 1))
+	out22 := offset
+	offset -= T(int64((src[16]<<40&0x7f0000000000)|src[17]>>24)>>1 ^ -(int64((src[16]<<40&0x7f0000000000)|src[17]>>24) & 1))
+	out23 := offset
+	offset -= T(int64((src[17]<<23&0x7fffff800000)|src[18]>>41)>>1 ^ -(int64((src[17]<<23&0x7fffff800000)|src[18]>>41) & 1))
+	out24 := offset
+	offset -= T(int64((src[18]<<6&0x7fffffffffc0)|src[19]>>58)>>1 ^ -(int64((src[18]<<6&0x7fffffffffc0)|src[19]>>58) & 1))
+	out25 := offset
+	offset -= T(int64(src[19]>>11&0x7fffffffffff)>>1 ^ -(int64(src[19]>>11&0x7fffffffffff) & 1))
+	out26 := offset
+	offset -= T(int64((src[19]<<36&0x7ff000000000)|src[20]>>28)>>1 ^ -(int64((src[19]<<36&0x7ff000000000)|src[20]>>28) & 1))
+	out27 := offset
+	offset -= T(int64((src[20]<<19&0x7ffffff80000)|src[21]>>45)>>1 ^ -(int64((src[20]<<19&0x7ffffff80000)|src[21]>>45) & 1))
+	out28 := offset
+	offset -= T(int64((src[21]<<2&0x7ffffffffffc)|src[22]>>62)>>1 ^ -(int64((src[21]<<2&0x7ffffffffffc)|src[22]>>62) & 1))
+	out29 := offset
+	offset -= T(int64(src[22]>>15&0x7fffffffffff)>>1 ^ -(int64(src[22]>>15&0x7fffffffffff) & 1))
+	out30 := offset
+	offset -= T(int64((src[22]<<32&0x7fff00000000)|src[23]>>32)>>1 ^ -(int64((src[22]<<32&0x7fff00000000)|src[23]>>32) & 1))
+	out31 := offset
+	offset -= T(int64((src[23]<<15&0x7fffffff8000)|src[24]>>49)>>1 ^ -(int64((src[23]<<15&0x7fffffff8000)|src[24]>>49) & 1))
+	out32 := offset
+	offset -= T(int64(src[24]>>2&0x7fffffffffff)>>1 ^ -(int64(src[24]>>2&0x7fffffffffff) & 1))
+	out33 := offset
+	offset -= T(int64((src[24]<<45&0x600000000000)|src[25]>>19)>>1 ^ -(int64((src[24]<<45&0x600000000000)|src[25]>>19) & 1))
+	out34 := offset
+	offset -= T(int64((src[25]<<28&0x7ffff0000000)|src[26]>>36)>>1 ^ -(int64((src[25]<<28&0x7ffff0000000)|src[26]>>36) & 1))
+	out35 := offset
+	offset -= T(int64((src[26]<<11&0x7ffffffff800)|src[27]>>53)>>1 ^ -(int64((src[26]<<11&0x7ffffffff800)|src[27]>>53) & 1))
+	out36 := offset
+	offset -= T(int64(src[27]>>6&0x7fffffffffff)>>1 ^ -(int64(src[27]>>6&0x7fffffffffff) & 1))
+	out37 := offset
+	offset -= T(int64((src[27]<<41&0x7e0000000000)|src[28]>>23)>>1 ^ -(int64((src[27]<<41&0x7e0000000000)|src[28]>>23) & 1))
+	out38 := offset
+	offset -= T(int64((src[28]<<24&0x7fffff000000)|src[29]>>40)>>1 ^ -(int64((src[28]<<24&0x7fffff000000)|src[29]>>40) & 1))
+	out39 := offset
+	offset -= T(int64((src[29]<<7&0x7fffffffff80)|src[30]>>57)>>1 ^ -(int64((src[29]<<7&0x7fffffffff80)|src[30]>>57) & 1))
+	out40 := offset
+	offset -= T(int64(src[30]>>10&0x7fffffffffff)>>1 ^ -(int64(src[30]>>10&0x7fffffffffff) & 1))
+	out41 := offset
+	offset -= T(int64((src[30]<<37&0x7fe000000000)|src[31]>>27)>>1 ^ -(int64((src[30]<<37&0x7fe000000000)|src[31]>>27) & 1))
+	out42 := offset
+	offset -= T(int64((src[31]<<20&0x7ffffff00000)|src[32]>>44)>>1 ^ -(int64((src[31]<<20&0x7ffffff00000)|src[32]>>44) & 1))
+	out43 := offset
+	offset -= T(int64((src[32]<<3&0x7ffffffffff8)|src[33]>>61)>>1 ^ -(int64((src[32]<<3&0x7ffffffffff8)|src[33]>>61) & 1))
+	out44 := offset
+	offset -= T(int64(src[33]>>14&0x7fffffffffff)>>1 ^ -(int64(src[33]>>14&0x7fffffffffff) & 1))
+	out45 := offset
+	offset -= T(int64((src[33]<<33&0x7ffe00000000)|src[34]>>31)>>1 ^ -(int64((src[33]<<33&0x7ffe00000000)|src[34]>>31) & 1))
+	out46 := offset
+	offset -= T(int64((src[34]<<16&0x7fffffff0000)|src[35]>>48)>>1 ^ -(int64((src[34]<<16&0x7fffffff0000)|src[35]>>48) & 1))
+	out47 := offset
+	offset -= T(int64(src[35]>>1&0x7fffffffffff)>>1 ^ -(int64(src[35]>>1&0x7fffffffffff) & 1))
+	out48 := offset
+	offset -= T(int64((src[35]<<46&0x400000000000)|src[36]>>18)>>1 ^ -(int64((src[35]<<46&0x400000000000)|src[36]>>18) & 1))
+	out49 := offset
+	offset -= T(int64((src[36]<<29&0x7fffe0000000)|src[37]>>35)>>1 ^ -(int64((src[36]<<29&0x7fffe0000000)|src[37]>>35) & 1))
+	out50 := offset
+	offset -= T(int64((src[37]<<12&0x7ffffffff000)|src[38]>>52)>>1 ^ -(int64((src[37]<<12&0x7ffffffff000)|src[38]>>52) & 1))
+	out51 := offset
+	offset -= T(int64(src[38]>>5&0x7fffffffffff)>>1 ^ -(int64(src[38]>>5&0x7fffffffffff) & 1))
+	out52 := offset
+	offset -= T(int64((src[38]<<42&0x7c0000000000)|src[39]>>22)>>1 ^ -(int64((src[38]<<42&0x7c0000000000)|src[39]>>22) & 1))
+	out53 := offset
+	offset -= T(int64((src[39]<<25&0x7ffffe000000)|src[40]>>39)>>1 ^ -(int64((src[39]<<25&0x7ffffe000000)|src[40]>>39) & 1))
+	out54 := offset
+	offset -= T(int64((src[40]<<8&0x7fffffffff00)|src[41]>>56)>>1 ^ -(int64((src[40]<<8&0x7fffffffff00)|src[41]>>56) & 1))
+	out55 := offset
+	offset -= T(int64(src[41]>>9&0x7fffffffffff)>>1 ^ -(int64(src[41]>>9&0x7fffffffffff) & 1))
+	out56 := offset
+	offset -= T(int64((src[41]<<38&0x7fc000000000)|src[42]>>26)>>1 ^ -(int64((src[41]<<38&0x7fc000000000)|src[42]>>26) & 1))
+	out57 := offset
+	offset -= T(int64((src[42]<<21&0x7fffffe00000)|src[43]>>43)>>1 ^ -(int64((src[42]<<21&0x7fffffe00000)|src[43]>>43) & 1))
+	out58 := offset
+	offset -= T(int64((src[43]<<4&0x7ffffffffff0)|src[44]>>60)>>1 ^ -(int64((src[43]<<4&0x7ffffffffff0)|src[44]>>60) & 1))
+	out59 := offset
+	offset -= T(int64(src[44]>>13&0x7fffffffffff)>>1 ^ -(int64(src[44]>>13&0x7fffffffffff) & 1))
+	out60 := offset
+	offset -= T(int64((src[44]<<34&0x7ffc00000000)|src[45]>>30)>>1 ^ -(int64((src[44]<<34&0x7ffc00000000)|src[45]>>30) & 1))
+	out61 := offset
+	offset -= T(int64((src[45]<<17&0x7ffffffe0000)|src[46]>>47)>>1 ^ -(int64((src[45]<<17&0x7ffffffe0000)|src[46]>>47) & 1))
+	out62 := offset
+	offset -= T(int64(src[46]>>0&0x7fffffffffff)>>1 ^ -(int64(src[46]>>0&0x7fffffffffff) & 1))
+	out63 := offset
+
+	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
+}
+
+func append48BitDeltaDecode[T Integer](dst []T, src *[48]Word, offset T) []T {
+	offset -= T(int64(src[0]>>16&0xffffffffffff)>>1 ^ -(int64(src[0]>>16&0xffffffffffff) & 1))
+	out0 := offset
+	offset -= T(int64((src[0]<<32&0xffff00000000)|src[1]>>32)>>1 ^ -(int64((src[0]<<32&0xffff00000000)|src[1]>>32) & 1))
+	out1 := offset
+	offset -= T(int64((src[1]<<16&0xffffffff0000)|src[2]>>48)>>1 ^ -(int64((src[1]<<16&0xffffffff0000)|src[2]>>48) & 1))
+	out2 := offset
+	offset -= T(int64(src[2]>>0&0xffffffffffff)>>1 ^ -(int64(src[2]>>0&0xffffffffffff) & 1))
+	out3 := offset
+	offset -= T(int64(src[3]>>16&0xffffffffffff)>>1 ^ -(int64(src[3]>>16&0xffffffffffff) & 1))
+	out4 := offset
+	offset -= T(int64((src[3]<<32&0xffff00000000)|src[4]>>32)>>1 ^ -(int64((src[3]<<32&0xffff00000000)|src[4]>>32) & 1))
+	out5 := offset
+	offset -= T(int64((src[4]<<16&0xffffffff0000)|src[5]>>48)>>1 ^ -(int64((src[4]<<16&0xffffffff0000)|src[5]>>48) & 1))
+	out6 := offset
+	offset -= T(int64(src[5]>>0&0xffffffffffff)>>1 ^ -(int64(src[5]>>0&0xffffffffffff) & 1))
+	out7 := offset
+	offset -= T(int64(src[6]>>16&0xffffffffffff)>>1 ^ -(int64(src[6]>>16&0xffffffffffff) & 1))
+	out8 := offset
+	offset -= T(int64((src[6]<<32&0xffff00000000)|src[7]>>32)>>1 ^ -(int64((src[6]<<32&0xffff00000000)|src[7]>>32) & 1))
+	out9 := offset
+	offset -= T(int64((src[7]<<16&0xffffffff0000)|src[8]>>48)>>1 ^ -(int64((src[7]<<16&0xffffffff0000)|src[8]>>48) & 1))
+	out10 := offset
+	offset -= T(int64(src[8]>>0&0xffffffffffff)>>1 ^ -(int64(src[8]>>0&0xffffffffffff) & 1))
+	out11 := offset
+	offset -= T(int64(src[9]>>16&0xffffffffffff)>>1 ^ -(int64(src[9]>>16&0xffffffffffff) & 1))
+	out12 := offset
+	offset -= T(int64((src[9]<<32&0xffff00000000)|src[10]>>32)>>1 ^ -(int64((src[9]<<32&0xffff00000000)|src[10]>>32) & 1))
+	out13 := offset
+	offset -= T(int64((src[10]<<16&0xffffffff0000)|src[11]>>48)>>1 ^ -(int64((src[10]<<16&0xffffffff0000)|src[11]>>48) & 1))
+	out14 := offset
+	offset -= T(int64(src[11]>>0&0xffffffffffff)>>1 ^ -(int64(src[11]>>0&0xffffffffffff) & 1))
+	out15 := offset
+	offset -= T(int64(src[12]>>16&0xffffffffffff)>>1 ^ -(int64(src[12]>>16&0xffffffffffff) & 1))
+	out16 := offset
+	offset -= T(int64((src[12]<<32&0xffff00000000)|src[13]>>32)>>1 ^ -(int64((src[12]<<32&0xffff00000000)|src[13]>>32) & 1))
+	out17 := offset
+	offset -= T(int64((src[13]<<16&0xffffffff0000)|src[14]>>48)>>1 ^ -(int64((src[13]<<16&0xffffffff0000)|src[14]>>48) & 1))
+	out18 := offset
+	offset -= T(int64(src[14]>>0&0xffffffffffff)>>1 ^ -(int64(src[14]>>0&0xffffffffffff) & 1))
+	out19 := offset
+	offset -= T(int64(src[15]>>16&0xffffffffffff)>>1 ^ -(int64(src[15]>>16&0xffffffffffff) & 1))
+	out20 := offset
+	offset -= T(int64((src[15]<<32&0xffff00000000)|src[16]>>32)>>1 ^ -(int64((src[15]<<32&0xffff00000000)|src[16]>>32) & 1))
+	out21 := offset
+	offset -= T(int64((src[16]<<16&0xffffffff0000)|src[17]>>48)>>1 ^ -(int64((src[16]<<16&0xffffffff0000)|src[17]>>48) & 1))
+	out22 := offset
+	offset -= T(int64(src[17]>>0&0xffffffffffff)>>1 ^ -(int64(src[17]>>0&0xffffffffffff) & 1))
+	out23 := offset
+	offset -= T(int64(src[18]>>16&0xffffffffffff)>>1 ^ -(int64(src[18]>>16&0xffffffffffff) & 1))
+	out24 := offset
+	offset -= T(int64((src[18]<<32&0xffff00000000)|src[19]>>32)>>1 ^ -(int64((src[18]<<32&0xffff00000000)|src[19]>>32) & 1))
+	out25 := offset
+	offset -= T(int64((src[19]<<16&0xffffffff0000)|src[20]>>48)>>1 ^ -(int64((src[19]<<16&0xffffffff0000)|src[20]>>48) & 1))
+	out26 := offset
+	offset -= T(int64(src[20]>>0&0xffffffffffff)>>1 ^ -(int64(src[20]>>0&0xffffffffffff) & 1))
+	out27 := offset
+	offset -= T(int64(src[21]>>16&0xffffffffffff)>>1 ^ -(int64(src[21]>>16&0xffffffffffff) & 1))
+	out28 := offset
+	offset -= T(int64((src[21]<<32&0xffff00000000)|src[22]>>32)>>1 ^ -(int64((src[21]<<32&0xffff00000000)|src[22]>>32) & 1))
+	out29 := offset
+	offset -= T(int64((src[22]<<16&0xffffffff0000)|src[23]>>48)>>1 ^ -(int64((src[22]<<16&0xffffffff0000)|src[23]>>48) & 1))
+	out30 := offset
+	offset -= T(int64(src[23]>>0&0xffffffffffff)>>1 ^ -(int64(src[23]>>0&0xffffffffffff) & 1))
+	out31 := offset
+	offset -= T(int64(src[24]>>16&0xffffffffffff)>>1 ^ -(int64(src[24]>>16&0xffffffffffff) & 1))
+	out32 := offset
+	offset -= T(int64((src[24]<<32&0xffff00000000)|src[25]>>32)>>1 ^ -(int64((src[24]<<32&0xffff00000000)|src[25]>>32) & 1))
+	out33 := offset
+	offset -= T(int64((src[25]<<16&0xffffffff0000)|src[26]>>48)>>1 ^ -(int64((src[25]<<16&0xffffffff0000)|src[26]>>48) & 1))
+	out34 := offset
+	offset -= T(int64(src[26]>>0&0xffffffffffff)>>1 ^ -(int64(src[26]>>0&0xffffffffffff) & 1))
+	out35 := offset
+	offset -= T(int64(src[27]>>16&0xffffffffffff)>>1 ^ -(int64(src[27]>>16&0xffffffffffff) & 1))
+	out36 := offset
+	offset -= T(int64((src[27]<<32&0xffff00000000)|src[28]>>32)>>1 ^ -(int64((src[27]<<32&0xffff00000000)|src[28]>>32) & 1))
+	out37 := offset
+	offset -= T(int64((src[28]<<16&0xffffffff0000)|src[29]>>48)>>1 ^ -(int64((src[28]<<16&0xffffffff0000)|src[29]>>48) & 1))
+	out38 := offset
+	offset -= T(int64(src[29]>>0&0xffffffffffff)>>1 ^ -(int64(src[29]>>0&0xffffffffffff) & 1))
+	out39 := offset
+	offset -= T(int64(src[30]>>16&0xffffffffffff)>>1 ^ -(int64(src[30]>>16&0xffffffffffff) & 1))
+	out40 := offset
+	offset -= T(int64((src[30]<<32&0xffff00000000)|src[31]>>32)>>1 ^ -(int64((src[30]<<32&0xffff00000000)|src[31]>>32) & 1))
+	out41 := offset
+	offset -= T(int64((src[31]<<16&0xffffffff0000)|src[32]>>48)>>1 ^ -(int64((src[31]<<16&0xffffffff0000)|src[32]>>48) & 1))
+	out42 := offset
+	offset -= T(int64(src[32]>>0&0xffffffffffff)>>1 ^ -(int64(src[32]>>0&0xffffffffffff) & 1))
+	out43 := offset
+	offset -= T(int64(src[33]>>16&0xffffffffffff)>>1 ^ -(int64(src[33]>>16&0xffffffffffff) & 1))
+	out44 := offset
+	offset -= T(int64((src[33]<<32&0xffff00000000)|src[34]>>32)>>1 ^ -(int64((src[33]<<32&0xffff00000000)|src[34]>>32) & 1))
+	out45 := offset
+	offset -= T(int64((src[34]<<16&0xffffffff0000)|src[35]>>48)>>1 ^ -(int64((src[34]<<16&0xffffffff0000)|src[35]>>48) & 1))
+	out46 := offset
+	offset -= T(int64(src[35]>>0&0xffffffffffff)>>1 ^ -(int64(src[35]>>0&0xffffffffffff) & 1))
+	out47 := offset
+	offset -= T(int64(src[36]>>16&0xffffffffffff)>>1 ^ -(int64(src[36]>>16&0xffffffffffff) & 1))
+	out48 := offset
+	offset -= T(int64((src[36]<<32&0xffff00000000)|src[37]>>32)>>1 ^ -(int64((src[36]<<32&0xffff00000000)|src[37]>>32) & 1))
+	out49 := offset
+	offset -= T(int64((src[37]<<16&0xffffffff0000)|src[38]>>48)>>1 ^ -(int64((src[37]<<16&0xffffffff0000)|src[38]>>48) & 1))
+	out50 := offset
+	offset -= T(int64(src[38]>>0&0xffffffffffff)>>1 ^ -(int64(src[38]>>0&0xffffffffffff) & 1))
+	out51 := offset
+	offset -= T(int64(src[39]>>16&0xffffffffffff)>>1 ^ -(int64(src[39]>>16&0xffffffffffff) & 1))
+	out52 := offset
+	offset -= T(int64((src[39]<<32&0xffff00000000)|src[40]>>32)>>1 ^ -(int64((src[39]<<32&0xffff00000000)|src[40]>>32) & 1))
+	out53 := offset
+	offset -= T(int64((src[40]<<16&0xffffffff0000)|src[41]>>48)>>1 ^ -(int64((src[40]<<16&0xffffffff0000)|src[41]>>48) & 1))
+	out54 := offset
+	offset -= T(int64(src[41]>>0&0xffffffffffff)>>1 ^ -(int64(src[41]>>0&0xffffffffffff) & 1))
+	out55 := offset
+	offset -= T(int64(src[42]>>16&0xffffffffffff)>>1 ^ -(int64(src[42]>>16&0xffffffffffff) & 1))
+	out56 := offset
+	offset -= T(int64((src[42]<<32&0xffff00000000)|src[43]>>32)>>1 ^ -(int64((src[42]<<32&0xffff00000000)|src[43]>>32) & 1))
+	out57 := offset
+	offset -= T(int64((src[43]<<16&0xffffffff0000)|src[44]>>48)>>1 ^ -(int64((src[43]<<16&0xffffffff0000)|src[44]>>48) & 1))
+	out58 := offset
+	offset -= T(int64(src[44]>>0&0xffffffffffff)>>1 ^ -(int64(src[44]>>0&0xffffffffffff) & 1))
+	out59 := offset
+	offset -= T(int64(src[45]>>16&0xffffffffffff)>>1 ^ -(int64(src[45]>>16&0xffffffffffff) & 1))
+	out60 := offset
+	offset -= T(int64((src[45]<<32&0xffff00000000)|src[46]>>32)>>1 ^ -(int64((src[45]<<32&0xffff00000000)|src[46]>>32) & 1))
+	out61 := offset
+	offset -= T(int64((src[46]<<16&0xffffffff0000)|src[47]>>48)>>1 ^ -(int64((src[46]<<16&0xffffffff0000)|src[47]>>48) & 1))
+	out62 := offset
+	offset -= T(int64(src[47]>>0&0xffffffffffff)>>1 ^ -(int64(src[47]>>0&0xffffffffffff) & 1))
+	out63 := offset
+
+	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
+}
+
+func append49BitDeltaDecode[T Integer](dst []T, src *[49]Word, offset T) []T {
+	offset -= T(int64(src[0]>>15&0x1ffffffffffff)>>1 ^ -(int64(src[0]>>15&0x1ffffffffffff) & 1))
+	out0 := offset
+	offset -= T(int64((src[0]<<34&0x1fffc00000000)|src[1]>>30)>>1 ^ -(int64((src[0]<<34&0x1fffc00000000)|src[1]>>30) & 1))
+	out1 := offset
+	offset -= T(int64((src[1]<<19&0x1fffffff80000)|src[2]>>45)>>1 ^ -(int64((src[1]<<19&0x1fffffff80000)|src[2]>>45) & 1))
+	out2 := offset
+	offset -= T(int64((src[2]<<4&0x1fffffffffff0)|src[3]>>60)>>1 ^ -(int64((src[2]<<4&0x1fffffffffff0)|src[3]>>60) & 1))
+	out3 := offset
+	offset -= T(int64(src[3]>>11&0x1ffffffffffff)>>1 ^ -(int64(src[3]>>11&0x1ffffffffffff) & 1))
+	out4 := offset
+	offset -= T(int64((src[3]<<38&0x1ffc000000000)|src[4]>>26)>>1 ^ -(int64((src[3]<<38&0x1ffc000000000)|src[4]>>26) & 1))
+	out5 := offset
+	offset -= T(int64((src[4]<<23&0x1ffffff800000)|src[5]>>41)>>1 ^ -(int64((src[4]<<23&0x1ffffff800000)|src[5]>>41) & 1))
+	out6 := offset
+	offset -= T(int64((src[5]<<8&0x1ffffffffff00)|src[6]>>56)>>1 ^ -(int64((src[5]<<8&0x1ffffffffff00)|src[6]>>56) & 1))
+	out7 := offset
+	offset -= T(int64(src[6]>>7&0x1ffffffffffff)>>1 ^ -(int64(src[6]>>7&0x1ffffffffffff) & 1))
+	out8 := offset
+	offset -= T(int64((src[6]<<42&0x1fc0000000000)|src[7]>>22)>>1 ^ -(int64((src[6]<<42&0x1fc0000000000)|src[7]>>22) & 1))
+	out9 := offset
+	offset -= T(int64((src[7]<<27&0x1fffff8000000)|src[8]>>37)>>1 ^ -(int64((src[7]<<27&0x1fffff8000000)|src[8]>>37) & 1))
+	out10 := offset
+	offset -= T(int64((src[8]<<12&0x1fffffffff000)|src[9]>>52)>>1 ^ -(int64((src[8]<<12&0x1fffffffff000)|src[9]>>52) & 1))
+	out11 := offset
+	offset -= T(int64(src[9]>>3&0x1ffffffffffff)>>1 ^ -(int64(src[9]>>3&0x1ffffffffffff) & 1))
+	out12 := offset
+	offset -= T(int64((src[9]<<46&0x1c00000000000)|src[10]>>18)>>1 ^ -(int64((src[9]<<46&0x1c00000000000)|src[10]>>18) & 1))
+	out13 := offset
+	offset -= T(int64((src[10]<<31&0x1ffff80000000)|src[11]>>33)>>1 ^ -(int64((src[10]<<31&0x1ffff80000000)|src[11]>>33) & 1))
+	out14 := offset
+	offset -= T(int64((src[11]<<16&0x1ffffffff0000)|src[12]>>48)>>1 ^ -(int64((src[11]<<16&0x1ffffffff0000)|src[12]>>48) & 1))
+	out15 := offset
+	offset -= T(int64((src[12]<<1&0x1fffffffffffe)|src[13]>>63)>>1 ^ -(int64((src[12]<<1&0x1fffffffffffe)|src[13]>>63) & 1))
+	out16 := offset
+	offset -= T(int64(src[13]>>14&0x1ffffffffffff)>>1 ^ -(int64(src[13]>>14&0x1ffffffffffff) & 1))
+	out17 := offset
+	offset -= T(int64((src[13]<<35&0x1fff800000000)|src[14]>>29)>>1 ^ -(int64((src[13]<<35&0x1fff800000000)|src[14]>>29) & 1))
+	out18 := offset
+	offset -= T(int64((src[14]<<20&0x1fffffff00000)|src[15]>>44)>>1 ^ -(int64((src[14]<<20&0x1fffffff00000)|src[15]>>44) & 1))
+	out19 := offset
+	offset -= T(int64((src[15]<<5&0x1ffffffffffe0)|src[16]>>59)>>1 ^ -(int64((src[15]<<5&0x1ffffffffffe0)|src[16]>>59) & 1))
+	out20 := offset
+	offset -= T(int64(src[16]>>10&0x1ffffffffffff)>>1 ^ -(int64(src[16]>>10&0x1ffffffffffff) & 1))
+	out21 := offset
+	offset -= T(int64((src[16]<<39&0x1ff8000000000)|src[17]>>25)>>1 ^ -(int64((src[16]<<39&0x1ff8000000000)|src[17]>>25) & 1))
+	out22 := offset
+	offset -= T(int64((src[17]<<24&0x1ffffff000000)|src[18]>>40)>>1 ^ -(int64((src[17]<<24&0x1ffffff000000)|src[18]>>40) & 1))
+	out23 := offset
+	offset -= T(int64((src[18]<<9&0x1fffffffffe00)|src[19]>>55)>>1 ^ -(int64((src[18]<<9&0x1fffffffffe00)|src[19]>>55) & 1))
+	out24 := offset
+	offset -= T(int64(src[19]>>6&0x1ffffffffffff)>>1 ^ -(int64(src[19]>>6&0x1ffffffffffff) & 1))
+	out25 := offset
+	offset -= T(int64((src[19]<<43&0x1f80000000000)|src[20]>>21)>>1 ^ -(int64((src[19]<<43&0x1f80000000000)|src[20]>>21) & 1))
+	out26 := offset
+	offset -= T(int64((src[20]<<28&0x1fffff0000000)|src[21]>>36)>>1 ^ -(int64((src[20]<<28&0x1fffff0000000)|src[21]>>36) & 1))
+	out27 := offset
+	offset -= T(int64((src[21]<<13&0x1ffffffffe000)|src[22]>>51)>>1 ^ -(int64((src[21]<<13&0x1ffffffffe000)|src[22]>>51) & 1))
+	out28 := offset
+	offset -= T(int64(src[22]>>2&0x1ffffffffffff)>>1 ^ -(int64(src[22]>>2&0x1ffffffffffff) & 1))
+	out29 := offset
+	offset -= T(int64((src[22]<<47&0x1800000000000)|src[23]>>17)>>1 ^ -(int64((src[22]<<47&0x1800000000000)|src[23]>>17) & 1))
+	out30 := offset
+	offset -= T(int64((src[23]<<32&0x1ffff00000000)|src[24]>>32)>>1 ^ -(int64((src[23]<<32&0x1ffff00000000)|src[24]>>32) & 1))
+	out31 := offset
+	offset -= T(int64((src[24]<<17&0x1fffffffe0000)|src[25]>>47)>>1 ^ -(int64((src[24]<<17&0x1fffffffe0000)|src[25]>>47) & 1))
+	out32 := offset
+	offset -= T(int64((src[25]<<2&0x1fffffffffffc)|src[26]>>62)>>1 ^ -(int64((src[25]<<2&0x1fffffffffffc)|src[26]>>62) & 1))
+	out33 := offset
+	offset -= T(int64(src[26]>>13&0x1ffffffffffff)>>1 ^ -(int64(src[26]>>13&0x1ffffffffffff) & 1))
+	out34 := offset
+	offset -= T(int64((src[26]<<36&0x1fff000000000)|src[27]>>28)>>1 ^ -(int64((src[26]<<36&0x1fff000000000)|src[27]>>28) & 1))
+	out35 := offset
+	offset -= T(int64((src[27]<<21&0x1ffffffe00000)|src[28]>>43)>>1 ^ -(int64((src[27]<<21&0x1ffffffe00000)|src[28]>>43) & 1))
+	out36 := offset
+	offset -= T(int64((src[28]<<6&0x1ffffffffffc0)|src[29]>>58)>>1 ^ -(int64((src[28]<<6&0x1ffffffffffc0)|src[29]>>58) & 1))
+	out37 := offset
+	offset -= T(int64(src[29]>>9&0x1ffffffffffff)>>1 ^ -(int64(src[29]>>9&0x1ffffffffffff) & 1))
+	out38 := offset
+	offset -= T(int64((src[29]<<40&0x1ff0000000000)|src[30]>>24)>>1 ^ -(int64((src[29]<<40&0x1ff0000000000)|src[30]>>24) & 1))
+	out39 := offset
+	offset -= T(int64((src[30]<<25&0x1fffffe000000)|src[31]>>39)>>1 ^ -(int64((src[30]<<25&0x1fffffe000000)|src[31]>>39) & 1))
+	out40 := offset
+	offset -= T(int64((src[31]<<10&0x1fffffffffc00)|src[32]>>54)>>1 ^ -(int64((src[31]<<10&0x1fffffffffc00)|src[32]>>54) & 1))
+	out41 := offset
+	offset -= T(int64(src[32]>>5&0x1ffffffffffff)>>1 ^ -(int64(src[32]>>5&0x1ffffffffffff) & 1))
+	out42 := offset
+	offset -= T(int64((src[32]<<44&0x1f00000000000)|src[33]>>20)>>1 ^ -(int64((src[32]<<44&0x1f00000000000)|src[33]>>20) & 1))
+	out43 := offset
+	offset -= T(int64((src[33]<<29&0x1ffffe0000000)|src[34]>>35)>>1 ^ -(int64((src[33]<<29&0x1ffffe0000000)|src[34]>>35) & 1))
+	out44 := offset
+	offset -= T(int64((src[34]<<14&0x1ffffffffc000)|src[35]>>50)>>1 ^ -(int64((src[34]<<14&0x1ffffffffc000)|src[35]>>50) & 1))
+	out45 := offset
+	offset -= T(int64(src[35]>>1&0x1ffffffffffff)>>1 ^ -(int64(src[35]>>1&0x1ffffffffffff) & 1))
+	out46 := offset
+	offset -= T(int64((src[35]<<48&0x1000000000000)|src[36]>>16)>>1 ^ -(int64((src[35]<<48&0x1000000000000)|src[36]>>16) & 1))
+	out47 := offset
+	offset -= T(int64((src[36]<<33&0x1fffe00000000)|src[37]>>31)>>1 ^ -(int64((src[36]<<33&0x1fffe00000000)|src[37]>>31) & 1))
+	out48 := offset
+	offset -= T(int64((src[37]<<18&0x1fffffffc0000)|src[38]>>46)>>1 ^ -(int64((src[37]<<18&0x1fffffffc0000)|src[38]>>46) & 1))
+	out49 := offset
+	offset -= T(int64((src[38]<<3&0x1fffffffffff8)|src[39]>>61)>>1 ^ -(int64((src[38]<<3&0x1fffffffffff8)|src[39]>>61) & 1))
+	out50 := offset
+	offset -= T(int64(src[39]>>12&0x1ffffffffffff)>>1 ^ -(int64(src[39]>>12&0x1ffffffffffff) & 1))
+	out51 := offset
+	offset -= T(int64((src[39]<<37&0x1ffe000000000)|src[40]>>27)>>1 ^ -(int64((src[39]<<37&0x1ffe000000000)|src[40]>>27) & 1))
+	out52 := offset
+	offset -= T(int64((src[40]<<22&0x1ffffffc00000)|src[41]>>42)>>1 ^ -(int64((src[40]<<22&0x1ffffffc00000)|src[41]>>42) & 1))
+	out53 := offset
+	offset -= T(int64((src[41]<<7&0x1ffffffffff80)|src[42]>>57)>>1 ^ -(int64((src[41]<<7&0x1ffffffffff80)|src[42]>>57) & 1))
+	out54 := offset
+	offset -= T(int64(src[42]>>8&0x1ffffffffffff)>>1 ^ -(int64(src[42]>>8&0x1ffffffffffff) & 1))
+	out55 := offset
+	offset -= T(int64((src[42]<<41&0x1fe0000000000)|src[43]>>23)>>1 ^ -(int64((src[42]<<41&0x1fe0000000000)|src[43]>>23) & 1))
+	out56 := offset
+	offset -= T(int64((src[43]<<26&0x1fffffc000000)|src[44]>>38)>>1 ^ -(int64((src[43]<<26&0x1fffffc000000)|src[44]>>38) & 1))
+	out57 := offset
+	offset -= T(int64((src[44]<<11&0x1fffffffff800)|src[45]>>53)>>1 ^ -(int64((src[44]<<11&0x1fffffffff800)|src[45]>>53) & 1))
+	out58 := offset
+	offset -= T(int64(src[45]>>4&0x1ffffffffffff)>>1 ^ -(int64(src[45]>>4&0x1ffffffffffff) & 1))
+	out59 := offset
+	offset -= T(int64((src[45]<<45&0x1e00000000000)|src[46]>>19)>>1 ^ -(int64((src[45]<<45&0x1e00000000000)|src[46]>>19) & 1))
+	out60 := offset
+	offset -= T(int64((src[46]<<30&0x1ffffc0000000)|src[47]>>34)>>1 ^ -(int64((src[46]<<30&0x1ffffc0000000)|src[47]>>34) & 1))
+	out61 := offset
+	offset -= T(int64((src[47]<<15&0x1ffffffff8000)|src[48]>>49)>>1 ^ -(int64((src[47]<<15&0x1ffffffff8000)|src[48]>>49) & 1))
+	out62 := offset
+	offset -= T(int64(src[48]>>0&0x1ffffffffffff)>>1 ^ -(int64(src[48]>>0&0x1ffffffffffff) & 1))
+	out63 := offset
+
+	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
+}
+
+func append50BitDeltaDecode[T Integer](dst []T, src *[50]Word, offset T) []T {
+	offset -= T(int64(src[0]>>14&0x3ffffffffffff)>>1 ^ -(int64(src[0]>>14&0x3ffffffffffff) & 1))
+	out0 := offset
+	offset -= T(int64((src[0]<<36&0x3fff000000000)|src[1]>>28)>>1 ^ -(int64((src[0]<<36&0x3fff000000000)|src[1]>>28) & 1))
+	out1 := offset
+	offset -= T(int64((src[1]<<22&0x3ffffffc00000)|src[2]>>42)>>1 ^ -(int64((src[1]<<22&0x3ffffffc00000)|src[2]>>42) & 1))
+	out2 := offset
+	offset -= T(int64((src[2]<<8&0x3ffffffffff00)|src[3]>>56)>>1 ^ -(int64((src[2]<<8&0x3ffffffffff00)|src[3]>>56) & 1))
+	out3 := offset
+	offset -= T(int64(src[3]>>6&0x3ffffffffffff)>>1 ^ -(int64(src[3]>>6&0x3ffffffffffff) & 1))
+	out4 := offset
+	offset -= T(int64((src[3]<<44&0x3f00000000000)|src[4]>>20)>>1 ^ -(int64((src[3]<<44&0x3f00000000000)|src[4]>>20) & 1))
+	out5 := offset
+	offset -= T(int64((src[4]<<30&0x3ffffc0000000)|src[5]>>34)>>1 ^ -(int64((src[4]<<30&0x3ffffc0000000)|src[5]>>34) & 1))
+	out6 := offset
+	offset -= T(int64((src[5]<<16&0x3ffffffff0000)|src[6]>>48)>>1 ^ -(int64((src[5]<<16&0x3ffffffff0000)|src[6]>>48) & 1))
+	out7 := offset
+	offset -= T(int64((src[6]<<2&0x3fffffffffffc)|src[7]>>62)>>1 ^ -(int64((src[6]<<2&0x3fffffffffffc)|src[7]>>62) & 1))
+	out8 := offset
+	offset -= T(int64(src[7]>>12&0x3ffffffffffff)>>1 ^ -(int64(src[7]>>12&0x3ffffffffffff) & 1))
+	out9 := offset
+	offset -= T(int64((src[7]<<38&0x3ffc000000000)|src[8]>>26)>>1 ^ -(int64((src[7]<<38&0x3ffc000000000)|src[8]>>26) & 1))
+	out10 := offset
+	offset -= T(int64((src[8]<<24&0x3ffffff000000)|src[9]>>40)>>1 ^ -(int64((src[8]<<24&0x3ffffff000000)|src[9]>>40) & 1))
+	out11 := offset
+	offset -= T(int64((src[9]<<10&0x3fffffffffc00)|src[10]>>54)>>1 ^ -(int64((src[9]<<10&0x3fffffffffc00)|src[10]>>54) & 1))
+	out12 := offset
+	offset -= T(int64(src[10]>>4&0x3ffffffffffff)>>1 ^ -(int64(src[10]>>4&0x3ffffffffffff) & 1))
+	out13 := offset
+	offset -= T(int64((src[10]<<46&0x3c00000000000)|src[11]>>18)>>1 ^ -(int64((src[10]<<46&0x3c00000000000)|src[11]>>18) & 1))
+	out14 := offset
+	offset -= T(int64((src[11]<<32&0x3ffff00000000)|src[12]>>32)>>1 ^ -(int64((src[11]<<32&0x3ffff00000000)|src[12]>>32) & 1))
+	out15 := offset
+	offset -= T(int64((src[12]<<18&0x3fffffffc0000)|src[13]>>46)>>1 ^ -(int64((src[12]<<18&0x3fffffffc0000)|src[13]>>46) & 1))
+	out16 := offset
+	offset -= T(int64((src[13]<<4&0x3fffffffffff0)|src[14]>>60)>>1 ^ -(int64((src[13]<<4&0x3fffffffffff0)|src[14]>>60) & 1))
+	out17 := offset
+	offset -= T(int64(src[14]>>10&0x3ffffffffffff)>>1 ^ -(int64(src[14]>>10&0x3ffffffffffff) & 1))
+	out18 := offset
+	offset -= T(int64((src[14]<<40&0x3ff0000000000)|src[15]>>24)>>1 ^ -(int64((src[14]<<40&0x3ff0000000000)|src[15]>>24) & 1))
+	out19 := offset
+	offset -= T(int64((src[15]<<26&0x3fffffc000000)|src[16]>>38)>>1 ^ -(int64((src[15]<<26&0x3fffffc000000)|src[16]>>38) & 1))
+	out20 := offset
+	offset -= T(int64((src[16]<<12&0x3fffffffff000)|src[17]>>52)>>1 ^ -(int64((src[16]<<12&0x3fffffffff000)|src[17]>>52) & 1))
+	out21 := offset
+	offset -= T(int64(src[17]>>2&0x3ffffffffffff)>>1 ^ -(int64(src[17]>>2&0x3ffffffffffff) & 1))
+	out22 := offset
+	offset -= T(int64((src[17]<<48&0x3000000000000)|src[18]>>16)>>1 ^ -(int64((src[17]<<48&0x3000000000000)|src[18]>>16) & 1))
+	out23 := offset
+	offset -= T(int64((src[18]<<34&0x3fffc00000000)|src[19]>>30)>>1 ^ -(int64((src[18]<<34&0x3fffc00000000)|src[19]>>30) & 1))
+	out24 := offset
+	offset -= T(int64((src[19]<<20&0x3fffffff00000)|src[20]>>44)>>1 ^ -(int64((src[19]<<20&0x3fffffff00000)|src[20]>>44) & 1))
+	out25 := offset
+	offset -= T(int64((src[20]<<6&0x3ffffffffffc0)|src[21]>>58)>>1 ^ -(int64((src[20]<<6&0x3ffffffffffc0)|src[21]>>58) & 1))
+	out26 := offset
+	offset -= T(int64(src[21]>>8&0x3ffffffffffff)>>1 ^ -(int64(src[21]>>8&0x3ffffffffffff) & 1))
+	out27 := offset
+	offset -= T(int64((src[21]<<42&0x3fc0000000000)|src[22]>>22)>>1 ^ -(int64((src[21]<<42&0x3fc0000000000)|src[22]>>22) & 1))
+	out28 := offset
+	offset -= T(int64((src[22]<<28&0x3fffff0000000)|src[23]>>36)>>1 ^ -(int64((src[22]<<28&0x3fffff0000000)|src[23]>>36) & 1))
+	out29 := offset
+	offset -= T(int64((src[23]<<14&0x3ffffffffc000)|src[24]>>50)>>1 ^ -(int64((src[23]<<14&0x3ffffffffc000)|src[24]>>50) & 1))
+	out30 := offset
+	offset -= T(int64(src[24]>>0&0x3ffffffffffff)>>1 ^ -(int64(src[24]>>0&0x3ffffffffffff) & 1))
+	out31 := offset
+	offset -= T(int64(src[25]>>14&0x3ffffffffffff)>>1 ^ -(int64(src[25]>>14&0x3ffffffffffff) & 1))
+	out32 := offset
+	offset -= T(int64((src[25]<<36&0x3fff000000000)|src[26]>>28)>>1 ^ -(int64((src[25]<<36&0x3fff000000000)|src[26]>>28) & 1))
+	out33 := offset
+	offset -= T(int64((src[26]<<22&0x3ffffffc00000)|src[27]>>42)>>1 ^ -(int64((src[26]<<22&0x3ffffffc00000)|src[27]>>42) & 1))
+	out34 := offset
+	offset -= T(int64((src[27]<<8&0x3ffffffffff00)|src[28]>>56)>>1 ^ -(int64((src[27]<<8&0x3ffffffffff00)|src[28]>>56) & 1))
+	out35 := offset
+	offset -= T(int64(src[28]>>6&0x3ffffffffffff)>>1 ^ -(int64(src[28]>>6&0x3ffffffffffff) & 1))
+	out36 := offset
+	offset -= T(int64((src[28]<<44&0x3f00000000000)|src[29]>>20)>>1 ^ -(int64((src[28]<<44&0x3f00000000000)|src[29]>>20) & 1))
+	out37 := offset
+	offset -= T(int64((src[29]<<30&0x3ffffc0000000)|src[30]>>34)>>1 ^ -(int64((src[29]<<30&0x3ffffc0000000)|src[30]>>34) & 1))
+	out38 := offset
+	offset -= T(int64((src[30]<<16&0x3ffffffff0000)|src[31]>>48)>>1 ^ -(int64((src[30]<<16&0x3ffffffff0000)|src[31]>>48) & 1))
+	out39 := offset
+	offset -= T(int64((src[31]<<2&0x3fffffffffffc)|src[32]>>62)>>1 ^ -(int64((src[31]<<2&0x3fffffffffffc)|src[32]>>62) & 1))
+	out40 := offset
+	offset -= T(int64(src[32]>>12&0x3ffffffffffff)>>1 ^ -(int64(src[32]>>12&0x3ffffffffffff) & 1))
+	out41 := offset
+	offset -= T(int64((src[32]<<38&0x3ffc000000000)|src[33]>>26)>>1 ^ -(int64((src[32]<<38&0x3ffc000000000)|src[33]>>26) & 1))
+	out42 := offset
+	offset -= T(int64((src[33]<<24&0x3ffffff000000)|src[34]>>40)>>1 ^ -(int64((src[33]<<24&0x3ffffff000000)|src[34]>>40) & 1))
+	out43 := offset
+	offset -= T(int64((src[34]<<10&0x3fffffffffc00)|src[35]>>54)>>1 ^ -(int64((src[34]<<10&0x3fffffffffc00)|src[35]>>54) & 1))
+	out44 := offset
+	offset -= T(int64(src[35]>>4&0x3ffffffffffff)>>1 ^ -(int64(src[35]>>4&0x3ffffffffffff) & 1))
+	out45 := offset
+	offset -= T(int64((src[35]<<46&0x3c00000000000)|src[36]>>18)>>1 ^ -(int64((src[35]<<46&0x3c00000000000)|src[36]>>18) & 1))
+	out46 := offset
+	offset -= T(int64((src[36]<<32&0x3ffff00000000)|src[37]>>32)>>1 ^ -(int64((src[36]<<32&0x3ffff00000000)|src[37]>>32) & 1))
+	out47 := offset
+	offset -= T(int64((src[37]<<18&0x3fffffffc0000)|src[38]>>46)>>1 ^ -(int64((src[37]<<18&0x3fffffffc0000)|src[38]>>46) & 1))
+	out48 := offset
+	offset -= T(int64((src[38]<<4&0x3fffffffffff0)|src[39]>>60)>>1 ^ -(int64((src[38]<<4&0x3fffffffffff0)|src[39]>>60) & 1))
+	out49 := offset
+	offset -= T(int64(src[39]>>10&0x3ffffffffffff)>>1 ^ -(int64(src[39]>>10&0x3ffffffffffff) & 1))
+	out50 := offset
+	offset -= T(int64((src[39]<<40&0x3ff0000000000)|src[40]>>24)>>1 ^ -(int64((src[39]<<40&0x3ff0000000000)|src[40]>>24) & 1))
+	out51 := offset
+	offset -= T(int64((src[40]<<26&0x3fffffc000000)|src[41]>>38)>>1 ^ -(int64((src[40]<<26&0x3fffffc000000)|src[41]>>38) & 1))
+	out52 := offset
+	offset -= T(int64((src[41]<<12&0x3fffffffff000)|src[42]>>52)>>1 ^ -(int64((src[41]<<12&0x3fffffffff000)|src[42]>>52) & 1))
+	out53 := offset
+	offset -= T(int64(src[42]>>2&0x3ffffffffffff)>>1 ^ -(int64(src[42]>>2&0x3ffffffffffff) & 1))
+	out54 := offset
+	offset -= T(int64((src[42]<<48&0x3000000000000)|src[43]>>16)>>1 ^ -(int64((src[42]<<48&0x3000000000000)|src[43]>>16) & 1))
+	out55 := offset
+	offset -= T(int64((src[43]<<34&0x3fffc00000000)|src[44]>>30)>>1 ^ -(int64((src[43]<<34&0x3fffc00000000)|src[44]>>30) & 1))
+	out56 := offset
+	offset -= T(int64((src[44]<<20&0x3fffffff00000)|src[45]>>44)>>1 ^ -(int64((src[44]<<20&0x3fffffff00000)|src[45]>>44) & 1))
+	out57 := offset
+	offset -= T(int64((src[45]<<6&0x3ffffffffffc0)|src[46]>>58)>>1 ^ -(int64((src[45]<<6&0x3ffffffffffc0)|src[46]>>58) & 1))
+	out58 := offset
+	offset -= T(int64(src[46]>>8&0x3ffffffffffff)>>1 ^ -(int64(src[46]>>8&0x3ffffffffffff) & 1))
+	out59 := offset
+	offset -= T(int64((src[46]<<42&0x3fc0000000000)|src[47]>>22)>>1 ^ -(int64((src[46]<<42&0x3fc0000000000)|src[47]>>22) & 1))
+	out60 := offset
+	offset -= T(int64((src[47]<<28&0x3fffff0000000)|src[48]>>36)>>1 ^ -(int64((src[47]<<28&0x3fffff0000000)|src[48]>>36) & 1))
+	out61 := offset
+	offset -= T(int64((src[48]<<14&0x3ffffffffc000)|src[49]>>50)>>1 ^ -(int64((src[48]<<14&0x3ffffffffc000)|src[49]>>50) & 1))
+	out62 := offset
+	offset -= T(int64(src[49]>>0&0x3ffffffffffff)>>1 ^ -(int64(src[49]>>0&0x3ffffffffffff) & 1))
+	out63 := offset
+
+	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
+}
+
+func append51BitDeltaDecode[T Integer](dst []T, src *[51]Word, offset T) []T {
+	offset -= T(int64(src[0]>>13&0x7ffffffffffff)>>1 ^ -(int64(src[0]>>13&0x7ffffffffffff) & 1))
+	out0 := offset
+	offset -= T(int64((src[0]<<38&0x7ffc000000000)|src[1]>>26)>>1 ^ -(int64((src[0]<<38&0x7ffc000000000)|src[1]>>26) & 1))
+	out1 := offset
+	offset -= T(int64((src[1]<<25&0x7fffffe000000)|src[2]>>39)>>1 ^ -(int64((src[1]<<25&0x7fffffe000000)|src[2]>>39) & 1))
+	out2 := offset
+	offset -= T(int64((src[2]<<12&0x7fffffffff000)|src[3]>>52)>>1 ^ -(int64((src[2]<<12&0x7fffffffff000)|src[3]>>52) & 1))
+	out3 := offset
+	offset -= T(int64(src[3]>>1&0x7ffffffffffff)>>1 ^ -(int64(src[3]>>1&0x7ffffffffffff) & 1))
+	out4 := offset
+	offset -= T(int64((src[3]<<50&0x4000000000000)|src[4]>>14)>>1 ^ -(int64((src[3]<<50&0x4000000000000)|src[4]>>14) & 1))
+	out5 := offset
+	offset -= T(int64((src[4]<<37&0x7ffe000000000)|src[5]>>27)>>1 ^ -(int64((src[4]<<37&0x7ffe000000000)|src[5]>>27) & 1))
+	out6 := offset
+	offset -= T(int64((src[5]<<24&0x7ffffff000000)|src[6]>>40)>>1 ^ -(int64((src[5]<<24&0x7ffffff000000)|src[6]>>40) & 1))
+	out7 := offset
+	offset -= T(int64((src[6]<<11&0x7fffffffff800)|src[7]>>53)>>1 ^ -(int64((src[6]<<11&0x7fffffffff800)|src[7]>>53) & 1))
+	out8 := offset
+	offset -= T(int64(src[7]>>2&0x7ffffffffffff)>>1 ^ -(int64(src[7]>>2&0x7ffffffffffff) & 1))
+	out9 := offset
+	offset -= T(int64((src[7]<<49&0x6000000000000)|src[8]>>15)>>1 ^ -(int64((src[7]<<49&0x6000000000000)|src[8]>>15) & 1))
+	out10 := offset
+	offset -= T(int64((src[8]<<36&0x7fff000000000)|src[9]>>28)>>1 ^ -(int64((src[8]<<36&0x7fff000000000)|src[9]>>28) & 1))
+	out11 := offset
+	offset -= T(int64((src[9]<<23&0x7ffffff800000)|src[10]>>41)>>1 ^ -(int64((src[9]<<23&0x7ffffff800000)|src[10]>>41) & 1))
+	out12 := offset
+	offset -= T(int64((src[10]<<10&0x7fffffffffc00)|src[11]>>54)>>1 ^ -(int64((src[10]<<10&0x7fffffffffc00)|src[11]>>54) & 1))
+	out13 := offset
+	offset -= T(int64(src[11]>>3&0x7ffffffffffff)>>1 ^ -(int64(src[11]>>3&0x7ffffffffffff) & 1))
+	out14 := offset
+	offset -= T(int64((src[11]<<48&0x7000000000000)|src[12]>>16)>>1 ^ -(int64((src[11]<<48&0x7000000000000)|src[12]>>16) & 1))
+	out15 := offset
+	offset -= T(int64((src[12]<<35&0x7fff800000000)|src[13]>>29)>>1 ^ -(int64((src[12]<<35&0x7fff800000000)|src[13]>>29) & 1))
+	out16 := offset
+	offset -= T(int64((src[13]<<22&0x7ffffffc00000)|src[14]>>42)>>1 ^ -(int64((src[13]<<22&0x7ffffffc00000)|src[14]>>42) & 1))
+	out17 := offset
+	offset -= T(int64((src[14]<<9&0x7fffffffffe00)|src[15]>>55)>>1 ^ -(int64((src[14]<<9&0x7fffffffffe00)|src[15]>>55) & 1))
+	out18 := offset
+	offset -= T(int64(src[15]>>4&0x7ffffffffffff)>>1 ^ -(int64(src[15]>>4&0x7ffffffffffff) & 1))
+	out19 := offset
+	offset -= T(int64((src[15]<<47&0x7800000000000)|src[16]>>17)>>1 ^ -(int64((src[15]<<47&0x7800000000000)|src[16]>>17) & 1))
+	out20 := offset
+	offset -= T(int64((src[16]<<34&0x7fffc00000000)|src[17]>>30)>>1 ^ -(int64((src[16]<<34&0x7fffc00000000)|src[17]>>30) & 1))
+	out21 := offset
+	offset -= T(int64((src[17]<<21&0x7ffffffe00000)|src[18]>>43)>>1 ^ -(int64((src[17]<<21&0x7ffffffe00000)|src[18]>>43) & 1))
+	out22 := offset
+	offset -= T(int64((src[18]<<8&0x7ffffffffff00)|src[19]>>56)>>1 ^ -(int64((src[18]<<8&0x7ffffffffff00)|src[19]>>56) & 1))
+	out23 := offset
+	offset -= T(int64(src[19]>>5&0x7ffffffffffff)>>1 ^ -(int64(src[19]>>5&0x7ffffffffffff) & 1))
+	out24 := offset
+	offset -= T(int64((src[19]<<46&0x7c00000000000)|src[20]>>18)>>1 ^ -(int64((src[19]<<46&0x7c00000000000)|src[20]>>18) & 1))
+	out25 := offset
+	offset -= T(int64((src[20]<<33&0x7fffe00000000)|src[21]>>31)>>1 ^ -(int64((src[20]<<33&0x7fffe00000000)|src[21]>>31) & 1))
+	out26 := offset
+	offset -= T(int64((src[21]<<20&0x7fffffff00000)|src[22]>>44)>>1 ^ -(int64((src[21]<<20&0x7fffffff00000)|src[22]>>44) & 1))
+	out27 := offset
+	offset -= T(int64((src[22]<<7&0x7ffffffffff80)|src[23]>>57)>>1 ^ -(int64((src[22]<<7&0x7ffffffffff80)|src[23]>>57) & 1))
+	out28 := offset
+	offset -= T(int64(src[23]>>6&0x7ffffffffffff)>>1 ^ -(int64(src[23]>>6&0x7ffffffffffff) & 1))
+	out29 := offset
+	offset -= T(int64((src[23]<<45&0x7e00000000000)|src[24]>>19)>>1 ^ -(int64((src[23]<<45&0x7e00000000000)|src[24]>>19) & 1))
+	out30 := offset
+	offset -= T(int64((src[24]<<32&0x7ffff00000000)|src[25]>>32)>>1 ^ -(int64((src[24]<<32&0x7ffff00000000)|src[25]>>32) & 1))
+	out31 := offset
+	offset -= T(int64((src[25]<<19&0x7fffffff80000)|src[26]>>45)>>1 ^ -(int64((src[25]<<19&0x7fffffff80000)|src[26]>>45) & 1))
+	out32 := offset
+	offset -= T(int64((src[26]<<6&0x7ffffffffffc0)|src[27]>>58)>>1 ^ -(int64((src[26]<<6&0x7ffffffffffc0)|src[27]>>58) & 1))
+	out33 := offset
+	offset -= T(int64(src[27]>>7&0x7ffffffffffff)>>1 ^ -(int64(src[27]>>7&0x7ffffffffffff) & 1))
+	out34 := offset
+	offset -= T(int64((src[27]<<44&0x7f00000000000)|src[28]>>20)>>1 ^ -(int64((src[27]<<44&0x7f00000000000)|src[28]>>20) & 1))
+	out35 := offset
+	offset -= T(int64((src[28]<<31&0x7ffff80000000)|src[29]>>33)>>1 ^ -(int64((src[28]<<31&0x7ffff80000000)|src[29]>>33) & 1))
+	out36 := offset
+	offset -= T(int64((src[29]<<18&0x7fffffffc0000)|src[30]>>46)>>1 ^ -(int64((src[29]<<18&0x7fffffffc0000)|src[30]>>46) & 1))
+	out37 := offset
+	offset -= T(int64((src[30]<<5&0x7ffffffffffe0)|src[31]>>59)>>1 ^ -(int64((src[30]<<5&0x7ffffffffffe0)|src[31]>>59) & 1))
+	out38 := offset
+	offset -= T(int64(src[31]>>8&0x7ffffffffffff)>>1 ^ -(int64(src[31]>>8&0x7ffffffffffff) & 1))
+	out39 := offset
+	offset -= T(int64((src[31]<<43&0x7f80000000000)|src[32]>>21)>>1 ^ -(int64((src[31]<<43&0x7f80000000000)|src[32]>>21) & 1))
+	out40 := offset
+	offset -= T(int64((src[32]<<30&0x7ffffc0000000)|src[33]>>34)>>1 ^ -(int64((src[32]<<30&0x7ffffc0000000)|src[33]>>34) & 1))
+	out41 := offset
+	offset -= T(int64((src[33]<<17&0x7fffffffe0000)|src[34]>>47)>>1 ^ -(int64((src[33]<<17&0x7fffffffe0000)|src[34]>>47) & 1))
+	out42 := offset
+	offset -= T(int64((src[34]<<4&0x7fffffffffff0)|src[35]>>60)>>1 ^ -(int64((src[34]<<4&0x7fffffffffff0)|src[35]>>60) & 1))
+	out43 := offset
+	offset -= T(int64(src[35]>>9&0x7ffffffffffff)>>1 ^ -(int64(src[35]>>9&0x7ffffffffffff) & 1))
+	out44 := offset
+	offset -= T(int64((src[35]<<42&0x7fc0000000000)|src[36]>>22)>>1 ^ -(int64((src[35]<<42&0x7fc0000000000)|src[36]>>22) & 1))
+	out45 := offset
+	offset -= T(int64((src[36]<<29&0x7ffffe0000000)|src[37]>>35)>>1 ^ -(int64((src[36]<<29&0x7ffffe0000000)|src[37]>>35) & 1))
+	out46 := offset
+	offset -= T(int64((src[37]<<16&0x7ffffffff0000)|src[38]>>48)>>1 ^ -(int64((src[37]<<16&0x7ffffffff0000)|src[38]>>48) & 1))
+	out47 := offset
+	offset -= T(int64((src[38]<<3&0x7fffffffffff8)|src[39]>>61)>>1 ^ -(int64((src[38]<<3&0x7fffffffffff8)|src[39]>>61) & 1))
+	out48 := offset
+	offset -= T(int64(src[39]>>10&0x7ffffffffffff)>>1 ^ -(int64(src[39]>>10&0x7ffffffffffff) & 1))
+	out49 := offset
+	offset -= T(int64((src[39]<<41&0x7fe0000000000)|src[40]>>23)>>1 ^ -(int64((src[39]<<41&0x7fe0000000000)|src[40]>>23) & 1))
+	out50 := offset
+	offset -= T(int64((src[40]<<28&0x7fffff0000000)|src[41]>>36)>>1 ^ -(int64((src[40]<<28&0x7fffff0000000)|src[41]>>36) & 1))
+	out51 := offset
+	offset -= T(int64((src[41]<<15&0x7ffffffff8000)|src[42]>>49)>>1 ^ -(int64((src[41]<<15&0x7ffffffff8000)|src[42]>>49) & 1))
+	out52 := offset
+	offset -= T(int64((src[42]<<2&0x7fffffffffffc)|src[43]>>62)>>1 ^ -(int64((src[42]<<2&0x7fffffffffffc)|src[43]>>62) & 1))
+	out53 := offset
+	offset -= T(int64(src[43]>>11&0x7ffffffffffff)>>1 ^ -(int64(src[43]>>11&0x7ffffffffffff) & 1))
+	out54 := offset
+	offset -= T(int64((src[43]<<40&0x7ff0000000000)|src[44]>>24)>>1 ^ -(int64((src[43]<<40&0x7ff0000000000)|src[44]>>24) & 1))
+	out55 := offset
+	offset -= T(int64((src[44]<<27&0x7fffff8000000)|src[45]>>37)>>1 ^ -(int64((src[44]<<27&0x7fffff8000000)|src[45]>>37) & 1))
+	out56 := offset
+	offset -= T(int64((src[45]<<14&0x7ffffffffc000)|src[46]>>50)>>1 ^ -(int64((src[45]<<14&0x7ffffffffc000)|src[46]>>50) & 1))
+	out57 := offset
+	offset -= T(int64((src[46]<<1&0x7fffffffffffe)|src[47]>>63)>>1 ^ -(int64((src[46]<<1&0x7fffffffffffe)|src[47]>>63) & 1))
+	out58 := offset
+	offset -= T(int64(src[47]>>12&0x7ffffffffffff)>>1 ^ -(int64(src[47]>>12&0x7ffffffffffff) & 1))
+	out59 := offset
+	offset -= T(int64((src[47]<<39&0x7ff8000000000)|src[48]>>25)>>1 ^ -(int64((src[47]<<39&0x7ff8000000000)|src[48]>>25) & 1))
+	out60 := offset
+	offset -= T(int64((src[48]<<26&0x7fffffc000000)|src[49]>>38)>>1 ^ -(int64((src[48]<<26&0x7fffffc000000)|src[49]>>38) & 1))
+	out61 := offset
+	offset -= T(int64((src[49]<<13&0x7ffffffffe000)|src[50]>>51)>>1 ^ -(int64((src[49]<<13&0x7ffffffffe000)|src[50]>>51) & 1))
+	out62 := offset
+	offset -= T(int64(src[50]>>0&0x7ffffffffffff)>>1 ^ -(int64(src[50]>>0&0x7ffffffffffff) & 1))
+	out63 := offset
+
+	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
+}
+
+func append52BitDeltaDecode[T Integer](dst []T, src *[52]Word, offset T) []T {
+	offset -= T(int64(src[0]>>12&0xfffffffffffff)>>1 ^ -(int64(src[0]>>12&0xfffffffffffff) & 1))
+	out0 := offset
+	offset -= T(int64((src[0]<<40&0xfff0000000000)|src[1]>>24)>>1 ^ -(int64((src[0]<<40&0xfff0000000000)|src[1]>>24) & 1))
+	out1 := offset
+	offset -= T(int64((src[1]<<28&0xffffff0000000)|src[2]>>36)>>1 ^ -(int64((src[1]<<28&0xffffff0000000)|src[2]>>36) & 1))
+	out2 := offset
+	offset -= T(int64((src[2]<<16&0xfffffffff0000)|src[3]>>48)>>1 ^ -(int64((src[2]<<16&0xfffffffff0000)|src[3]>>48) & 1))
+	out3 := offset
+	offset -= T(int64((src[3]<<4&0xffffffffffff0)|src[4]>>60)>>1 ^ -(int64((src[3]<<4&0xffffffffffff0)|src[4]>>60) & 1))
+	out4 := offset
+	offset -= T(int64(src[4]>>8&0xfffffffffffff)>>1 ^ -(int64(src[4]>>8&0xfffffffffffff) & 1))
+	out5 := offset
+	offset -= T(int64((src[4]<<44&0xff00000000000)|src[5]>>20)>>1 ^ -(int64((src[4]<<44&0xff00000000000)|src[5]>>20) & 1))
+	out6 := offset
+	offset -= T(int64((src[5]<<32&0xfffff00000000)|src[6]>>32)>>1 ^ -(int64((src[5]<<32&0xfffff00000000)|src[6]>>32) & 1))
+	out7 := offset
+	offset -= T(int64((src[6]<<20&0xffffffff00000)|src[7]>>44)>>1 ^ -(int64((src[6]<<20&0xffffffff00000)|src[7]>>44) & 1))
+	out8 := offset
+	offset -= T(int64((src[7]<<8&0xfffffffffff00)|src[8]>>56)>>1 ^ -(int64((src[7]<<8&0xfffffffffff00)|src[8]>>56) & 1))
+	out9 := offset
+	offset -= T(int64(src[8]>>4&0xfffffffffffff)>>1 ^ -(int64(src[8]>>4&0xfffffffffffff) & 1))
+	out10 := offset
+	offset -= T(int64((src[8]<<48&0xf000000000000)|src[9]>>16)>>1 ^ -(int64((src[8]<<48&0xf000000000000)|src[9]>>16) & 1))
+	out11 := offset
+	offset -= T(int64((src[9]<<36&0xffff000000000)|src[10]>>28)>>1 ^ -(int64((src[9]<<36&0xffff000000000)|src[10]>>28) & 1))
+	out12 := offset
+	offset -= T(int64((src[10]<<24&0xfffffff000000)|src[11]>>40)>>1 ^ -(int64((src[10]<<24&0xfffffff000000)|src[11]>>40) & 1))
+	out13 := offset
+	offset -= T(int64((src[11]<<12&0xffffffffff000)|src[12]>>52)>>1 ^ -(int64((src[11]<<12&0xffffffffff000)|src[12]>>52) & 1))
+	out14 := offset
+	offset -= T(int64(src[12]>>0&0xfffffffffffff)>>1 ^ -(int64(src[12]>>0&0xfffffffffffff) & 1))
+	out15 := offset
+	offset -= T(int64(src[13]>>12&0xfffffffffffff)>>1 ^ -(int64(src[13]>>12&0xfffffffffffff) & 1))
+	out16 := offset
+	offset -= T(int64((src[13]<<40&0xfff0000000000)|src[14]>>24)>>1 ^ -(int64((src[13]<<40&0xfff0000000000)|src[14]>>24) & 1))
+	out17 := offset
+	offset -= T(int64((src[14]<<28&0xffffff0000000)|src[15]>>36)>>1 ^ -(int64((src[14]<<28&0xffffff0000000)|src[15]>>36) & 1))
+	out18 := offset
+	offset -= T(int64((src[15]<<16&0xfffffffff0000)|src[16]>>48)>>1 ^ -(int64((src[15]<<16&0xfffffffff0000)|src[16]>>48) & 1))
+	out19 := offset
+	offset -= T(int64((src[16]<<4&0xffffffffffff0)|src[17]>>60)>>1 ^ -(int64((src[16]<<4&0xffffffffffff0)|src[17]>>60) & 1))
+	out20 := offset
+	offset -= T(int64(src[17]>>8&0xfffffffffffff)>>1 ^ -(int64(src[17]>>8&0xfffffffffffff) & 1))
+	out21 := offset
+	offset -= T(int64((src[17]<<44&0xff00000000000)|src[18]>>20)>>1 ^ -(int64((src[17]<<44&0xff00000000000)|src[18]>>20) & 1))
+	out22 := offset
+	offset -= T(int64((src[18]<<32&0xfffff00000000)|src[19]>>32)>>1 ^ -(int64((src[18]<<32&0xfffff00000000)|src[19]>>32) & 1))
+	out23 := offset
+	offset -= T(int64((src[19]<<20&0xffffffff00000)|src[20]>>44)>>1 ^ -(int64((src[19]<<20&0xffffffff00000)|src[20]>>44) & 1))
+	out24 := offset
+	offset -= T(int64((src[20]<<8&0xfffffffffff00)|src[21]>>56)>>1 ^ -(int64((src[20]<<8&0xfffffffffff00)|src[21]>>56) & 1))
+	out25 := offset
+	offset -= T(int64(src[21]>>4&0xfffffffffffff)>>1 ^ -(int64(src[21]>>4&0xfffffffffffff) & 1))
+	out26 := offset
+	offset -= T(int64((src[21]<<48&0xf000000000000)|src[22]>>16)>>1 ^ -(int64((src[21]<<48&0xf000000000000)|src[22]>>16) & 1))
+	out27 := offset
+	offset -= T(int64((src[22]<<36&0xffff000000000)|src[23]>>28)>>1 ^ -(int64((src[22]<<36&0xffff000000000)|src[23]>>28) & 1))
+	out28 := offset
+	offset -= T(int64((src[23]<<24&0xfffffff000000)|src[24]>>40)>>1 ^ -(int64((src[23]<<24&0xfffffff000000)|src[24]>>40) & 1))
+	out29 := offset
+	offset -= T(int64((src[24]<<12&0xffffffffff000)|src[25]>>52)>>1 ^ -(int64((src[24]<<12&0xffffffffff000)|src[25]>>52) & 1))
+	out30 := offset
+	offset -= T(int64(src[25]>>0&0xfffffffffffff)>>1 ^ -(int64(src[25]>>0&0xfffffffffffff) & 1))
+	out31 := offset
+	offset -= T(int64(src[26]>>12&0xfffffffffffff)>>1 ^ -(int64(src[26]>>12&0xfffffffffffff) & 1))
+	out32 := offset
+	offset -= T(int64((src[26]<<40&0xfff0000000000)|src[27]>>24)>>1 ^ -(int64((src[26]<<40&0xfff0000000000)|src[27]>>24) & 1))
+	out33 := offset
+	offset -= T(int64((src[27]<<28&0xffffff0000000)|src[28]>>36)>>1 ^ -(int64((src[27]<<28&0xffffff0000000)|src[28]>>36) & 1))
+	out34 := offset
+	offset -= T(int64((src[28]<<16&0xfffffffff0000)|src[29]>>48)>>1 ^ -(int64((src[28]<<16&0xfffffffff0000)|src[29]>>48) & 1))
+	out35 := offset
+	offset -= T(int64((src[29]<<4&0xffffffffffff0)|src[30]>>60)>>1 ^ -(int64((src[29]<<4&0xffffffffffff0)|src[30]>>60) & 1))
+	out36 := offset
+	offset -= T(int64(src[30]>>8&0xfffffffffffff)>>1 ^ -(int64(src[30]>>8&0xfffffffffffff) & 1))
+	out37 := offset
+	offset -= T(int64((src[30]<<44&0xff00000000000)|src[31]>>20)>>1 ^ -(int64((src[30]<<44&0xff00000000000)|src[31]>>20) & 1))
+	out38 := offset
+	offset -= T(int64((src[31]<<32&0xfffff00000000)|src[32]>>32)>>1 ^ -(int64((src[31]<<32&0xfffff00000000)|src[32]>>32) & 1))
+	out39 := offset
+	offset -= T(int64((src[32]<<20&0xffffffff00000)|src[33]>>44)>>1 ^ -(int64((src[32]<<20&0xffffffff00000)|src[33]>>44) & 1))
+	out40 := offset
+	offset -= T(int64((src[33]<<8&0xfffffffffff00)|src[34]>>56)>>1 ^ -(int64((src[33]<<8&0xfffffffffff00)|src[34]>>56) & 1))
+	out41 := offset
+	offset -= T(int64(src[34]>>4&0xfffffffffffff)>>1 ^ -(int64(src[34]>>4&0xfffffffffffff) & 1))
+	out42 := offset
+	offset -= T(int64((src[34]<<48&0xf000000000000)|src[35]>>16)>>1 ^ -(int64((src[34]<<48&0xf000000000000)|src[35]>>16) & 1))
+	out43 := offset
+	offset -= T(int64((src[35]<<36&0xffff000000000)|src[36]>>28)>>1 ^ -(int64((src[35]<<36&0xffff000000000)|src[36]>>28) & 1))
+	out44 := offset
+	offset -= T(int64((src[36]<<24&0xfffffff000000)|src[37]>>40)>>1 ^ -(int64((src[36]<<24&0xfffffff000000)|src[37]>>40) & 1))
+	out45 := offset
+	offset -= T(int64((src[37]<<12&0xffffffffff000)|src[38]>>52)>>1 ^ -(int64((src[37]<<12&0xffffffffff000)|src[38]>>52) & 1))
+	out46 := offset
+	offset -= T(int64(src[38]>>0&0xfffffffffffff)>>1 ^ -(int64(src[38]>>0&0xfffffffffffff) & 1))
+	out47 := offset
+	offset -= T(int64(src[39]>>12&0xfffffffffffff)>>1 ^ -(int64(src[39]>>12&0xfffffffffffff) & 1))
+	out48 := offset
+	offset -= T(int64((src[39]<<40&0xfff0000000000)|src[40]>>24)>>1 ^ -(int64((src[39]<<40&0xfff0000000000)|src[40]>>24) & 1))
+	out49 := offset
+	offset -= T(int64((src[40]<<28&0xffffff0000000)|src[41]>>36)>>1 ^ -(int64((src[40]<<28&0xffffff0000000)|src[41]>>36) & 1))
+	out50 := offset
+	offset -= T(int64((src[41]<<16&0xfffffffff0000)|src[42]>>48)>>1 ^ -(int64((src[41]<<16&0xfffffffff0000)|src[42]>>48) & 1))
+	out51 := offset
+	offset -= T(int64((src[42]<<4&0xffffffffffff0)|src[43]>>60)>>1 ^ -(int64((src[42]<<4&0xffffffffffff0)|src[43]>>60) & 1))
+	out52 := offset
+	offset -= T(int64(src[43]>>8&0xfffffffffffff)>>1 ^ -(int64(src[43]>>8&0xfffffffffffff) & 1))
+	out53 := offset
+	offset -= T(int64((src[43]<<44&0xff00000000000)|src[44]>>20)>>1 ^ -(int64((src[43]<<44&0xff00000000000)|src[44]>>20) & 1))
+	out54 := offset
+	offset -= T(int64((src[44]<<32&0xfffff00000000)|src[45]>>32)>>1 ^ -(int64((src[44]<<32&0xfffff00000000)|src[45]>>32) & 1))
+	out55 := offset
+	offset -= T(int64((src[45]<<20&0xffffffff00000)|src[46]>>44)>>1 ^ -(int64((src[45]<<20&0xffffffff00000)|src[46]>>44) & 1))
+	out56 := offset
+	offset -= T(int64((src[46]<<8&0xfffffffffff00)|src[47]>>56)>>1 ^ -(int64((src[46]<<8&0xfffffffffff00)|src[47]>>56) & 1))
+	out57 := offset
+	offset -= T(int64(src[47]>>4&0xfffffffffffff)>>1 ^ -(int64(src[47]>>4&0xfffffffffffff) & 1))
+	out58 := offset
+	offset -= T(int64((src[47]<<48&0xf000000000000)|src[48]>>16)>>1 ^ -(int64((src[47]<<48&0xf000000000000)|src[48]>>16) & 1))
+	out59 := offset
+	offset -= T(int64((src[48]<<36&0xffff000000000)|src[49]>>28)>>1 ^ -(int64((src[48]<<36&0xffff000000000)|src[49]>>28) & 1))
+	out60 := offset
+	offset -= T(int64((src[49]<<24&0xfffffff000000)|src[50]>>40)>>1 ^ -(int64((src[49]<<24&0xfffffff000000)|src[50]>>40) & 1))
+	out61 := offset
+	offset -= T(int64((src[50]<<12&0xffffffffff000)|src[51]>>52)>>1 ^ -(int64((src[50]<<12&0xffffffffff000)|src[51]>>52) & 1))
+	out62 := offset
+	offset -= T(int64(src[51]>>0&0xfffffffffffff)>>1 ^ -(int64(src[51]>>0&0xfffffffffffff) & 1))
+	out63 := offset
+
+	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
+}
+
+func append53BitDeltaDecode[T Integer](dst []T, src *[53]Word, offset T) []T {
+	offset -= T(int64(src[0]>>11&0x1fffffffffffff)>>1 ^ -(int64(src[0]>>11&0x1fffffffffffff) & 1))
+	out0 := offset
+	offset -= T(int64((src[0]<<42&0x1ffc0000000000)|src[1]>>22)>>1 ^ -(int64((src[0]<<42&0x1ffc0000000000)|src[1]>>22) & 1))
+	out1 := offset
+	offset -= T(int64((src[1]<<31&0x1fffff80000000)|src[2]>>33)>>1 ^ -(int64((src[1]<<31&0x1fffff80000000)|src[2]>>33) & 1))
+	out2 := offset
+	offset -= T(int64((src[2]<<20&0x1ffffffff00000)|src[3]>>44)>>1 ^ -(int64((src[2]<<20&0x1ffffffff00000)|src[3]>>44) & 1))
+	out3 := offset
+	offset -= T(int64((src[3]<<9&0x1ffffffffffe00)|src[4]>>55)>>1 ^ -(int64((src[3]<<9&0x1ffffffffffe00)|src[4]>>55) & 1))
+	out4 := offset
+	offset -= T(int64(src[4]>>2&0x1fffffffffffff)>>1 ^ -(int64(src[4]>>2&0x1fffffffffffff) & 1))
+	out5 := offset
+	offset -= T(int64((src[4]<<51&0x18000000000000)|src[5]>>13)>>1 ^ -(int64((src[4]<<51&0x18000000000000)|src[5]>>13) & 1))
+	out6 := offset
+	offset -= T(int64((src[5]<<40&0x1fff0000000000)|src[6]>>24)>>1 ^ -(int64((src[5]<<40&0x1fff0000000000)|src[6]>>24) & 1))
+	out7 := offset
+	offset -= T(int64((src[6]<<29&0x1fffffe0000000)|src[7]>>35)>>1 ^ -(int64((src[6]<<29&0x1fffffe0000000)|src[7]>>35) & 1))
+	out8 := offset
+	offset -= T(int64((src[7]<<18&0x1ffffffffc0000)|src[8]>>46)>>1 ^ -(int64((src[7]<<18&0x1ffffffffc0000)|src[8]>>46) & 1))
+	out9 := offset
+	offset -= T(int64((src[8]<<7&0x1fffffffffff80)|src[9]>>57)>>1 ^ -(int64((src[8]<<7&0x1fffffffffff80)|src[9]>>57) & 1))
+	out10 := offset
+	offset -= T(int64(src[9]>>4&0x1fffffffffffff)>>1 ^ -(int64(src[9]>>4&0x1fffffffffffff) & 1))
+	out11 := offset
+	offset -= T(int64((src[9]<<49&0x1e000000000000)|src[10]>>15)>>1 ^ -(int64((src[9]<<49&0x1e000000000000)|src[10]>>15) & 1))
+	out12 := offset
+	offset -= T(int64((src[10]<<38&0x1fffc000000000)|src[11]>>26)>>1 ^ -(int64((src[10]<<38&0x1fffc000000000)|src[11]>>26) & 1))
+	out13 := offset
+	offset -= T(int64((src[11]<<27&0x1ffffff8000000)|src[12]>>37)>>1 ^ -(int64((src[11]<<27&0x1ffffff8000000)|src[12]>>37) & 1))
+	out14 := offset
+	offset -= T(int64((src[12]<<16&0x1fffffffff0000)|src[13]>>48)>>1 ^ -(int64((src[12]<<16&0x1fffffffff0000)|src[13]>>48) & 1))
+	out15 := offset
+	offset -= T(int64((src[13]<<5&0x1fffffffffffe0)|src[14]>>59)>>1 ^ -(int64((src[13]<<5&0x1fffffffffffe0)|src[14]>>59) & 1))
+	out16 := offset
+	offset -= T(int64(src[14]>>6&0x1fffffffffffff)>>1 ^ -(int64(src[14]>>6&0x1fffffffffffff) & 1))
+	out17 := offset
+	offset -= T(int64((src[14]<<47&0x1f800000000000)|src[15]>>17)>>1 ^ -(int64((src[14]<<47&0x1f800000000000)|src[15]>>17) & 1))
+	out18 := offset
+	offset -= T(int64((src[15]<<36&0x1ffff000000000)|src[16]>>28)>>1 ^ -(int64((src[15]<<36&0x1ffff000000000)|src[16]>>28) & 1))
+	out19 := offset
+	offset -= T(int64((src[16]<<25&0x1ffffffe000000)|src[17]>>39)>>1 ^ -(int64((src[16]<<25&0x1ffffffe000000)|src[17]>>39) & 1))
+	out20 := offset
+	offset -= T(int64((src[17]<<14&0x1fffffffffc000)|src[18]>>50)>>1 ^ -(int64((src[17]<<14&0x1fffffffffc000)|src[18]>>50) & 1))
+	out21 := offset
+	offset -= T(int64((src[18]<<3&0x1ffffffffffff8)|src[19]>>61)>>1 ^ -(int64((src[18]<<3&0x1ffffffffffff8)|src[19]>>61) & 1))
+	out22 := offset
+	offset -= T(int64(src[19]>>8&0x1fffffffffffff)>>1 ^ -(int64(src[19]>>8&0x1fffffffffffff) & 1))
+	out23 := offset
+	offset -= T(int64((src[19]<<45&0x1fe00000000000)|src[20]>>19)>>1 ^ -(int64((src[19]<<45&0x1fe00000000000)|src[20]>>19) & 1))
+	out24 := offset
+	offset -= T(int64((src[20]<<34&0x1ffffc00000000)|src[21]>>30)>>1 ^ -(int64((src[20]<<34&0x1ffffc00000000)|src[21]>>30) & 1))
+	out25 := offset
+	offset -= T(int64((src[21]<<23&0x1fffffff800000)|src[22]>>41)>>1 ^ -(int64((src[21]<<23&0x1fffffff800000)|src[22]>>41) & 1))
+	out26 := offset
+	offset -= T(int64((src[22]<<12&0x1ffffffffff000)|src[23]>>52)>>1 ^ -(int64((src[22]<<12&0x1ffffffffff000)|src[23]>>52) & 1))
+	out27 := offset
+	offset -= T(int64((src[23]<<1&0x1ffffffffffffe)|src[24]>>63)>>1 ^ -(int64((src[23]<<1&0x1ffffffffffffe)|src[24]>>63) & 1))
+	out28 := offset
+	offset -= T(int64(src[24]>>10&0x1fffffffffffff)>>1 ^ -(int64(src[24]>>10&0x1fffffffffffff) & 1))
+	out29 := offset
+	offset -= T(int64((src[24]<<43&0x1ff80000000000)|src[25]>>21)>>1 ^ -(int64((src[24]<<43&0x1ff80000000000)|src[25]>>21) & 1))
+	out30 := offset
+	offset -= T(int64((src[25]<<32&0x1fffff00000000)|src[26]>>32)>>1 ^ -(int64((src[25]<<32&0x1fffff00000000)|src[26]>>32) & 1))
+	out31 := offset
+	offset -= T(int64((src[26]<<21&0x1fffffffe00000)|src[27]>>43)>>1 ^ -(int64((src[26]<<21&0x1fffffffe00000)|src[27]>>43) & 1))
+	out32 := offset
+	offset -= T(int64((src[27]<<10&0x1ffffffffffc00)|src[28]>>54)>>1 ^ -(int64((src[27]<<10&0x1ffffffffffc00)|src[28]>>54) & 1))
+	out33 := offset
+	offset -= T(int64(src[28]>>1&0x1fffffffffffff)>>1 ^ -(int64(src[28]>>1&0x1fffffffffffff) & 1))
+	out34 := offset
+	offset -= T(int64((src[28]<<52&0x10000000000000)|src[29]>>12)>>1 ^ -(int64((src[28]<<52&0x10000000000000)|src[29]>>12) & 1))
+	out35 := offset
+	offset -= T(int64((src[29]<<41&0x1ffe0000000000)|src[30]>>23)>>1 ^ -(int64((src[29]<<41&0x1ffe0000000000)|src[30]>>23) & 1))
+	out36 := offset
+	offset -= T(int64((src[30]<<30&0x1fffffc0000000)|src[31]>>34)>>1 ^ -(int64((src[30]<<30&0x1fffffc0000000)|src[31]>>34) & 1))
+	out37 := offset
+	offset -= T(int64((src[31]<<19&0x1ffffffff80000)|src[32]>>45)>>1 ^ -(int64((src[31]<<19&0x1ffffffff80000)|src[32]>>45) & 1))
+	out38 := offset
+	offset -= T(int64((src[32]<<8&0x1fffffffffff00)|src[33]>>56)>>1 ^ -(int64((src[32]<<8&0x1fffffffffff00)|src[33]>>56) & 1))
+	out39 := offset
+	offset -= T(int64(src[33]>>3&0x1fffffffffffff)>>1 ^ -(int64(src[33]>>3&0x1fffffffffffff) & 1))
+	out40 := offset
+	offset -= T(int64((src[33]<<50&0x1c000000000000)|src[34]>>14)>>1 ^ -(int64((src[33]<<50&0x1c000000000000)|src[34]>>14) & 1))
+	out41 := offset
+	offset -= T(int64((src[34]<<39&0x1fff8000000000)|src[35]>>25)>>1 ^ -(int64((src[34]<<39&0x1fff8000000000)|src[35]>>25) & 1))
+	out42 := offset
+	offset -= T(int64((src[35]<<28&0x1ffffff0000000)|src[36]>>36)>>1 ^ -(int64((src[35]<<28&0x1ffffff0000000)|src[36]>>36) & 1))
+	out43 := offset
+	offset -= T(int64((src[36]<<17&0x1ffffffffe0000)|src[37]>>47)>>1 ^ -(int64((src[36]<<17&0x1ffffffffe0000)|src[37]>>47) & 1))
+	out44 := offset
+	offset -= T(int64((src[37]<<6&0x1fffffffffffc0)|src[38]>>58)>>1 ^ -(int64((src[37]<<6&0x1fffffffffffc0)|src[38]>>58) & 1))
+	out45 := offset
+	offset -= T(int64(src[38]>>5&0x1fffffffffffff)>>1 ^ -(int64(src[38]>>5&0x1fffffffffffff) & 1))
+	out46 := offset
+	offset -= T(int64((src[38]<<48&0x1f000000000000)|src[39]>>16)>>1 ^ -(int64((src[38]<<48&0x1f000000000000)|src[39]>>16) & 1))
+	out47 := offset
+	offset -= T(int64((src[39]<<37&0x1fffe000000000)|src[40]>>27)>>1 ^ -(int64((src[39]<<37&0x1fffe000000000)|src[40]>>27) & 1))
+	out48 := offset
+	offset -= T(int64((src[40]<<26&0x1ffffffc000000)|src[41]>>38)>>1 ^ -(int64((src[40]<<26&0x1ffffffc000000)|src[41]>>38) & 1))
+	out49 := offset
+	offset -= T(int64((src[41]<<15&0x1fffffffff8000)|src[42]>>49)>>1 ^ -(int64((src[41]<<15&0x1fffffffff8000)|src[42]>>49) & 1))
+	out50 := offset
+	offset -= T(int64((src[42]<<4&0x1ffffffffffff0)|src[43]>>60)>>1 ^ -(int64((src[42]<<4&0x1ffffffffffff0)|src[43]>>60) & 1))
+	out51 := offset
+	offset -= T(int64(src[43]>>7&0x1fffffffffffff)>>1 ^ -(int64(src[43]>>7&0x1fffffffffffff) & 1))
+	out52 := offset
+	offset -= T(int64((src[43]<<46&0x1fc00000000000)|src[44]>>18)>>1 ^ -(int64((src[43]<<46&0x1fc00000000000)|src[44]>>18) & 1))
+	out53 := offset
+	offset -= T(int64((src[44]<<35&0x1ffff800000000)|src[45]>>29)>>1 ^ -(int64((src[44]<<35&0x1ffff800000000)|src[45]>>29) & 1))
+	out54 := offset
+	offset -= T(int64((src[45]<<24&0x1fffffff000000)|src[46]>>40)>>1 ^ -(int64((src[45]<<24&0x1fffffff000000)|src[46]>>40) & 1))
+	out55 := offset
+	offset -= T(int64((src[46]<<13&0x1fffffffffe000)|src[47]>>51)>>1 ^ -(int64((src[46]<<13&0x1fffffffffe000)|src[47]>>51) & 1))
+	out56 := offset
+	offset -= T(int64((src[47]<<2&0x1ffffffffffffc)|src[48]>>62)>>1 ^ -(int64((src[47]<<2&0x1ffffffffffffc)|src[48]>>62) & 1))
+	out57 := offset
+	offset -= T(int64(src[48]>>9&0x1fffffffffffff)>>1 ^ -(int64(src[48]>>9&0x1fffffffffffff) & 1))
+	out58 := offset
+	offset -= T(int64((src[48]<<44&0x1ff00000000000)|src[49]>>20)>>1 ^ -(int64((src[48]<<44&0x1ff00000000000)|src[49]>>20) & 1))
+	out59 := offset
+	offset -= T(int64((src[49]<<33&0x1ffffe00000000)|src[50]>>31)>>1 ^ -(int64((src[49]<<33&0x1ffffe00000000)|src[50]>>31) & 1))
+	out60 := offset
+	offset -= T(int64((src[50]<<22&0x1fffffffc00000)|src[51]>>42)>>1 ^ -(int64((src[50]<<22&0x1fffffffc00000)|src[51]>>42) & 1))
+	out61 := offset
+	offset -= T(int64((src[51]<<11&0x1ffffffffff800)|src[52]>>53)>>1 ^ -(int64((src[51]<<11&0x1ffffffffff800)|src[52]>>53) & 1))
+	out62 := offset
+	offset -= T(int64(src[52]>>0&0x1fffffffffffff)>>1 ^ -(int64(src[52]>>0&0x1fffffffffffff) & 1))
+	out63 := offset
+
+	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
+}
+
+func append54BitDeltaDecode[T Integer](dst []T, src *[54]Word, offset T) []T {
+	offset -= T(int64(src[0]>>10&0x3fffffffffffff)>>1 ^ -(int64(src[0]>>10&0x3fffffffffffff) & 1))
+	out0 := offset
+	offset -= T(int64((src[0]<<44&0x3ff00000000000)|src[1]>>20)>>1 ^ -(int64((src[0]<<44&0x3ff00000000000)|src[1]>>20) & 1))
+	out1 := offset
+	offset -= T(int64((src[1]<<34&0x3ffffc00000000)|src[2]>>30)>>1 ^ -(int64((src[1]<<34&0x3ffffc00000000)|src[2]>>30) & 1))
+	out2 := offset
+	offset -= T(int64((src[2]<<24&0x3fffffff000000)|src[3]>>40)>>1 ^ -(int64((src[2]<<24&0x3fffffff000000)|src[3]>>40) & 1))
+	out3 := offset
+	offset -= T(int64((src[3]<<14&0x3fffffffffc000)|src[4]>>50)>>1 ^ -(int64((src[3]<<14&0x3fffffffffc000)|src[4]>>50) & 1))
+	out4 := offset
+	offset -= T(int64((src[4]<<4&0x3ffffffffffff0)|src[5]>>60)>>1 ^ -(int64((src[4]<<4&0x3ffffffffffff0)|src[5]>>60) & 1))
+	out5 := offset
+	offset -= T(int64(src[5]>>6&0x3fffffffffffff)>>1 ^ -(int64(src[5]>>6&0x3fffffffffffff) & 1))
+	out6 := offset
+	offset -= T(int64((src[5]<<48&0x3f000000000000)|src[6]>>16)>>1 ^ -(int64((src[5]<<48&0x3f000000000000)|src[6]>>16) & 1))
+	out7 := offset
+	offset -= T(int64((src[6]<<38&0x3fffc000000000)|src[7]>>26)>>1 ^ -(int64((src[6]<<38&0x3fffc000000000)|src[7]>>26) & 1))
+	out8 := offset
+	offset -= T(int64((src[7]<<28&0x3ffffff0000000)|src[8]>>36)>>1 ^ -(int64((src[7]<<28&0x3ffffff0000000)|src[8]>>36) & 1))
+	out9 := offset
+	offset -= T(int64((src[8]<<18&0x3ffffffffc0000)|src[9]>>46)>>1 ^ -(int64((src[8]<<18&0x3ffffffffc0000)|src[9]>>46) & 1))
+	out10 := offset
+	offset -= T(int64((src[9]<<8&0x3fffffffffff00)|src[10]>>56)>>1 ^ -(int64((src[9]<<8&0x3fffffffffff00)|src[10]>>56) & 1))
+	out11 := offset
+	offset -= T(int64(src[10]>>2&0x3fffffffffffff)>>1 ^ -(int64(src[10]>>2&0x3fffffffffffff) & 1))
+	out12 := offset
+	offset -= T(int64((src[10]<<52&0x30000000000000)|src[11]>>12)>>1 ^ -(int64((src[10]<<52&0x30000000000000)|src[11]>>12) & 1))
+	out13 := offset
+	offset -= T(int64((src[11]<<42&0x3ffc0000000000)|src[12]>>22)>>1 ^ -(int64((src[11]<<42&0x3ffc0000000000)|src[12]>>22) & 1))
+	out14 := offset
+	offset -= T(int64((src[12]<<32&0x3fffff00000000)|src[13]>>32)>>1 ^ -(int64((src[12]<<32&0x3fffff00000000)|src[13]>>32) & 1))
+	out15 := offset
+	offset -= T(int64((src[13]<<22&0x3fffffffc00000)|src[14]>>42)>>1 ^ -(int64((src[13]<<22&0x3fffffffc00000)|src[14]>>42) & 1))
+	out16 := offset
+	offset -= T(int64((src[14]<<12&0x3ffffffffff000)|src[15]>>52)>>1 ^ -(int64((src[14]<<12&0x3ffffffffff000)|src[15]>>52) & 1))
+	out17 := offset
+	offset -= T(int64((src[15]<<2&0x3ffffffffffffc)|src[16]>>62)>>1 ^ -(int64((src[15]<<2&0x3ffffffffffffc)|src[16]>>62) & 1))
+	out18 := offset
+	offset -= T(int64(src[16]>>8&0x3fffffffffffff)>>1 ^ -(int64(src[16]>>8&0x3fffffffffffff) & 1))
+	out19 := offset
+	offset -= T(int64((src[16]<<46&0x3fc00000000000)|src[17]>>18)>>1 ^ -(int64((src[16]<<46&0x3fc00000000000)|src[17]>>18) & 1))
+	out20 := offset
+	offset -= T(int64((src[17]<<36&0x3ffff000000000)|src[18]>>28)>>1 ^ -(int64((src[17]<<36&0x3ffff000000000)|src[18]>>28) & 1))
+	out21 := offset
+	offset -= T(int64((src[18]<<26&0x3ffffffc000000)|src[19]>>38)>>1 ^ -(int64((src[18]<<26&0x3ffffffc000000)|src[19]>>38) & 1))
+	out22 := offset
+	offset -= T(int64((src[19]<<16&0x3fffffffff0000)|src[20]>>48)>>1 ^ -(int64((src[19]<<16&0x3fffffffff0000)|src[20]>>48) & 1))
+	out23 := offset
+	offset -= T(int64((src[20]<<6&0x3fffffffffffc0)|src[21]>>58)>>1 ^ -(int64((src[20]<<6&0x3fffffffffffc0)|src[21]>>58) & 1))
+	out24 := offset
+	offset -= T(int64(src[21]>>4&0x3fffffffffffff)>>1 ^ -(int64(src[21]>>4&0x3fffffffffffff) & 1))
+	out25 := offset
+	offset -= T(int64((src[21]<<50&0x3c000000000000)|src[22]>>14)>>1 ^ -(int64((src[21]<<50&0x3c000000000000)|src[22]>>14) & 1))
+	out26 := offset
+	offset -= T(int64((src[22]<<40&0x3fff0000000000)|src[23]>>24)>>1 ^ -(int64((src[22]<<40&0x3fff0000000000)|src[23]>>24) & 1))
+	out27 := offset
+	offset -= T(int64((src[23]<<30&0x3fffffc0000000)|src[24]>>34)>>1 ^ -(int64((src[23]<<30&0x3fffffc0000000)|src[24]>>34) & 1))
+	out28 := offset
+	offset -= T(int64((src[24]<<20&0x3ffffffff00000)|src[25]>>44)>>1 ^ -(int64((src[24]<<20&0x3ffffffff00000)|src[25]>>44) & 1))
+	out29 := offset
+	offset -= T(int64((src[25]<<10&0x3ffffffffffc00)|src[26]>>54)>>1 ^ -(int64((src[25]<<10&0x3ffffffffffc00)|src[26]>>54) & 1))
+	out30 := offset
+	offset -= T(int64(src[26]>>0&0x3fffffffffffff)>>1 ^ -(int64(src[26]>>0&0x3fffffffffffff) & 1))
+	out31 := offset
+	offset -= T(int64(src[27]>>10&0x3fffffffffffff)>>1 ^ -(int64(src[27]>>10&0x3fffffffffffff) & 1))
+	out32 := offset
+	offset -= T(int64((src[27]<<44&0x3ff00000000000)|src[28]>>20)>>1 ^ -(int64((src[27]<<44&0x3ff00000000000)|src[28]>>20) & 1))
+	out33 := offset
+	offset -= T(int64((src[28]<<34&0x3ffffc00000000)|src[29]>>30)>>1 ^ -(int64((src[28]<<34&0x3ffffc00000000)|src[29]>>30) & 1))
+	out34 := offset
+	offset -= T(int64((src[29]<<24&0x3fffffff000000)|src[30]>>40)>>1 ^ -(int64((src[29]<<24&0x3fffffff000000)|src[30]>>40) & 1))
+	out35 := offset
+	offset -= T(int64((src[30]<<14&0x3fffffffffc000)|src[31]>>50)>>1 ^ -(int64((src[30]<<14&0x3fffffffffc000)|src[31]>>50) & 1))
+	out36 := offset
+	offset -= T(int64((src[31]<<4&0x3ffffffffffff0)|src[32]>>60)>>1 ^ -(int64((src[31]<<4&0x3ffffffffffff0)|src[32]>>60) & 1))
+	out37 := offset
+	offset -= T(int64(src[32]>>6&0x3fffffffffffff)>>1 ^ -(int64(src[32]>>6&0x3fffffffffffff) & 1))
+	out38 := offset
+	offset -= T(int64((src[32]<<48&0x3f000000000000)|src[33]>>16)>>1 ^ -(int64((src[32]<<48&0x3f000000000000)|src[33]>>16) & 1))
+	out39 := offset
+	offset -= T(int64((src[33]<<38&0x3fffc000000000)|src[34]>>26)>>1 ^ -(int64((src[33]<<38&0x3fffc000000000)|src[34]>>26) & 1))
+	out40 := offset
+	offset -= T(int64((src[34]<<28&0x3ffffff0000000)|src[35]>>36)>>1 ^ -(int64((src[34]<<28&0x3ffffff0000000)|src[35]>>36) & 1))
+	out41 := offset
+	offset -= T(int64((src[35]<<18&0x3ffffffffc0000)|src[36]>>46)>>1 ^ -(int64((src[35]<<18&0x3ffffffffc0000)|src[36]>>46) & 1))
+	out42 := offset
+	offset -= T(int64((src[36]<<8&0x3fffffffffff00)|src[37]>>56)>>1 ^ -(int64((src[36]<<8&0x3fffffffffff00)|src[37]>>56) & 1))
+	out43 := offset
+	offset -= T(int64(src[37]>>2&0x3fffffffffffff)>>1 ^ -(int64(src[37]>>2&0x3fffffffffffff) & 1))
+	out44 := offset
+	offset -= T(int64((src[37]<<52&0x30000000000000)|src[38]>>12)>>1 ^ -(int64((src[37]<<52&0x30000000000000)|src[38]>>12) & 1))
+	out45 := offset
+	offset -= T(int64((src[38]<<42&0x3ffc0000000000)|src[39]>>22)>>1 ^ -(int64((src[38]<<42&0x3ffc0000000000)|src[39]>>22) & 1))
+	out46 := offset
+	offset -= T(int64((src[39]<<32&0x3fffff00000000)|src[40]>>32)>>1 ^ -(int64((src[39]<<32&0x3fffff00000000)|src[40]>>32) & 1))
+	out47 := offset
+	offset -= T(int64((src[40]<<22&0x3fffffffc00000)|src[41]>>42)>>1 ^ -(int64((src[40]<<22&0x3fffffffc00000)|src[41]>>42) & 1))
+	out48 := offset
+	offset -= T(int64((src[41]<<12&0x3ffffffffff000)|src[42]>>52)>>1 ^ -(int64((src[41]<<12&0x3ffffffffff000)|src[42]>>52) & 1))
+	out49 := offset
+	offset -= T(int64((src[42]<<2&0x3ffffffffffffc)|src[43]>>62)>>1 ^ -(int64((src[42]<<2&0x3ffffffffffffc)|src[43]>>62) & 1))
+	out50 := offset
+	offset -= T(int64(src[43]>>8&0x3fffffffffffff)>>1 ^ -(int64(src[43]>>8&0x3fffffffffffff) & 1))
+	out51 := offset
+	offset -= T(int64((src[43]<<46&0x3fc00000000000)|src[44]>>18)>>1 ^ -(int64((src[43]<<46&0x3fc00000000000)|src[44]>>18) & 1))
+	out52 := offset
+	offset -= T(int64((src[44]<<36&0x3ffff000000000)|src[45]>>28)>>1 ^ -(int64((src[44]<<36&0x3ffff000000000)|src[45]>>28) & 1))
+	out53 := offset
+	offset -= T(int64((src[45]<<26&0x3ffffffc000000)|src[46]>>38)>>1 ^ -(int64((src[45]<<26&0x3ffffffc000000)|src[46]>>38) & 1))
+	out54 := offset
+	offset -= T(int64((src[46]<<16&0x3fffffffff0000)|src[47]>>48)>>1 ^ -(int64((src[46]<<16&0x3fffffffff0000)|src[47]>>48) & 1))
+	out55 := offset
+	offset -= T(int64((src[47]<<6&0x3fffffffffffc0)|src[48]>>58)>>1 ^ -(int64((src[47]<<6&0x3fffffffffffc0)|src[48]>>58) & 1))
+	out56 := offset
+	offset -= T(int64(src[48]>>4&0x3fffffffffffff)>>1 ^ -(int64(src[48]>>4&0x3fffffffffffff) & 1))
+	out57 := offset
+	offset -= T(int64((src[48]<<50&0x3c000000000000)|src[49]>>14)>>1 ^ -(int64((src[48]<<50&0x3c000000000000)|src[49]>>14) & 1))
+	out58 := offset
+	offset -= T(int64((src[49]<<40&0x3fff0000000000)|src[50]>>24)>>1 ^ -(int64((src[49]<<40&0x3fff0000000000)|src[50]>>24) & 1))
+	out59 := offset
+	offset -= T(int64((src[50]<<30&0x3fffffc0000000)|src[51]>>34)>>1 ^ -(int64((src[50]<<30&0x3fffffc0000000)|src[51]>>34) & 1))
+	out60 := offset
+	offset -= T(int64((src[51]<<20&0x3ffffffff00000)|src[52]>>44)>>1 ^ -(int64((src[51]<<20&0x3ffffffff00000)|src[52]>>44) & 1))
+	out61 := offset
+	offset -= T(int64((src[52]<<10&0x3ffffffffffc00)|src[53]>>54)>>1 ^ -(int64((src[52]<<10&0x3ffffffffffc00)|src[53]>>54) & 1))
+	out62 := offset
+	offset -= T(int64(src[53]>>0&0x3fffffffffffff)>>1 ^ -(int64(src[53]>>0&0x3fffffffffffff) & 1))
+	out63 := offset
+
+	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
+}
+
+func append55BitDeltaDecode[T Integer](dst []T, src *[55]Word, offset T) []T {
+	offset -= T(int64(src[0]>>9&0x7fffffffffffff)>>1 ^ -(int64(src[0]>>9&0x7fffffffffffff) & 1))
+	out0 := offset
+	offset -= T(int64((src[0]<<46&0x7fc00000000000)|src[1]>>18)>>1 ^ -(int64((src[0]<<46&0x7fc00000000000)|src[1]>>18) & 1))
+	out1 := offset
+	offset -= T(int64((src[1]<<37&0x7fffe000000000)|src[2]>>27)>>1 ^ -(int64((src[1]<<37&0x7fffe000000000)|src[2]>>27) & 1))
+	out2 := offset
+	offset -= T(int64((src[2]<<28&0x7ffffff0000000)|src[3]>>36)>>1 ^ -(int64((src[2]<<28&0x7ffffff0000000)|src[3]>>36) & 1))
+	out3 := offset
+	offset -= T(int64((src[3]<<19&0x7ffffffff80000)|src[4]>>45)>>1 ^ -(int64((src[3]<<19&0x7ffffffff80000)|src[4]>>45) & 1))
+	out4 := offset
+	offset -= T(int64((src[4]<<10&0x7ffffffffffc00)|src[5]>>54)>>1 ^ -(int64((src[4]<<10&0x7ffffffffffc00)|src[5]>>54) & 1))
+	out5 := offset
+	offset -= T(int64((src[5]<<1&0x7ffffffffffffe)|src[6]>>63)>>1 ^ -(int64((src[5]<<1&0x7ffffffffffffe)|src[6]>>63) & 1))
+	out6 := offset
+	offset -= T(int64(src[6]>>8&0x7fffffffffffff)>>1 ^ -(int64(src[6]>>8&0x7fffffffffffff) & 1))
+	out7 := offset
+	offset -= T(int64((src[6]<<47&0x7f800000000000)|src[7]>>17)>>1 ^ -(int64((src[6]<<47&0x7f800000000000)|src[7]>>17) & 1))
+	out8 := offset
+	offset -= T(int64((src[7]<<38&0x7fffc000000000)|src[8]>>26)>>1 ^ -(int64((src[7]<<38&0x7fffc000000000)|src[8]>>26) & 1))
+	out9 := offset
+	offset -= T(int64((src[8]<<29&0x7fffffe0000000)|src[9]>>35)>>1 ^ -(int64((src[8]<<29&0x7fffffe0000000)|src[9]>>35) & 1))
+	out10 := offset
+	offset -= T(int64((src[9]<<20&0x7ffffffff00000)|src[10]>>44)>>1 ^ -(int64((src[9]<<20&0x7ffffffff00000)|src[10]>>44) & 1))
+	out11 := offset
+	offset -= T(int64((src[10]<<11&0x7ffffffffff800)|src[11]>>53)>>1 ^ -(int64((src[10]<<11&0x7ffffffffff800)|src[11]>>53) & 1))
+	out12 := offset
+	offset -= T(int64((src[11]<<2&0x7ffffffffffffc)|src[12]>>62)>>1 ^ -(int64((src[11]<<2&0x7ffffffffffffc)|src[12]>>62) & 1))
+	out13 := offset
+	offset -= T(int64(src[12]>>7&0x7fffffffffffff)>>1 ^ -(int64(src[12]>>7&0x7fffffffffffff) & 1))
+	out14 := offset
+	offset -= T(int64((src[12]<<48&0x7f000000000000)|src[13]>>16)>>1 ^ -(int64((src[12]<<48&0x7f000000000000)|src[13]>>16) & 1))
+	out15 := offset
+	offset -= T(int64((src[13]<<39&0x7fff8000000000)|src[14]>>25)>>1 ^ -(int64((src[13]<<39&0x7fff8000000000)|src[14]>>25) & 1))
+	out16 := offset
+	offset -= T(int64((src[14]<<30&0x7fffffc0000000)|src[15]>>34)>>1 ^ -(int64((src[14]<<30&0x7fffffc0000000)|src[15]>>34) & 1))
+	out17 := offset
+	offset -= T(int64((src[15]<<21&0x7fffffffe00000)|src[16]>>43)>>1 ^ -(int64((src[15]<<21&0x7fffffffe00000)|src[16]>>43) & 1))
+	out18 := offset
+	offset -= T(int64((src[16]<<12&0x7ffffffffff000)|src[17]>>52)>>1 ^ -(int64((src[16]<<12&0x7ffffffffff000)|src[17]>>52) & 1))
+	out19 := offset
+	offset -= T(int64((src[17]<<3&0x7ffffffffffff8)|src[18]>>61)>>1 ^ -(int64((src[17]<<3&0x7ffffffffffff8)|src[18]>>61) & 1))
+	out20 := offset
+	offset -= T(int64(src[18]>>6&0x7fffffffffffff)>>1 ^ -(int64(src[18]>>6&0x7fffffffffffff) & 1))
+	out21 := offset
+	offset -= T(int64((src[18]<<49&0x7e000000000000)|src[19]>>15)>>1 ^ -(int64((src[18]<<49&0x7e000000000000)|src[19]>>15) & 1))
+	out22 := offset
+	offset -= T(int64((src[19]<<40&0x7fff0000000000)|src[20]>>24)>>1 ^ -(int64((src[19]<<40&0x7fff0000000000)|src[20]>>24) & 1))
+	out23 := offset
+	offset -= T(int64((src[20]<<31&0x7fffff80000000)|src[21]>>33)>>1 ^ -(int64((src[20]<<31&0x7fffff80000000)|src[21]>>33) & 1))
+	out24 := offset
+	offset -= T(int64((src[21]<<22&0x7fffffffc00000)|src[22]>>42)>>1 ^ -(int64((src[21]<<22&0x7fffffffc00000)|src[22]>>42) & 1))
+	out25 := offset
+	offset -= T(int64((src[22]<<13&0x7fffffffffe000)|src[23]>>51)>>1 ^ -(int64((src[22]<<13&0x7fffffffffe000)|src[23]>>51) & 1))
+	out26 := offset
+	offset -= T(int64((src[23]<<4&0x7ffffffffffff0)|src[24]>>60)>>1 ^ -(int64((src[23]<<4&0x7ffffffffffff0)|src[24]>>60) & 1))
+	out27 := offset
+	offset -= T(int64(src[24]>>5&0x7fffffffffffff)>>1 ^ -(int64(src[24]>>5&0x7fffffffffffff) & 1))
+	out28 := offset
+	offset -= T(int64((src[24]<<50&0x7c000000000000)|src[25]>>14)>>1 ^ -(int64((src[24]<<50&0x7c000000000000)|src[25]>>14) & 1))
+	out29 := offset
+	offset -= T(int64((src[25]<<41&0x7ffe0000000000)|src[26]>>23)>>1 ^ -(int64((src[25]<<41&0x7ffe0000000000)|src[26]>>23) & 1))
+	out30 := offset
+	offset -= T(int64((src[26]<<32&0x7fffff00000000)|src[27]>>32)>>1 ^ -(int64((src[26]<<32&0x7fffff00000000)|src[27]>>32) & 1))
+	out31 := offset
+	offset -= T(int64((src[27]<<23&0x7fffffff800000)|src[28]>>41)>>1 ^ -(int64((src[27]<<23&0x7fffffff800000)|src[28]>>41) & 1))
+	out32 := offset
+	offset -= T(int64((src[28]<<14&0x7fffffffffc000)|src[29]>>50)>>1 ^ -(int64((src[28]<<14&0x7fffffffffc000)|src[29]>>50) & 1))
+	out33 := offset
+	offset -= T(int64((src[29]<<5&0x7fffffffffffe0)|src[30]>>59)>>1 ^ -(int64((src[29]<<5&0x7fffffffffffe0)|src[30]>>59) & 1))
+	out34 := offset
+	offset -= T(int64(src[30]>>4&0x7fffffffffffff)>>1 ^ -(int64(src[30]>>4&0x7fffffffffffff) & 1))
+	out35 := offset
+	offset -= T(int64((src[30]<<51&0x78000000000000)|src[31]>>13)>>1 ^ -(int64((src[30]<<51&0x78000000000000)|src[31]>>13) & 1))
+	out36 := offset
+	offset -= T(int64((src[31]<<42&0x7ffc0000000000)|src[32]>>22)>>1 ^ -(int64((src[31]<<42&0x7ffc0000000000)|src[32]>>22) & 1))
+	out37 := offset
+	offset -= T(int64((src[32]<<33&0x7ffffe00000000)|src[33]>>31)>>1 ^ -(int64((src[32]<<33&0x7ffffe00000000)|src[33]>>31) & 1))
+	out38 := offset
+	offset -= T(int64((src[33]<<24&0x7fffffff000000)|src[34]>>40)>>1 ^ -(int64((src[33]<<24&0x7fffffff000000)|src[34]>>40) & 1))
+	out39 := offset
+	offset -= T(int64((src[34]<<15&0x7fffffffff8000)|src[35]>>49)>>1 ^ -(int64((src[34]<<15&0x7fffffffff8000)|src[35]>>49) & 1))
+	out40 := offset
+	offset -= T(int64((src[35]<<6&0x7fffffffffffc0)|src[36]>>58)>>1 ^ -(int64((src[35]<<6&0x7fffffffffffc0)|src[36]>>58) & 1))
+	out41 := offset
+	offset -= T(int64(src[36]>>3&0x7fffffffffffff)>>1 ^ -(int64(src[36]>>3&0x7fffffffffffff) & 1))
+	out42 := offset
+	offset -= T(int64((src[36]<<52&0x70000000000000)|src[37]>>12)>>1 ^ -(int64((src[36]<<52&0x70000000000000)|src[37]>>12) & 1))
+	out43 := offset
+	offset -= T(int64((src[37]<<43&0x7ff80000000000)|src[38]>>21)>>1 ^ -(int64((src[37]<<43&0x7ff80000000000)|src[38]>>21) & 1))
+	out44 := offset
+	offset -= T(int64((src[38]<<34&0x7ffffc00000000)|src[39]>>30)>>1 ^ -(int64((src[38]<<34&0x7ffffc00000000)|src[39]>>30) & 1))
+	out45 := offset
+	offset -= T(int64((src[39]<<25&0x7ffffffe000000)|src[40]>>39)>>1 ^ -(int64((src[39]<<25&0x7ffffffe000000)|src[40]>>39) & 1))
+	out46 := offset
+	offset -= T(int64((src[40]<<16&0x7fffffffff0000)|src[41]>>48)>>1 ^ -(int64((src[40]<<16&0x7fffffffff0000)|src[41]>>48) & 1))
+	out47 := offset
+	offset -= T(int64((src[41]<<7&0x7fffffffffff80)|src[42]>>57)>>1 ^ -(int64((src[41]<<7&0x7fffffffffff80)|src[42]>>57) & 1))
+	out48 := offset
+	offset -= T(int64(src[42]>>2&0x7fffffffffffff)>>1 ^ -(int64(src[42]>>2&0x7fffffffffffff) & 1))
+	out49 := offset
+	offset -= T(int64((src[42]<<53&0x60000000000000)|src[43]>>11)>>1 ^ -(int64((src[42]<<53&0x60000000000000)|src[43]>>11) & 1))
+	out50 := offset
+	offset -= T(int64((src[43]<<44&0x7ff00000000000)|src[44]>>20)>>1 ^ -(int64((src[43]<<44&0x7ff00000000000)|src[44]>>20) & 1))
+	out51 := offset
+	offset -= T(int64((src[44]<<35&0x7ffff800000000)|src[45]>>29)>>1 ^ -(int64((src[44]<<35&0x7ffff800000000)|src[45]>>29) & 1))
+	out52 := offset
+	offset -= T(int64((src[45]<<26&0x7ffffffc000000)|src[46]>>38)>>1 ^ -(int64((src[45]<<26&0x7ffffffc000000)|src[46]>>38) & 1))
+	out53 := offset
+	offset -= T(int64((src[46]<<17&0x7ffffffffe0000)|src[47]>>47)>>1 ^ -(int64((src[46]<<17&0x7ffffffffe0000)|src[47]>>47) & 1))
+	out54 := offset
+	offset -= T(int64((src[47]<<8&0x7fffffffffff00)|src[48]>>56)>>1 ^ -(int64((src[47]<<8&0x7fffffffffff00)|src[48]>>56) & 1))
+	out55 := offset
+	offset -= T(int64(src[48]>>1&0x7fffffffffffff)>>1 ^ -(int64(src[48]>>1&0x7fffffffffffff) & 1))
+	out56 := offset
+	offset -= T(int64((src[48]<<54&0x40000000000000)|src[49]>>10)>>1 ^ -(int64((src[48]<<54&0x40000000000000)|src[49]>>10) & 1))
+	out57 := offset
+	offset -= T(int64((src[49]<<45&0x7fe00000000000)|src[50]>>19)>>1 ^ -(int64((src[49]<<45&0x7fe00000000000)|src[50]>>19) & 1))
+	out58 := offset
+	offset -= T(int64((src[50]<<36&0x7ffff000000000)|src[51]>>28)>>1 ^ -(int64((src[50]<<36&0x7ffff000000000)|src[51]>>28) & 1))
+	out59 := offset
+	offset -= T(int64((src[51]<<27&0x7ffffff8000000)|src[52]>>37)>>1 ^ -(int64((src[51]<<27&0x7ffffff8000000)|src[52]>>37) & 1))
+	out60 := offset
+	offset -= T(int64((src[52]<<18&0x7ffffffffc0000)|src[53]>>46)>>1 ^ -(int64((src[52]<<18&0x7ffffffffc0000)|src[53]>>46) & 1))
+	out61 := offset
+	offset -= T(int64((src[53]<<9&0x7ffffffffffe00)|src[54]>>55)>>1 ^ -(int64((src[53]<<9&0x7ffffffffffe00)|src[54]>>55) & 1))
+	out62 := offset
+	offset -= T(int64(src[54]>>0&0x7fffffffffffff)>>1 ^ -(int64(src[54]>>0&0x7fffffffffffff) & 1))
+	out63 := offset
+
+	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
+}
+
+func append56BitDeltaDecode[T Integer](dst []T, src *[56]Word, offset T) []T {
+	offset -= T(int64(src[0]>>8&0xffffffffffffff)>>1 ^ -(int64(src[0]>>8&0xffffffffffffff) & 1))
+	out0 := offset
+	offset -= T(int64((src[0]<<48&0xff000000000000)|src[1]>>16)>>1 ^ -(int64((src[0]<<48&0xff000000000000)|src[1]>>16) & 1))
+	out1 := offset
+	offset -= T(int64((src[1]<<40&0xffff0000000000)|src[2]>>24)>>1 ^ -(int64((src[1]<<40&0xffff0000000000)|src[2]>>24) & 1))
+	out2 := offset
+	offset -= T(int64((src[2]<<32&0xffffff00000000)|src[3]>>32)>>1 ^ -(int64((src[2]<<32&0xffffff00000000)|src[3]>>32) & 1))
+	out3 := offset
+	offset -= T(int64((src[3]<<24&0xffffffff000000)|src[4]>>40)>>1 ^ -(int64((src[3]<<24&0xffffffff000000)|src[4]>>40) & 1))
+	out4 := offset
+	offset -= T(int64((src[4]<<16&0xffffffffff0000)|src[5]>>48)>>1 ^ -(int64((src[4]<<16&0xffffffffff0000)|src[5]>>48) & 1))
+	out5 := offset
+	offset -= T(int64((src[5]<<8&0xffffffffffff00)|src[6]>>56)>>1 ^ -(int64((src[5]<<8&0xffffffffffff00)|src[6]>>56) & 1))
+	out6 := offset
+	offset -= T(int64(src[6]>>0&0xffffffffffffff)>>1 ^ -(int64(src[6]>>0&0xffffffffffffff) & 1))
+	out7 := offset
+	offset -= T(int64(src[7]>>8&0xffffffffffffff)>>1 ^ -(int64(src[7]>>8&0xffffffffffffff) & 1))
+	out8 := offset
+	offset -= T(int64((src[7]<<48&0xff000000000000)|src[8]>>16)>>1 ^ -(int64((src[7]<<48&0xff000000000000)|src[8]>>16) & 1))
+	out9 := offset
+	offset -= T(int64((src[8]<<40&0xffff0000000000)|src[9]>>24)>>1 ^ -(int64((src[8]<<40&0xffff0000000000)|src[9]>>24) & 1))
+	out10 := offset
+	offset -= T(int64((src[9]<<32&0xffffff00000000)|src[10]>>32)>>1 ^ -(int64((src[9]<<32&0xffffff00000000)|src[10]>>32) & 1))
+	out11 := offset
+	offset -= T(int64((src[10]<<24&0xffffffff000000)|src[11]>>40)>>1 ^ -(int64((src[10]<<24&0xffffffff000000)|src[11]>>40) & 1))
+	out12 := offset
+	offset -= T(int64((src[11]<<16&0xffffffffff0000)|src[12]>>48)>>1 ^ -(int64((src[11]<<16&0xffffffffff0000)|src[12]>>48) & 1))
+	out13 := offset
+	offset -= T(int64((src[12]<<8&0xffffffffffff00)|src[13]>>56)>>1 ^ -(int64((src[12]<<8&0xffffffffffff00)|src[13]>>56) & 1))
+	out14 := offset
+	offset -= T(int64(src[13]>>0&0xffffffffffffff)>>1 ^ -(int64(src[13]>>0&0xffffffffffffff) & 1))
+	out15 := offset
+	offset -= T(int64(src[14]>>8&0xffffffffffffff)>>1 ^ -(int64(src[14]>>8&0xffffffffffffff) & 1))
+	out16 := offset
+	offset -= T(int64((src[14]<<48&0xff000000000000)|src[15]>>16)>>1 ^ -(int64((src[14]<<48&0xff000000000000)|src[15]>>16) & 1))
+	out17 := offset
+	offset -= T(int64((src[15]<<40&0xffff0000000000)|src[16]>>24)>>1 ^ -(int64((src[15]<<40&0xffff0000000000)|src[16]>>24) & 1))
+	out18 := offset
+	offset -= T(int64((src[16]<<32&0xffffff00000000)|src[17]>>32)>>1 ^ -(int64((src[16]<<32&0xffffff00000000)|src[17]>>32) & 1))
+	out19 := offset
+	offset -= T(int64((src[17]<<24&0xffffffff000000)|src[18]>>40)>>1 ^ -(int64((src[17]<<24&0xffffffff000000)|src[18]>>40) & 1))
+	out20 := offset
+	offset -= T(int64((src[18]<<16&0xffffffffff0000)|src[19]>>48)>>1 ^ -(int64((src[18]<<16&0xffffffffff0000)|src[19]>>48) & 1))
+	out21 := offset
+	offset -= T(int64((src[19]<<8&0xffffffffffff00)|src[20]>>56)>>1 ^ -(int64((src[19]<<8&0xffffffffffff00)|src[20]>>56) & 1))
+	out22 := offset
+	offset -= T(int64(src[20]>>0&0xffffffffffffff)>>1 ^ -(int64(src[20]>>0&0xffffffffffffff) & 1))
+	out23 := offset
+	offset -= T(int64(src[21]>>8&0xffffffffffffff)>>1 ^ -(int64(src[21]>>8&0xffffffffffffff) & 1))
+	out24 := offset
+	offset -= T(int64((src[21]<<48&0xff000000000000)|src[22]>>16)>>1 ^ -(int64((src[21]<<48&0xff000000000000)|src[22]>>16) & 1))
+	out25 := offset
+	offset -= T(int64((src[22]<<40&0xffff0000000000)|src[23]>>24)>>1 ^ -(int64((src[22]<<40&0xffff0000000000)|src[23]>>24) & 1))
+	out26 := offset
+	offset -= T(int64((src[23]<<32&0xffffff00000000)|src[24]>>32)>>1 ^ -(int64((src[23]<<32&0xffffff00000000)|src[24]>>32) & 1))
+	out27 := offset
+	offset -= T(int64((src[24]<<24&0xffffffff000000)|src[25]>>40)>>1 ^ -(int64((src[24]<<24&0xffffffff000000)|src[25]>>40) & 1))
+	out28 := offset
+	offset -= T(int64((src[25]<<16&0xffffffffff0000)|src[26]>>48)>>1 ^ -(int64((src[25]<<16&0xffffffffff0000)|src[26]>>48) & 1))
+	out29 := offset
+	offset -= T(int64((src[26]<<8&0xffffffffffff00)|src[27]>>56)>>1 ^ -(int64((src[26]<<8&0xffffffffffff00)|src[27]>>56) & 1))
+	out30 := offset
+	offset -= T(int64(src[27]>>0&0xffffffffffffff)>>1 ^ -(int64(src[27]>>0&0xffffffffffffff) & 1))
+	out31 := offset
+	offset -= T(int64(src[28]>>8&0xffffffffffffff)>>1 ^ -(int64(src[28]>>8&0xffffffffffffff) & 1))
+	out32 := offset
+	offset -= T(int64((src[28]<<48&0xff000000000000)|src[29]>>16)>>1 ^ -(int64((src[28]<<48&0xff000000000000)|src[29]>>16) & 1))
+	out33 := offset
+	offset -= T(int64((src[29]<<40&0xffff0000000000)|src[30]>>24)>>1 ^ -(int64((src[29]<<40&0xffff0000000000)|src[30]>>24) & 1))
+	out34 := offset
+	offset -= T(int64((src[30]<<32&0xffffff00000000)|src[31]>>32)>>1 ^ -(int64((src[30]<<32&0xffffff00000000)|src[31]>>32) & 1))
+	out35 := offset
+	offset -= T(int64((src[31]<<24&0xffffffff000000)|src[32]>>40)>>1 ^ -(int64((src[31]<<24&0xffffffff000000)|src[32]>>40) & 1))
+	out36 := offset
+	offset -= T(int64((src[32]<<16&0xffffffffff0000)|src[33]>>48)>>1 ^ -(int64((src[32]<<16&0xffffffffff0000)|src[33]>>48) & 1))
+	out37 := offset
+	offset -= T(int64((src[33]<<8&0xffffffffffff00)|src[34]>>56)>>1 ^ -(int64((src[33]<<8&0xffffffffffff00)|src[34]>>56) & 1))
+	out38 := offset
+	offset -= T(int64(src[34]>>0&0xffffffffffffff)>>1 ^ -(int64(src[34]>>0&0xffffffffffffff) & 1))
+	out39 := offset
+	offset -= T(int64(src[35]>>8&0xffffffffffffff)>>1 ^ -(int64(src[35]>>8&0xffffffffffffff) & 1))
+	out40 := offset
+	offset -= T(int64((src[35]<<48&0xff000000000000)|src[36]>>16)>>1 ^ -(int64((src[35]<<48&0xff000000000000)|src[36]>>16) & 1))
+	out41 := offset
+	offset -= T(int64((src[36]<<40&0xffff0000000000)|src[37]>>24)>>1 ^ -(int64((src[36]<<40&0xffff0000000000)|src[37]>>24) & 1))
+	out42 := offset
+	offset -= T(int64((src[37]<<32&0xffffff00000000)|src[38]>>32)>>1 ^ -(int64((src[37]<<32&0xffffff00000000)|src[38]>>32) & 1))
+	out43 := offset
+	offset -= T(int64((src[38]<<24&0xffffffff000000)|src[39]>>40)>>1 ^ -(int64((src[38]<<24&0xffffffff000000)|src[39]>>40) & 1))
+	out44 := offset
+	offset -= T(int64((src[39]<<16&0xffffffffff0000)|src[40]>>48)>>1 ^ -(int64((src[39]<<16&0xffffffffff0000)|src[40]>>48) & 1))
+	out45 := offset
+	offset -= T(int64((src[40]<<8&0xffffffffffff00)|src[41]>>56)>>1 ^ -(int64((src[40]<<8&0xffffffffffff00)|src[41]>>56) & 1))
+	out46 := offset
+	offset -= T(int64(src[41]>>0&0xffffffffffffff)>>1 ^ -(int64(src[41]>>0&0xffffffffffffff) & 1))
+	out47 := offset
+	offset -= T(int64(src[42]>>8&0xffffffffffffff)>>1 ^ -(int64(src[42]>>8&0xffffffffffffff) & 1))
+	out48 := offset
+	offset -= T(int64((src[42]<<48&0xff000000000000)|src[43]>>16)>>1 ^ -(int64((src[42]<<48&0xff000000000000)|src[43]>>16) & 1))
+	out49 := offset
+	offset -= T(int64((src[43]<<40&0xffff0000000000)|src[44]>>24)>>1 ^ -(int64((src[43]<<40&0xffff0000000000)|src[44]>>24) & 1))
+	out50 := offset
+	offset -= T(int64((src[44]<<32&0xffffff00000000)|src[45]>>32)>>1 ^ -(int64((src[44]<<32&0xffffff00000000)|src[45]>>32) & 1))
+	out51 := offset
+	offset -= T(int64((src[45]<<24&0xffffffff000000)|src[46]>>40)>>1 ^ -(int64((src[45]<<24&0xffffffff000000)|src[46]>>40) & 1))
+	out52 := offset
+	offset -= T(int64((src[46]<<16&0xffffffffff0000)|src[47]>>48)>>1 ^ -(int64((src[46]<<16&0xffffffffff0000)|src[47]>>48) & 1))
+	out53 := offset
+	offset -= T(int64((src[47]<<8&0xffffffffffff00)|src[48]>>56)>>1 ^ -(int64((src[47]<<8&0xffffffffffff00)|src[48]>>56) & 1))
+	out54 := offset
+	offset -= T(int64(src[48]>>0&0xffffffffffffff)>>1 ^ -(int64(src[48]>>0&0xffffffffffffff) & 1))
+	out55 := offset
+	offset -= T(int64(src[49]>>8&0xffffffffffffff)>>1 ^ -(int64(src[49]>>8&0xffffffffffffff) & 1))
+	out56 := offset
+	offset -= T(int64((src[49]<<48&0xff000000000000)|src[50]>>16)>>1 ^ -(int64((src[49]<<48&0xff000000000000)|src[50]>>16) & 1))
+	out57 := offset
+	offset -= T(int64((src[50]<<40&0xffff0000000000)|src[51]>>24)>>1 ^ -(int64((src[50]<<40&0xffff0000000000)|src[51]>>24) & 1))
+	out58 := offset
+	offset -= T(int64((src[51]<<32&0xffffff00000000)|src[52]>>32)>>1 ^ -(int64((src[51]<<32&0xffffff00000000)|src[52]>>32) & 1))
+	out59 := offset
+	offset -= T(int64((src[52]<<24&0xffffffff000000)|src[53]>>40)>>1 ^ -(int64((src[52]<<24&0xffffffff000000)|src[53]>>40) & 1))
+	out60 := offset
+	offset -= T(int64((src[53]<<16&0xffffffffff0000)|src[54]>>48)>>1 ^ -(int64((src[53]<<16&0xffffffffff0000)|src[54]>>48) & 1))
+	out61 := offset
+	offset -= T(int64((src[54]<<8&0xffffffffffff00)|src[55]>>56)>>1 ^ -(int64((src[54]<<8&0xffffffffffff00)|src[55]>>56) & 1))
+	out62 := offset
+	offset -= T(int64(src[55]>>0&0xffffffffffffff)>>1 ^ -(int64(src[55]>>0&0xffffffffffffff) & 1))
+	out63 := offset
+
+	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
+}
+
+func append57BitDeltaDecode[T Integer](dst []T, src *[57]Word, offset T) []T {
+	offset -= T(int64(src[0]>>7&0x1ffffffffffffff)>>1 ^ -(int64(src[0]>>7&0x1ffffffffffffff) & 1))
+	out0 := offset
+	offset -= T(int64((src[0]<<50&0x1fc000000000000)|src[1]>>14)>>1 ^ -(int64((src[0]<<50&0x1fc000000000000)|src[1]>>14) & 1))
+	out1 := offset
+	offset -= T(int64((src[1]<<43&0x1fff80000000000)|src[2]>>21)>>1 ^ -(int64((src[1]<<43&0x1fff80000000000)|src[2]>>21) & 1))
+	out2 := offset
+	offset -= T(int64((src[2]<<36&0x1fffff000000000)|src[3]>>28)>>1 ^ -(int64((src[2]<<36&0x1fffff000000000)|src[3]>>28) & 1))
+	out3 := offset
+	offset -= T(int64((src[3]<<29&0x1ffffffe0000000)|src[4]>>35)>>1 ^ -(int64((src[3]<<29&0x1ffffffe0000000)|src[4]>>35) & 1))
+	out4 := offset
+	offset -= T(int64((src[4]<<22&0x1ffffffffc00000)|src[5]>>42)>>1 ^ -(int64((src[4]<<22&0x1ffffffffc00000)|src[5]>>42) & 1))
+	out5 := offset
+	offset -= T(int64((src[5]<<15&0x1ffffffffff8000)|src[6]>>49)>>1 ^ -(int64((src[5]<<15&0x1ffffffffff8000)|src[6]>>49) & 1))
+	out6 := offset
+	offset -= T(int64((src[6]<<8&0x1ffffffffffff00)|src[7]>>56)>>1 ^ -(int64((src[6]<<8&0x1ffffffffffff00)|src[7]>>56) & 1))
+	out7 := offset
+	offset -= T(int64((src[7]<<1&0x1fffffffffffffe)|src[8]>>63)>>1 ^ -(int64((src[7]<<1&0x1fffffffffffffe)|src[8]>>63) & 1))
+	out8 := offset
+	offset -= T(int64(src[8]>>6&0x1ffffffffffffff)>>1 ^ -(int64(src[8]>>6&0x1ffffffffffffff) & 1))
+	out9 := offset
+	offset -= T(int64((src[8]<<51&0x1f8000000000000)|src[9]>>13)>>1 ^ -(int64((src[8]<<51&0x1f8000000000000)|src[9]>>13) & 1))
+	out10 := offset
+	offset -= T(int64((src[9]<<44&0x1fff00000000000)|src[10]>>20)>>1 ^ -(int64((src[9]<<44&0x1fff00000000000)|src[10]>>20) & 1))
+	out11 := offset
+	offset -= T(int64((src[10]<<37&0x1ffffe000000000)|src[11]>>27)>>1 ^ -(int64((src[10]<<37&0x1ffffe000000000)|src[11]>>27) & 1))
+	out12 := offset
+	offset -= T(int64((src[11]<<30&0x1ffffffc0000000)|src[12]>>34)>>1 ^ -(int64((src[11]<<30&0x1ffffffc0000000)|src[12]>>34) & 1))
+	out13 := offset
+	offset -= T(int64((src[12]<<23&0x1ffffffff800000)|src[13]>>41)>>1 ^ -(int64((src[12]<<23&0x1ffffffff800000)|src[13]>>41) & 1))
+	out14 := offset
+	offset -= T(int64((src[13]<<16&0x1ffffffffff0000)|src[14]>>48)>>1 ^ -(int64((src[13]<<16&0x1ffffffffff0000)|src[14]>>48) & 1))
+	out15 := offset
+	offset -= T(int64((src[14]<<9&0x1fffffffffffe00)|src[15]>>55)>>1 ^ -(int64((src[14]<<9&0x1fffffffffffe00)|src[15]>>55) & 1))
+	out16 := offset
+	offset -= T(int64((src[15]<<2&0x1fffffffffffffc)|src[16]>>62)>>1 ^ -(int64((src[15]<<2&0x1fffffffffffffc)|src[16]>>62) & 1))
+	out17 := offset
+	offset -= T(int64(src[16]>>5&0x1ffffffffffffff)>>1 ^ -(int64(src[16]>>5&0x1ffffffffffffff) & 1))
+	out18 := offset
+	offset -= T(int64((src[16]<<52&0x1f0000000000000)|src[17]>>12)>>1 ^ -(int64((src[16]<<52&0x1f0000000000000)|src[17]>>12) & 1))
+	out19 := offset
+	offset -= T(int64((src[17]<<45&0x1ffe00000000000)|src[18]>>19)>>1 ^ -(int64((src[17]<<45&0x1ffe00000000000)|src[18]>>19) & 1))
+	out20 := offset
+	offset -= T(int64((src[18]<<38&0x1ffffc000000000)|src[19]>>26)>>1 ^ -(int64((src[18]<<38&0x1ffffc000000000)|src[19]>>26) & 1))
+	out21 := offset
+	offset -= T(int64((src[19]<<31&0x1ffffff80000000)|src[20]>>33)>>1 ^ -(int64((src[19]<<31&0x1ffffff80000000)|src[20]>>33) & 1))
+	out22 := offset
+	offset -= T(int64((src[20]<<24&0x1ffffffff000000)|src[21]>>40)>>1 ^ -(int64((src[20]<<24&0x1ffffffff000000)|src[21]>>40) & 1))
+	out23 := offset
+	offset -= T(int64((src[21]<<17&0x1fffffffffe0000)|src[22]>>47)>>1 ^ -(int64((src[21]<<17&0x1fffffffffe0000)|src[22]>>47) & 1))
+	out24 := offset
+	offset -= T(int64((src[22]<<10&0x1fffffffffffc00)|src[23]>>54)>>1 ^ -(int64((src[22]<<10&0x1fffffffffffc00)|src[23]>>54) & 1))
+	out25 := offset
+	offset -= T(int64((src[23]<<3&0x1fffffffffffff8)|src[24]>>61)>>1 ^ -(int64((src[23]<<3&0x1fffffffffffff8)|src[24]>>61) & 1))
+	out26 := offset
+	offset -= T(int64(src[24]>>4&0x1ffffffffffffff)>>1 ^ -(int64(src[24]>>4&0x1ffffffffffffff) & 1))
+	out27 := offset
+	offset -= T(int64((src[24]<<53&0x1e0000000000000)|src[25]>>11)>>1 ^ -(int64((src[24]<<53&0x1e0000000000000)|src[25]>>11) & 1))
+	out28 := offset
+	offset -= T(int64((src[25]<<46&0x1ffc00000000000)|src[26]>>18)>>1 ^ -(int64((src[25]<<46&0x1ffc00000000000)|src[26]>>18) & 1))
+	out29 := offset
+	offset -= T(int64((src[26]<<39&0x1ffff8000000000)|src[27]>>25)>>1 ^ -(int64((src[26]<<39&0x1ffff8000000000)|src[27]>>25) & 1))
+	out30 := offset
+	offset -= T(int64((src[27]<<32&0x1ffffff00000000)|src[28]>>32)>>1 ^ -(int64((src[27]<<32&0x1ffffff00000000)|src[28]>>32) & 1))
+	out31 := offset
+	offset -= T(int64((src[28]<<25&0x1fffffffe000000)|src[29]>>39)>>1 ^ -(int64((src[28]<<25&0x1fffffffe000000)|src[29]>>39) & 1))
+	out32 := offset
+	offset -= T(int64((src[29]<<18&0x1fffffffffc0000)|src[30]>>46)>>1 ^ -(int64((src[29]<<18&0x1fffffffffc0000)|src[30]>>46) & 1))
+	out33 := offset
+	offset -= T(int64((src[30]<<11&0x1fffffffffff800)|src[31]>>53)>>1 ^ -(int64((src[30]<<11&0x1fffffffffff800)|src[31]>>53) & 1))
+	out34 := offset
+	offset -= T(int64((src[31]<<4&0x1fffffffffffff0)|src[32]>>60)>>1 ^ -(int64((src[31]<<4&0x1fffffffffffff0)|src[32]>>60) & 1))
+	out35 := offset
+	offset -= T(int64(src[32]>>3&0x1ffffffffffffff)>>1 ^ -(int64(src[32]>>3&0x1ffffffffffffff) & 1))
+	out36 := offset
+	offset -= T(int64((src[32]<<54&0x1c0000000000000)|src[33]>>10)>>1 ^ -(int64((src[32]<<54&0x1c0000000000000)|src[33]>>10) & 1))
+	out37 := offset
+	offset -= T(int64((src[33]<<47&0x1ff800000000000)|src[34]>>17)>>1 ^ -(int64((src[33]<<47&0x1ff800000000000)|src[34]>>17) & 1))
+	out38 := offset
+	offset -= T(int64((src[34]<<40&0x1ffff0000000000)|src[35]>>24)>>1 ^ -(int64((src[34]<<40&0x1ffff0000000000)|src[35]>>24) & 1))
+	out39 := offset
+	offset -= T(int64((src[35]<<33&0x1fffffe00000000)|src[36]>>31)>>1 ^ -(int64((src[35]<<33&0x1fffffe00000000)|src[36]>>31) & 1))
+	out40 := offset
+	offset -= T(int64((src[36]<<26&0x1fffffffc000000)|src[37]>>38)>>1 ^ -(int64((src[36]<<26&0x1fffffffc000000)|src[37]>>38) & 1))
+	out41 := offset
+	offset -= T(int64((src[37]<<19&0x1fffffffff80000)|src[38]>>45)>>1 ^ -(int64((src[37]<<19&0x1fffffffff80000)|src[38]>>45) & 1))
+	out42 := offset
+	offset -= T(int64((src[38]<<12&0x1fffffffffff000)|src[39]>>52)>>1 ^ -(int64((src[38]<<12&0x1fffffffffff000)|src[39]>>52) & 1))
+	out43 := offset
+	offset -= T(int64((src[39]<<5&0x1ffffffffffffe0)|src[40]>>59)>>1 ^ -(int64((src[39]<<5&0x1ffffffffffffe0)|src[40]>>59) & 1))
+	out44 := offset
+	offset -= T(int64(src[40]>>2&0x1ffffffffffffff)>>1 ^ -(int64(src[40]>>2&0x1ffffffffffffff) & 1))
+	out45 := offset
+	offset -= T(int64((src[40]<<55&0x180000000000000)|src[41]>>9)>>1 ^ -(int64((src[40]<<55&0x180000000000000)|src[41]>>9) & 1))
+	out46 := offset
+	offset -= T(int64((src[41]<<48&0x1ff000000000000)|src[42]>>16)>>1 ^ -(int64((src[41]<<48&0x1ff000000000000)|src[42]>>16) & 1))
+	out47 := offset
+	offset -= T(int64((src[42]<<41&0x1fffe0000000000)|src[43]>>23)>>1 ^ -(int64((src[42]<<41&0x1fffe0000000000)|src[43]>>23) & 1))
+	out48 := offset
+	offset -= T(int64((src[43]<<34&0x1fffffc00000000)|src[44]>>30)>>1 ^ -(int64((src[43]<<34&0x1fffffc00000000)|src[44]>>30) & 1))
+	out49 := offset
+	offset -= T(int64((src[44]<<27&0x1fffffff8000000)|src[45]>>37)>>1 ^ -(int64((src[44]<<27&0x1fffffff8000000)|src[45]>>37) & 1))
+	out50 := offset
+	offset -= T(int64((src[45]<<20&0x1fffffffff00000)|src[46]>>44)>>1 ^ -(int64((src[45]<<20&0x1fffffffff00000)|src[46]>>44) & 1))
+	out51 := offset
+	offset -= T(int64((src[46]<<13&0x1ffffffffffe000)|src[47]>>51)>>1 ^ -(int64((src[46]<<13&0x1ffffffffffe000)|src[47]>>51) & 1))
+	out52 := offset
+	offset -= T(int64((src[47]<<6&0x1ffffffffffffc0)|src[48]>>58)>>1 ^ -(int64((src[47]<<6&0x1ffffffffffffc0)|src[48]>>58) & 1))
+	out53 := offset
+	offset -= T(int64(src[48]>>1&0x1ffffffffffffff)>>1 ^ -(int64(src[48]>>1&0x1ffffffffffffff) & 1))
+	out54 := offset
+	offset -= T(int64((src[48]<<56&0x100000000000000)|src[49]>>8)>>1 ^ -(int64((src[48]<<56&0x100000000000000)|src[49]>>8) & 1))
+	out55 := offset
+	offset -= T(int64((src[49]<<49&0x1fe000000000000)|src[50]>>15)>>1 ^ -(int64((src[49]<<49&0x1fe000000000000)|src[50]>>15) & 1))
+	out56 := offset
+	offset -= T(int64((src[50]<<42&0x1fffc0000000000)|src[51]>>22)>>1 ^ -(int64((src[50]<<42&0x1fffc0000000000)|src[51]>>22) & 1))
+	out57 := offset
+	offset -= T(int64((src[51]<<35&0x1fffff800000000)|src[52]>>29)>>1 ^ -(int64((src[51]<<35&0x1fffff800000000)|src[52]>>29) & 1))
+	out58 := offset
+	offset -= T(int64((src[52]<<28&0x1fffffff0000000)|src[53]>>36)>>1 ^ -(int64((src[52]<<28&0x1fffffff0000000)|src[53]>>36) & 1))
+	out59 := offset
+	offset -= T(int64((src[53]<<21&0x1ffffffffe00000)|src[54]>>43)>>1 ^ -(int64((src[53]<<21&0x1ffffffffe00000)|src[54]>>43) & 1))
+	out60 := offset
+	offset -= T(int64((src[54]<<14&0x1ffffffffffc000)|src[55]>>50)>>1 ^ -(int64((src[54]<<14&0x1ffffffffffc000)|src[55]>>50) & 1))
+	out61 := offset
+	offset -= T(int64((src[55]<<7&0x1ffffffffffff80)|src[56]>>57)>>1 ^ -(int64((src[55]<<7&0x1ffffffffffff80)|src[56]>>57) & 1))
+	out62 := offset
+	offset -= T(int64(src[56]>>0&0x1ffffffffffffff)>>1 ^ -(int64(src[56]>>0&0x1ffffffffffffff) & 1))
+	out63 := offset
+
+	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
+}
+
+func append58BitDeltaDecode[T Integer](dst []T, src *[58]Word, offset T) []T {
+	offset -= T(int64(src[0]>>6&0x3ffffffffffffff)>>1 ^ -(int64(src[0]>>6&0x3ffffffffffffff) & 1))
+	out0 := offset
+	offset -= T(int64((src[0]<<52&0x3f0000000000000)|src[1]>>12)>>1 ^ -(int64((src[0]<<52&0x3f0000000000000)|src[1]>>12) & 1))
+	out1 := offset
+	offset -= T(int64((src[1]<<46&0x3ffc00000000000)|src[2]>>18)>>1 ^ -(int64((src[1]<<46&0x3ffc00000000000)|src[2]>>18) & 1))
+	out2 := offset
+	offset -= T(int64((src[2]<<40&0x3ffff0000000000)|src[3]>>24)>>1 ^ -(int64((src[2]<<40&0x3ffff0000000000)|src[3]>>24) & 1))
+	out3 := offset
+	offset -= T(int64((src[3]<<34&0x3fffffc00000000)|src[4]>>30)>>1 ^ -(int64((src[3]<<34&0x3fffffc00000000)|src[4]>>30) & 1))
+	out4 := offset
+	offset -= T(int64((src[4]<<28&0x3fffffff0000000)|src[5]>>36)>>1 ^ -(int64((src[4]<<28&0x3fffffff0000000)|src[5]>>36) & 1))
+	out5 := offset
+	offset -= T(int64((src[5]<<22&0x3ffffffffc00000)|src[6]>>42)>>1 ^ -(int64((src[5]<<22&0x3ffffffffc00000)|src[6]>>42) & 1))
+	out6 := offset
+	offset -= T(int64((src[6]<<16&0x3ffffffffff0000)|src[7]>>48)>>1 ^ -(int64((src[6]<<16&0x3ffffffffff0000)|src[7]>>48) & 1))
+	out7 := offset
+	offset -= T(int64((src[7]<<10&0x3fffffffffffc00)|src[8]>>54)>>1 ^ -(int64((src[7]<<10&0x3fffffffffffc00)|src[8]>>54) & 1))
+	out8 := offset
+	offset -= T(int64((src[8]<<4&0x3fffffffffffff0)|src[9]>>60)>>1 ^ -(int64((src[8]<<4&0x3fffffffffffff0)|src[9]>>60) & 1))
+	out9 := offset
+	offset -= T(int64(src[9]>>2&0x3ffffffffffffff)>>1 ^ -(int64(src[9]>>2&0x3ffffffffffffff) & 1))
+	out10 := offset
+	offset -= T(int64((src[9]<<56&0x300000000000000)|src[10]>>8)>>1 ^ -(int64((src[9]<<56&0x300000000000000)|src[10]>>8) & 1))
+	out11 := offset
+	offset -= T(int64((src[10]<<50&0x3fc000000000000)|src[11]>>14)>>1 ^ -(int64((src[10]<<50&0x3fc000000000000)|src[11]>>14) & 1))
+	out12 := offset
+	offset -= T(int64((src[11]<<44&0x3fff00000000000)|src[12]>>20)>>1 ^ -(int64((src[11]<<44&0x3fff00000000000)|src[12]>>20) & 1))
+	out13 := offset
+	offset -= T(int64((src[12]<<38&0x3ffffc000000000)|src[13]>>26)>>1 ^ -(int64((src[12]<<38&0x3ffffc000000000)|src[13]>>26) & 1))
+	out14 := offset
+	offset -= T(int64((src[13]<<32&0x3ffffff00000000)|src[14]>>32)>>1 ^ -(int64((src[13]<<32&0x3ffffff00000000)|src[14]>>32) & 1))
+	out15 := offset
+	offset -= T(int64((src[14]<<26&0x3fffffffc000000)|src[15]>>38)>>1 ^ -(int64((src[14]<<26&0x3fffffffc000000)|src[15]>>38) & 1))
+	out16 := offset
+	offset -= T(int64((src[15]<<20&0x3fffffffff00000)|src[16]>>44)>>1 ^ -(int64((src[15]<<20&0x3fffffffff00000)|src[16]>>44) & 1))
+	out17 := offset
+	offset -= T(int64((src[16]<<14&0x3ffffffffffc000)|src[17]>>50)>>1 ^ -(int64((src[16]<<14&0x3ffffffffffc000)|src[17]>>50) & 1))
+	out18 := offset
+	offset -= T(int64((src[17]<<8&0x3ffffffffffff00)|src[18]>>56)>>1 ^ -(int64((src[17]<<8&0x3ffffffffffff00)|src[18]>>56) & 1))
+	out19 := offset
+	offset -= T(int64((src[18]<<2&0x3fffffffffffffc)|src[19]>>62)>>1 ^ -(int64((src[18]<<2&0x3fffffffffffffc)|src[19]>>62) & 1))
+	out20 := offset
+	offset -= T(int64(src[19]>>4&0x3ffffffffffffff)>>1 ^ -(int64(src[19]>>4&0x3ffffffffffffff) & 1))
+	out21 := offset
+	offset -= T(int64((src[19]<<54&0x3c0000000000000)|src[20]>>10)>>1 ^ -(int64((src[19]<<54&0x3c0000000000000)|src[20]>>10) & 1))
+	out22 := offset
+	offset -= T(int64((src[20]<<48&0x3ff000000000000)|src[21]>>16)>>1 ^ -(int64((src[20]<<48&0x3ff000000000000)|src[21]>>16) & 1))
+	out23 := offset
+	offset -= T(int64((src[21]<<42&0x3fffc0000000000)|src[22]>>22)>>1 ^ -(int64((src[21]<<42&0x3fffc0000000000)|src[22]>>22) & 1))
+	out24 := offset
+	offset -= T(int64((src[22]<<36&0x3fffff000000000)|src[23]>>28)>>1 ^ -(int64((src[22]<<36&0x3fffff000000000)|src[23]>>28) & 1))
+	out25 := offset
+	offset -= T(int64((src[23]<<30&0x3ffffffc0000000)|src[24]>>34)>>1 ^ -(int64((src[23]<<30&0x3ffffffc0000000)|src[24]>>34) & 1))
+	out26 := offset
+	offset -= T(int64((src[24]<<24&0x3ffffffff000000)|src[25]>>40)>>1 ^ -(int64((src[24]<<24&0x3ffffffff000000)|src[25]>>40) & 1))
+	out27 := offset
+	offset -= T(int64((src[25]<<18&0x3fffffffffc0000)|src[26]>>46)>>1 ^ -(int64((src[25]<<18&0x3fffffffffc0000)|src[26]>>46) & 1))
+	out28 := offset
+	offset -= T(int64((src[26]<<12&0x3fffffffffff000)|src[27]>>52)>>1 ^ -(int64((src[26]<<12&0x3fffffffffff000)|src[27]>>52) & 1))
+	out29 := offset
+	offset -= T(int64((src[27]<<6&0x3ffffffffffffc0)|src[28]>>58)>>1 ^ -(int64((src[27]<<6&0x3ffffffffffffc0)|src[28]>>58) & 1))
+	out30 := offset
+	offset -= T(int64(src[28]>>0&0x3ffffffffffffff)>>1 ^ -(int64(src[28]>>0&0x3ffffffffffffff) & 1))
+	out31 := offset
+	offset -= T(int64(src[29]>>6&0x3ffffffffffffff)>>1 ^ -(int64(src[29]>>6&0x3ffffffffffffff) & 1))
+	out32 := offset
+	offset -= T(int64((src[29]<<52&0x3f0000000000000)|src[30]>>12)>>1 ^ -(int64((src[29]<<52&0x3f0000000000000)|src[30]>>12) & 1))
+	out33 := offset
+	offset -= T(int64((src[30]<<46&0x3ffc00000000000)|src[31]>>18)>>1 ^ -(int64((src[30]<<46&0x3ffc00000000000)|src[31]>>18) & 1))
+	out34 := offset
+	offset -= T(int64((src[31]<<40&0x3ffff0000000000)|src[32]>>24)>>1 ^ -(int64((src[31]<<40&0x3ffff0000000000)|src[32]>>24) & 1))
+	out35 := offset
+	offset -= T(int64((src[32]<<34&0x3fffffc00000000)|src[33]>>30)>>1 ^ -(int64((src[32]<<34&0x3fffffc00000000)|src[33]>>30) & 1))
+	out36 := offset
+	offset -= T(int64((src[33]<<28&0x3fffffff0000000)|src[34]>>36)>>1 ^ -(int64((src[33]<<28&0x3fffffff0000000)|src[34]>>36) & 1))
+	out37 := offset
+	offset -= T(int64((src[34]<<22&0x3ffffffffc00000)|src[35]>>42)>>1 ^ -(int64((src[34]<<22&0x3ffffffffc00000)|src[35]>>42) & 1))
+	out38 := offset
+	offset -= T(int64((src[35]<<16&0x3ffffffffff0000)|src[36]>>48)>>1 ^ -(int64((src[35]<<16&0x3ffffffffff0000)|src[36]>>48) & 1))
+	out39 := offset
+	offset -= T(int64((src[36]<<10&0x3fffffffffffc00)|src[37]>>54)>>1 ^ -(int64((src[36]<<10&0x3fffffffffffc00)|src[37]>>54) & 1))
+	out40 := offset
+	offset -= T(int64((src[37]<<4&0x3fffffffffffff0)|src[38]>>60)>>1 ^ -(int64((src[37]<<4&0x3fffffffffffff0)|src[38]>>60) & 1))
+	out41 := offset
+	offset -= T(int64(src[38]>>2&0x3ffffffffffffff)>>1 ^ -(int64(src[38]>>2&0x3ffffffffffffff) & 1))
+	out42 := offset
+	offset -= T(int64((src[38]<<56&0x300000000000000)|src[39]>>8)>>1 ^ -(int64((src[38]<<56&0x300000000000000)|src[39]>>8) & 1))
+	out43 := offset
+	offset -= T(int64((src[39]<<50&0x3fc000000000000)|src[40]>>14)>>1 ^ -(int64((src[39]<<50&0x3fc000000000000)|src[40]>>14) & 1))
+	out44 := offset
+	offset -= T(int64((src[40]<<44&0x3fff00000000000)|src[41]>>20)>>1 ^ -(int64((src[40]<<44&0x3fff00000000000)|src[41]>>20) & 1))
+	out45 := offset
+	offset -= T(int64((src[41]<<38&0x3ffffc000000000)|src[42]>>26)>>1 ^ -(int64((src[41]<<38&0x3ffffc000000000)|src[42]>>26) & 1))
+	out46 := offset
+	offset -= T(int64((src[42]<<32&0x3ffffff00000000)|src[43]>>32)>>1 ^ -(int64((src[42]<<32&0x3ffffff00000000)|src[43]>>32) & 1))
+	out47 := offset
+	offset -= T(int64((src[43]<<26&0x3fffffffc000000)|src[44]>>38)>>1 ^ -(int64((src[43]<<26&0x3fffffffc000000)|src[44]>>38) & 1))
+	out48 := offset
+	offset -= T(int64((src[44]<<20&0x3fffffffff00000)|src[45]>>44)>>1 ^ -(int64((src[44]<<20&0x3fffffffff00000)|src[45]>>44) & 1))
+	out49 := offset
+	offset -= T(int64((src[45]<<14&0x3ffffffffffc000)|src[46]>>50)>>1 ^ -(int64((src[45]<<14&0x3ffffffffffc000)|src[46]>>50) & 1))
+	out50 := offset
+	offset -= T(int64((src[46]<<8&0x3ffffffffffff00)|src[47]>>56)>>1 ^ -(int64((src[46]<<8&0x3ffffffffffff00)|src[47]>>56) & 1))
+	out51 := offset
+	offset -= T(int64((src[47]<<2&0x3fffffffffffffc)|src[48]>>62)>>1 ^ -(int64((src[47]<<2&0x3fffffffffffffc)|src[48]>>62) & 1))
+	out52 := offset
+	offset -= T(int64(src[48]>>4&0x3ffffffffffffff)>>1 ^ -(int64(src[48]>>4&0x3ffffffffffffff) & 1))
+	out53 := offset
+	offset -= T(int64((src[48]<<54&0x3c0000000000000)|src[49]>>10)>>1 ^ -(int64((src[48]<<54&0x3c0000000000000)|src[49]>>10) & 1))
+	out54 := offset
+	offset -= T(int64((src[49]<<48&0x3ff000000000000)|src[50]>>16)>>1 ^ -(int64((src[49]<<48&0x3ff000000000000)|src[50]>>16) & 1))
+	out55 := offset
+	offset -= T(int64((src[50]<<42&0x3fffc0000000000)|src[51]>>22)>>1 ^ -(int64((src[50]<<42&0x3fffc0000000000)|src[51]>>22) & 1))
+	out56 := offset
+	offset -= T(int64((src[51]<<36&0x3fffff000000000)|src[52]>>28)>>1 ^ -(int64((src[51]<<36&0x3fffff000000000)|src[52]>>28) & 1))
+	out57 := offset
+	offset -= T(int64((src[52]<<30&0x3ffffffc0000000)|src[53]>>34)>>1 ^ -(int64((src[52]<<30&0x3ffffffc0000000)|src[53]>>34) & 1))
+	out58 := offset
+	offset -= T(int64((src[53]<<24&0x3ffffffff000000)|src[54]>>40)>>1 ^ -(int64((src[53]<<24&0x3ffffffff000000)|src[54]>>40) & 1))
+	out59 := offset
+	offset -= T(int64((src[54]<<18&0x3fffffffffc0000)|src[55]>>46)>>1 ^ -(int64((src[54]<<18&0x3fffffffffc0000)|src[55]>>46) & 1))
+	out60 := offset
+	offset -= T(int64((src[55]<<12&0x3fffffffffff000)|src[56]>>52)>>1 ^ -(int64((src[55]<<12&0x3fffffffffff000)|src[56]>>52) & 1))
+	out61 := offset
+	offset -= T(int64((src[56]<<6&0x3ffffffffffffc0)|src[57]>>58)>>1 ^ -(int64((src[56]<<6&0x3ffffffffffffc0)|src[57]>>58) & 1))
+	out62 := offset
+	offset -= T(int64(src[57]>>0&0x3ffffffffffffff)>>1 ^ -(int64(src[57]>>0&0x3ffffffffffffff) & 1))
+	out63 := offset
+
+	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
+}
+
+func append59BitDeltaDecode[T Integer](dst []T, src *[59]Word, offset T) []T {
+	offset -= T(int64(src[0]>>5&0x7ffffffffffffff)>>1 ^ -(int64(src[0]>>5&0x7ffffffffffffff) & 1))
+	out0 := offset
+	offset -= T(int64((src[0]<<54&0x7c0000000000000)|src[1]>>10)>>1 ^ -(int64((src[0]<<54&0x7c0000000000000)|src[1]>>10) & 1))
+	out1 := offset
+	offset -= T(int64((src[1]<<49&0x7fe000000000000)|src[2]>>15)>>1 ^ -(int64((src[1]<<49&0x7fe000000000000)|src[2]>>15) & 1))
+	out2 := offset
+	offset -= T(int64((src[2]<<44&0x7fff00000000000)|src[3]>>20)>>1 ^ -(int64((src[2]<<44&0x7fff00000000000)|src[3]>>20) & 1))
+	out3 := offset
+	offset -= T(int64((src[3]<<39&0x7ffff8000000000)|src[4]>>25)>>1 ^ -(int64((src[3]<<39&0x7ffff8000000000)|src[4]>>25) & 1))
+	out4 := offset
+	offset -= T(int64((src[4]<<34&0x7fffffc00000000)|src[5]>>30)>>1 ^ -(int64((src[4]<<34&0x7fffffc00000000)|src[5]>>30) & 1))
+	out5 := offset
+	offset -= T(int64((src[5]<<29&0x7ffffffe0000000)|src[6]>>35)>>1 ^ -(int64((src[5]<<29&0x7ffffffe0000000)|src[6]>>35) & 1))
+	out6 := offset
+	offset -= T(int64((src[6]<<24&0x7ffffffff000000)|src[7]>>40)>>1 ^ -(int64((src[6]<<24&0x7ffffffff000000)|src[7]>>40) & 1))
+	out7 := offset
+	offset -= T(int64((src[7]<<19&0x7fffffffff80000)|src[8]>>45)>>1 ^ -(int64((src[7]<<19&0x7fffffffff80000)|src[8]>>45) & 1))
+	out8 := offset
+	offset -= T(int64((src[8]<<14&0x7ffffffffffc000)|src[9]>>50)>>1 ^ -(int64((src[8]<<14&0x7ffffffffffc000)|src[9]>>50) & 1))
+	out9 := offset
+	offset -= T(int64((src[9]<<9&0x7fffffffffffe00)|src[10]>>55)>>1 ^ -(int64((src[9]<<9&0x7fffffffffffe00)|src[10]>>55) & 1))
+	out10 := offset
+	offset -= T(int64((src[10]<<4&0x7fffffffffffff0)|src[11]>>60)>>1 ^ -(int64((src[10]<<4&0x7fffffffffffff0)|src[11]>>60) & 1))
+	out11 := offset
+	offset -= T(int64(src[11]>>1&0x7ffffffffffffff)>>1 ^ -(int64(src[11]>>1&0x7ffffffffffffff) & 1))
+	out12 := offset
+	offset -= T(int64((src[11]<<58&0x400000000000000)|src[12]>>6)>>1 ^ -(int64((src[11]<<58&0x400000000000000)|src[12]>>6) & 1))
+	out13 := offset
+	offset -= T(int64((src[12]<<53&0x7e0000000000000)|src[13]>>11)>>1 ^ -(int64((src[12]<<53&0x7e0000000000000)|src[13]>>11) & 1))
+	out14 := offset
+	offset -= T(int64((src[13]<<48&0x7ff000000000000)|src[14]>>16)>>1 ^ -(int64((src[13]<<48&0x7ff000000000000)|src[14]>>16) & 1))
+	out15 := offset
+	offset -= T(int64((src[14]<<43&0x7fff80000000000)|src[15]>>21)>>1 ^ -(int64((src[14]<<43&0x7fff80000000000)|src[15]>>21) & 1))
+	out16 := offset
+	offset -= T(int64((src[15]<<38&0x7ffffc000000000)|src[16]>>26)>>1 ^ -(int64((src[15]<<38&0x7ffffc000000000)|src[16]>>26) & 1))
+	out17 := offset
+	offset -= T(int64((src[16]<<33&0x7fffffe00000000)|src[17]>>31)>>1 ^ -(int64((src[16]<<33&0x7fffffe00000000)|src[17]>>31) & 1))
+	out18 := offset
+	offset -= T(int64((src[17]<<28&0x7fffffff0000000)|src[18]>>36)>>1 ^ -(int64((src[17]<<28&0x7fffffff0000000)|src[18]>>36) & 1))
+	out19 := offset
+	offset -= T(int64((src[18]<<23&0x7ffffffff800000)|src[19]>>41)>>1 ^ -(int64((src[18]<<23&0x7ffffffff800000)|src[19]>>41) & 1))
+	out20 := offset
+	offset -= T(int64((src[19]<<18&0x7fffffffffc0000)|src[20]>>46)>>1 ^ -(int64((src[19]<<18&0x7fffffffffc0000)|src[20]>>46) & 1))
+	out21 := offset
+	offset -= T(int64((src[20]<<13&0x7ffffffffffe000)|src[21]>>51)>>1 ^ -(int64((src[20]<<13&0x7ffffffffffe000)|src[21]>>51) & 1))
+	out22 := offset
+	offset -= T(int64((src[21]<<8&0x7ffffffffffff00)|src[22]>>56)>>1 ^ -(int64((src[21]<<8&0x7ffffffffffff00)|src[22]>>56) & 1))
+	out23 := offset
+	offset -= T(int64((src[22]<<3&0x7fffffffffffff8)|src[23]>>61)>>1 ^ -(int64((src[22]<<3&0x7fffffffffffff8)|src[23]>>61) & 1))
+	out24 := offset
+	offset -= T(int64(src[23]>>2&0x7ffffffffffffff)>>1 ^ -(int64(src[23]>>2&0x7ffffffffffffff) & 1))
+	out25 := offset
+	offset -= T(int64((src[23]<<57&0x600000000000000)|src[24]>>7)>>1 ^ -(int64((src[23]<<57&0x600000000000000)|src[24]>>7) & 1))
+	out26 := offset
+	offset -= T(int64((src[24]<<52&0x7f0000000000000)|src[25]>>12)>>1 ^ -(int64((src[24]<<52&0x7f0000000000000)|src[25]>>12) & 1))
+	out27 := offset
+	offset -= T(int64((src[25]<<47&0x7ff800000000000)|src[26]>>17)>>1 ^ -(int64((src[25]<<47&0x7ff800000000000)|src[26]>>17) & 1))
+	out28 := offset
+	offset -= T(int64((src[26]<<42&0x7fffc0000000000)|src[27]>>22)>>1 ^ -(int64((src[26]<<42&0x7fffc0000000000)|src[27]>>22) & 1))
+	out29 := offset
+	offset -= T(int64((src[27]<<37&0x7ffffe000000000)|src[28]>>27)>>1 ^ -(int64((src[27]<<37&0x7ffffe000000000)|src[28]>>27) & 1))
+	out30 := offset
+	offset -= T(int64((src[28]<<32&0x7ffffff00000000)|src[29]>>32)>>1 ^ -(int64((src[28]<<32&0x7ffffff00000000)|src[29]>>32) & 1))
+	out31 := offset
+	offset -= T(int64((src[29]<<27&0x7fffffff8000000)|src[30]>>37)>>1 ^ -(int64((src[29]<<27&0x7fffffff8000000)|src[30]>>37) & 1))
+	out32 := offset
+	offset -= T(int64((src[30]<<22&0x7ffffffffc00000)|src[31]>>42)>>1 ^ -(int64((src[30]<<22&0x7ffffffffc00000)|src[31]>>42) & 1))
+	out33 := offset
+	offset -= T(int64((src[31]<<17&0x7fffffffffe0000)|src[32]>>47)>>1 ^ -(int64((src[31]<<17&0x7fffffffffe0000)|src[32]>>47) & 1))
+	out34 := offset
+	offset -= T(int64((src[32]<<12&0x7fffffffffff000)|src[33]>>52)>>1 ^ -(int64((src[32]<<12&0x7fffffffffff000)|src[33]>>52) & 1))
+	out35 := offset
+	offset -= T(int64((src[33]<<7&0x7ffffffffffff80)|src[34]>>57)>>1 ^ -(int64((src[33]<<7&0x7ffffffffffff80)|src[34]>>57) & 1))
+	out36 := offset
+	offset -= T(int64((src[34]<<2&0x7fffffffffffffc)|src[35]>>62)>>1 ^ -(int64((src[34]<<2&0x7fffffffffffffc)|src[35]>>62) & 1))
+	out37 := offset
+	offset -= T(int64(src[35]>>3&0x7ffffffffffffff)>>1 ^ -(int64(src[35]>>3&0x7ffffffffffffff) & 1))
+	out38 := offset
+	offset -= T(int64((src[35]<<56&0x700000000000000)|src[36]>>8)>>1 ^ -(int64((src[35]<<56&0x700000000000000)|src[36]>>8) & 1))
+	out39 := offset
+	offset -= T(int64((src[36]<<51&0x7f8000000000000)|src[37]>>13)>>1 ^ -(int64((src[36]<<51&0x7f8000000000000)|src[37]>>13) & 1))
+	out40 := offset
+	offset -= T(int64((src[37]<<46&0x7ffc00000000000)|src[38]>>18)>>1 ^ -(int64((src[37]<<46&0x7ffc00000000000)|src[38]>>18) & 1))
+	out41 := offset
+	offset -= T(int64((src[38]<<41&0x7fffe0000000000)|src[39]>>23)>>1 ^ -(int64((src[38]<<41&0x7fffe0000000000)|src[39]>>23) & 1))
+	out42 := offset
+	offset -= T(int64((src[39]<<36&0x7fffff000000000)|src[40]>>28)>>1 ^ -(int64((src[39]<<36&0x7fffff000000000)|src[40]>>28) & 1))
+	out43 := offset
+	offset -= T(int64((src[40]<<31&0x7ffffff80000000)|src[41]>>33)>>1 ^ -(int64((src[40]<<31&0x7ffffff80000000)|src[41]>>33) & 1))
+	out44 := offset
+	offset -= T(int64((src[41]<<26&0x7fffffffc000000)|src[42]>>38)>>1 ^ -(int64((src[41]<<26&0x7fffffffc000000)|src[42]>>38) & 1))
+	out45 := offset
+	offset -= T(int64((src[42]<<21&0x7ffffffffe00000)|src[43]>>43)>>1 ^ -(int64((src[42]<<21&0x7ffffffffe00000)|src[43]>>43) & 1))
+	out46 := offset
+	offset -= T(int64((src[43]<<16&0x7ffffffffff0000)|src[44]>>48)>>1 ^ -(int64((src[43]<<16&0x7ffffffffff0000)|src[44]>>48) & 1))
+	out47 := offset
+	offset -= T(int64((src[44]<<11&0x7fffffffffff800)|src[45]>>53)>>1 ^ -(int64((src[44]<<11&0x7fffffffffff800)|src[45]>>53) & 1))
+	out48 := offset
+	offset -= T(int64((src[45]<<6&0x7ffffffffffffc0)|src[46]>>58)>>1 ^ -(int64((src[45]<<6&0x7ffffffffffffc0)|src[46]>>58) & 1))
+	out49 := offset
+	offset -= T(int64((src[46]<<1&0x7fffffffffffffe)|src[47]>>63)>>1 ^ -(int64((src[46]<<1&0x7fffffffffffffe)|src[47]>>63) & 1))
+	out50 := offset
+	offset -= T(int64(src[47]>>4&0x7ffffffffffffff)>>1 ^ -(int64(src[47]>>4&0x7ffffffffffffff) & 1))
+	out51 := offset
+	offset -= T(int64((src[47]<<55&0x780000000000000)|src[48]>>9)>>1 ^ -(int64((src[47]<<55&0x780000000000000)|src[48]>>9) & 1))
+	out52 := offset
+	offset -= T(int64((src[48]<<50&0x7fc000000000000)|src[49]>>14)>>1 ^ -(int64((src[48]<<50&0x7fc000000000000)|src[49]>>14) & 1))
+	out53 := offset
+	offset -= T(int64((src[49]<<45&0x7ffe00000000000)|src[50]>>19)>>1 ^ -(int64((src[49]<<45&0x7ffe00000000000)|src[50]>>19) & 1))
+	out54 := offset
+	offset -= T(int64((src[50]<<40&0x7ffff0000000000)|src[51]>>24)>>1 ^ -(int64((src[50]<<40&0x7ffff0000000000)|src[51]>>24) & 1))
+	out55 := offset
+	offset -= T(int64((src[51]<<35&0x7fffff800000000)|src[52]>>29)>>1 ^ -(int64((src[51]<<35&0x7fffff800000000)|src[52]>>29) & 1))
+	out56 := offset
+	offset -= T(int64((src[52]<<30&0x7ffffffc0000000)|src[53]>>34)>>1 ^ -(int64((src[52]<<30&0x7ffffffc0000000)|src[53]>>34) & 1))
+	out57 := offset
+	offset -= T(int64((src[53]<<25&0x7fffffffe000000)|src[54]>>39)>>1 ^ -(int64((src[53]<<25&0x7fffffffe000000)|src[54]>>39) & 1))
+	out58 := offset
+	offset -= T(int64((src[54]<<20&0x7fffffffff00000)|src[55]>>44)>>1 ^ -(int64((src[54]<<20&0x7fffffffff00000)|src[55]>>44) & 1))
+	out59 := offset
+	offset -= T(int64((src[55]<<15&0x7ffffffffff8000)|src[56]>>49)>>1 ^ -(int64((src[55]<<15&0x7ffffffffff8000)|src[56]>>49) & 1))
+	out60 := offset
+	offset -= T(int64((src[56]<<10&0x7fffffffffffc00)|src[57]>>54)>>1 ^ -(int64((src[56]<<10&0x7fffffffffffc00)|src[57]>>54) & 1))
+	out61 := offset
+	offset -= T(int64((src[57]<<5&0x7ffffffffffffe0)|src[58]>>59)>>1 ^ -(int64((src[57]<<5&0x7ffffffffffffe0)|src[58]>>59) & 1))
+	out62 := offset
+	offset -= T(int64(src[58]>>0&0x7ffffffffffffff)>>1 ^ -(int64(src[58]>>0&0x7ffffffffffffff) & 1))
+	out63 := offset
+
+	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
+}
+
+func append60BitDeltaDecode[T Integer](dst []T, src *[60]Word, offset T) []T {
+	offset -= T(int64(src[0]>>4&0xfffffffffffffff)>>1 ^ -(int64(src[0]>>4&0xfffffffffffffff) & 1))
+	out0 := offset
+	offset -= T(int64((src[0]<<56&0xf00000000000000)|src[1]>>8)>>1 ^ -(int64((src[0]<<56&0xf00000000000000)|src[1]>>8) & 1))
+	out1 := offset
+	offset -= T(int64((src[1]<<52&0xff0000000000000)|src[2]>>12)>>1 ^ -(int64((src[1]<<52&0xff0000000000000)|src[2]>>12) & 1))
+	out2 := offset
+	offset -= T(int64((src[2]<<48&0xfff000000000000)|src[3]>>16)>>1 ^ -(int64((src[2]<<48&0xfff000000000000)|src[3]>>16) & 1))
+	out3 := offset
+	offset -= T(int64((src[3]<<44&0xffff00000000000)|src[4]>>20)>>1 ^ -(int64((src[3]<<44&0xffff00000000000)|src[4]>>20) & 1))
+	out4 := offset
+	offset -= T(int64((src[4]<<40&0xfffff0000000000)|src[5]>>24)>>1 ^ -(int64((src[4]<<40&0xfffff0000000000)|src[5]>>24) & 1))
+	out5 := offset
+	offset -= T(int64((src[5]<<36&0xffffff000000000)|src[6]>>28)>>1 ^ -(int64((src[5]<<36&0xffffff000000000)|src[6]>>28) & 1))
+	out6 := offset
+	offset -= T(int64((src[6]<<32&0xfffffff00000000)|src[7]>>32)>>1 ^ -(int64((src[6]<<32&0xfffffff00000000)|src[7]>>32) & 1))
+	out7 := offset
+	offset -= T(int64((src[7]<<28&0xffffffff0000000)|src[8]>>36)>>1 ^ -(int64((src[7]<<28&0xffffffff0000000)|src[8]>>36) & 1))
+	out8 := offset
+	offset -= T(int64((src[8]<<24&0xfffffffff000000)|src[9]>>40)>>1 ^ -(int64((src[8]<<24&0xfffffffff000000)|src[9]>>40) & 1))
+	out9 := offset
+	offset -= T(int64((src[9]<<20&0xffffffffff00000)|src[10]>>44)>>1 ^ -(int64((src[9]<<20&0xffffffffff00000)|src[10]>>44) & 1))
+	out10 := offset
+	offset -= T(int64((src[10]<<16&0xfffffffffff0000)|src[11]>>48)>>1 ^ -(int64((src[10]<<16&0xfffffffffff0000)|src[11]>>48) & 1))
+	out11 := offset
+	offset -= T(int64((src[11]<<12&0xffffffffffff000)|src[12]>>52)>>1 ^ -(int64((src[11]<<12&0xffffffffffff000)|src[12]>>52) & 1))
+	out12 := offset
+	offset -= T(int64((src[12]<<8&0xfffffffffffff00)|src[13]>>56)>>1 ^ -(int64((src[12]<<8&0xfffffffffffff00)|src[13]>>56) & 1))
+	out13 := offset
+	offset -= T(int64((src[13]<<4&0xffffffffffffff0)|src[14]>>60)>>1 ^ -(int64((src[13]<<4&0xffffffffffffff0)|src[14]>>60) & 1))
+	out14 := offset
+	offset -= T(int64(src[14]>>0&0xfffffffffffffff)>>1 ^ -(int64(src[14]>>0&0xfffffffffffffff) & 1))
+	out15 := offset
+	offset -= T(int64(src[15]>>4&0xfffffffffffffff)>>1 ^ -(int64(src[15]>>4&0xfffffffffffffff) & 1))
+	out16 := offset
+	offset -= T(int64((src[15]<<56&0xf00000000000000)|src[16]>>8)>>1 ^ -(int64((src[15]<<56&0xf00000000000000)|src[16]>>8) & 1))
+	out17 := offset
+	offset -= T(int64((src[16]<<52&0xff0000000000000)|src[17]>>12)>>1 ^ -(int64((src[16]<<52&0xff0000000000000)|src[17]>>12) & 1))
+	out18 := offset
+	offset -= T(int64((src[17]<<48&0xfff000000000000)|src[18]>>16)>>1 ^ -(int64((src[17]<<48&0xfff000000000000)|src[18]>>16) & 1))
+	out19 := offset
+	offset -= T(int64((src[18]<<44&0xffff00000000000)|src[19]>>20)>>1 ^ -(int64((src[18]<<44&0xffff00000000000)|src[19]>>20) & 1))
+	out20 := offset
+	offset -= T(int64((src[19]<<40&0xfffff0000000000)|src[20]>>24)>>1 ^ -(int64((src[19]<<40&0xfffff0000000000)|src[20]>>24) & 1))
+	out21 := offset
+	offset -= T(int64((src[20]<<36&0xffffff000000000)|src[21]>>28)>>1 ^ -(int64((src[20]<<36&0xffffff000000000)|src[21]>>28) & 1))
+	out22 := offset
+	offset -= T(int64((src[21]<<32&0xfffffff00000000)|src[22]>>32)>>1 ^ -(int64((src[21]<<32&0xfffffff00000000)|src[22]>>32) & 1))
+	out23 := offset
+	offset -= T(int64((src[22]<<28&0xffffffff0000000)|src[23]>>36)>>1 ^ -(int64((src[22]<<28&0xffffffff0000000)|src[23]>>36) & 1))
+	out24 := offset
+	offset -= T(int64((src[23]<<24&0xfffffffff000000)|src[24]>>40)>>1 ^ -(int64((src[23]<<24&0xfffffffff000000)|src[24]>>40) & 1))
+	out25 := offset
+	offset -= T(int64((src[24]<<20&0xffffffffff00000)|src[25]>>44)>>1 ^ -(int64((src[24]<<20&0xffffffffff00000)|src[25]>>44) & 1))
+	out26 := offset
+	offset -= T(int64((src[25]<<16&0xfffffffffff0000)|src[26]>>48)>>1 ^ -(int64((src[25]<<16&0xfffffffffff0000)|src[26]>>48) & 1))
+	out27 := offset
+	offset -= T(int64((src[26]<<12&0xffffffffffff000)|src[27]>>52)>>1 ^ -(int64((src[26]<<12&0xffffffffffff000)|src[27]>>52) & 1))
+	out28 := offset
+	offset -= T(int64((src[27]<<8&0xfffffffffffff00)|src[28]>>56)>>1 ^ -(int64((src[27]<<8&0xfffffffffffff00)|src[28]>>56) & 1))
+	out29 := offset
+	offset -= T(int64((src[28]<<4&0xffffffffffffff0)|src[29]>>60)>>1 ^ -(int64((src[28]<<4&0xffffffffffffff0)|src[29]>>60) & 1))
+	out30 := offset
+	offset -= T(int64(src[29]>>0&0xfffffffffffffff)>>1 ^ -(int64(src[29]>>0&0xfffffffffffffff) & 1))
+	out31 := offset
+	offset -= T(int64(src[30]>>4&0xfffffffffffffff)>>1 ^ -(int64(src[30]>>4&0xfffffffffffffff) & 1))
+	out32 := offset
+	offset -= T(int64((src[30]<<56&0xf00000000000000)|src[31]>>8)>>1 ^ -(int64((src[30]<<56&0xf00000000000000)|src[31]>>8) & 1))
+	out33 := offset
+	offset -= T(int64((src[31]<<52&0xff0000000000000)|src[32]>>12)>>1 ^ -(int64((src[31]<<52&0xff0000000000000)|src[32]>>12) & 1))
+	out34 := offset
+	offset -= T(int64((src[32]<<48&0xfff000000000000)|src[33]>>16)>>1 ^ -(int64((src[32]<<48&0xfff000000000000)|src[33]>>16) & 1))
+	out35 := offset
+	offset -= T(int64((src[33]<<44&0xffff00000000000)|src[34]>>20)>>1 ^ -(int64((src[33]<<44&0xffff00000000000)|src[34]>>20) & 1))
+	out36 := offset
+	offset -= T(int64((src[34]<<40&0xfffff0000000000)|src[35]>>24)>>1 ^ -(int64((src[34]<<40&0xfffff0000000000)|src[35]>>24) & 1))
+	out37 := offset
+	offset -= T(int64((src[35]<<36&0xffffff000000000)|src[36]>>28)>>1 ^ -(int64((src[35]<<36&0xffffff000000000)|src[36]>>28) & 1))
+	out38 := offset
+	offset -= T(int64((src[36]<<32&0xfffffff00000000)|src[37]>>32)>>1 ^ -(int64((src[36]<<32&0xfffffff00000000)|src[37]>>32) & 1))
+	out39 := offset
+	offset -= T(int64((src[37]<<28&0xffffffff0000000)|src[38]>>36)>>1 ^ -(int64((src[37]<<28&0xffffffff0000000)|src[38]>>36) & 1))
+	out40 := offset
+	offset -= T(int64((src[38]<<24&0xfffffffff000000)|src[39]>>40)>>1 ^ -(int64((src[38]<<24&0xfffffffff000000)|src[39]>>40) & 1))
+	out41 := offset
+	offset -= T(int64((src[39]<<20&0xffffffffff00000)|src[40]>>44)>>1 ^ -(int64((src[39]<<20&0xffffffffff00000)|src[40]>>44) & 1))
+	out42 := offset
+	offset -= T(int64((src[40]<<16&0xfffffffffff0000)|src[41]>>48)>>1 ^ -(int64((src[40]<<16&0xfffffffffff0000)|src[41]>>48) & 1))
+	out43 := offset
+	offset -= T(int64((src[41]<<12&0xffffffffffff000)|src[42]>>52)>>1 ^ -(int64((src[41]<<12&0xffffffffffff000)|src[42]>>52) & 1))
+	out44 := offset
+	offset -= T(int64((src[42]<<8&0xfffffffffffff00)|src[43]>>56)>>1 ^ -(int64((src[42]<<8&0xfffffffffffff00)|src[43]>>56) & 1))
+	out45 := offset
+	offset -= T(int64((src[43]<<4&0xffffffffffffff0)|src[44]>>60)>>1 ^ -(int64((src[43]<<4&0xffffffffffffff0)|src[44]>>60) & 1))
+	out46 := offset
+	offset -= T(int64(src[44]>>0&0xfffffffffffffff)>>1 ^ -(int64(src[44]>>0&0xfffffffffffffff) & 1))
+	out47 := offset
+	offset -= T(int64(src[45]>>4&0xfffffffffffffff)>>1 ^ -(int64(src[45]>>4&0xfffffffffffffff) & 1))
+	out48 := offset
+	offset -= T(int64((src[45]<<56&0xf00000000000000)|src[46]>>8)>>1 ^ -(int64((src[45]<<56&0xf00000000000000)|src[46]>>8) & 1))
+	out49 := offset
+	offset -= T(int64((src[46]<<52&0xff0000000000000)|src[47]>>12)>>1 ^ -(int64((src[46]<<52&0xff0000000000000)|src[47]>>12) & 1))
+	out50 := offset
+	offset -= T(int64((src[47]<<48&0xfff000000000000)|src[48]>>16)>>1 ^ -(int64((src[47]<<48&0xfff000000000000)|src[48]>>16) & 1))
+	out51 := offset
+	offset -= T(int64((src[48]<<44&0xffff00000000000)|src[49]>>20)>>1 ^ -(int64((src[48]<<44&0xffff00000000000)|src[49]>>20) & 1))
+	out52 := offset
+	offset -= T(int64((src[49]<<40&0xfffff0000000000)|src[50]>>24)>>1 ^ -(int64((src[49]<<40&0xfffff0000000000)|src[50]>>24) & 1))
+	out53 := offset
+	offset -= T(int64((src[50]<<36&0xffffff000000000)|src[51]>>28)>>1 ^ -(int64((src[50]<<36&0xffffff000000000)|src[51]>>28) & 1))
+	out54 := offset
+	offset -= T(int64((src[51]<<32&0xfffffff00000000)|src[52]>>32)>>1 ^ -(int64((src[51]<<32&0xfffffff00000000)|src[52]>>32) & 1))
+	out55 := offset
+	offset -= T(int64((src[52]<<28&0xffffffff0000000)|src[53]>>36)>>1 ^ -(int64((src[52]<<28&0xffffffff0000000)|src[53]>>36) & 1))
+	out56 := offset
+	offset -= T(int64((src[53]<<24&0xfffffffff000000)|src[54]>>40)>>1 ^ -(int64((src[53]<<24&0xfffffffff000000)|src[54]>>40) & 1))
+	out57 := offset
+	offset -= T(int64((src[54]<<20&0xffffffffff00000)|src[55]>>44)>>1 ^ -(int64((src[54]<<20&0xffffffffff00000)|src[55]>>44) & 1))
+	out58 := offset
+	offset -= T(int64((src[55]<<16&0xfffffffffff0000)|src[56]>>48)>>1 ^ -(int64((src[55]<<16&0xfffffffffff0000)|src[56]>>48) & 1))
+	out59 := offset
+	offset -= T(int64((src[56]<<12&0xffffffffffff000)|src[57]>>52)>>1 ^ -(int64((src[56]<<12&0xffffffffffff000)|src[57]>>52) & 1))
+	out60 := offset
+	offset -= T(int64((src[57]<<8&0xfffffffffffff00)|src[58]>>56)>>1 ^ -(int64((src[57]<<8&0xfffffffffffff00)|src[58]>>56) & 1))
+	out61 := offset
+	offset -= T(int64((src[58]<<4&0xffffffffffffff0)|src[59]>>60)>>1 ^ -(int64((src[58]<<4&0xffffffffffffff0)|src[59]>>60) & 1))
+	out62 := offset
+	offset -= T(int64(src[59]>>0&0xfffffffffffffff)>>1 ^ -(int64(src[59]>>0&0xfffffffffffffff) & 1))
+	out63 := offset
+
+	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
+}
+
+func append61BitDeltaDecode[T Integer](dst []T, src *[61]Word, offset T) []T {
+	offset -= T(int64(src[0]>>3&0x1fffffffffffffff)>>1 ^ -(int64(src[0]>>3&0x1fffffffffffffff) & 1))
+	out0 := offset
+	offset -= T(int64((src[0]<<58&0x1c00000000000000)|src[1]>>6)>>1 ^ -(int64((src[0]<<58&0x1c00000000000000)|src[1]>>6) & 1))
+	out1 := offset
+	offset -= T(int64((src[1]<<55&0x1f80000000000000)|src[2]>>9)>>1 ^ -(int64((src[1]<<55&0x1f80000000000000)|src[2]>>9) & 1))
+	out2 := offset
+	offset -= T(int64((src[2]<<52&0x1ff0000000000000)|src[3]>>12)>>1 ^ -(int64((src[2]<<52&0x1ff0000000000000)|src[3]>>12) & 1))
+	out3 := offset
+	offset -= T(int64((src[3]<<49&0x1ffe000000000000)|src[4]>>15)>>1 ^ -(int64((src[3]<<49&0x1ffe000000000000)|src[4]>>15) & 1))
+	out4 := offset
+	offset -= T(int64((src[4]<<46&0x1fffc00000000000)|src[5]>>18)>>1 ^ -(int64((src[4]<<46&0x1fffc00000000000)|src[5]>>18) & 1))
+	out5 := offset
+	offset -= T(int64((src[5]<<43&0x1ffff80000000000)|src[6]>>21)>>1 ^ -(int64((src[5]<<43&0x1ffff80000000000)|src[6]>>21) & 1))
+	out6 := offset
+	offset -= T(int64((src[6]<<40&0x1fffff0000000000)|src[7]>>24)>>1 ^ -(int64((src[6]<<40&0x1fffff0000000000)|src[7]>>24) & 1))
+	out7 := offset
+	offset -= T(int64((src[7]<<37&0x1fffffe000000000)|src[8]>>27)>>1 ^ -(int64((src[7]<<37&0x1fffffe000000000)|src[8]>>27) & 1))
+	out8 := offset
+	offset -= T(int64((src[8]<<34&0x1ffffffc00000000)|src[9]>>30)>>1 ^ -(int64((src[8]<<34&0x1ffffffc00000000)|src[9]>>30) & 1))
+	out9 := offset
+	offset -= T(int64((src[9]<<31&0x1fffffff80000000)|src[10]>>33)>>1 ^ -(int64((src[9]<<31&0x1fffffff80000000)|src[10]>>33) & 1))
+	out10 := offset
+	offset -= T(int64((src[10]<<28&0x1ffffffff0000000)|src[11]>>36)>>1 ^ -(int64((src[10]<<28&0x1ffffffff0000000)|src[11]>>36) & 1))
+	out11 := offset
+	offset -= T(int64((src[11]<<25&0x1ffffffffe000000)|src[12]>>39)>>1 ^ -(int64((src[11]<<25&0x1ffffffffe000000)|src[12]>>39) & 1))
+	out12 := offset
+	offset -= T(int64((src[12]<<22&0x1fffffffffc00000)|src[13]>>42)>>1 ^ -(int64((src[12]<<22&0x1fffffffffc00000)|src[13]>>42) & 1))
+	out13 := offset
+	offset -= T(int64((src[13]<<19&0x1ffffffffff80000)|src[14]>>45)>>1 ^ -(int64((src[13]<<19&0x1ffffffffff80000)|src[14]>>45) & 1))
+	out14 := offset
+	offset -= T(int64((src[14]<<16&0x1fffffffffff0000)|src[15]>>48)>>1 ^ -(int64((src[14]<<16&0x1fffffffffff0000)|src[15]>>48) & 1))
+	out15 := offset
+	offset -= T(int64((src[15]<<13&0x1fffffffffffe000)|src[16]>>51)>>1 ^ -(int64((src[15]<<13&0x1fffffffffffe000)|src[16]>>51) & 1))
+	out16 := offset
+	offset -= T(int64((src[16]<<10&0x1ffffffffffffc00)|src[17]>>54)>>1 ^ -(int64((src[16]<<10&0x1ffffffffffffc00)|src[17]>>54) & 1))
+	out17 := offset
+	offset -= T(int64((src[17]<<7&0x1fffffffffffff80)|src[18]>>57)>>1 ^ -(int64((src[17]<<7&0x1fffffffffffff80)|src[18]>>57) & 1))
+	out18 := offset
+	offset -= T(int64((src[18]<<4&0x1ffffffffffffff0)|src[19]>>60)>>1 ^ -(int64((src[18]<<4&0x1ffffffffffffff0)|src[19]>>60) & 1))
+	out19 := offset
+	offset -= T(int64((src[19]<<1&0x1ffffffffffffffe)|src[20]>>63)>>1 ^ -(int64((src[19]<<1&0x1ffffffffffffffe)|src[20]>>63) & 1))
+	out20 := offset
+	offset -= T(int64(src[20]>>2&0x1fffffffffffffff)>>1 ^ -(int64(src[20]>>2&0x1fffffffffffffff) & 1))
+	out21 := offset
+	offset -= T(int64((src[20]<<59&0x1800000000000000)|src[21]>>5)>>1 ^ -(int64((src[20]<<59&0x1800000000000000)|src[21]>>5) & 1))
+	out22 := offset
+	offset -= T(int64((src[21]<<56&0x1f00000000000000)|src[22]>>8)>>1 ^ -(int64((src[21]<<56&0x1f00000000000000)|src[22]>>8) & 1))
+	out23 := offset
+	offset -= T(int64((src[22]<<53&0x1fe0000000000000)|src[23]>>11)>>1 ^ -(int64((src[22]<<53&0x1fe0000000000000)|src[23]>>11) & 1))
+	out24 := offset
+	offset -= T(int64((src[23]<<50&0x1ffc000000000000)|src[24]>>14)>>1 ^ -(int64((src[23]<<50&0x1ffc000000000000)|src[24]>>14) & 1))
+	out25 := offset
+	offset -= T(int64((src[24]<<47&0x1fff800000000000)|src[25]>>17)>>1 ^ -(int64((src[24]<<47&0x1fff800000000000)|src[25]>>17) & 1))
+	out26 := offset
+	offset -= T(int64((src[25]<<44&0x1ffff00000000000)|src[26]>>20)>>1 ^ -(int64((src[25]<<44&0x1ffff00000000000)|src[26]>>20) & 1))
+	out27 := offset
+	offset -= T(int64((src[26]<<41&0x1ffffe0000000000)|src[27]>>23)>>1 ^ -(int64((src[26]<<41&0x1ffffe0000000000)|src[27]>>23) & 1))
+	out28 := offset
+	offset -= T(int64((src[27]<<38&0x1fffffc000000000)|src[28]>>26)>>1 ^ -(int64((src[27]<<38&0x1fffffc000000000)|src[28]>>26) & 1))
+	out29 := offset
+	offset -= T(int64((src[28]<<35&0x1ffffff800000000)|src[29]>>29)>>1 ^ -(int64((src[28]<<35&0x1ffffff800000000)|src[29]>>29) & 1))
+	out30 := offset
+	offset -= T(int64((src[29]<<32&0x1fffffff00000000)|src[30]>>32)>>1 ^ -(int64((src[29]<<32&0x1fffffff00000000)|src[30]>>32) & 1))
+	out31 := offset
+	offset -= T(int64((src[30]<<29&0x1fffffffe0000000)|src[31]>>35)>>1 ^ -(int64((src[30]<<29&0x1fffffffe0000000)|src[31]>>35) & 1))
+	out32 := offset
+	offset -= T(int64((src[31]<<26&0x1ffffffffc000000)|src[32]>>38)>>1 ^ -(int64((src[31]<<26&0x1ffffffffc000000)|src[32]>>38) & 1))
+	out33 := offset
+	offset -= T(int64((src[32]<<23&0x1fffffffff800000)|src[33]>>41)>>1 ^ -(int64((src[32]<<23&0x1fffffffff800000)|src[33]>>41) & 1))
+	out34 := offset
+	offset -= T(int64((src[33]<<20&0x1ffffffffff00000)|src[34]>>44)>>1 ^ -(int64((src[33]<<20&0x1ffffffffff00000)|src[34]>>44) & 1))
+	out35 := offset
+	offset -= T(int64((src[34]<<17&0x1ffffffffffe0000)|src[35]>>47)>>1 ^ -(int64((src[34]<<17&0x1ffffffffffe0000)|src[35]>>47) & 1))
+	out36 := offset
+	offset -= T(int64((src[35]<<14&0x1fffffffffffc000)|src[36]>>50)>>1 ^ -(int64((src[35]<<14&0x1fffffffffffc000)|src[36]>>50) & 1))
+	out37 := offset
+	offset -= T(int64((src[36]<<11&0x1ffffffffffff800)|src[37]>>53)>>1 ^ -(int64((src[36]<<11&0x1ffffffffffff800)|src[37]>>53) & 1))
+	out38 := offset
+	offset -= T(int64((src[37]<<8&0x1fffffffffffff00)|src[38]>>56)>>1 ^ -(int64((src[37]<<8&0x1fffffffffffff00)|src[38]>>56) & 1))
+	out39 := offset
+	offset -= T(int64((src[38]<<5&0x1fffffffffffffe0)|src[39]>>59)>>1 ^ -(int64((src[38]<<5&0x1fffffffffffffe0)|src[39]>>59) & 1))
+	out40 := offset
+	offset -= T(int64((src[39]<<2&0x1ffffffffffffffc)|src[40]>>62)>>1 ^ -(int64((src[39]<<2&0x1ffffffffffffffc)|src[40]>>62) & 1))
+	out41 := offset
+	offset -= T(int64(src[40]>>1&0x1fffffffffffffff)>>1 ^ -(int64(src[40]>>1&0x1fffffffffffffff) & 1))
+	out42 := offset
+	offset -= T(int64((src[40]<<60&0x1000000000000000)|src[41]>>4)>>1 ^ -(int64((src[40]<<60&0x1000000000000000)|src[41]>>4) & 1))
+	out43 := offset
+	offset -= T(int64((src[41]<<57&0x1e00000000000000)|src[42]>>7)>>1 ^ -(int64((src[41]<<57&0x1e00000000000000)|src[42]>>7) & 1))
+	out44 := offset
+	offset -= T(int64((src[42]<<54&0x1fc0000000000000)|src[43]>>10)>>1 ^ -(int64((src[42]<<54&0x1fc0000000000000)|src[43]>>10) & 1))
+	out45 := offset
+	offset -= T(int64((src[43]<<51&0x1ff8000000000000)|src[44]>>13)>>1 ^ -(int64((src[43]<<51&0x1ff8000000000000)|src[44]>>13) & 1))
+	out46 := offset
+	offset -= T(int64((src[44]<<48&0x1fff000000000000)|src[45]>>16)>>1 ^ -(int64((src[44]<<48&0x1fff000000000000)|src[45]>>16) & 1))
+	out47 := offset
+	offset -= T(int64((src[45]<<45&0x1fffe00000000000)|src[46]>>19)>>1 ^ -(int64((src[45]<<45&0x1fffe00000000000)|src[46]>>19) & 1))
+	out48 := offset
+	offset -= T(int64((src[46]<<42&0x1ffffc0000000000)|src[47]>>22)>>1 ^ -(int64((src[46]<<42&0x1ffffc0000000000)|src[47]>>22) & 1))
+	out49 := offset
+	offset -= T(int64((src[47]<<39&0x1fffff8000000000)|src[48]>>25)>>1 ^ -(int64((src[47]<<39&0x1fffff8000000000)|src[48]>>25) & 1))
+	out50 := offset
+	offset -= T(int64((src[48]<<36&0x1ffffff000000000)|src[49]>>28)>>1 ^ -(int64((src[48]<<36&0x1ffffff000000000)|src[49]>>28) & 1))
+	out51 := offset
+	offset -= T(int64((src[49]<<33&0x1ffffffe00000000)|src[50]>>31)>>1 ^ -(int64((src[49]<<33&0x1ffffffe00000000)|src[50]>>31) & 1))
+	out52 := offset
+	offset -= T(int64((src[50]<<30&0x1fffffffc0000000)|src[51]>>34)>>1 ^ -(int64((src[50]<<30&0x1fffffffc0000000)|src[51]>>34) & 1))
+	out53 := offset
+	offset -= T(int64((src[51]<<27&0x1ffffffff8000000)|src[52]>>37)>>1 ^ -(int64((src[51]<<27&0x1ffffffff8000000)|src[52]>>37) & 1))
+	out54 := offset
+	offset -= T(int64((src[52]<<24&0x1fffffffff000000)|src[53]>>40)>>1 ^ -(int64((src[52]<<24&0x1fffffffff000000)|src[53]>>40) & 1))
+	out55 := offset
+	offset -= T(int64((src[53]<<21&0x1fffffffffe00000)|src[54]>>43)>>1 ^ -(int64((src[53]<<21&0x1fffffffffe00000)|src[54]>>43) & 1))
+	out56 := offset
+	offset -= T(int64((src[54]<<18&0x1ffffffffffc0000)|src[55]>>46)>>1 ^ -(int64((src[54]<<18&0x1ffffffffffc0000)|src[55]>>46) & 1))
+	out57 := offset
+	offset -= T(int64((src[55]<<15&0x1fffffffffff8000)|src[56]>>49)>>1 ^ -(int64((src[55]<<15&0x1fffffffffff8000)|src[56]>>49) & 1))
+	out58 := offset
+	offset -= T(int64((src[56]<<12&0x1ffffffffffff000)|src[57]>>52)>>1 ^ -(int64((src[56]<<12&0x1ffffffffffff000)|src[57]>>52) & 1))
+	out59 := offset
+	offset -= T(int64((src[57]<<9&0x1ffffffffffffe00)|src[58]>>55)>>1 ^ -(int64((src[57]<<9&0x1ffffffffffffe00)|src[58]>>55) & 1))
+	out60 := offset
+	offset -= T(int64((src[58]<<6&0x1fffffffffffffc0)|src[59]>>58)>>1 ^ -(int64((src[58]<<6&0x1fffffffffffffc0)|src[59]>>58) & 1))
+	out61 := offset
+	offset -= T(int64((src[59]<<3&0x1ffffffffffffff8)|src[60]>>61)>>1 ^ -(int64((src[59]<<3&0x1ffffffffffffff8)|src[60]>>61) & 1))
+	out62 := offset
+	offset -= T(int64(src[60]>>0&0x1fffffffffffffff)>>1 ^ -(int64(src[60]>>0&0x1fffffffffffffff) & 1))
+	out63 := offset
+
+	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
+}
+
+func append62BitDeltaDecode[T Integer](dst []T, src *[62]Word, offset T) []T {
+	offset -= T(int64(src[0]>>2&0x3fffffffffffffff)>>1 ^ -(int64(src[0]>>2&0x3fffffffffffffff) & 1))
+	out0 := offset
+	offset -= T(int64((src[0]<<60&0x3000000000000000)|src[1]>>4)>>1 ^ -(int64((src[0]<<60&0x3000000000000000)|src[1]>>4) & 1))
+	out1 := offset
+	offset -= T(int64((src[1]<<58&0x3c00000000000000)|src[2]>>6)>>1 ^ -(int64((src[1]<<58&0x3c00000000000000)|src[2]>>6) & 1))
+	out2 := offset
+	offset -= T(int64((src[2]<<56&0x3f00000000000000)|src[3]>>8)>>1 ^ -(int64((src[2]<<56&0x3f00000000000000)|src[3]>>8) & 1))
+	out3 := offset
+	offset -= T(int64((src[3]<<54&0x3fc0000000000000)|src[4]>>10)>>1 ^ -(int64((src[3]<<54&0x3fc0000000000000)|src[4]>>10) & 1))
+	out4 := offset
+	offset -= T(int64((src[4]<<52&0x3ff0000000000000)|src[5]>>12)>>1 ^ -(int64((src[4]<<52&0x3ff0000000000000)|src[5]>>12) & 1))
+	out5 := offset
+	offset -= T(int64((src[5]<<50&0x3ffc000000000000)|src[6]>>14)>>1 ^ -(int64((src[5]<<50&0x3ffc000000000000)|src[6]>>14) & 1))
+	out6 := offset
+	offset -= T(int64((src[6]<<48&0x3fff000000000000)|src[7]>>16)>>1 ^ -(int64((src[6]<<48&0x3fff000000000000)|src[7]>>16) & 1))
+	out7 := offset
+	offset -= T(int64((src[7]<<46&0x3fffc00000000000)|src[8]>>18)>>1 ^ -(int64((src[7]<<46&0x3fffc00000000000)|src[8]>>18) & 1))
+	out8 := offset
+	offset -= T(int64((src[8]<<44&0x3ffff00000000000)|src[9]>>20)>>1 ^ -(int64((src[8]<<44&0x3ffff00000000000)|src[9]>>20) & 1))
+	out9 := offset
+	offset -= T(int64((src[9]<<42&0x3ffffc0000000000)|src[10]>>22)>>1 ^ -(int64((src[9]<<42&0x3ffffc0000000000)|src[10]>>22) & 1))
+	out10 := offset
+	offset -= T(int64((src[10]<<40&0x3fffff0000000000)|src[11]>>24)>>1 ^ -(int64((src[10]<<40&0x3fffff0000000000)|src[11]>>24) & 1))
+	out11 := offset
+	offset -= T(int64((src[11]<<38&0x3fffffc000000000)|src[12]>>26)>>1 ^ -(int64((src[11]<<38&0x3fffffc000000000)|src[12]>>26) & 1))
+	out12 := offset
+	offset -= T(int64((src[12]<<36&0x3ffffff000000000)|src[13]>>28)>>1 ^ -(int64((src[12]<<36&0x3ffffff000000000)|src[13]>>28) & 1))
+	out13 := offset
+	offset -= T(int64((src[13]<<34&0x3ffffffc00000000)|src[14]>>30)>>1 ^ -(int64((src[13]<<34&0x3ffffffc00000000)|src[14]>>30) & 1))
+	out14 := offset
+	offset -= T(int64((src[14]<<32&0x3fffffff00000000)|src[15]>>32)>>1 ^ -(int64((src[14]<<32&0x3fffffff00000000)|src[15]>>32) & 1))
+	out15 := offset
+	offset -= T(int64((src[15]<<30&0x3fffffffc0000000)|src[16]>>34)>>1 ^ -(int64((src[15]<<30&0x3fffffffc0000000)|src[16]>>34) & 1))
+	out16 := offset
+	offset -= T(int64((src[16]<<28&0x3ffffffff0000000)|src[17]>>36)>>1 ^ -(int64((src[16]<<28&0x3ffffffff0000000)|src[17]>>36) & 1))
+	out17 := offset
+	offset -= T(int64((src[17]<<26&0x3ffffffffc000000)|src[18]>>38)>>1 ^ -(int64((src[17]<<26&0x3ffffffffc000000)|src[18]>>38) & 1))
+	out18 := offset
+	offset -= T(int64((src[18]<<24&0x3fffffffff000000)|src[19]>>40)>>1 ^ -(int64((src[18]<<24&0x3fffffffff000000)|src[19]>>40) & 1))
+	out19 := offset
+	offset -= T(int64((src[19]<<22&0x3fffffffffc00000)|src[20]>>42)>>1 ^ -(int64((src[19]<<22&0x3fffffffffc00000)|src[20]>>42) & 1))
+	out20 := offset
+	offset -= T(int64((src[20]<<20&0x3ffffffffff00000)|src[21]>>44)>>1 ^ -(int64((src[20]<<20&0x3ffffffffff00000)|src[21]>>44) & 1))
+	out21 := offset
+	offset -= T(int64((src[21]<<18&0x3ffffffffffc0000)|src[22]>>46)>>1 ^ -(int64((src[21]<<18&0x3ffffffffffc0000)|src[22]>>46) & 1))
+	out22 := offset
+	offset -= T(int64((src[22]<<16&0x3fffffffffff0000)|src[23]>>48)>>1 ^ -(int64((src[22]<<16&0x3fffffffffff0000)|src[23]>>48) & 1))
+	out23 := offset
+	offset -= T(int64((src[23]<<14&0x3fffffffffffc000)|src[24]>>50)>>1 ^ -(int64((src[23]<<14&0x3fffffffffffc000)|src[24]>>50) & 1))
+	out24 := offset
+	offset -= T(int64((src[24]<<12&0x3ffffffffffff000)|src[25]>>52)>>1 ^ -(int64((src[24]<<12&0x3ffffffffffff000)|src[25]>>52) & 1))
+	out25 := offset
+	offset -= T(int64((src[25]<<10&0x3ffffffffffffc00)|src[26]>>54)>>1 ^ -(int64((src[25]<<10&0x3ffffffffffffc00)|src[26]>>54) & 1))
+	out26 := offset
+	offset -= T(int64((src[26]<<8&0x3fffffffffffff00)|src[27]>>56)>>1 ^ -(int64((src[26]<<8&0x3fffffffffffff00)|src[27]>>56) & 1))
+	out27 := offset
+	offset -= T(int64((src[27]<<6&0x3fffffffffffffc0)|src[28]>>58)>>1 ^ -(int64((src[27]<<6&0x3fffffffffffffc0)|src[28]>>58) & 1))
+	out28 := offset
+	offset -= T(int64((src[28]<<4&0x3ffffffffffffff0)|src[29]>>60)>>1 ^ -(int64((src[28]<<4&0x3ffffffffffffff0)|src[29]>>60) & 1))
+	out29 := offset
+	offset -= T(int64((src[29]<<2&0x3ffffffffffffffc)|src[30]>>62)>>1 ^ -(int64((src[29]<<2&0x3ffffffffffffffc)|src[30]>>62) & 1))
+	out30 := offset
+	offset -= T(int64(src[30]>>0&0x3fffffffffffffff)>>1 ^ -(int64(src[30]>>0&0x3fffffffffffffff) & 1))
+	out31 := offset
+	offset -= T(int64(src[31]>>2&0x3fffffffffffffff)>>1 ^ -(int64(src[31]>>2&0x3fffffffffffffff) & 1))
+	out32 := offset
+	offset -= T(int64((src[31]<<60&0x3000000000000000)|src[32]>>4)>>1 ^ -(int64((src[31]<<60&0x3000000000000000)|src[32]>>4) & 1))
+	out33 := offset
+	offset -= T(int64((src[32]<<58&0x3c00000000000000)|src[33]>>6)>>1 ^ -(int64((src[32]<<58&0x3c00000000000000)|src[33]>>6) & 1))
+	out34 := offset
+	offset -= T(int64((src[33]<<56&0x3f00000000000000)|src[34]>>8)>>1 ^ -(int64((src[33]<<56&0x3f00000000000000)|src[34]>>8) & 1))
+	out35 := offset
+	offset -= T(int64((src[34]<<54&0x3fc0000000000000)|src[35]>>10)>>1 ^ -(int64((src[34]<<54&0x3fc0000000000000)|src[35]>>10) & 1))
+	out36 := offset
+	offset -= T(int64((src[35]<<52&0x3ff0000000000000)|src[36]>>12)>>1 ^ -(int64((src[35]<<52&0x3ff0000000000000)|src[36]>>12) & 1))
+	out37 := offset
+	offset -= T(int64((src[36]<<50&0x3ffc000000000000)|src[37]>>14)>>1 ^ -(int64((src[36]<<50&0x3ffc000000000000)|src[37]>>14) & 1))
+	out38 := offset
+	offset -= T(int64((src[37]<<48&0x3fff000000000000)|src[38]>>16)>>1 ^ -(int64((src[37]<<48&0x3fff000000000000)|src[38]>>16) & 1))
+	out39 := offset
+	offset -= T(int64((src[38]<<46&0x3fffc00000000000)|src[39]>>18)>>1 ^ -(int64((src[38]<<46&0x3fffc00000000000)|src[39]>>18) & 1))
+	out40 := offset
+	offset -= T(int64((src[39]<<44&0x3ffff00000000000)|src[40]>>20)>>1 ^ -(int64((src[39]<<44&0x3ffff00000000000)|src[40]>>20) & 1))
+	out41 := offset
+	offset -= T(int64((src[40]<<42&0x3ffffc0000000000)|src[41]>>22)>>1 ^ -(int64((src[40]<<42&0x3ffffc0000000000)|src[41]>>22) & 1))
+	out42 := offset
+	offset -= T(int64((src[41]<<40&0x3fffff0000000000)|src[42]>>24)>>1 ^ -(int64((src[41]<<40&0x3fffff0000000000)|src[42]>>24) & 1))
+	out43 := offset
+	offset -= T(int64((src[42]<<38&0x3fffffc000000000)|src[43]>>26)>>1 ^ -(int64((src[42]<<38&0x3fffffc000000000)|src[43]>>26) & 1))
+	out44 := offset
+	offset -= T(int64((src[43]<<36&0x3ffffff000000000)|src[44]>>28)>>1 ^ -(int64((src[43]<<36&0x3ffffff000000000)|src[44]>>28) & 1))
+	out45 := offset
+	offset -= T(int64((src[44]<<34&0x3ffffffc00000000)|src[45]>>30)>>1 ^ -(int64((src[44]<<34&0x3ffffffc00000000)|src[45]>>30) & 1))
+	out46 := offset
+	offset -= T(int64((src[45]<<32&0x3fffffff00000000)|src[46]>>32)>>1 ^ -(int64((src[45]<<32&0x3fffffff00000000)|src[46]>>32) & 1))
+	out47 := offset
+	offset -= T(int64((src[46]<<30&0x3fffffffc0000000)|src[47]>>34)>>1 ^ -(int64((src[46]<<30&0x3fffffffc0000000)|src[47]>>34) & 1))
+	out48 := offset
+	offset -= T(int64((src[47]<<28&0x3ffffffff0000000)|src[48]>>36)>>1 ^ -(int64((src[47]<<28&0x3ffffffff0000000)|src[48]>>36) & 1))
+	out49 := offset
+	offset -= T(int64((src[48]<<26&0x3ffffffffc000000)|src[49]>>38)>>1 ^ -(int64((src[48]<<26&0x3ffffffffc000000)|src[49]>>38) & 1))
+	out50 := offset
+	offset -= T(int64((src[49]<<24&0x3fffffffff000000)|src[50]>>40)>>1 ^ -(int64((src[49]<<24&0x3fffffffff000000)|src[50]>>40) & 1))
+	out51 := offset
+	offset -= T(int64((src[50]<<22&0x3fffffffffc00000)|src[51]>>42)>>1 ^ -(int64((src[50]<<22&0x3fffffffffc00000)|src[51]>>42) & 1))
+	out52 := offset
+	offset -= T(int64((src[51]<<20&0x3ffffffffff00000)|src[52]>>44)>>1 ^ -(int64((src[51]<<20&0x3ffffffffff00000)|src[52]>>44) & 1))
+	out53 := offset
+	offset -= T(int64((src[52]<<18&0x3ffffffffffc0000)|src[53]>>46)>>1 ^ -(int64((src[52]<<18&0x3ffffffffffc0000)|src[53]>>46) & 1))
+	out54 := offset
+	offset -= T(int64((src[53]<<16&0x3fffffffffff0000)|src[54]>>48)>>1 ^ -(int64((src[53]<<16&0x3fffffffffff0000)|src[54]>>48) & 1))
+	out55 := offset
+	offset -= T(int64((src[54]<<14&0x3fffffffffffc000)|src[55]>>50)>>1 ^ -(int64((src[54]<<14&0x3fffffffffffc000)|src[55]>>50) & 1))
+	out56 := offset
+	offset -= T(int64((src[55]<<12&0x3ffffffffffff000)|src[56]>>52)>>1 ^ -(int64((src[55]<<12&0x3ffffffffffff000)|src[56]>>52) & 1))
+	out57 := offset
+	offset -= T(int64((src[56]<<10&0x3ffffffffffffc00)|src[57]>>54)>>1 ^ -(int64((src[56]<<10&0x3ffffffffffffc00)|src[57]>>54) & 1))
+	out58 := offset
+	offset -= T(int64((src[57]<<8&0x3fffffffffffff00)|src[58]>>56)>>1 ^ -(int64((src[57]<<8&0x3fffffffffffff00)|src[58]>>56) & 1))
+	out59 := offset
+	offset -= T(int64((src[58]<<6&0x3fffffffffffffc0)|src[59]>>58)>>1 ^ -(int64((src[58]<<6&0x3fffffffffffffc0)|src[59]>>58) & 1))
+	out60 := offset
+	offset -= T(int64((src[59]<<4&0x3ffffffffffffff0)|src[60]>>60)>>1 ^ -(int64((src[59]<<4&0x3ffffffffffffff0)|src[60]>>60) & 1))
+	out61 := offset
+	offset -= T(int64((src[60]<<2&0x3ffffffffffffffc)|src[61]>>62)>>1 ^ -(int64((src[60]<<2&0x3ffffffffffffffc)|src[61]>>62) & 1))
+	out62 := offset
+	offset -= T(int64(src[61]>>0&0x3fffffffffffffff)>>1 ^ -(int64(src[61]>>0&0x3fffffffffffffff) & 1))
+	out63 := offset
+
+	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
+}
+
+func append63BitDeltaDecode[T Integer](dst []T, src *[63]Word, offset T) []T {
+	offset -= T(int64(src[0]>>1&0x7fffffffffffffff)>>1 ^ -(int64(src[0]>>1&0x7fffffffffffffff) & 1))
+	out0 := offset
+	offset -= T(int64((src[0]<<62&0x4000000000000000)|src[1]>>2)>>1 ^ -(int64((src[0]<<62&0x4000000000000000)|src[1]>>2) & 1))
+	out1 := offset
+	offset -= T(int64((src[1]<<61&0x6000000000000000)|src[2]>>3)>>1 ^ -(int64((src[1]<<61&0x6000000000000000)|src[2]>>3) & 1))
+	out2 := offset
+	offset -= T(int64((src[2]<<60&0x7000000000000000)|src[3]>>4)>>1 ^ -(int64((src[2]<<60&0x7000000000000000)|src[3]>>4) & 1))
+	out3 := offset
+	offset -= T(int64((src[3]<<59&0x7800000000000000)|src[4]>>5)>>1 ^ -(int64((src[3]<<59&0x7800000000000000)|src[4]>>5) & 1))
+	out4 := offset
+	offset -= T(int64((src[4]<<58&0x7c00000000000000)|src[5]>>6)>>1 ^ -(int64((src[4]<<58&0x7c00000000000000)|src[5]>>6) & 1))
+	out5 := offset
+	offset -= T(int64((src[5]<<57&0x7e00000000000000)|src[6]>>7)>>1 ^ -(int64((src[5]<<57&0x7e00000000000000)|src[6]>>7) & 1))
+	out6 := offset
+	offset -= T(int64((src[6]<<56&0x7f00000000000000)|src[7]>>8)>>1 ^ -(int64((src[6]<<56&0x7f00000000000000)|src[7]>>8) & 1))
+	out7 := offset
+	offset -= T(int64((src[7]<<55&0x7f80000000000000)|src[8]>>9)>>1 ^ -(int64((src[7]<<55&0x7f80000000000000)|src[8]>>9) & 1))
+	out8 := offset
+	offset -= T(int64((src[8]<<54&0x7fc0000000000000)|src[9]>>10)>>1 ^ -(int64((src[8]<<54&0x7fc0000000000000)|src[9]>>10) & 1))
+	out9 := offset
+	offset -= T(int64((src[9]<<53&0x7fe0000000000000)|src[10]>>11)>>1 ^ -(int64((src[9]<<53&0x7fe0000000000000)|src[10]>>11) & 1))
+	out10 := offset
+	offset -= T(int64((src[10]<<52&0x7ff0000000000000)|src[11]>>12)>>1 ^ -(int64((src[10]<<52&0x7ff0000000000000)|src[11]>>12) & 1))
+	out11 := offset
+	offset -= T(int64((src[11]<<51&0x7ff8000000000000)|src[12]>>13)>>1 ^ -(int64((src[11]<<51&0x7ff8000000000000)|src[12]>>13) & 1))
+	out12 := offset
+	offset -= T(int64((src[12]<<50&0x7ffc000000000000)|src[13]>>14)>>1 ^ -(int64((src[12]<<50&0x7ffc000000000000)|src[13]>>14) & 1))
+	out13 := offset
+	offset -= T(int64((src[13]<<49&0x7ffe000000000000)|src[14]>>15)>>1 ^ -(int64((src[13]<<49&0x7ffe000000000000)|src[14]>>15) & 1))
+	out14 := offset
+	offset -= T(int64((src[14]<<48&0x7fff000000000000)|src[15]>>16)>>1 ^ -(int64((src[14]<<48&0x7fff000000000000)|src[15]>>16) & 1))
+	out15 := offset
+	offset -= T(int64((src[15]<<47&0x7fff800000000000)|src[16]>>17)>>1 ^ -(int64((src[15]<<47&0x7fff800000000000)|src[16]>>17) & 1))
+	out16 := offset
+	offset -= T(int64((src[16]<<46&0x7fffc00000000000)|src[17]>>18)>>1 ^ -(int64((src[16]<<46&0x7fffc00000000000)|src[17]>>18) & 1))
+	out17 := offset
+	offset -= T(int64((src[17]<<45&0x7fffe00000000000)|src[18]>>19)>>1 ^ -(int64((src[17]<<45&0x7fffe00000000000)|src[18]>>19) & 1))
+	out18 := offset
+	offset -= T(int64((src[18]<<44&0x7ffff00000000000)|src[19]>>20)>>1 ^ -(int64((src[18]<<44&0x7ffff00000000000)|src[19]>>20) & 1))
+	out19 := offset
+	offset -= T(int64((src[19]<<43&0x7ffff80000000000)|src[20]>>21)>>1 ^ -(int64((src[19]<<43&0x7ffff80000000000)|src[20]>>21) & 1))
+	out20 := offset
+	offset -= T(int64((src[20]<<42&0x7ffffc0000000000)|src[21]>>22)>>1 ^ -(int64((src[20]<<42&0x7ffffc0000000000)|src[21]>>22) & 1))
+	out21 := offset
+	offset -= T(int64((src[21]<<41&0x7ffffe0000000000)|src[22]>>23)>>1 ^ -(int64((src[21]<<41&0x7ffffe0000000000)|src[22]>>23) & 1))
+	out22 := offset
+	offset -= T(int64((src[22]<<40&0x7fffff0000000000)|src[23]>>24)>>1 ^ -(int64((src[22]<<40&0x7fffff0000000000)|src[23]>>24) & 1))
+	out23 := offset
+	offset -= T(int64((src[23]<<39&0x7fffff8000000000)|src[24]>>25)>>1 ^ -(int64((src[23]<<39&0x7fffff8000000000)|src[24]>>25) & 1))
+	out24 := offset
+	offset -= T(int64((src[24]<<38&0x7fffffc000000000)|src[25]>>26)>>1 ^ -(int64((src[24]<<38&0x7fffffc000000000)|src[25]>>26) & 1))
+	out25 := offset
+	offset -= T(int64((src[25]<<37&0x7fffffe000000000)|src[26]>>27)>>1 ^ -(int64((src[25]<<37&0x7fffffe000000000)|src[26]>>27) & 1))
+	out26 := offset
+	offset -= T(int64((src[26]<<36&0x7ffffff000000000)|src[27]>>28)>>1 ^ -(int64((src[26]<<36&0x7ffffff000000000)|src[27]>>28) & 1))
+	out27 := offset
+	offset -= T(int64((src[27]<<35&0x7ffffff800000000)|src[28]>>29)>>1 ^ -(int64((src[27]<<35&0x7ffffff800000000)|src[28]>>29) & 1))
+	out28 := offset
+	offset -= T(int64((src[28]<<34&0x7ffffffc00000000)|src[29]>>30)>>1 ^ -(int64((src[28]<<34&0x7ffffffc00000000)|src[29]>>30) & 1))
+	out29 := offset
+	offset -= T(int64((src[29]<<33&0x7ffffffe00000000)|src[30]>>31)>>1 ^ -(int64((src[29]<<33&0x7ffffffe00000000)|src[30]>>31) & 1))
+	out30 := offset
+	offset -= T(int64((src[30]<<32&0x7fffffff00000000)|src[31]>>32)>>1 ^ -(int64((src[30]<<32&0x7fffffff00000000)|src[31]>>32) & 1))
+	out31 := offset
+	offset -= T(int64((src[31]<<31&0x7fffffff80000000)|src[32]>>33)>>1 ^ -(int64((src[31]<<31&0x7fffffff80000000)|src[32]>>33) & 1))
+	out32 := offset
+	offset -= T(int64((src[32]<<30&0x7fffffffc0000000)|src[33]>>34)>>1 ^ -(int64((src[32]<<30&0x7fffffffc0000000)|src[33]>>34) & 1))
+	out33 := offset
+	offset -= T(int64((src[33]<<29&0x7fffffffe0000000)|src[34]>>35)>>1 ^ -(int64((src[33]<<29&0x7fffffffe0000000)|src[34]>>35) & 1))
+	out34 := offset
+	offset -= T(int64((src[34]<<28&0x7ffffffff0000000)|src[35]>>36)>>1 ^ -(int64((src[34]<<28&0x7ffffffff0000000)|src[35]>>36) & 1))
+	out35 := offset
+	offset -= T(int64((src[35]<<27&0x7ffffffff8000000)|src[36]>>37)>>1 ^ -(int64((src[35]<<27&0x7ffffffff8000000)|src[36]>>37) & 1))
+	out36 := offset
+	offset -= T(int64((src[36]<<26&0x7ffffffffc000000)|src[37]>>38)>>1 ^ -(int64((src[36]<<26&0x7ffffffffc000000)|src[37]>>38) & 1))
+	out37 := offset
+	offset -= T(int64((src[37]<<25&0x7ffffffffe000000)|src[38]>>39)>>1 ^ -(int64((src[37]<<25&0x7ffffffffe000000)|src[38]>>39) & 1))
+	out38 := offset
+	offset -= T(int64((src[38]<<24&0x7fffffffff000000)|src[39]>>40)>>1 ^ -(int64((src[38]<<24&0x7fffffffff000000)|src[39]>>40) & 1))
+	out39 := offset
+	offset -= T(int64((src[39]<<23&0x7fffffffff800000)|src[40]>>41)>>1 ^ -(int64((src[39]<<23&0x7fffffffff800000)|src[40]>>41) & 1))
+	out40 := offset
+	offset -= T(int64((src[40]<<22&0x7fffffffffc00000)|src[41]>>42)>>1 ^ -(int64((src[40]<<22&0x7fffffffffc00000)|src[41]>>42) & 1))
+	out41 := offset
+	offset -= T(int64((src[41]<<21&0x7fffffffffe00000)|src[42]>>43)>>1 ^ -(int64((src[41]<<21&0x7fffffffffe00000)|src[42]>>43) & 1))
+	out42 := offset
+	offset -= T(int64((src[42]<<20&0x7ffffffffff00000)|src[43]>>44)>>1 ^ -(int64((src[42]<<20&0x7ffffffffff00000)|src[43]>>44) & 1))
+	out43 := offset
+	offset -= T(int64((src[43]<<19&0x7ffffffffff80000)|src[44]>>45)>>1 ^ -(int64((src[43]<<19&0x7ffffffffff80000)|src[44]>>45) & 1))
+	out44 := offset
+	offset -= T(int64((src[44]<<18&0x7ffffffffffc0000)|src[45]>>46)>>1 ^ -(int64((src[44]<<18&0x7ffffffffffc0000)|src[45]>>46) & 1))
+	out45 := offset
+	offset -= T(int64((src[45]<<17&0x7ffffffffffe0000)|src[46]>>47)>>1 ^ -(int64((src[45]<<17&0x7ffffffffffe0000)|src[46]>>47) & 1))
+	out46 := offset
+	offset -= T(int64((src[46]<<16&0x7fffffffffff0000)|src[47]>>48)>>1 ^ -(int64((src[46]<<16&0x7fffffffffff0000)|src[47]>>48) & 1))
+	out47 := offset
+	offset -= T(int64((src[47]<<15&0x7fffffffffff8000)|src[48]>>49)>>1 ^ -(int64((src[47]<<15&0x7fffffffffff8000)|src[48]>>49) & 1))
+	out48 := offset
+	offset -= T(int64((src[48]<<14&0x7fffffffffffc000)|src[49]>>50)>>1 ^ -(int64((src[48]<<14&0x7fffffffffffc000)|src[49]>>50) & 1))
+	out49 := offset
+	offset -= T(int64((src[49]<<13&0x7fffffffffffe000)|src[50]>>51)>>1 ^ -(int64((src[49]<<13&0x7fffffffffffe000)|src[50]>>51) & 1))
+	out50 := offset
+	offset -= T(int64((src[50]<<12&0x7ffffffffffff000)|src[51]>>52)>>1 ^ -(int64((src[50]<<12&0x7ffffffffffff000)|src[51]>>52) & 1))
+	out51 := offset
+	offset -= T(int64((src[51]<<11&0x7ffffffffffff800)|src[52]>>53)>>1 ^ -(int64((src[51]<<11&0x7ffffffffffff800)|src[52]>>53) & 1))
+	out52 := offset
+	offset -= T(int64((src[52]<<10&0x7ffffffffffffc00)|src[53]>>54)>>1 ^ -(int64((src[52]<<10&0x7ffffffffffffc00)|src[53]>>54) & 1))
+	out53 := offset
+	offset -= T(int64((src[53]<<9&0x7ffffffffffffe00)|src[54]>>55)>>1 ^ -(int64((src[53]<<9&0x7ffffffffffffe00)|src[54]>>55) & 1))
+	out54 := offset
+	offset -= T(int64((src[54]<<8&0x7fffffffffffff00)|src[55]>>56)>>1 ^ -(int64((src[54]<<8&0x7fffffffffffff00)|src[55]>>56) & 1))
+	out55 := offset
+	offset -= T(int64((src[55]<<7&0x7fffffffffffff80)|src[56]>>57)>>1 ^ -(int64((src[55]<<7&0x7fffffffffffff80)|src[56]>>57) & 1))
+	out56 := offset
+	offset -= T(int64((src[56]<<6&0x7fffffffffffffc0)|src[57]>>58)>>1 ^ -(int64((src[56]<<6&0x7fffffffffffffc0)|src[57]>>58) & 1))
+	out57 := offset
+	offset -= T(int64((src[57]<<5&0x7fffffffffffffe0)|src[58]>>59)>>1 ^ -(int64((src[57]<<5&0x7fffffffffffffe0)|src[58]>>59) & 1))
+	out58 := offset
+	offset -= T(int64((src[58]<<4&0x7ffffffffffffff0)|src[59]>>60)>>1 ^ -(int64((src[58]<<4&0x7ffffffffffffff0)|src[59]>>60) & 1))
+	out59 := offset
+	offset -= T(int64((src[59]<<3&0x7ffffffffffffff8)|src[60]>>61)>>1 ^ -(int64((src[59]<<3&0x7ffffffffffffff8)|src[60]>>61) & 1))
+	out60 := offset
+	offset -= T(int64((src[60]<<2&0x7ffffffffffffffc)|src[61]>>62)>>1 ^ -(int64((src[60]<<2&0x7ffffffffffffffc)|src[61]>>62) & 1))
+	out61 := offset
+	offset -= T(int64((src[61]<<1&0x7ffffffffffffffe)|src[62]>>63)>>1 ^ -(int64((src[61]<<1&0x7ffffffffffffffe)|src[62]>>63) & 1))
+	out62 := offset
+	offset -= T(int64(src[62]>>0&0x7fffffffffffffff)>>1 ^ -(int64(src[62]>>0&0x7fffffffffffffff) & 1))
 	out63 := offset
 
 	return append(dst, out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31, out32, out33, out34, out35, out36, out37, out38, out39, out40, out41, out42, out43, out44, out45, out46, out47, out48, out49, out50, out51, out52, out53, out54, out55, out56, out57, out58, out59, out60, out61, out62, out63)
