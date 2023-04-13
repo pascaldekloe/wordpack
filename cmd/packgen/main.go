@@ -1,4 +1,4 @@
-// Package main provides a code generator for bit-pack functions.
+// Package main generates code. See the manual for details.
 package main
 
 import (
@@ -14,20 +14,32 @@ import (
 	"text/template"
 )
 
+// Name the command in use.
+var name = os.Args[0]
+
 var (
-	packageNameFlag = flag.String("package", "", "Overrides the detected package-`name`.")
+	packageNameFlag = flag.String("package", "", "Overrides the `name` detected by default.")
 	wordWidthFlag   = flag.Int("width", 64, "Sets the word size in `bits`.")
-	packLimitFlag   = flag.Int("limit", 42, "Sets the upper boundary for bit packing in `bits`.")
+	packLimitFlag   = flag.Int("limit", 42, "Sets the upper boundary for bit-packing in `bits`. Full range\ncompression can be achieved with -limit set to one less than the\n-width value. Higher limits generate more code.")
 )
 
 func main() {
 	log.SetFlags(0)
+	flag.Usage = printManual
 	flag.Parse()
 
 	// locate output file
 	args := flag.Args()
-	if len(args) != 1 {
-		log.Fatal(os.Args[0] + ": need one output-file argument, and one only")
+	switch len(args) {
+	case 0:
+		printManual()
+		os.Exit(2)
+		return
+	case 1:
+		break // OK
+	default:
+		log.Print(os.Args[0] + ": need one output-file argument only")
+		os.Exit(2)
 	}
 	path := args[0]
 
@@ -189,4 +201,29 @@ func (p BitPack) BitUnpackExpressions() []string {
 		}
 	}
 	return words
+}
+
+// ANSI escape codes for markup
+const (
+	bold  = "\x1b[1m"
+	clear = "\x1b[0m"
+)
+
+func printManual() {
+	w := os.Stderr
+
+	w.WriteString("NAME\n" +
+		"\t" + name + clear + " — generate bit-pack code\n" +
+		"\n" +
+		bold + "SYNOPSIS\n" +
+		"\t" + name + clear + " [" + bold + "OPTIONS" + clear + "] FILE\n" +
+		"\n" +
+		bold + "OPTIONS" + clear + "\n")
+
+	flag.CommandLine.SetOutput(w)
+	flag.CommandLine.PrintDefaults()
+
+	w.WriteString("\n" +
+		bold + "BUGS" + clear + "\n" +
+		"\tReport bugs at <https://github.com/pascaldekloe/wordpack/issues>.\n")
 }
