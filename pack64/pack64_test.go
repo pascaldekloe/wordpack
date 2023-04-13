@@ -157,23 +157,25 @@ func benchmarkDeltaBitEncoding[T Integer](b *testing.B, bitN int) {
 	data, offset := randomNBitDeltas[T](b, bitN)
 
 	b.Run("Encode", func(b *testing.B) {
-		b.SetBytes(int64(bits.OnesCount64(uint64(^T(0))) / 8))
-
 		var dst []Word // buffer reused
-		for i := 0; i < b.N; i += len(data) {
+		for i := 0; i < b.N; i++ {
 			dst = AppendDeltaEncode(dst[:0], &data, offset)
 		}
+
+		b.StopTimer()
+		b.ReportMetric(float64(b.N * 64) / b.Elapsed().Seconds(), "ℕ/s")
 	})
 
 	b.Run("Decode", func(b *testing.B) {
-		b.SetBytes(int64(bits.OnesCount64(uint64(^T(0))) / 8))
-
 		src := AppendDeltaEncode(nil, &data, offset)
 
 		var dst []T // buffer reused
-		for i := 0; i < b.N; i += len(data) {
+		for i := 0; i < b.N; i++ {
 			dst = AppendDeltaDecode(dst[:0], src, offset)
 		}
+
+		b.StopTimer()
+		b.ReportMetric(float64(b.N * 64) / b.Elapsed().Seconds(), "ℕ/s")
 	})
 }
 
