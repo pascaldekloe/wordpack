@@ -163,7 +163,7 @@ func benchmarkDeltaBitEncoding[T Integer](b *testing.B, bitN int) {
 		}
 
 		b.StopTimer()
-		b.ReportMetric(float64(b.N * 64) / b.Elapsed().Seconds(), "ℕ/s")
+		b.ReportMetric(float64(b.N*64)/b.Elapsed().Seconds(), "ℕ/s")
 	})
 
 	b.Run("Decode", func(b *testing.B) {
@@ -175,7 +175,7 @@ func benchmarkDeltaBitEncoding[T Integer](b *testing.B, bitN int) {
 		}
 
 		b.StopTimer()
-		b.ReportMetric(float64(b.N * 64) / b.Elapsed().Seconds(), "ℕ/s")
+		b.ReportMetric(float64(b.N*64)/b.Elapsed().Seconds(), "ℕ/s")
 	})
 }
 
