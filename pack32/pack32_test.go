@@ -1,3 +1,5 @@
+//go:build arm64 && !omitarm64
+
 package pack32
 
 import (
