@@ -13,11 +13,12 @@ import (
 // The first value in src gets compared against offset.
 func delta64(src *[32]int64, offset int64) (mask uint64)
 
-// Pack1 takes 1 bit from each delta of delta64 which makes for 4 bytes of
-// output. Pack2 takes 2 bits to write 8 bytes, and so forth until the 64 bit
-// take with 256 output bytes.
-func pack1(out *[32 * 8]byte)
-func pack2(out *[32 * 8]byte)
+// Pack1bit takes the least-significant bit from each delta of delta64 which
+// makes for 4 bytes of output. Pack2bit makes 8 bytes, and so forth until the
+// 64 bit take with 256 output bytes.
+func pack1bit(out *[32 * 8]byte)
+func pack2bit(out *[32 * 8]byte)
+func pack3bit(out *[32 * 8]byte)
 
 // DeltaEncode64 returns the number of bytes written to dst (range 0–256).
 func DeltaEncode64[Integer ~uint64 | ~int64](dst *[32 * 8]byte, src *[32]Integer, offset Integer) int {
@@ -27,9 +28,11 @@ func DeltaEncode64[Integer ~uint64 | ~int64](dst *[32 * 8]byte, src *[32]Integer
 	case 0:
 		return 0
 	case 1:
-		pack1(dst)
+		pack1bit(dst)
 	case 2:
-		pack2(dst)
+		pack2bit(dst)
+	case 3:
+		pack3bit(dst)
 	default:
 		panic(bitN)
 	}

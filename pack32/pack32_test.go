@@ -3,32 +3,35 @@
 package pack32
 
 import (
+	"fmt"
 	"math/bits"
 	"testing"
 )
 
 func deltaDump(out *byte) // for debugging only
 
-func TestIncrement(t *testing.T) {
-	offset := int64(1001)
-	var in [32]int64
-	for i := range in {
-		in[i] = offset + int64(i) + 1
-	}
-	t.Logf("input %#x", in)
+const testOffset = int64(1001)
 
-	testPack(t, &in, offset)
+func TestIncrements(t *testing.T) {
+	for _, incN := range []int64{1, 2, 3} {
+		var in [32]int64
+		for i := range in {
+			in[i] = testOffset + int64(i+1)*incN
+		}
+		t.Logf("input %#x", in)
+		testPack(t, &in, testOffset)
+	}
 }
 
-func TestDecrement(t *testing.T) {
-	offset := int64(1001)
-	var in [32]int64
-	for i := range in {
-		in[i] = offset - int64(i) - 1
+func TestDecrements(t *testing.T) {
+	for _, decN := range []int64{1, 2} {
+		var in [32]int64
+		for i := range in {
+			in[i] = testOffset - int64(i+1)*decN
+		}
+		t.Logf("input %#x", in)
+		testPack(t, &in, testOffset)
 	}
-	t.Logf("input %#x", in)
-
-	testPack(t, &in, offset)
 }
 
 func testPack(t *testing.T, in *[32]int64, offset int64) {
@@ -42,9 +45,11 @@ func testPack(t *testing.T, in *[32]int64, offset int64) {
 	var out [32 * 8]byte
 	switch bits.Len64(mask) {
 	case 1:
-		pack1(&out)
+		pack1bit(&out)
 	case 2:
-		pack2(&out)
+		pack2bit(&out)
+	case 3:
+		pack3bit(&out)
 	default:
 		t.Fatal("wrong mask length")
 	}
@@ -52,18 +57,23 @@ func testPack(t *testing.T, in *[32]int64, offset int64) {
 }
 
 func BenchmarkPack64(b *testing.B) {
-	b.SetBytes(32 * 8)
-	offset := int64(1001)
-	var in [32]int64
-	for i := range in {
-		in[i] = offset + int64(i) + 1
-	}
+	for _, bitN := range []int64{1, 2, 3} {
+		b.Run(fmt.Sprintf("%d-bit", bitN), func(b *testing.B) {
+			b.SetBytes(32 * 8)
+			var in [32]int64
+			for i := range in {
+				in[i] = testOffset + int64(i+1)*bitN
+			}
 
-	var out [32 * 8]byte
-	for i := 0; i < b.N; i++ {
-		n := DeltaEncode64(&out, &in, offset)
-		if n != 4 {
-			b.Fatalf("delta-pack wrote %d bytes, want 4", n)
-		}
+			wantByteN := int(bitN * 4)
+
+			var out [32 * 8]byte
+			for i := 0; i < b.N; i++ {
+				n := DeltaEncode64(&out, &in, testOffset)
+				if n != wantByteN {
+					b.Fatalf("delta-pack wrote %d bytes, want %d", n, wantByteN)
+				}
+			}
+		})
 	}
 }
