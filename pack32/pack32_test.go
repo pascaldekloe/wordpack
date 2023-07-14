@@ -74,6 +74,7 @@ func BenchmarkPack64(b *testing.B) {
 					b.Fatalf("delta-pack wrote %d bytes, want %d", n, wantByteN)
 				}
 			}
+			b.ReportMetric(float64(b.N*32/1E9)/b.Elapsed().Seconds(), "Gℕ/s")
 		})
 	}
 }

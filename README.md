@@ -12,7 +12,11 @@ This is free and unencumbered software released into the
 
 The `pack64` directory provides compression for batches of 64 integers.
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/pascaldekloe/wordpack.svg)](https://pkg.go.dev/github.com/pascaldekloe/wordpack)
+[![Go Reference](https://pkg.go.dev/badge/github.com/pascaldekloe/wordpack.svg)](https://pkg.go.dev/github.com/pascaldekloe/wordpack/pack64)
+
+The `pack32` directory does batches of 32 integers with SIMD as an experiment.
+ARM64-only for now. Encoding is about three times faster than the plain Go
+version.
 
 
 ## Code Generator
