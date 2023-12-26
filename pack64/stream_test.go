@@ -82,12 +82,14 @@ func BenchmarkWritePack(b *testing.B) {
 	}
 
 	b.SetBytes(64 * 8)
+	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		err := w.WritePack(&p)
 		if err != nil {
 			b.Fatal(err)
 		}
 	}
+	b.ReportMetric(float64(b.N*64/1e9)/b.Elapsed().Seconds(), "Gℕ/s")
 }
 
 func BenchmarkReadAppend(b *testing.B) {
@@ -122,4 +124,5 @@ func BenchmarkReadAppend(b *testing.B) {
 			b.Fatalf("read %d numbers, want 64", len(got))
 		}
 	}
+	b.ReportMetric(float64(b.N*64/1e9)/b.Elapsed().Seconds(), "Gℕ/s")
 }
